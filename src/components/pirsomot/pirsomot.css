@@ -1,0 +1,71 @@
+.pirsomot {
+  padding: 0% 6% 3% 5%;
+  width: 50%;
+  margin: 0 auto;
+}
+.pirsomot .imgLogo {
+  margin: 0px 20px;
+  float: left;
+  width: 300px;
+  height: 100px;
+}
+.pirsomot .imgLogo1 {
+  margin: 0px 40px;
+  float: left;
+  width: 200px;
+  height: 150px;
+}
+.pirsomot .link {
+  font-size: 1.2em;
+  color: rgb(228, 46, 46);
+}
+
+.pirsomot .link {
+  cursor: pointer;
+  text-decoration: none;
+  color: rgb(55, 0, 252);
+  font-size: 1em;
+}
+
+.pirsomot .link:hover,
+.pirsomot .link:focus {
+  background-color: transparent;
+  color: rgb(55, 0, 252);
+  font-size: 1.1em;
+}
+
+@media only screen and (max-width: 999px) {
+  .pirsomot {
+    padding: 0% 5% 0% 3%;
+    width: 92%;
+  }
+  .pirsomot .imgLogo {
+    margin: 0px 20px;
+    float: left;
+    width: 300px;
+    height: 100px;
+  }
+  .pirsomot .imgLogo1 {
+    margin: 0px 40px;
+    float: left;
+    width: 200px;
+    height: 150px;
+  }
+  .pirsomot .link {
+    font-size: 1.2em;
+    color: rgb(228, 46, 46);
+  }
+
+  .pirsomot .link-button {
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    /* text-decoration: underline; */
+    display: inline;
+    margin: 0;
+    padding: 0;
+    color: rgb(55, 0, 252);
+    font-size: 1em;
+    font-weight: bold;
+  }
+}

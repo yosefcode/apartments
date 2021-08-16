@@ -6,6 +6,7 @@ var nodemailer = require("nodemailer");
 var smtpTransport = require("nodemailer-smtp-transport");
 const app = express();
 const path = require("path");
+const { connectToDb, models } = require("./models");
 
 app.use(cors());
 app.use(express.json());
@@ -16,17 +17,47 @@ const dotenv = require("dotenv");
 dotenv.config();
 app.use(express.static(path.join(__dirname, "build")));
 
-const PORT = process.env.PORT || 4200;
+const PORT = process.env.PORT || 7000;
 
-app.get("/*", (req, res) => {
-  res.sendFile(path.join(__dirname, "build", "index.html"));
+connectToDb().then(async () => {
+  app.listen(PORT, () => {
+    console.log("Server is running port ", PORT);
+  });
 });
 
-// app.get("/list", (req, res) => {
-//   fs.readFile("products.json", (err, data) => {
-//     const list = JSON.parse(data);
-//     res.send(list);
+// app.get("/*", (req, res) => {
+//   res.sendFile(path.join(__dirname, "build", "index.html"));
+// });
+
+app.get("/api/list/", async (req, res) => {
+  const apartments = await models.apartmentSchema.find();
+  const search = req.query.search;
+
+  try {
+    if (search) {
+      const productsSearch = await models.apartmentSchema.find({
+        area: { $regex: search, $options: "i" },
+      });
+      res.send(productsSearch);
+    } else {
+      res.status(200).send(apartments);
+      console.log("get");
+    }
+  } catch (err) {
+    res.status(500).send(err);
+  }
+});
+
+// app.get("/api/list/jerusalem/", async (req, res) => {
+//   const apartments = await models.apartmentSchema.find({
+//     area: { $regex: "jerusalem", $options: "i" },
 //   });
+//   try {
+//     res.status(200).send(apartments);
+//     console.log("get");
+//   } catch (err) {
+//     res.status(500).send(err);
+//   }
 // });
 
 // app.post("/api/sendemail/", (req, res) => {
@@ -97,4 +128,4 @@ app.post("/api/newsletter/", function (req, res) {
   });
 });
 
-app.listen(PORT, () => console.log(`Listening on port ${PORT}`));
+// app.listen(PORT, () => console.log(`Listening on port ${PORT}`));

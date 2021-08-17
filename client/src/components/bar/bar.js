@@ -43,7 +43,7 @@ const Bar = ({ setValue }) => {
           דירות במרכז{" "}
         </a>{" "}
         <a
-          className={id === "e" ? "divtrue" : "divfalse"}
+          // className={id === "e" ? "divtrue" : "divfalse"}
           href="/דירות-באיזור-ירושלים/e"
         >
           דירות באיזור ירושלים{" "}

@@ -1,52 +1,31 @@
 import "./jerusalem.css";
-// import React, { useState, useEffect } from "react";
-// import axios from "axios";
+import React, { useState, useEffect } from "react";
+import axios from "axios";
 
-import React from "react";
-import { makeStyles } from "@material-ui/core/styles";
-import Button from "@material-ui/core/Button";
-import Dialog from "@material-ui/core/Dialog";
-import DialogActions from "@material-ui/core/DialogActions";
-import DialogContent from "@material-ui/core/DialogContent";
-import DialogTitle from "@material-ui/core/DialogTitle";
-import InputLabel from "@material-ui/core/InputLabel";
-import Input from "@material-ui/core/Input";
-import MenuItem from "@material-ui/core/MenuItem";
-import FormControl from "@material-ui/core/FormControl";
-import Select from "@material-ui/core/Select";
-
-const useStyles = makeStyles((theme) => ({
-  container: {
-    display: "flex",
-    flexWrap: "wrap",
-  },
-  formControl: {
-    margin: theme.spacing(1),
-    minWidth: 120,
-  },
-}));
 function Jerusalem() {
-  const product = {};
+  const filter = {};
+  // const cityn = [];
+  const [value, setValue] = useState("");
+  const [inputValue, setInputValue] = useState({
+    id: "",
+    name: "",
+    numuser: "",
+    password: "",
+  });
 
-  // export default function DialogSelect() {
-  const classes = useStyles();
-  const [open, setOpen] = React.useState(false);
-  const [age, setAge] = React.useState([]);
+  const onchange = (e) => {
+    setInputValue({
+      ...inputValue,
+      [e.target.name]: e.target.value,
+    });
+  };
+  console.log(inputValue);
 
-  const handleChange = (event) => {
-    console.log("aaaaaaaa");
-    product.image = event.target.value;
-    setAge([event.target.value, ...age]);
-  };
-  console.log(age);
-  console.log(product);
-  const handleClickOpen = () => {
-    setOpen(true);
-  };
-
-  const handleClose = () => {
-    setOpen(false);
-  };
+  // useEffect(() => {
+  //   setValue(filter.area);
+  //   console.log(filter.area);
+  //   console.log(value);
+  // }, [filter]);
 
   const area = [
     { area: "צפון" },
@@ -54,113 +33,78 @@ function Jerusalem() {
     { area: "מרכז" },
     { area: "ירושלים" },
   ];
+  const area1 = ["צפון", "דרום", "מרכז", "ירושלים"];
   const cityn = ["רמת הגולן", "מירון", "טבריה", "צפת"];
   const cityj = ["ביתר", "תל ציון", "בית שמש", "ירושלים"];
   const cityc = ["פתח תקווה", "ראשון לציון", "תל אביב", "בני ברק"];
   const rooms = [5, 6, 7, 8, 9, 10, 11, 12];
 
-  const options = [
-    {
-      // TrucksTypes: "jjjjjjjjj",
-      TrucksTypes: ["Citroen", "Fiat", "Ferrari", "Dodge"],
-    },
-    { TrucksTypes: ["Citroen", "Fiat", "Ferrari", "Dodge"] },
-    { TrucksTypes: ["Citroen", "Fiat", "Ferrari", "Dodge"] },
-    {
-      Contractors: ["A", "B", "C", "D"],
-      Customers: ["avraham", "ytzchak", "yaakov", "yosef"],
-      Origins: ["#", "$", "%", "&"],
-      Destinations: ["#", "$", "%", "&"],
-      Cities: ["Jerusalem", "TelAviv", "Hayfa", "Ashdod"],
-    },
-  ];
+  // const onchange = (e) => {
+  //   filter.area = e.target.value;
+  //   setValue(e.target.value);
+  //   // filter.city = "";
+  //   console.log(filter);
 
-  // for (var i = 0; i < area.length; i++) {
-  //   const aaa = area[i]
-  //   console.log(area[i]);
-  //   //Do something
-  // }
+  //   // console.log(value);
+  // };
 
   return (
     <div>
-      <select
-        onChange={(event) => {
-          console.log("aaaaaaaa");
-          product.image = event.target.value;
-          setAge([event.target.value, ...age]);
-          console.log(product);
-        }}
-      >
-        {/* <select value={""} onChange={(e) => (product.image = e.target.value)}> */}
-        {area.map((fbb) => (
-          <option value={fbb.area}>{fbb.area} </option>
+      <select onChange={onchange} name="name">
+        <option value="">בחר איזור בארץ </option>{" "}
+        {area1.map((fbb, index) => (
+          <option key={index} value={fbb}>
+            {fbb}{" "}
+          </option>
         ))}
       </select>
-      <input
-        id="image"
-        type="text"
+
+      {/* {value && ( */}
+      <select
         onChange={(e) => {
-          product.image = e.target.value;
+          filter.city = e.target.value;
+          console.log(filter);
         }}
-        placeholder="image"
-      />
-      <input
-        id="title"
-        type="text"
-        onChange={(e) => (product.title = e.target.value)}
-        placeholder="title"
-      />{" "}
-      <br />
-      {/* <Button onClick={handleClickOpen}>Open select dialog</Button>
-      <Dialog open={open} onClose={handleClose}>
-        <DialogTitle>Fill the form</DialogTitle>
-        <DialogContent>
-          <form className={classes.container}>
-            <FormControl className={classes.formControl}>
-              <InputLabel htmlFor="demo-dialog-native">Age</InputLabel>
-              <Select
-                native
-                value={age}
-                onChange={handleChange}
-                input={<Input id="demo-dialog-native" />}
-              >
-                <option aria-label="None" value="" />
-                <option value={JSON.stringify({ aaa: 10 })}>Ten</option>
-                <option value={{ aaa: 20 }}>Twenty</option>
-                <option value={{ aaa: 30 }}>Thirty</option>
-              </Select>
-            </FormControl>
-            <FormControl className={classes.formControl}>
-              <InputLabel id="demo-dialog-select-label">Age</InputLabel>
-              <Select
-                labelId="demo-dialog-select-label"
-                id="demo-dialog-select"
-                value={age}
-                onChange={handleChange}
-                input={<Input />}
-              >
-                <MenuItem value="">
-                  <em>None</em>
-                </MenuItem>
-                <MenuItem value={40}>aaaa</MenuItem>
-                <MenuItem value={50}>ssss</MenuItem>
-                <MenuItem value={60}>dddd</MenuItem>
-              </Select>
-            </FormControl>
-          </form>
-        </DialogContent>
-        <DialogActions>
-          <Button onClick={handleClose} color="primary">
-            Cancel
-          </Button>
-          <Button onClick={handleClose} color="primary">
-            Ok
-          </Button>
-        </DialogActions>
-      </Dialog> */}
+      >
+        {value === "צפון" ? (
+          cityn.map((fbb, index) => (
+            <option key={index} value={fbb}>
+              {fbb}{" "}
+            </option>
+          ))
+        ) : value === "ירושלים" ? (
+          cityj.map((fbb, index) => (
+            <option key={index} value={fbb}>
+              {fbb}{" "}
+            </option>
+          ))
+        ) : value === "מרכז" ? (
+          cityc.map((fbb, index) => (
+            <option key={index} value={fbb}>
+              {fbb}{" "}
+            </option>
+          ))
+        ) : (
+          <option></option>
+        )}
+      </select>
+      <select
+        onChange={(e) => {
+          filter.rooms = +e.target.value;
+          console.log(filter);
+        }}
+      >
+        <option value="" selected>
+          select your beverage
+        </option>{" "}
+        {rooms.map((rooms, index) => (
+          <option key={index} value={rooms}>
+            {rooms}{" "}
+          </option>
+        ))}
+      </select>
     </div>
   );
 }
-// }
 
 export default Jerusalem;

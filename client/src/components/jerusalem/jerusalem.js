@@ -2,16 +2,16 @@ import "./jerusalem.css";
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 
-function Jerusalem() {
+function Jerusalem({ inputValue, setInputValue }) {
   const filter = {};
   // const cityn = [];
   const [value, setValue] = useState("");
-  const [inputValue, setInputValue] = useState({
-    id: "",
-    name: "",
-    numuser: "",
-    password: "",
-  });
+  // const [inputValue, setInputValue] = useState({
+  //   // id: "",
+  //   // area: "",
+  //   // city: "",
+  //   // rooms: "",
+  // });
 
   const onchange = (e) => {
     setInputValue({
@@ -19,7 +19,7 @@ function Jerusalem() {
       [e.target.name]: e.target.value,
     });
   };
-  console.log(inputValue);
+  // console.log(inputValue);
 
   // useEffect(() => {
   //   setValue(filter.area);
@@ -28,15 +28,16 @@ function Jerusalem() {
   // }, [filter]);
 
   const area = [
-    { area: "צפון" },
-    { area: "דרום" },
-    { area: "מרכז" },
-    { area: "ירושלים" },
+    { area: "צפון", value: "north" },
+    { area: "דרום", value: "south" },
+    { area: "מרכז", value: "center" },
+    { area: "ירושלים", value: "jerusalem" },
   ];
-  const area1 = ["צפון", "דרום", "מרכז", "ירושלים"];
+  const area1 = ["north", "center", "דרום", "מרכז", "ירושלים"];
   const cityn = ["רמת הגולן", "מירון", "טבריה", "צפת"];
   const cityj = ["ביתר", "תל ציון", "בית שמש", "ירושלים"];
   const cityc = ["פתח תקווה", "ראשון לציון", "תל אביב", "בני ברק"];
+  const citys = ["אשדוד", "שדרות", "נתיבות", "באר שבע "];
   const rooms = [5, 6, 7, 8, 9, 10, 11, 12];
 
   // const onchange = (e) => {
@@ -50,36 +51,37 @@ function Jerusalem() {
 
   return (
     <div>
-      <select onChange={onchange} name="name">
+      <select onChange={onchange} name="area">
         <option value="">בחר איזור בארץ </option>{" "}
-        {area1.map((fbb, index) => (
-          <option key={index} value={fbb}>
-            {fbb}{" "}
+        {area.map((fbb, index) => (
+          <option key={index} value={fbb.value}>
+            {fbb.area}{" "}
           </option>
         ))}
       </select>
 
-      {/* {value && ( */}
-      <select
-        onChange={(e) => {
-          filter.city = e.target.value;
-          console.log(filter);
-        }}
-      >
-        {value === "צפון" ? (
+      <select onChange={onchange} name="city">
+        <option value="">בחר עיר בארץ </option>{" "}
+        {inputValue.area === "north" ? (
           cityn.map((fbb, index) => (
             <option key={index} value={fbb}>
               {fbb}{" "}
             </option>
           ))
-        ) : value === "ירושלים" ? (
+        ) : inputValue.area === "jerusalem" ? (
           cityj.map((fbb, index) => (
             <option key={index} value={fbb}>
               {fbb}{" "}
             </option>
           ))
-        ) : value === "מרכז" ? (
+        ) : inputValue.area === "center" ? (
           cityc.map((fbb, index) => (
+            <option key={index} value={fbb}>
+              {fbb}{" "}
+            </option>
+          ))
+        ) : inputValue.area === "south" ? (
+          citys.map((fbb, index) => (
             <option key={index} value={fbb}>
               {fbb}{" "}
             </option>
@@ -88,14 +90,9 @@ function Jerusalem() {
           <option></option>
         )}
       </select>
-      <select
-        onChange={(e) => {
-          filter.rooms = +e.target.value;
-          console.log(filter);
-        }}
-      >
+      <select onChange={onchange} name="rooms">
         <option value="" selected>
-          select your beverage
+          בחר מספר חדרים{" "}
         </option>{" "}
         {rooms.map((rooms, index) => (
           <option key={index} value={rooms}>

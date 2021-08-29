@@ -29,25 +29,115 @@ connectToDb().then(async () => {
 // app.get("/*", (req, res) => {
 //   res.sendFile(path.join(__dirname, "build", "index.html"));
 // });
+// title: req.body.title
 
-app.get("/api/list/", async (req, res) => {
-  const apartments = await models.apartmentSchema.find();
-  const search = req.query.search;
+app.post("/api/list/filter/", async (req, res) => {
+  const search = {
+    area: req.body.area,
+    // city: req.body.city,
+    rooms: req.body.rooms,
+  };
+  // const search = req.query.search;
+  const productsSearch = await models.apartmentSchema.find(search);
 
   try {
-    if (search) {
-      const productsSearch = await models.apartmentSchema.find({
-        area: { $regex: search, $options: "i" },
-      });
-      res.send(productsSearch);
-    } else {
-      res.status(200).send(apartments);
-      console.log("get");
-    }
+    console.log(search);
+    res.send(productsSearch);
+    // console.log("productsSearch :", productsSearch);
+    // });
   } catch (err) {
     res.status(500).send(err);
   }
 });
+
+app.get("/api/list/", async (req, res) => {
+  const products = await models.apartmentSchema.find();
+  try {
+    res.send(products);
+    // console.log("productsSearch :", productsSearch);
+    // });
+  } catch (err) {
+    res.status(500).send(err);
+  }
+});
+
+//     // console.log("req.body : ", search.area);
+//     console.log("apartments :", search.rooms);
+//     const apartments = await models.apartmentSchema
+//       .find
+//       // area: "center",
+//       // city: "בני ברק",
+//       // rooms: 5,
+//       // search,
+//       ();
+//     console.log("sss", JSON.stringify(search));
+
+//     // const search = req.query.search;
+
+//     try {
+//       if (search) {
+//         const productsSearch = await models.apartmentSchema.find(
+//           search
+//           // area: { $regex: search, $options: "i" },
+//           // rooms: { $regex: search, $options: "i" },
+//           // $apartments: {
+//           // items: {
+//           // $filter: {
+//           //   input: "$apartments",
+//           //   as: "item",
+//           //   cond: { $gte: ["$$item.price", 100] },
+//           // },
+//           // },
+//           //  }
+//         );
+//         res.send(productsSearch);
+//         console.log("productsSearch :", productsSearch);
+//       } else {
+//         res.status(200).send(apartments);
+//         console.log("get");
+//       }
+//     } catch (err) {
+//       res.status(500).send(err);
+//     }
+//   });
+// });
+
+// app.post(`/api/list/`, (req, res) => {
+//   const newproduct = {
+//     area: req.body.area,
+//     // city: req.body.city,
+//     // rooms: req.body.rooms,
+//   };
+//   console.log(newproduct.area);
+
+//   console.log("add");
+//   try {
+//     // const asas = res.send(newproduct);
+//   } catch (err) {
+//     res.status(500).send(err);
+//   }
+// });
+
+// app.get("/api/list/", async (req, res) => {
+//   const apartments = await models.apartmentSchema.find();
+//   const search = req.query.search;
+
+//   // console.log(JSON.stringify(search));
+//   // console.log(search);
+//   try {
+//     if (newproduct) {
+//       const productsSearch = await models.apartmentSchema.find({
+//         area: { $regex: newproduct, $options: "i" },
+//       });
+//       res.send(productsSearch);
+//     } else {
+//       res.status(200).send(apartments);
+//       console.log("get");
+//     }
+//   } catch (err) {
+//     res.status(500).send(err);
+//   }
+// });
 
 // app.get("/api/list/jerusalem/", async (req, res) => {
 //   const apartments = await models.apartmentSchema.find({

@@ -9,11 +9,12 @@
   display: grid;
   grid-template-columns: 35% 40% 25%;
   margin: 10px;
+  font-weight: 900;
 }
 
 .home .imgaa {
-  width: 350px;
-  height: 250px;
+  width: 150px;
+  height: 100px;
 }
 
 @media only screen and (max-width: 999px) {

@@ -23,7 +23,10 @@ function App() {
       <Router>
         {/* <Route path="/:id"> */}
         <Bar setValue={setValue} />
-        <img className="imgheader" src={Img} alt="" />
+        <br />
+        <br />
+        <br />
+        {/* <img className="imgheader" src={Img} alt="" /> */}
         {/* </Route> */}
         <Switch>
           <Route exact path="/">

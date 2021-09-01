@@ -1,46 +1,42 @@
 import "./home.css";
 import React, { useState, useEffect } from "react";
 import axios from "axios";
-import Filter from "../jerusalem/jerusalem";
+import Filter from "../filter/filter";
 
 function Home({ value }) {
   let [list, setList] = useState([]);
-  const [inputValue, setInputValue] = useState({
-    // id: "",
-    // area: "",
-    // city: "",
-    // rooms: "",
-  });
-  // const aaa = inputValue;
-  // console.log(aaa);
+  const [filter, setFilter] = useState({});
 
-  // console.log(inputValue.area);
   useEffect(() => {
-    asas();
+    getData();
   }, []);
 
-  const asas = () => {
+  useEffect(() => {
+    axios.post(`/api/list/filter/`, filter).then((res) => {
+      res.data < 1 ? getData() : setList(res.data);
+    });
+  }, [filter]);
+
+  const getData = () => {
     axios.get("/api/list/").then((res) => {
-      // axios.get(`http://localhost:7000/api/list/`).then((res) => {
-      // axios.get(`/api/list/?search=${inputValue}`).then((res) => {
       setList(res.data);
     });
   };
 
-  const asdf = () => {
-    axios.post(`/api/list/filter/`, inputValue).then((res) => {
-      res.data < 1 ? asas() : setList(res.data);
-    });
-  };
+  // const getFilter = () => {
+  //   axios.post(`/api/list/filter/`, filter).then((res) => {
+  //     res.data < 1 ? getData() : setList(res.data);
+  //   });
+  // };
 
   return (
     <div className="home">
-      דף הבית <Filter inputValue={inputValue} setInputValue={setInputValue} />
-      <button onClick={asdf}>sssssss</button>
+      דף הבית <Filter filter={filter} setFilter={setFilter} />
+      {/* <button onClick={getFilter}>חפש</button> */}
       <div>
         {" "}
         {list.map((list) => (
-          <div className="box" key={list.id}>
+          <div className="box" key={list._id}>
             <div>
               <img className="imgaa" src={list.image} alt=""></img>
             </div>

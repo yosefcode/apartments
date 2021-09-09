@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import Filter from "../src/components/filter/filter";
 
 import "./App.css";
 import Home from "./components/home/home";
@@ -10,24 +11,25 @@ function App() {
   //   const topFunction = () => {
   //     document.documentElement.scrollTop = 0;
   //   };
-  const [value, setValue] = useState("");
+  const [filter, setFilter] = useState({});
 
   return (
     <div className="App" dir="rtl">
       <Router>
         {/* <Route path="/:id"> */}
-        <Bar setValue={setValue} />
-        <br />
+        <Bar />
         <br />
         <br />
         {/* </Route> */}
         <Switch>
           <Route exact path="/">
-            <Home value={value} />
+            <Home filter={filter} setFilter={setFilter} />
+            <Filter filter={filter} setFilter={setFilter} />
           </Route>
 
           <Route path="/דף-הבית/:id">
-            <Home value={value} />
+            <Home filter={filter} setFilter={setFilter} />
+            <Filter filter={filter} setFilter={setFilter} />
           </Route>
 
           <Route path="/פרסם-דירה/:id">

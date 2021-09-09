@@ -33,6 +33,7 @@ connectToDb().then(async () => {
 app.post("/api/list/filter/", async (req, res) => {
   const { area, city, rooms } = req.body;
   const filter = {};
+
   if (area) {
     filter.area = area;
   }

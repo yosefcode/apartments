@@ -74,10 +74,14 @@ function Home({ setFilter, filter }) {
             onClick={() => {
               setShow([list]);
               setStatus(true);
+              // window.open(
+              //   <div className="show">
+              //   </div>
+              // );
             }}
           >
             <div>
-              <img className="imgaa" src={list.image} alt=""></img>
+              <img className="imgaa" src={list.firstImage} alt=""></img>
             </div>
             <div>
               דירת {list.rooms} חדרים - ב{list.city}
@@ -111,7 +115,12 @@ function Home({ setFilter, filter }) {
                 // }}
               >
                 <div>
-                  <img className="imgaa" src={list.image} alt=""></img>
+                  <img className="imgaa" src={list.firstImage} alt=""></img>
+                </div>
+                <div>
+                  {list.images.map((images) => (
+                    <img className="imgaa" src={images} alt=""></img>
+                  ))}
                 </div>
                 <div>
                   דירת {list.rooms} חדרים - ב{list.city}

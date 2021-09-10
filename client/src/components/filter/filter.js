@@ -93,8 +93,6 @@ function Filter({ filter, setFilter }) {
     });
   }, [filter.area]);
 
-  console.log(filter);
-
   const handleChange = (event) => {
     setPersonName(event.target.value);
     setFilter({
@@ -126,10 +124,10 @@ function Filter({ filter, setFilter }) {
   };
 
   const area = [
-    { area: "ירושלים", value: "jerusalem" },
-    { area: "צפון", value: "north" },
-    { area: "דרום", value: "south" },
-    { area: "מרכז", value: "center" },
+    { area: "ירושלים", value: "ירושלים" },
+    { area: "צפון", value: "צפון" },
+    { area: "דרום", value: "דרום" },
+    { area: "מרכז", value: "מרכז" },
   ];
   const rooms = [5, 6, 7, 8, 9, 10, 11, 12];
 

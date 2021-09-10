@@ -24,7 +24,7 @@
     "web-vitals": "^0.2.4"
   },
   "scripts": {
-    "starta": "concurrently \"nodemon server.js\" \"cd client && npm start\"",
+    "startA": "concurrently \"nodemon server.js\" \"cd client && npm start\"",
     "start": "node server.js",
     "build": "react-scripts build",
     "test": "react-scripts test",

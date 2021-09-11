@@ -62,6 +62,19 @@ app.get("/api/list/", async (req, res) => {
   }
 });
 
+app.get("/api/list/:id", async (req, res) => {
+  const productId = req.params.id;
+  const products = await models.apartmentSchema.find({
+    _id: productId,
+  });
+  console.log(products);
+  try {
+    res.send(products);
+  } catch (err) {
+    res.status(500).send(err);
+  }
+});
+
 // app.post("/api/sendemail/", (req, res) => {
 //   fs.readFile("products.json", (err, data) => {
 //     const products = JSON.parse(data);

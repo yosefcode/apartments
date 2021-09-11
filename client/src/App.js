@@ -6,6 +6,7 @@ import "./App.css";
 import Home from "./components/home/home";
 import Kesher from "./components/kesher/kesher";
 import Bar from "./components/bar/bar";
+import ApartmentShow from "./components/apartmentShow/apartmentShow";
 
 function App() {
   //   const topFunction = () => {
@@ -20,22 +21,25 @@ function App() {
         <Bar />
         <br />
         <br />
+        <Filter filter={filter} setFilter={setFilter} />
         {/* </Route> */}
         <Switch>
           <Route exact path="/">
             <Home filter={filter} setFilter={setFilter} />
-            <Filter filter={filter} setFilter={setFilter} />
           </Route>
 
           <Route path="/דף-הבית/:id">
             <Home filter={filter} setFilter={setFilter} />
-            <Filter filter={filter} setFilter={setFilter} />
+            {/* <Filter filter={filter} setFilter={setFilter} /> */}
           </Route>
 
           <Route path="/פרסם-דירה/:id">
             <Kesher />
           </Route>
         </Switch>
+        <Route exact path="/:id">
+          <ApartmentShow />
+        </Route>
       </Router>
     </div>
   );

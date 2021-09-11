@@ -19,12 +19,13 @@
     "nodemon": "^2.0.6",
     "react": "^17.0.1",
     "react-dom": "^17.0.1",
+    "react-gallery-carousel": "^0.2.4",
     "react-router-dom": "^5.2.0",
     "react-scripts": "4.0.1",
     "web-vitals": "^0.2.4"
   },
   "scripts": {
-    "startA": "concurrently \"nodemon server.js\" \"cd client && npm start\"",
+    "starta": "concurrently \"nodemon server.js\" \"cd client && npm start\"",
     "start": "node server.js",
     "build": "react-scripts build",
     "test": "react-scripts test",
@@ -32,9 +33,7 @@
     "start-dev": "nodemon server.js",
     "heroku-postbuild": "cd client && npm i && npm run build"
   },
-
   "proxy": "http://localhost:7000",
-  
   "eslintConfig": {
     "extends": [
       "react-app",

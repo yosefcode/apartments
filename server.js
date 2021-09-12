@@ -16,7 +16,7 @@ const dotenv = require("dotenv");
 
 dotenv.config();
 // app.use(express.static(path.join(__dirname, "build")));
-app.use(express.static(path.join(__dirname, "client/build", "index.html")));
+app.use(express.static(path.join(__dirname, "client/build")));
 
 const PORT = process.env.PORT || 7000;
 
@@ -26,9 +26,9 @@ connectToDb().then(async () => {
   });
 });
 
-// app.get("/*", (req, res) => {
-//   res.sendFile(path.join(__dirname, "client/build", "index.html"));
-// });
+app.get("/*", (req, res) => {
+  res.sendFile(path.join(__dirname, "client/build", "index.html"));
+});
 
 app.post("/api/list/filter/", async (req, res) => {
   const { area, city, rooms } = req.body;

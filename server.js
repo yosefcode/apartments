@@ -26,13 +26,9 @@ connectToDb().then(async () => {
   });
 });
 
-app.get("/*", (req, res) => {
+app.get("/:id", (req, res) => {
   res.sendFile(path.join(__dirname, "client/build", "index.html"));
 });
-
-// app.get("/:id", (req, res) => {
-//   res.sendFile(path.join(__dirname, "client/build", "index.html"));
-// });
 
 app.post("/api/list/filter/", async (req, res) => {
   const { area, city, rooms } = req.body;

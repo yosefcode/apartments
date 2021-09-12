@@ -77,11 +77,16 @@
 
 import React from "react";
 import Carousel from "react-gallery-carousel";
+import aa from "./aa.png";
+import ss from "./ss.png";
+import dd from "./dd.png";
 import "react-gallery-carousel/dist/index.css";
 
 const App = () => {
-  const images = [9, 8, 7, 6, 5].map((number) => ({
-    src: `https://placedog.net/${number}00/${number}00?id=${number}`,
+  const aaa = [aa, ss, dd];
+
+  const images = aaa.map((number) => ({
+    src: number,
   }));
 
   return (

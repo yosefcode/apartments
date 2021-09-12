@@ -26,9 +26,9 @@ connectToDb().then(async () => {
   });
 });
 
-app.get("/:id", (req, res) => {
-  res.sendFile(path.join(__dirname, "client/build", "index.html"));
-});
+// app.get("/*" || "/:id", (req, res) => {
+//   res.sendFile(path.join(__dirname, "client/build", "index.html"));
+// });
 
 app.post("/api/list/filter/", async (req, res) => {
   const { area, city, rooms } = req.body;
@@ -67,7 +67,6 @@ app.get("/api/list/:id", async (req, res) => {
   const products = await models.apartmentSchema.find({
     _id: productId,
   });
-  console.log(products);
   try {
     res.send(products);
   } catch (err) {

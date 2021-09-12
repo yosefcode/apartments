@@ -30,10 +30,10 @@ function ApartmentShow() {
           <div key={list._id}>
             {/* <div dir="ltr"> */}
             <Carousel
-              isLoop={true}
-              // hasIndexBoard={false}
-              hasMediaButton={false}
-              hasSizeButton="bottomRight"
+              // isLoop={true}
+              // // hasIndexBoard={false}
+              // hasMediaButton={false}
+              // hasSizeButton="bottomRight"
               // hasThumbnails="bottomRight"
               // shouldMinimizeOnSwipeDown={false}
               // images={images}

@@ -10,21 +10,22 @@ function ApartmentShow() {
 
   const [apartmentShow, setApartmentShow] = useState([]);
 
-  useEffect(() => {
-    axios.post("/api/list/" + id).then((res) => {
-      setApartmentShow(res.data);
-    });
-  }, [id]);
+  // useEffect(() => {
+  //   axios.post("/api/list/" + id).then((res) => {
+  //     setApartmentShow(res.data);
+  //   });
+  // }, [id]);
 
-  const firstImage = apartmentShow.map((list) => list.firstImage);
+  // const firstImage = apartmentShow.map((list) => list.firstImage);
 
-  const images = apartmentShow.map((list) => list.images.map((image) => image));
+  // const images = apartmentShow.map((list) => list.images.map((image) => image));
 
-  const allImages = firstImage.concat(images[0]);
+  // const allImages = firstImage.concat(images[0]);
 
   return (
     <div className="description">
-      <div>
+      {id}
+      {/* <div>
         {" "}
         {apartmentShow.map((list) => (
           <div>
@@ -63,7 +64,7 @@ function ApartmentShow() {
             </div>
           </div>
         ))}{" "}
-      </div>
+      </div> */}
     </div>
   );
 }

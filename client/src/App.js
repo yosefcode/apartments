@@ -36,6 +36,9 @@ function App() {
           <Route path="/send/">
             <Kesher />
           </Route>
+          <Route path="/asas/">
+            <div>dsfgdfgfdgfdgdfdfgfdg</div>{" "}
+          </Route>
           <Route exact path="/:id">
             <ApartmentShow />
           </Route>

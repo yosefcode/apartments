@@ -14,7 +14,7 @@ function ApartmentShow() {
     axios.get("/api/list/" + id).then((res) => {
       setApartmentShow(res.data);
     });
-  }, []);
+  }, [id]);
 
   const firstImage = apartmentShow.map((list) => list.firstImage);
 

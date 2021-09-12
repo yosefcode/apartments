@@ -28,27 +28,27 @@ function ApartmentShow() {
         {" "}
         {apartmentShow.map((list) => (
           <div key={list._id}>
-            <div dir="ltr">
-              <Carousel
-                isLoop={true}
-                // hasIndexBoard={false}
-                hasMediaButton={false}
-                hasSizeButton="bottomRight"
-                // hasThumbnails="bottomRight"
-                // shouldMinimizeOnSwipeDown={false}
-                // images={images}
-                style={{ height: 500, width: 800 }}
-              >
-                {allImages.map((images, index) => (
-                  <img
-                    key={index}
-                    src={images}
-                    alt=""
-                    style={{ height: 500, width: 800 }}
-                  ></img>
-                ))}
-              </Carousel>
-            </div>
+            {/* <div dir="ltr"> */}
+            <Carousel
+              isLoop={true}
+              // hasIndexBoard={false}
+              hasMediaButton={false}
+              hasSizeButton="bottomRight"
+              // hasThumbnails="bottomRight"
+              // shouldMinimizeOnSwipeDown={false}
+              // images={images}
+              style={{ height: 500, width: 800 }}
+            >
+              {allImages.map((images, index) => (
+                <img
+                  key={index}
+                  src={images}
+                  alt=""
+                  style={{ height: 500, width: 800 }}
+                ></img>
+              ))}
+            </Carousel>
+            {/* </div> */}
 
             <div>
               דירת {list.rooms} חדרים - ב{list.city}

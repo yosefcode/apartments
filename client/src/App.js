@@ -37,7 +37,7 @@ function App() {
             <Kesher />
           </Route>
         </Switch>
-        <Route exact path="/show/:id">
+        <Route path="/show/:id">
           <ApartmentShow />
         </Route>
       </Router>

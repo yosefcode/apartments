@@ -25,15 +25,9 @@ function Home({ setFilter, filter }) {
     });
   };
 
-  const openLink = () => {
-    window.open("/asas/");
-    // window.open("/api/Manage");
-  };
-
   return (
     <div className="home">
       <FilterArea setFilter={setFilter} />
-      <button onClick={openLink}>dfdfdf</button>
       {err && <div>לא נמצא שנה את החיפוש</div>}
       <div>
         {" "}

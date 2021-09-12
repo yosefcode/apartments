@@ -24,33 +24,32 @@ function ApartmentShow() {
 
   return (
     <div className="description">
-      {id}
       <div>
         {" "}
         {apartmentShow.map((list) => (
           <div key={list._id}>
-            {/* <div dir="ltr">
+            <div dir="ltr">
               <Carousel
                 isLoop={true}
                 // hasIndexBoard={false}
                 hasMediaButton={false}
                 hasSizeButton="bottomRight"
-                hasThumbnails="centerCenter"
+                // hasThumbnails="bottomRight"
                 // shouldMinimizeOnSwipeDown={false}
                 // images={images}
                 style={{ height: 500, width: 800 }}
-              > */}
-            {allImages.map((images, index) => (
-              <img
-                key={index}
-                src={images}
-                alt=""
-                style={{ height: 500, width: 800 }}
-              ></img>
-            ))}
-            {/* </Carousel>
+              >
+                {allImages.map((images, index) => (
+                  <img
+                    key={index}
+                    src={images}
+                    alt=""
+                    style={{ height: 500, width: 800 }}
+                  ></img>
+                ))}
+              </Carousel>
             </div>
- */}
+
             <div>
               דירת {list.rooms} חדרים - ב{list.city}
               <br />

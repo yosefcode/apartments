@@ -21,7 +21,7 @@ function App() {
         <Bar />
         <br />
         <br />
-        <Filter filter={filter} setFilter={setFilter} />
+        {/* <Filter filter={filter} setFilter={setFilter} /> */}
         {/* </Route> */}
         <Switch>
           <Route exact path="/">

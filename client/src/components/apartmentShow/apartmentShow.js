@@ -16,11 +16,11 @@ function ApartmentShow() {
     });
   }, [id]);
 
-  const firstImage = apartmentShow.map((list) => list.firstImage);
+  // const firstImage = apartmentShow.map((list) => list.firstImage);
 
-  const images = apartmentShow.map((list) => list.images.map((image) => image));
+  // const images = apartmentShow.map((list) => list.images.map((image) => image));
 
-  const allImages = firstImage.concat(images[0]);
+  // const allImages = firstImage.concat(images[0]);
 
   return (
     <div className="description">
@@ -39,7 +39,7 @@ function ApartmentShow() {
                 // images={images}
                 style={{ height: 500, width: 800 }}
               >
-                {allImages.map((images) => (
+                {apartmentShow.map((images) => (
                   <img
                     src={images}
                     alt=""

@@ -25,6 +25,11 @@ function Home({ setFilter, filter }) {
     });
   };
 
+  const openLink = () => {
+    window.open("/manage/");
+    // window.open("/api/Manage");
+  };
+
   return (
     <div className="home">
       <FilterArea setFilter={setFilter} />
@@ -32,25 +37,32 @@ function Home({ setFilter, filter }) {
       <div>
         {" "}
         {list.map((list) => (
-          <Link to={"/" + list._id} target="_blank">
-            <div className="box" key={list._id}>
-              <div>
-                <img className="imgaa" src={list.firstImage} alt=""></img>
-              </div>
-              <div>
-                דירת {list.rooms} חדרים - ב{list.city}
-                <br />
-                עד {list.beds} מיטות
-                <br />
-                {list.short}
-              </div>
-              <div>
-                החל מ{list.price} ש"ח ללילה
-                <br />
-                {list.phone}
-              </div>
+          // <Link to={"/" + list._id} target="_blank">
+          <div
+            className="box"
+            key={list._id}
+            onClick={() => {
+              window.open("/" + list._id);
+              // window.open("/api/Manage");
+            }}
+          >
+            <div>
+              <img className="imgaa" src={list.firstImage} alt=""></img>
             </div>
-          </Link>
+            <div>
+              דירת {list.rooms} חדרים - ב{list.city}
+              <br />
+              עד {list.beds} מיטות
+              <br />
+              {list.short}
+            </div>
+            <div>
+              החל מ{list.price} ש"ח ללילה
+              <br />
+              {list.phone}
+            </div>
+          </div>
+          // </Link>
         ))}{" "}
       </div>
     </div>

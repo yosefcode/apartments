@@ -16,11 +16,15 @@ function ApartmentShow() {
     });
   }, [id]);
 
-  const firstImage = apartmentShow.map((list) => list.firstImage);
+  // const firstImage = apartmentShow.map((list) => list.firstImage);
 
-  const images = apartmentShow.map((list) => list.images.map((image) => image));
+  // const images = apartmentShow.map((list) => list.images.map((image) => image));
 
-  const allImages = firstImage.concat(images[0]);
+  // const allImages = firstImage.concat(images[0]);
+
+  const images = [9, 8, 7, 6, 5].map((number) => ({
+    src: `https://placedog.net/${number}00/${number}00?id=${number}`,
+  }));
 
   return (
     <div className="description">
@@ -36,17 +40,17 @@ function ApartmentShow() {
               // hasSizeButton="bottomRight"
               // hasThumbnails="bottomRight"
               // shouldMinimizeOnSwipeDown={false}
-              // images={images}
+              images={images}
               style={{ height: 500, width: 800 }}
             >
-              {allImages.map((images, index) => (
+              {/* {allImages.map((images, index) => (
                 <img
                   key={index}
                   src={images}
                   alt=""
                   style={{ height: 500, width: 800 }}
                 ></img>
-              ))}
+              ))} */}
             </Carousel>
             {/* </div> */}
 

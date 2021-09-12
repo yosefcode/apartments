@@ -28,16 +28,16 @@ function App() {
             <Home filter={filter} setFilter={setFilter} />
           </Route>
 
-          <Route path="/דף-הבית/:id">
+          <Route path="/home/">
             <Home filter={filter} setFilter={setFilter} />
             {/* <Filter filter={filter} setFilter={setFilter} /> */}
           </Route>
 
-          <Route path="/פרסם-דירה/:id">
+          <Route path="/send/">
             <Kesher />
           </Route>
         </Switch>
-        <Route exact path="/:id">
+        <Route exact path="/show/:id">
           <ApartmentShow />
         </Route>
       </Router>

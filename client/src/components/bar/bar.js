@@ -9,14 +9,14 @@ const Bar = ({ setValue }) => {
       <div className="allURL">
         <a
           className={id === "a" ? "divtrue" : "divfalse"}
-          href="/דף-הבית/a"
+          href="/home/"
           onClick={() => {
             setValue("");
           }}
         >
           דף הבית
         </a>
-        <a className={id === "f" ? "divtrue" : "divfalse"} href="/פרסם-דירה/f">
+        <a className={id === "f" ? "divtrue" : "divfalse"} href="/send/">
           פרסם דירה{" "}
         </a>{" "}
       </div>

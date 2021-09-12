@@ -42,7 +42,7 @@ function Home({ setFilter, filter }) {
             className="box"
             key={list._id}
             onClick={() => {
-              window.open("/" + list._id);
+              window.open("/show/" + list._id);
               // window.open("/api/Manage");
             }}
           >

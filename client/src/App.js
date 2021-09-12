@@ -36,10 +36,10 @@ function App() {
           <Route path="/send/">
             <Kesher />
           </Route>
+          <Route exact path="/:id">
+            <ApartmentShow />
+          </Route>
         </Switch>
-        <Route path="/show/:id">
-          <ApartmentShow />
-        </Route>
       </Router>
     </div>
   );

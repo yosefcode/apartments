@@ -17,28 +17,22 @@ function App() {
   return (
     <div className="App" dir="rtl">
       <Router>
-        {/* <Route path="/:id"> */}
-        <Bar />
-        <br />
-        <br />
-        <Filter filter={filter} setFilter={setFilter} />
-        {/* </Route> */}
+        <Bar filter={filter} setFilter={setFilter} />
         <Switch>
           <Route exact path="/">
             <Home filter={filter} setFilter={setFilter} />
+            <Filter filter={filter} setFilter={setFilter} />
           </Route>
 
-          <Route path="/home/">
+          {/* <Route path="/home/">
             <Home filter={filter} setFilter={setFilter} />
-            {/* <Filter filter={filter} setFilter={setFilter} /> */}
-          </Route>
+            <Filter filter={filter} setFilter={setFilter} />
+          </Route> */}
 
           <Route path="/send/">
             <Kesher />
           </Route>
-          <Route path="/asas/">
-            <div>dsfgdfgfdgfdgdfdfgfdg</div>{" "}
-          </Route>
+
           <Route exact path="/:id">
             <ApartmentShow />
           </Route>

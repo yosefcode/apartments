@@ -1,40 +1,26 @@
 import "./filterArea.css";
 
-function FilterArea({ setFilter, filter }) {
+function FilterArea({ setFilter }) {
+  const listArea = [
+    { area: "בצפון", filter: "צפון" },
+    { area: "במרכז", filter: "מרכז" },
+    { area: "בירושלים", filter: "ירושלים" },
+    { area: "בדרום", filter: "דרום" },
+    { area: "להחלפה", filter: "" },
+  ];
+
   return (
-    <div className="filterArea">
-      <button
-        className="btnarea"
-        onClick={() => {
-          setFilter({ area: ["דרום"] });
-        }}
-      >
-        דירות בדרום
-      </button>{" "}
-      <button
-        className="btnarea"
-        onClick={() => {
-          setFilter({ area: ["צפון"] });
-        }}
-      >
-        דירות בצפון
-      </button>{" "}
-      <button
-        className="btnarea"
-        onClick={() => {
-          setFilter({ area: ["מרכז"] });
-        }}
-      >
-        דירות במרכז
-      </button>{" "}
-      <button
-        className="btnarea"
-        onClick={() => {
-          setFilter({ area: ["ירושלים"] });
-        }}
-      >
-        דירות בירושלים
-      </button>
+    <div>
+      {listArea.map((area) => (
+        <button
+          className="btnarea"
+          onClick={() => {
+            setFilter({ area: [area.filter] });
+          }}
+        >
+          דירות {area.area}{" "}
+        </button>
+      ))}
     </div>
   );
 }

@@ -1,24 +1,23 @@
 import "./bar.css";
-import { useParams } from "react-router-dom";
+import FilterArea from "../filterArea/filterArea";
 
-const Bar = ({ setValue }) => {
-  const { id } = useParams();
-
+const Bar = ({ setFilter }) => {
   return (
     <div className="bar">
       <div className="allURL">
-        <a
-          className={id === "a" ? "divtrue" : "divfalse"}
-          href="/home/"
-          onClick={() => {
-            setValue("");
-          }}
-        >
-          דף הבית
+        <a className="btnhome" href="/">
+          דירות נופש{" "}
         </a>
-        <a className={id === "f" ? "divtrue" : "divfalse"} href="/send/">
-          פרסם דירה{" "}
+        <div></div>
+        <div></div>
+        <div></div>
+        <a className="btnsend" href="/send/">
+          פרסם דירתך{" "}
         </a>{" "}
+      </div>
+
+      <div className="filterArea">
+        <FilterArea setFilter={setFilter} />
       </div>
     </div>
   );

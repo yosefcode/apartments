@@ -64,7 +64,6 @@ function Filter({ filter, setFilter }) {
 
       for (let i = 0; i < list.length; i++) {
         for (let a = 0; a < b; a++) {
-          console.log(filter.area);
           if (filter.area[a] === list[i].area) {
             listFilter.push(list[i]);
           }
@@ -113,13 +112,6 @@ function Filter({ filter, setFilter }) {
     setFilter({
       ...filter,
       [event.target.name]: event.target.value,
-    });
-  };
-
-  const onchange = (e) => {
-    setFilter({
-      ...filter,
-      [e.target.name]: e.target.value,
     });
   };
 

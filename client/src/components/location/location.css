@@ -1,0 +1,17 @@
+.imgmarker {
+  width: 20px;
+}
+
+.maps {
+  height: 500px;
+  width: 100%;
+  margin: 0 auto;
+  z-index: 10;
+}
+
+.location {
+  position: relative;
+  margin: 50px auto;
+  width: 50vw;
+  height: 35vw;
+}

@@ -1,7 +1,6 @@
 import "./home.css";
 import React, { useState, useEffect } from "react";
 import axios from "axios";
-import FilterArea from "../filterArea/filterArea";
 import { Link } from "react-router-dom";
 
 function Home({ setFilter, filter }) {
@@ -27,7 +26,6 @@ function Home({ setFilter, filter }) {
 
   return (
     <div className="home">
-      <FilterArea setFilter={setFilter} />
       {err && <div>לא נמצא שנה את החיפוש</div>}
       <div>
         {" "}

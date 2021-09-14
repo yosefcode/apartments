@@ -1,0 +1,29 @@
+.divContact {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.divContact .what {
+  width: 2.7vw;
+  height: 2.7vw;
+  cursor: pointer;
+}
+
+.divContact .mail {
+  cursor: pointer;
+  width: 2.2vw;
+  height: 2vw;
+  margin-top: 0.3vw;
+}
+.divContact .message {
+  cursor: pointer;
+  width: 2.4vw;
+  height: 2.4vw;
+}
+.divContact .phone {
+  cursor: pointer;
+  width: 2.2vw;
+  height: 2.2vw;
+  border-radius: 30px;
+}

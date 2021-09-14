@@ -1,111 +1,58 @@
 .bar {
-  height: 60px;
+  height: 100px;
   width: 100%;
   align-items: center;
-  position: fixed;
-  background-color: rgb(210, 246, 255);
+  position: relative;
+  background-color: rgb(255, 255, 255);
   top: 0;
-  z-index: 2;
+  /* z-index: 10; */
+  display: unset;
 }
+
 .bar .allURL {
+  height: 60px;
   width: 65%;
   margin: 0px auto;
   display: grid;
-  grid-template-columns: 16.6% 16.6% 16.6% 16.6% 16.6% 16.6%;
+  grid-template-columns: 20% 20% 20% 20% 20%;
 }
 
-.bar a {
+.bar .btnhome {
+  height: 60px;
+  width: 100%;
+  font-size: 2.2vw;
+  font-weight: bold;
+  border: none;
+  margin: 0 auto;
+  text-decoration: none;
+}
+
+.bar .btnsend {
+  height: 60px;
+  width: 100%;
+  font-size: 1.6vw;
+  font-weight: bold;
+  border: none;
+  margin: 0 auto;
+  text-decoration: none;
+}
+
+.bar .filterArea {
+  height: 50px;
+  width: 100%;
+  margin: 10px auto;
+  background-color: rgb(40, 0, 151);
+  position: sticky;
+  top: 0;
+  border-bottom: rgb(222, 241, 255) 9px solid;
   display: flex;
   justify-content: center;
   align-items: center;
-}
-
-.bar .divfalse {
-  height: 60px;
-  width: 100%;
-  font-size: 100%;
-  background-color: rgb(228, 228, 228);
-  font-weight: bold;
-  border: none;
-  margin: 0 auto;
-  text-decoration: none;
-}
-
-.bar .divtrue:hover,
-.bar .divfalse:hover {
-  background-color: rgb(170, 45, 45);
   color: white;
-}
-.bar .divtrue:focus,
-.bar .divfalse:focus {
-  background-color: rgb(0, 136, 61);
-  color: white;
-}
-.bar .divtrue:active,
-.bar .divfalse:active {
-  background-color: rgb(0, 136, 61);
-  color: white;
-}
-
-.bar a:-webkit-any-link {
-  color: black;
-}
-
-.bar .divtrue {
-  color: white !important;
-  text-decoration: none;
-  width: 100%;
-  font-size: 100%;
-  background-color: rgb(36, 141, 5);
-  font-weight: bold;
-  border: none;
-  margin: 0 auto;
+  font-size: 20px;
+  font-weight: 700;
+  z-index: 100;
 }
 
 @media only screen and (max-width: 999px) {
-  .bar {
-    top: 0px;
-    height: 50px;
-    width: 100%;
-    align-items: center;
-    position: fixed;
-    background-color: rgb(228, 228, 228);
-    z-index: 2;
-  }
-
-  .bar .allURL {
-    height: 50px;
-    width: 100%;
-    margin: 0px auto;
-    text-align: center;
-    display: grid;
-    grid-template-columns: 20% 20% 20% 20% 20%;
-  }
-
-  .bar .divfalse {
-    height: 100%;
-    width: 90%;
-    font-size: 12px;
-    font-weight: bold;
-    border: none;
-    margin: 0 auto;
-  }
-
-  .bar .divtrue:hover,
-  .bar .divfalse:hover {
-    border-radius: 0px;
-    background-color: rgb(114, 114, 114);
-    color: white;
-  }
-
-  .bar .divtrue {
-    color: white !important;
-    border-radius: 0px;
-    width: 100%;
-    height: 100%;
-    font-size: 12px;
-    background-color: rgb(114, 114, 114);
-    border: none;
-    margin: 0 auto;
-  }
 }

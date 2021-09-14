@@ -4,6 +4,8 @@ import { useParams } from "react-router-dom";
 import axios from "axios";
 import Carousel from "react-gallery-carousel";
 import "react-gallery-carousel/dist/index.css";
+import Contact from "./contact/contact";
+import Location from "../location/location";
 
 function ApartmentShow() {
   const { id } = useParams();
@@ -27,43 +29,44 @@ function ApartmentShow() {
   }));
 
   return (
-    <div className="description">
-      <div>
-        {" "}
-        {apartmentShow.map((list) => (
-          <div key={list._id}>
-            <div dir="ltr">
-              <Carousel
-                isLoop={true}
-                isAutoPlaying={true}
-                autoPlayInterval={5000}
-                transitionDurationMin={1000}
-                // transitionSpeed={1000}
-                // transitionDurationLimit={1000}
-                // // hasIndexBoard={false}
-                hasMediaButton={false}
-                hasSizeButton="bottomRight"
-                // hasThumbnails="bottomRight"
-                images={carouselImages}
-                style={{ height: 500, width: 800 }}
-              />
-            </div>
+    <div className="apartmentShow">
+      {" "}
+      {apartmentShow.map((list) => (
+        <div className="divCarousel">
+          <div dir="ltr" className="carousel" key={list._id}>
+            <Carousel
+              isLoop={true}
+              isAutoPlaying={true}
+              autoPlayInterval={5000}
+              transitionDurationMin={1000}
+              // // hasIndexBoard={false}
+              hasMediaButton={false}
+              hasSizeButton="bottomRight"
+              // hasThumbnails="bottomRight"
+              images={carouselImages}
+              // style={{ height: 500, width: 800, margin: 50 }}
+            />
+          </div>
 
-            <div>
-              דירת {list.rooms} חדרים - ב{list.city}
-              <br />
-              עד {list.beds} מיטות
-              <br />
-              {list.long}
-            </div>
-            <div>
-              החל מ{list.price} ש"ח ללילה
-              <br />
-              {list.phone}
+          <div className="information">
+            <div className="headerInfo headerInfo1">מידע</div>
+            <div className="info">
+              <h1>
+                {" "}
+                {list.area}, {list.city}.
+              </h1>
+              <h2>
+                {" "}
+                {list.rooms} חדרים, עד {list.beds} מיטות.
+              </h2>
+              <h3> מחיר: החל מ{list.price} ש"ח ללילה.</h3>
+              <h2>{list.phone}</h2>
+              <Contact apartmentShow={apartmentShow} />
             </div>
           </div>
-        ))}{" "}
-      </div>
+          <Location apartmentShow={apartmentShow} />
+        </div>
+      ))}{" "}
     </div>
   );
 }

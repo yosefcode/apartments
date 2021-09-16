@@ -59,9 +59,15 @@
   padding: 0 2vw;
   color: rgb(24, 0, 90);
   font-weight: 700;
-  height: 620px;
+  height: 600px;
   /* animation-name: example;
   animation-duration: 6s; */
+}
+.homeee {
+  height: 300px;
+  width: 80%;
+  margin: 50px auto;
+  border: 2px black solid;
 }
 
 @keyframes example {

@@ -6,6 +6,7 @@ import Carousel from "react-gallery-carousel";
 import "react-gallery-carousel/dist/index.css";
 import Contact from "./contact/contact";
 import Location from "../location/location";
+import SliderApartment from "../sliderApartment/sliderApartment";
 
 function ApartmentShow() {
   const { id } = useParams();
@@ -30,7 +31,7 @@ function ApartmentShow() {
 
   return (
     <div className="apartmentShow">
-      {" "}
+      {/* {" "}
       {apartmentShow.map((list) => (
         <div className="divCarousel">
           <div dir="ltr" className="carousel" key={list._id}>
@@ -51,22 +52,26 @@ function ApartmentShow() {
           <div className="information">
             <div className="headerInfo headerInfo1">מידע</div>
             <div className="info">
-              <h1>
-                {" "}
-                {list.area}, {list.city}.
-              </h1>
               <h2>
                 {" "}
-                {list.rooms} חדרים, עד {list.beds} מיטות.
+                {list.area}, {list.city}.
               </h2>
-              <h3> מחיר: החל מ{list.price} ש"ח ללילה.</h3>
-              <h2>{list.phone}</h2>
+              <h3>
+                {" "}
+                {list.rooms} חדרים, עד {list.beds} מיטות.
+              </h3>
+              <h4> מחיר: החל מ{list.price} ש"ח ללילה.</h4>
+              <h3>{list.phone}</h3>
               <Contact apartmentShow={apartmentShow} />
+              <h4>{list.long}</h4>
             </div>
           </div>
           <Location apartmentShow={apartmentShow} />
         </div>
-      ))}{" "}
+      ))}{" "} */}
+      <div>
+        <SliderApartment />
+      </div>
     </div>
   );
 }

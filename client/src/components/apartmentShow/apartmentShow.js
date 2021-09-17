@@ -9,29 +9,29 @@ import Location from "../location/location";
 import SliderApartment from "../sliderApartment/sliderApartment";
 
 function ApartmentShow() {
-  // const { id } = useParams();
+  const { id } = useParams();
 
-  // const [apartmentShow, setApartmentShow] = useState([]);
+  const [apartmentShow, setApartmentShow] = useState([]);
 
-  // useEffect(() => {
-  //   axios.post("/api/list/" + id).then((res) => {
-  //     setApartmentShow(res.data);
-  //   });
-  // }, [id]);
+  useEffect(() => {
+    axios.post("/api/list/" + id).then((res) => {
+      setApartmentShow(res.data);
+    });
+  }, [id]);
 
-  // const firstImage = apartmentShow.map((list) => list.firstImage);
+  const firstImage = apartmentShow.map((list) => list.firstImage);
 
-  // const images = apartmentShow.map((list) => list.images.map((image) => image));
+  const images = apartmentShow.map((list) => list.images.map((image) => image));
 
-  // const allImages = firstImage.concat(images[0]);
+  const allImages = firstImage.concat(images[0]);
 
-  // const carouselImages = allImages.map((images) => ({
-  //   src: images,
-  // }));
+  const carouselImages = allImages.map((images) => ({
+    src: images,
+  }));
 
   return (
     <div className="apartmentShow">
-      {/* {" "}
+      {" "}
       {apartmentShow.map((list) => (
         <div className="divCarousel">
           <div dir="ltr" className="carousel" key={list._id}>
@@ -68,7 +68,7 @@ function ApartmentShow() {
           </div>
           <Location apartmentShow={apartmentShow} />
         </div>
-      ))}{" "} */}
+      ))}{" "}
       <div>
         <SliderApartment />
       </div>

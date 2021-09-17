@@ -7,7 +7,6 @@ import Home from "./components/home/home";
 import Kesher from "./components/kesher/kesher";
 import Bar from "./components/bar/bar";
 import ApartmentShow from "./components/apartmentShow/apartmentShow";
-import Slider from "./components/sliderApartment/sliderApartment";
 
 function App() {
   //   const topFunction = () => {
@@ -16,26 +15,25 @@ function App() {
   const [filter, setFilter] = useState({});
 
   return (
-    <Slider />
-    // <div className="App" dir="rtl">
-    //   <Router>
-    //     <Bar filter={filter} setFilter={setFilter} />
-    //     <Switch>
-    //       <Route exact path="/">
-    //         <Home filter={filter} setFilter={setFilter} />
-    //         <Filter filter={filter} setFilter={setFilter} />
-    //       </Route>
+    <div className="App" dir="rtl">
+      <Router>
+        <Bar filter={filter} setFilter={setFilter} />
+        <Switch>
+          <Route exact path="/">
+            <Home filter={filter} setFilter={setFilter} />
+            <Filter filter={filter} setFilter={setFilter} />
+          </Route>
 
-    //       <Route path="/send/">
-    //         <Kesher />
-    //       </Route>
+          <Route path="/send/">
+            <Kesher />
+          </Route>
 
-    //       <Route exact path="/:id">
-    //         <ApartmentShow />
-    //       </Route>
-    //     </Switch>
-    //   </Router>
-    // </div>
+          <Route exact path="/:id">
+            <ApartmentShow />
+          </Route>
+        </Switch>
+      </Router>
+    </div>
   );
 }
 

@@ -1,27 +1,28 @@
 {
   "files": {
-    "main.css": "/static/css/main.62009fb5.chunk.css",
-    "main.js": "/static/js/main.a0725359.chunk.js",
-    "main.js.map": "/static/js/main.a0725359.chunk.js.map",
-    "runtime-main.js": "/static/js/runtime-main.07e49b3c.js",
-    "runtime-main.js.map": "/static/js/runtime-main.07e49b3c.js.map",
-    "static/css/2.b2d1983c.chunk.css": "/static/css/2.b2d1983c.chunk.css",
-    "static/js/2.03c61ac0.chunk.js": "/static/js/2.03c61ac0.chunk.js",
-    "static/js/2.03c61ac0.chunk.js.map": "/static/js/2.03c61ac0.chunk.js.map",
-    "static/js/3.56690052.chunk.js": "/static/js/3.56690052.chunk.js",
-    "static/js/3.56690052.chunk.js.map": "/static/js/3.56690052.chunk.js.map",
+    "main.css": "/static/css/main.b857a71d.chunk.css",
+    "main.js": "/static/js/main.ff4a827b.chunk.js",
+    "main.js.map": "/static/js/main.ff4a827b.chunk.js.map",
+    "runtime-main.js": "/static/js/runtime-main.76f5ed0e.js",
+    "runtime-main.js.map": "/static/js/runtime-main.76f5ed0e.js.map",
+    "static/css/2.6ce41acc.chunk.css": "/static/css/2.6ce41acc.chunk.css",
+    "static/js/2.9f72f27d.chunk.js": "/static/js/2.9f72f27d.chunk.js",
+    "static/js/2.9f72f27d.chunk.js.map": "/static/js/2.9f72f27d.chunk.js.map",
+    "static/js/3.d2141b93.chunk.js": "/static/js/3.d2141b93.chunk.js",
+    "static/js/3.d2141b93.chunk.js.map": "/static/js/3.d2141b93.chunk.js.map",
     "index.html": "/index.html",
-    "static/css/2.b2d1983c.chunk.css.map": "/static/css/2.b2d1983c.chunk.css.map",
-    "static/css/main.62009fb5.chunk.css.map": "/static/css/main.62009fb5.chunk.css.map",
-    "static/js/2.03c61ac0.chunk.js.LICENSE.txt": "/static/js/2.03c61ac0.chunk.js.LICENSE.txt",
-    "static/media/aa.8fffdc8d.png": "/static/media/aa.8fffdc8d.png",
-    "static/media/ss.92aa14a3.png": "/static/media/ss.92aa14a3.png"
+    "static/css/2.6ce41acc.chunk.css.map": "/static/css/2.6ce41acc.chunk.css.map",
+    "static/css/main.b857a71d.chunk.css.map": "/static/css/main.b857a71d.chunk.css.map",
+    "static/js/2.9f72f27d.chunk.js.LICENSE.txt": "/static/js/2.9f72f27d.chunk.js.LICENSE.txt",
+    "static/media/WhatsApp.88620344.png": "/static/media/WhatsApp.88620344.png",
+    "static/media/marker.9094dd71.png": "/static/media/marker.9094dd71.png",
+    "static/media/phone.891a2c60.png": "/static/media/phone.891a2c60.png"
   },
   "entrypoints": [
-    "static/js/runtime-main.07e49b3c.js",
-    "static/css/2.b2d1983c.chunk.css",
-    "static/js/2.03c61ac0.chunk.js",
-    "static/css/main.62009fb5.chunk.css",
-    "static/js/main.a0725359.chunk.js"
+    "static/js/runtime-main.76f5ed0e.js",
+    "static/css/2.6ce41acc.chunk.css",
+    "static/js/2.9f72f27d.chunk.js",
+    "static/css/main.b857a71d.chunk.css",
+    "static/js/main.ff4a827b.chunk.js"
   ]
 }

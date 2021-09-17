@@ -260,6 +260,7 @@ import { useKeenSlider } from "keen-slider/react";
 import "keen-slider/keen-slider.min.css";
 import "./sliderApartment.css";
 
+// eslint-disable-next-line import/no-anonymous-default-export
 export default (props) => {
   const [sliderRef] = useKeenSlider({ slidesPerView: 3, spacing: 15 });
 

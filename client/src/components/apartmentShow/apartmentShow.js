@@ -18,6 +18,13 @@ function ApartmentShow() {
       setApartmentShow(res.data);
     });
   }, [id]);
+  const [list, setlist] = useState([]);
+
+  useEffect(() => {
+    axios.get("/api/list/").then((res) => {
+      setlist(res.data);
+    });
+  }, [id]);
 
   const firstImage = apartmentShow.map((list) => list.firstImage);
 
@@ -70,7 +77,7 @@ function ApartmentShow() {
         </div>
       ))}{" "}
       <div>
-        <SliderApartment />
+        <SliderApartment list={list} />
       </div>
     </div>
   );
@@ -85,7 +92,7 @@ export default ApartmentShow;
 // import dd from "./dd.png";
 // import "react-gallery-carousel/dist/index.css";
 
-// const App = () => {
+// const ApartmentShow = () => {
 //   const aaa = [aa, ss, dd];
 
 //   const images = aaa.map((number) => ({
@@ -99,4 +106,4 @@ export default ApartmentShow;
 //   );
 // };
 
-// export default App;
+// export default ApartmentShow;

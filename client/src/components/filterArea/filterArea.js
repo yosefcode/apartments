@@ -1,4 +1,5 @@
 import "./filterArea.css";
+import { Link } from "react-router-dom";
 
 function FilterArea({ setFilter }) {
   const listArea = [
@@ -12,14 +13,16 @@ function FilterArea({ setFilter }) {
   return (
     <div>
       {listArea.map((area) => (
-        <button
-          className="btnarea"
-          onClick={() => {
-            setFilter({ area: [area.filter] });
-          }}
-        >
-          דירות {area.area}{" "}
-        </button>
+        <Link to={"/"}>
+          <button
+            className="btnarea"
+            onClick={() => {
+              setFilter({ area: [area.filter] });
+            }}
+          >
+            דירות {area.area}{" "}
+          </button>
+        </Link>
       ))}
     </div>
   );

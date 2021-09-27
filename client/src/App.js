@@ -1,8 +1,7 @@
 import React, { useState } from "react";
+import "./App.css";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import Filter from "../src/components/filter/filter";
-
-import "./App.css";
 import Home from "./components/home/home";
 import Kesher from "./components/kesher/kesher";
 import Bar from "./components/bar/bar";

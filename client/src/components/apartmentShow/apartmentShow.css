@@ -1,80 +1,21 @@
 .apartmentShow {
   position: static;
   z-index: 0;
-  /* height: 1000px; */
   display: initial;
-}
-
-.apartmentShow .carousel {
-  /* margin-top: 0vw; */
-  width: 60vw;
-  height: 40vw;
-  position: absolute;
-  left: 5vw;
-}
-
-.information {
-  position: relative;
-  margin: 2vw 5vw;
-  width: 18vw;
-}
-
-.headerInfo {
-  width: 8vw;
-  height: 2.5vw;
-  background-color: rgb(16, 0, 61);
-  border-radius: 1vw 1vw 0vw 0vw;
-  font-size: 1.4vw;
-  font-weight: 700;
-  position: absolute;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.headerInfo:after {
-  border-radius: 1.5vw 1.5vw 0vw 0vw;
-  content: "";
-  position: absolute;
-  top: -0.8vw;
-  left: -0.8vw;
-  right: -0.8vw;
-  bottom: -0.3vw;
-  z-index: -1;
-  background: rgb(16, 0, 61);
-}
-
-.headerInfo1 {
-  border: rgb(214, 174, 255) 0.2vw solid;
-  color: rgb(214, 174, 255);
-}
-
-.info {
   width: 100%;
-  position: relative;
-  top: 2.9vw;
-  left: 0.6vw;
-  border: rgb(16, 0, 61) 0.2vw solid;
-  border-top: rgb(16, 0, 61) 0.5vw solid;
-  padding: 0 2vw;
-  color: rgb(24, 0, 90);
-  font-weight: 700;
-  height: 600px;
-  /* animation-name: example;
-  animation-duration: 6s; */
-}
-.homeee {
-  height: 300px;
-  width: 80%;
-  margin: 50px auto;
-  border: 2px black solid;
 }
 
-@keyframes example {
-  0% {
-    opacity: 0;
-  }
-  100% {
-    opacity: 1;
-  }
+.apartmentShow .divCarouselInfo {
+  width: 100%;
+  height: 40vw;
+  position: relative;
+  top: 1.5vw;
+}
+
+.apartmentShow .divcClendarMap {
+  margin-top: 3vw;
+  padding: 5px;
+  width: 100%;
+  height: 25vw;
+  position: relative;
 }

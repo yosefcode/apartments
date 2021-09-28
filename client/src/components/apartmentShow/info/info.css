@@ -1,0 +1,49 @@
+.apartmentShow .information {
+  position: absolute;
+  width: 21vw;
+  height: 40vw;
+  right: 11vw;
+}
+
+.apartmentShow .headerInfo {
+  width: 8vw;
+  height: 2.5vw;
+  background-color: rgb(16, 0, 61);
+  border-radius: 1vw 1vw 0vw 0vw;
+  font-size: 1.4vw;
+  font-weight: 700;
+  position: absolute;
+  right: 0.6vw;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.apartmentShow .headerInfo:after {
+  border-radius: 1.5vw 1.5vw 0vw 0vw;
+  content: "";
+  position: absolute;
+  top: -0.8vw;
+  left: -0.8vw;
+  right: -0.8vw;
+  bottom: -0.3vw;
+  z-index: -1;
+  background: rgb(16, 0, 61);
+}
+
+.apartmentShow .headerInfo1 {
+  border: rgb(214, 174, 255) 0.2vw solid;
+  color: rgb(214, 174, 255);
+}
+
+.apartmentShow .info {
+  width: 18.6vw;
+  position: absolute;
+  top: 2.9vw;
+  border: rgb(16, 0, 61) 0.2vw solid;
+  border-top: rgb(16, 0, 61) 0.5vw solid;
+  padding: 0 1vw;
+  color: rgb(24, 0, 90);
+  font-weight: 700;
+  height: 34vw;
+}

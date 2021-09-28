@@ -9,6 +9,8 @@ const Location = ({ apartmentShow }) => {
   const [lat, setLat] = useState([]);
   const [lng, setLng] = useState([]);
 
+  const city = apartmentShow.map((name) => name.city);
+
   Geocode.setApiKey("AIzaSyDruzVgnPzX3hODNpHFohGBhvj-KO-nFQk");
 
   Geocode.setLanguage("he");
@@ -29,7 +31,7 @@ const Location = ({ apartmentShow }) => {
   // );
 
   useEffect(() => {
-    Geocode.fromAddress(` ${apartmentShow[0].city}`).then(
+    Geocode.fromAddress(` ${city}`).then(
       (response) => {
         const { lat, lng } = response.results[0].geometry.location;
         setLat(lat);
@@ -40,7 +42,7 @@ const Location = ({ apartmentShow }) => {
         console.error(error);
       }
     );
-  }, [apartmentShow]);
+  }, [city]);
 
   const AnyReactComponent = ({ icon, text }) => (
     <div>
@@ -49,24 +51,20 @@ const Location = ({ apartmentShow }) => {
   );
 
   return (
-    <div className="location">
-      <h2>Location</h2>
-
-      <div className="maps">
-        <GoogleMapReact
-          bootstrapURLKeys={{
-            key: "AIzaSyDruzVgnPzX3hODNpHFohGBhvj-KO-nFQk",
-          }}
-          center={{ lat: lat, lng: lng }}
-          defaultZoom={14}
-        >
-          <AnyReactComponent
-            lat={lat}
-            lng={lng}
-            icon={<img className="imgmarker" src={marker} alt="" />}
-          />
-        </GoogleMapReact>
-      </div>
+    <div className="maps">
+      <GoogleMapReact
+        bootstrapURLKeys={{
+          key: "AIzaSyDruzVgnPzX3hODNpHFohGBhvj-KO-nFQk",
+        }}
+        center={{ lat: lat, lng: lng }}
+        defaultZoom={14}
+      >
+        <AnyReactComponent
+          lat={lat}
+          lng={lng}
+          icon={<img className="imgmarker" src={marker} alt="" />}
+        />
+      </GoogleMapReact>
     </div>
   );
 };

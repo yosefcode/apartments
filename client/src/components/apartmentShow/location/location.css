@@ -1,0 +1,10 @@
+.apartmentShow .maps {
+  position: absolute;
+  right: 13vw;
+  width: 45vw;
+  height: 25vw;
+}
+
+.apartmentShow .imgmarker {
+  width: 20px;
+}

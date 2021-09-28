@@ -3,6 +3,7 @@
   height: 25vw;
   overflow: auto;
   position: relative;
+  margin-top: 5vw;
 }
 
 [class^="number-slide"],

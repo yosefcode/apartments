@@ -1,19 +1,50 @@
 .apartmentShow {
-  position: static;
+  position: relative;
   z-index: 0;
   display: initial;
   width: 100%;
 }
 
-.apartmentShow .divCarouselInfo {
+.apartmentShow .divContact {
+  position: sticky;
+  top: 15vw;
+  right: 11vw;
+  z-index: 10;
+  width: 5vw;
+  height: 30vw;
+}
+.apartmentShow .divHeader {
+  position: sticky;
+  top: 0vw;
+  right: 10.2%;
+  z-index: 10;
   width: 100%;
-  height: 40vw;
+  height: 4vw;
+  background-color: white;
+}
+.apartmentShow .divCarousel {
+  width: 100%;
+  height: 52vw;
   position: relative;
-  top: 1.5vw;
 }
 
-.apartmentShow .divcClendarMap {
+.apartmentShow .divInfo {
   margin-top: 3vw;
+  padding: 5px;
+  width: 100%;
+  height: 35vw;
+  position: relative;
+}
+
+.apartmentShow .divMap {
+  margin-top: 6vw;
+  padding: 5px;
+  width: 100%;
+  height: 25vw;
+  position: relative;
+}
+.apartmentShow .divMoreApartment {
+  margin-top: 6vw;
   padding: 5px;
   width: 100%;
   height: 25vw;

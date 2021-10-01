@@ -1,6 +1,5 @@
 import "./info.css";
 import "react-gallery-carousel/dist/index.css";
-import Contact from "./contact/contact";
 
 function Info({ apartmentShow }) {
   return apartmentShow.map((list) => (
@@ -17,7 +16,6 @@ function Info({ apartmentShow }) {
         </h3>
         <h4> מחיר: החל מ{list.price} ש"ח ללילה.</h4>
         <h3>{list.phone}</h3>
-        <Contact apartmentShow={apartmentShow} />
         <h4>{list.long}</h4>
       </div>
     </div>

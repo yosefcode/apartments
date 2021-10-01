@@ -51,20 +51,23 @@ const Location = ({ apartmentShow }) => {
   );
 
   return (
-    <div className="maps">
-      <GoogleMapReact
-        bootstrapURLKeys={{
-          key: "AIzaSyDruzVgnPzX3hODNpHFohGBhvj-KO-nFQk",
-        }}
-        center={{ lat: lat, lng: lng }}
-        defaultZoom={14}
-      >
-        <AnyReactComponent
-          lat={lat}
-          lng={lng}
-          icon={<img className="imgmarker" src={marker} alt="" />}
-        />
-      </GoogleMapReact>
+    <div className="divMaps">
+      <div className="headerMap headerMap1">מפת האיזור</div>
+      <div className="map">
+        <GoogleMapReact
+          bootstrapURLKeys={{
+            key: "AIzaSyDruzVgnPzX3hODNpHFohGBhvj-KO-nFQk",
+          }}
+          center={{ lat: lat, lng: lng }}
+          defaultZoom={12}
+        >
+          <AnyReactComponent
+            lat={lat}
+            lng={lng}
+            icon={<img className="imgmarker" src={marker} alt="" />}
+          />
+        </GoogleMapReact>
+      </div>
     </div>
   );
 };

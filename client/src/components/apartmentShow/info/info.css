@@ -1,12 +1,12 @@
 .apartmentShow .information {
   position: absolute;
-  width: 21vw;
-  height: 40vw;
-  right: 11vw;
+  height: 30vw;
+  width: 72%;
+  left: 10%;
 }
 
 .apartmentShow .headerInfo {
-  width: 8vw;
+  width: 12vw;
   height: 2.5vw;
   background-color: rgb(16, 0, 61);
   border-radius: 1vw 1vw 0vw 0vw;
@@ -37,7 +37,7 @@
 }
 
 .apartmentShow .info {
-  width: 18.6vw;
+  width: calc(100% - 2.4vw);
   position: absolute;
   top: 2.9vw;
   border: rgb(16, 0, 61) 0.2vw solid;

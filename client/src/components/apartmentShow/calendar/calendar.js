@@ -6,7 +6,11 @@ import "react-calendar/dist/Calendar.css";
 const calendar = ({ apartmentShow }) => {
   return (
     <div className="calendar">
-      <Calendar />
+      <Calendar
+        // calendarType="Hebrew"
+        // tileClassName="aaaa"
+        showNeighboringMonth={false}
+      />
     </div>
   );
 };

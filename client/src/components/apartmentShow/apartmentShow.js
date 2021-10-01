@@ -3,12 +3,14 @@ import React, { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import axios from "axios";
 import Location from "./location/location";
-import SliderApartment from "./sliderApartment/sliderApartment";
 import Calendar from "./calendar/calendar";
 import SliderImage from "./sliderImage/sliderImage";
 import Info from "./info/info";
+import Contact from "./contact/contact";
+import Header from "./header/header";
+import MoreApartment from "./moreApartment/moreApartment";
 
-function ApartmentShow() {
+function ApartmentShow({ setFilter, filter }) {
   const { id } = useParams();
 
   const [apartmentShow, setApartmentShow] = useState([]);
@@ -21,18 +23,30 @@ function ApartmentShow() {
 
   return (
     <div className="apartmentShow">
-      <div className="divCarouselInfo">
+      <div className="divHeader">
+        <Header apartmentShow={apartmentShow} />
+        <Contact apartmentShow={apartmentShow} />
+      </div>
+
+      <div className="divCarousel">
         <SliderImage apartmentShow={apartmentShow} />
+      </div>
+
+      <div className="divInfo">
         <Info apartmentShow={apartmentShow} />
       </div>
 
-      <div className="divcClendarMap">
+      <div className="divMap">
         <Location apartmentShow={apartmentShow} />
-        <Calendar />
+        {/* <Calendar /> */}
       </div>
 
-      <div>
-        <SliderApartment />
+      <div className="divMoreApartment">
+        <MoreApartment
+          apartmentShow={apartmentShow}
+          setFilter={setFilter}
+          filter={filter}
+        />
       </div>
     </div>
   );

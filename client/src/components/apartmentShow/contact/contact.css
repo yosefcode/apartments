@@ -1,27 +1,33 @@
-.divContact {
+.contact {
   display: flex;
-  justify-content: space-around;
+  justify-content: space-between;
   align-items: center;
+  flex-direction: column;
+  height: 25vw;
+  width: 5vw;
+  top: 7vw;
+  position: absolute;
+  right: 11vw;
 }
 
-.divContact .what {
+.contact .what {
   width: 2.7vw;
   height: 2.7vw;
   cursor: pointer;
 }
 
-.divContact .mail {
+.contact .mail {
   cursor: pointer;
   width: 2.2vw;
   height: 2vw;
   margin-top: 0.3vw;
 }
-.divContact .message {
+.contact .message {
   cursor: pointer;
   width: 2.4vw;
   height: 2.4vw;
 }
-.divContact .phone {
+.contact .phone {
   cursor: pointer;
   width: 2.2vw;
   height: 2.2vw;

@@ -40,10 +40,10 @@
 .bar .filterArea {
   height: 50px;
   width: 100%;
-  margin: 10px auto;
-  background-color: rgb(40, 0, 151);
-  position: sticky;
-  top: 0;
+  margin: 10px auto 0px;
+  background-color: rgb(28, 2, 99);
+  /* position: sticky;
+  top: 0; */
   border-bottom: rgb(222, 241, 255) 9px solid;
   display: flex;
   justify-content: center;

@@ -1,15 +1,11 @@
-.apartmentShow .divMaps {
+.apartmentShow .divMore {
   position: absolute;
   height: 30vw;
   width: 72%;
   left: 10%;
 }
 
-.divMaps .imgmarker {
-  width: 20px;
-}
-
-.divMaps .headerMap {
+.divMore .headerMore {
   width: 12vw;
   height: 2.5vw;
   background-color: rgb(16, 0, 61);
@@ -23,7 +19,7 @@
   justify-content: center;
 }
 
-.divMaps .headerMap:after {
+.divMore .headerMore:after {
   border-radius: 1.5vw 1.5vw 0vw 0vw;
   content: "";
   position: absolute;
@@ -35,18 +31,17 @@
   background: rgb(16, 0, 61);
 }
 
-.divMaps .headerMap1 {
+.divMore .headerMore1 {
   border: rgb(214, 174, 255) 0.2vw solid;
   color: rgb(214, 174, 255);
 }
 
-.divMaps .map {
+.divMore .more {
   width: calc(100% - 0.4vw);
   position: absolute;
   top: 2.9vw;
-  border: rgb(16, 0, 61) 0.2vw solid;
   border-top: rgb(16, 0, 61) 0.5vw solid;
   color: rgb(24, 0, 90);
   font-weight: 700;
-  height: 25vw;
+  /* height: 25vw; */
 }

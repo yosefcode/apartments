@@ -1,5 +1,5 @@
 import "./filter.css";
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import axios from "axios";
 // import Mater from "../select";
 import { makeStyles } from "@material-ui/core/styles";
@@ -11,6 +11,7 @@ import ListItemText from "@material-ui/core/ListItemText";
 import Select from "@material-ui/core/Select";
 import Checkbox from "@material-ui/core/Checkbox";
 import { Button } from "@material-ui/core";
+import { AppContext } from "../../variable-Context";
 
 const useStyles = makeStyles((theme) => ({
   formControl: {
@@ -41,12 +42,13 @@ const MenuProps = {
   },
 };
 
-function Filter({ filter, setFilter }) {
+function Filter({ setFilter }) {
   const classes = useStyles();
   const [personName, setPersonName] = useState([]);
   const [amountOfBeds, setamountOfBeds] = useState([]);
   const [area1, setarea1] = useState([]);
   const [listOfCities, setListOfCities] = useState([]);
+  const { filter } = useContext(AppContext);
 
   useEffect(() => {
     axios.get("/api/list/").then((res) => {

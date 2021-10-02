@@ -24,7 +24,7 @@
 }
 .apartmentShow .divCarousel {
   width: 100%;
-  height: 52vw;
+  height: 51vw;
   position: relative;
 }
 
@@ -32,21 +32,21 @@
   margin-top: 3vw;
   padding: 5px;
   width: 100%;
-  height: 35vw;
+  height: 38vw;
   position: relative;
 }
 
 .apartmentShow .divMap {
-  margin-top: 6vw;
+  margin-top: 3vw;
   padding: 5px;
   width: 100%;
-  height: 25vw;
+  height: 29vw;
   position: relative;
 }
 .apartmentShow .divMoreApartment {
-  margin-top: 6vw;
+  margin-top: 3vw;
   padding: 5px;
   width: 100%;
-  height: 10vw;
+  height: 80vw;
   position: relative;
 }

@@ -48,16 +48,17 @@
 
 .divAllBoxApartment {
   width: 100%;
-  position: relative;
   /* background-color: blue; */
 }
 .boxApartment {
+  position: relative;
   display: inline-block;
-  margin: 1vw;
+  margin: 1.5%;
   width: 30%;
-  height: 20vw;
+  height: 30vw;
+  border: 1px black solid;
 }
 .imgApartment {
   width: 100%;
-  height: auto;
+  height: 12vw;
 }

@@ -23,11 +23,11 @@ function App() {
     <div className="App" dir="rtl">
       <AppContext.Provider value={globalVariable}>
         <Router>
-          <Bar filter={filter} setFilter={setFilter} />
+          <Bar />
           <Switch>
             <Route exact path="/">
-              <Home filter={filter} setFilter={setFilter} />
-              <Filter setFilter={setFilter} />
+              <Home />
+              <Filter />
             </Route>
 
             <Route path="/send/">
@@ -35,7 +35,7 @@ function App() {
             </Route>
 
             <Route exact path="/:id">
-              <ApartmentShow setFilter={setFilter} filter={filter} />
+              <ApartmentShow />
             </Route>
           </Switch>
         </Router>

@@ -1,6 +1,6 @@
 .apartmentShow .divMore {
   position: absolute;
-  height: 30vw;
+  /* height: 30vw; */
   width: 72%;
   left: 10%;
 }
@@ -44,4 +44,20 @@
   color: rgb(24, 0, 90);
   font-weight: 700;
   /* height: 25vw; */
+}
+
+.divAllBoxApartment {
+  width: 100%;
+  position: relative;
+  /* background-color: blue; */
+}
+.boxApartment {
+  display: inline-block;
+  margin: 1vw;
+  width: 30%;
+  height: 20vw;
+}
+.imgApartment {
+  width: 100%;
+  height: auto;
 }

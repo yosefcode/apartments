@@ -1,21 +1,27 @@
 // import "./moreApartment.css";
-// import React, { useState, useEffect } from "react";
+// import React, { useState, useEffect, useContext } from "react";
 // import Apartment from "../../apartment/apartment";
+// import { AppContext } from "../../../variable-Context";
 
-// const MoreApartment = ({ apartmentShow, setFilter, filter }) => {
+// const MoreApartment = ({ apartmentShow }) => {
+//   const { filter, setFilter } = useContext(AppContext);
+
 //   const area = { area: apartmentShow.map((area) => area.area) };
 
 //   // eslint-disable-next-line react-hooks/exhaustive-deps
-//   useEffect(async () => {
-//     await setFilter({ area: ["צפון"] });
-//   }, [setFilter]);
+//   useEffect(() => {
+//     setFilter({ area: ["צפון"] });
+//   }, []);
 //   console.log("a", filter);
 //   console.log("b", area);
 
 //   return (
 //     <div className="divMore">
 //       <div className="headerMore headerMore1">דירות באיזור</div>
-//       <div className="more">{filter && <Apartment />} </div>
+//       <div className="more">
+//         {" "}
+//         <Apartment />{" "}
+//       </div>
 //     </div>
 //   );
 // };
@@ -23,12 +29,15 @@
 // export default MoreApartment;
 
 import "./moreApartment.css";
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import Apartment from "../../apartment/apartment";
 import axios from "axios";
 import { Link } from "react-router-dom";
+import { AppContext } from "../../../variable-Context";
 
-const MoreApartment = ({ apartmentShow, setFilter, filter }) => {
+const MoreApartment = ({ apartmentShow }) => {
+  const { filter, setFilter } = useContext(AppContext);
+
   // eslint-disable-next-line react-hooks/exhaustive-deps
   const area = { area: apartmentShow.map((area) => area.area) };
 
@@ -44,13 +53,17 @@ const MoreApartment = ({ apartmentShow, setFilter, filter }) => {
     <div className="divMore">
       <div className="headerMore headerMore1">דירות באיזור</div>
       <div className="more">
-        <div>
+        <div className="divAllBoxApartment">
           {" "}
           {list.map((list) => (
             <Link to={"/" + list._id} target="_blank">
-              <div className="box" key={list._id}>
+              <div className="boxApartment" key={list._id}>
                 <div>
-                  <img className="imgaa" src={list.firstImage} alt=""></img>
+                  <img
+                    className="imgApartment"
+                    src={list.firstImage}
+                    alt=""
+                  ></img>
                 </div>
                 <div>
                   דירת {list.rooms} חדרים - ב{list.city}

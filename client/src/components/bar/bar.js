@@ -1,7 +1,11 @@
 import "./bar.css";
+import React, { useState, useEffect, useContext } from "react";
 import FilterArea from "../filterArea/filterArea";
+import { AppContext } from "../../variable-Context";
 
-const Bar = ({ setFilter }) => {
+const Bar = () => {
+  const { filter, setFilter } = useContext(AppContext);
+
   return (
     <div className="bar">
       <div className="allURL">

@@ -1,7 +1,12 @@
 import "./filterArea.css";
-import { Link } from "react-router-dom";
+import React, { useState, useEffect, useContext } from "react";
 
-function FilterArea({ setFilter }) {
+import { Link } from "react-router-dom";
+import { AppContext } from "../../variable-Context";
+
+function FilterArea() {
+  const { filter, setFilter } = useContext(AppContext);
+
   const listArea = [
     { area: "בצפון", filter: "צפון" },
     { area: "במרכז", filter: "מרכז" },

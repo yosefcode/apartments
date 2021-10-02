@@ -42,13 +42,13 @@ const MenuProps = {
   },
 };
 
-function Filter({ setFilter }) {
+function Filter() {
   const classes = useStyles();
   const [personName, setPersonName] = useState([]);
   const [amountOfBeds, setamountOfBeds] = useState([]);
   const [area1, setarea1] = useState([]);
   const [listOfCities, setListOfCities] = useState([]);
-  const { filter } = useContext(AppContext);
+  const { filter, setFilter } = useContext(AppContext);
 
   useEffect(() => {
     axios.get("/api/list/").then((res) => {

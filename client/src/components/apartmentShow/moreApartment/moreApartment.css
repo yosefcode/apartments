@@ -53,10 +53,11 @@
 .boxApartment {
   position: relative;
   display: inline-block;
-  margin: 1.5%;
-  width: 30%;
+  margin: 2.3%;
+  width: 28%;
   height: 30vw;
-  border: 1px black solid;
+  border: 0.15vw rgb(16, 0, 61) solid;
+  box-shadow: 0 0 1.5vw rgb(16, 0, 61);
 }
 .imgApartment {
   width: 100%;

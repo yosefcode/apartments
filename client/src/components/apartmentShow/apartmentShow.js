@@ -9,8 +9,9 @@ import Info from "./info/info";
 import Contact from "./contact/contact";
 import Header from "./header/header";
 import MoreApartment from "./moreApartment/moreApartment";
+import FilterArea from "../filterArea/filterArea";
 
-function ApartmentShow({ setFilter, filter }) {
+function ApartmentShow() {
   const { id } = useParams();
 
   const [apartmentShow, setApartmentShow] = useState([]);
@@ -23,6 +24,10 @@ function ApartmentShow({ setFilter, filter }) {
 
   return (
     <div className="apartmentShow">
+      <div className="filterArea">
+        <FilterArea />
+      </div>
+
       <div className="divHeader">
         <Header apartmentShow={apartmentShow} />
         <Contact apartmentShow={apartmentShow} />
@@ -42,11 +47,7 @@ function ApartmentShow({ setFilter, filter }) {
       </div>
 
       <div className="divMoreApartment">
-        <MoreApartment
-          apartmentShow={apartmentShow}
-          setFilter={setFilter}
-          filter={filter}
-        />
+        <MoreApartment apartmentShow={apartmentShow} />
       </div>
     </div>
   );

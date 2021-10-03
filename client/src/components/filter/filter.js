@@ -16,8 +16,8 @@ import { AppContext } from "../../variable-Context";
 const useStyles = makeStyles((theme) => ({
   formControl: {
     margin: theme.spacing(1),
-    minWidth: 200,
-    maxWidth: 200,
+    minWidth: "80%",
+    maxWidth: "80%",
   },
   chips: {
     display: "flex",

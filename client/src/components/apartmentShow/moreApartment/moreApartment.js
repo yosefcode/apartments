@@ -30,13 +30,12 @@
 
 import "./moreApartment.css";
 import React, { useState, useEffect, useContext } from "react";
-import Apartment from "../../apartment/apartment";
 import axios from "axios";
 import { Link } from "react-router-dom";
-import { AppContext } from "../../../variable-Context";
+// import { AppContext } from "../../../variable-Context";
 
 const MoreApartment = ({ apartmentShow }) => {
-  const { filter, setFilter } = useContext(AppContext);
+  // const { filter, setFilter } = useContext(AppContext);
 
   // eslint-disable-next-line react-hooks/exhaustive-deps
   const area = { area: apartmentShow.map((area) => area.area) };

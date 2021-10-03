@@ -3,6 +3,7 @@ import React, { useState, useEffect, useContext } from "react";
 
 import { Link } from "react-router-dom";
 import { AppContext } from "../../variable-Context";
+import ShowFavorite from "../showFavorite/showFavorite";
 
 function FilterArea() {
   const { filter, setFilter } = useContext(AppContext);
@@ -16,19 +17,24 @@ function FilterArea() {
   ];
 
   return (
-    <div>
-      {listArea.map((area) => (
-        <Link to={"/"}>
-          <button
-            className="btnarea"
-            onClick={() => {
-              setFilter({ area: [area.filter] });
-            }}
-          >
-            דירות {area.area}{" "}
-          </button>
-        </Link>
-      ))}
+    <div className="filterArea">
+      <div>
+        {listArea.map((area) => (
+          <Link to={"/"}>
+            <button
+              className="btnarea"
+              onClick={() => {
+                setFilter({ area: [area.filter] });
+              }}
+            >
+              דירות {area.area}{" "}
+            </button>
+          </Link>
+        ))}
+      </div>
+      <div className="divShowFavorite">
+        <ShowFavorite />
+      </div>
     </div>
   );
 }

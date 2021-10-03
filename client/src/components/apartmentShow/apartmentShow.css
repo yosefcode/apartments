@@ -50,3 +50,20 @@
   height: 80vw;
   position: relative;
 }
+
+.apartmentShow .filterArea {
+  height: 50px;
+  width: 100%;
+  margin: 10px auto 0px;
+  background-color: rgb(28, 2, 99);
+  /* position: sticky;
+  top: 0; */
+  border-bottom: rgb(222, 241, 255) 9px solid;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  font-size: 20px;
+  font-weight: 700;
+  z-index: 100;
+}

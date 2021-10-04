@@ -1,4 +1,4 @@
-import "./favoriteIcon.css";
+import "./addFavorite.css";
 import React, { useState, useEffect } from "react";
 import { FavoriteBorder, Favorite } from "@mui/icons-material/";
 
@@ -10,6 +10,7 @@ function FavoriteIcon({ listID }) {
   const [iconFavorite, setIconFavorite] = useState(notFavorite);
 
   const findFavorite = listFavorite.find((favorite) => favorite === listID);
+  // console.log(listID);
 
   useEffect(() => {
     if (findFavorite) {

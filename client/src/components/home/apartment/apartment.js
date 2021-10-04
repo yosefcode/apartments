@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 import { AppContext } from "../../../variable-Context";
 import Carousel from "react-gallery-carousel";
 import "react-gallery-carousel/dist/index.css";
-import FavoriteIcon from "./favoriteIcon/favoriteIcon";
+import FavoriteIcon from "./favoriteIcon/addFavorite";
 
 function Apartment() {
   let [list, setList] = useState([]);

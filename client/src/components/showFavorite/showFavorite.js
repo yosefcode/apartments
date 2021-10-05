@@ -22,7 +22,7 @@ function ShowFavorite() {
     // } else {
     //   setIconFavorite(notFavorite);
     // }
-  }, [listIDForFavorite]);
+  }, [!listIDForFavorite]);
 
   return (
     <div>

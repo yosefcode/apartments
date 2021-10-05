@@ -13,7 +13,7 @@
     "nodemon": "^2.0.6"
   },
   "scripts": {
-    "starta": "concurrently \"nodemon server.js\" \"cd client && npm start\"",
+    "starts": "concurrently \"nodemon server.js\" \"cd client && npm start\"",
     "start": "nodemon server.js",
     "build": "react-scripts build",
     "test": "react-scripts test",

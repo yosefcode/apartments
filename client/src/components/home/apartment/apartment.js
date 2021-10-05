@@ -46,7 +46,7 @@ function Apartment() {
               />
             </div>
             <div className="divFavoriteIcon">
-              <FavoriteIcon listID={list._id} />
+              <FavoriteIcon apartmentForFavorite={list} />
             </div>
             <Link className="link" to={"/" + list._id} target="_blank">
               {/* <div>

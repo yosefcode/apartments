@@ -15,6 +15,7 @@ function App() {
   //   };
   const [filter, setFilter] = useState({});
   let [list, setList] = useState([]);
+  let [listIDForFavorite, setListIDForFavorite] = useState([]);
 
   // useEffect(() => {
   //   axios.post(`/api/list/filter/`, filter).then((res) => {
@@ -25,17 +26,33 @@ function App() {
   //   });
   // }, [filter]);
 
+  // useEffect(() => {
+  //   axios.get("/api/list/").then((res) => {
+  //     setList(res.data);
+  //   });
+  // });
+  var listFavoriteLocalStorage =
+    JSON.parse(localStorage.getItem(`favorite`)) || [];
+
   useEffect(() => {
-    axios.get("/api/list/").then((res) => {
-      setList(res.data);
-    });
-  });
+    // console.log(vorite);
+    setListIDForFavorite(listFavoriteLocalStorage);
+    // setListIDForFavorite(JSON.parse(localStorage.getItem(`favorite`)));
+
+    // if (findFavorite) {
+    //   setIconFavorite(favorite);
+    // } else {
+    //   setIconFavorite(notFavorite);
+    // }
+  }, [listIDForFavorite]);
 
   const globalVariable = {
     filter: filter,
     setFilter: (value) => setFilter(value),
     list: list,
     setList: (value) => setList(value),
+    listIDForFavorite: listIDForFavorite,
+    setListIDForFavorite: (value) => setListIDForFavorite(value),
   };
 
   return (

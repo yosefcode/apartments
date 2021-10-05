@@ -9,7 +9,7 @@ import FavoriteIcon from "./favoriteIcon/addFavorite";
 
 function Apartment() {
   let [list, setList] = useState([]);
-  const { filter, setFilter } = useContext(AppContext);
+  const { filter, setListIDForFavorite } = useContext(AppContext);
 
   useEffect(() => {
     axios.post(`/api/list/filter/`, filter).then((res) => {

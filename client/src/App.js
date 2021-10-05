@@ -16,20 +16,20 @@ function App() {
   const [filter, setFilter] = useState({});
   let [list, setList] = useState([]);
 
-  useEffect(() => {
-    axios.post(`/api/list/filter/`, filter).then((res) => {
-      const getFilter = () => {
-        setList(res.data);
-      };
-      res.data < 1 ? getData() : getFilter();
-    });
-  }, [filter]);
+  // useEffect(() => {
+  //   axios.post(`/api/list/filter/`, filter).then((res) => {
+  //     const getFilter = () => {
+  //       setList(res.data);
+  //     };
+  //     res.data < 1 ? getData() : getFilter();
+  //   });
+  // }, [filter]);
 
-  const getData = () => {
+  useEffect(() => {
     axios.get("/api/list/").then((res) => {
       setList(res.data);
     });
-  };
+  });
 
   const globalVariable = {
     filter: filter,

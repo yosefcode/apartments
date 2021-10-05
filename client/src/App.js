@@ -31,20 +31,20 @@ function App() {
   //     setList(res.data);
   //   });
   // });
-  var listFavoriteLocalStorage =
-    JSON.parse(localStorage.getItem(`favorite`)) || [];
+  // var listFavoriteLocalStorage =
+  //   JSON.parse(localStorage.getItem(`favorite`)) || [];
 
-  useEffect(() => {
-    // console.log(vorite);
-    setListIDForFavorite(listFavoriteLocalStorage);
-    // setListIDForFavorite(JSON.parse(localStorage.getItem(`favorite`)));
+  // useEffect(() => {
+  //   // console.log(vorite);
+  //   setListIDForFavorite(listFavoriteLocalStorage);
+  //   // setListIDForFavorite(JSON.parse(localStorage.getItem(`favorite`)));
 
-    // if (findFavorite) {
-    //   setIconFavorite(favorite);
-    // } else {
-    //   setIconFavorite(notFavorite);
-    // }
-  }, [listIDForFavorite]);
+  //   // if (findFavorite) {
+  //   //   setIconFavorite(favorite);
+  //   // } else {
+  //   //   setIconFavorite(notFavorite);
+  //   // }
+  // }, []);
 
   const globalVariable = {
     filter: filter,

@@ -30,7 +30,7 @@ function FavoriteIcon({ apartmentForFavorite }) {
     // }
 
     setIconFavorite(findFavorite ? favorite : notFavorite);
-  }, [findFavorite]);
+  }, [findFavorite, listIDForFavorite]);
   // console.log(findFavorite);
 
   const changeFavorite = () => {

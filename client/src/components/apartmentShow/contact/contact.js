@@ -2,6 +2,7 @@ import "./contact.css";
 import React, { useState, useEffect } from "react";
 import what from "./img/WhatsApp.png";
 import phone from "./img/phone.png";
+import AddFavorite from "../../home/apartment/favoriteIcon/addFavorite";
 import { AlternateEmail, Language, Message } from "@mui/icons-material";
 
 function Contact({ apartmentShow }) {
@@ -58,6 +59,7 @@ function Contact({ apartmentShow }) {
           }}
         />
       </a>
+      <AddFavorite apartmentForFavorite={apartment} />
     </div>
   ));
 }

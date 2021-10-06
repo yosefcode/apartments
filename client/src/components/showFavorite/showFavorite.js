@@ -2,15 +2,16 @@ import "./showFavorite.css";
 import React, { useState, useEffect, useContext } from "react";
 import { Favorite } from "@mui/icons-material/";
 import { Link } from "react-router-dom";
-import CancelIcon from "@mui/icons-material/Cancel";
+import { Cancel, ArrowBack } from "@mui/icons-material/";
 import { AppContext } from "../../variable-Context";
 
 function ShowFavorite() {
   const { listIDForFavorite, setListIDForFavorite } = useContext(AppContext);
 
-  const [divFavorite, setDivFavorite] = useState(false);
   var listFavoriteLocalStorage =
     JSON.parse(localStorage.getItem(`favorite`)) || [];
+  // var listFavoriteLocalStorage =
+  //   JSON.parse(localStorage.getItem(`favorite`)) || [];
 
   useEffect(() => {
     // console.log(vorite);
@@ -24,70 +25,77 @@ function ShowFavorite() {
     // }
   }, [!listIDForFavorite]);
 
+  const onmouseOver = () => {
+    setListIDForFavorite(listFavoriteLocalStorage);
+
+    // console.log("jjjjj");
+  };
+  const onmouseOut = () => {
+    // console.log("jjjjj");
+  };
+
   return (
     <div>
-      <div className="showFavorite">
+      <div
+        className="showFavorite"
+        onMouseOver={onmouseOver}
+        // onMouseOut={onmouseOut}
+      >
         <Favorite
+          // onMouseOver={onmouseOver}
+          // onMouseOut={onmouseOut}
           className="iconShowFavorite"
-          onClick={() => {
-            divFavorite === false
-              ? setDivFavorite(true)
-              : setDivFavorite(false);
-          }}
-        />
-      </div>
-      <div>
-        {divFavorite && (
-          <div className="divAllFavorite">
+        ></Favorite>
+        <div className="amountFavorite">{listIDForFavorite.length}</div>
+        <div className="divAllFavorite">
+          <Link className="link" to={"/myfavorite/"} target="_blank">
             <div className="haederShowFavorite">
-              <CancelIcon
-                onClick={() => {
-                  setDivFavorite(false);
-                }}
+              <ArrowBack
+                // onClick={() => {
+                //   setDivFavorite(false);
+                // }}
                 className="iconClose"
               />{" "}
               המועדפים שלי
             </div>
-            <div className="contentShowFavorite">
-              {listIDForFavorite.length < 1 ? (
-                <div className="boxApartmentFavorite">אין מועדפים</div>
-              ) : (
-                listIDForFavorite.map((list) => (
-                  <div className="boxApartmentFavorite" key={list._id}>
-                    <CancelIcon
-                      onClick={() => {
-                        // setListIDForFavorite(list._id);
-                        const removeFavorite = JSON.parse(
-                          localStorage.getItem(`favorite`)
-                        ).filter((favorite) => list._id !== favorite._id);
-                        localStorage.setItem(
-                          `favorite`,
-                          JSON.stringify(removeFavorite)
-                        );
-                        setListIDForFavorite(
-                          JSON.parse(localStorage.getItem(`favorite`))
-                        );
-                      }}
-                      className="iconDelete"
-                    />{" "}
-                    <Link className="link" to={"/" + list._id} target="_blank">
-                      <img
-                        className="imgApartmentFavorite"
-                        src={list.firstImage}
-                        alt=""
-                      ></img>
+          </Link>
+          <div className="contentShowFavorite">
+            {listIDForFavorite.length < 1 ? (
+              <div className="boxApartmentFavorite">אין מועדפים</div>
+            ) : (
+              listIDForFavorite.map((list) => (
+                <div className="boxApartmentFavorite" key={list._id}>
+                  <Cancel
+                    onClick={() => {
+                      const removeFavorite = listFavoriteLocalStorage.filter(
+                        (favorite) => list._id !== favorite._id
+                      );
+                      localStorage.setItem(
+                        `favorite`,
+                        JSON.stringify(removeFavorite)
+                      );
+                      setListIDForFavorite(listFavoriteLocalStorage);
+                    }}
+                    className="iconDelete"
+                  />{" "}
+                  <Link className="link" to={"/" + list._id} target="_blank">
+                    <img
+                      className="imgApartmentFavorite"
+                      src={list.firstImage}
+                      alt=""
+                    ></img>
 
-                      <div className="infoApartmentFavorite">
-                        נופש חלומי ב{list.city}
-                        <br /> {list.city}. {list.phone}
-                      </div>
-                    </Link>
-                  </div>
-                ))
-              )}{" "}
-            </div>
+                    <div className="infoApartmentFavorite">
+                      נופש חלומי ב{list.city}
+                      <br /> {list.city}. {list.phone}
+                    </div>
+                  </Link>
+                </div>
+              ))
+            )}{" "}
           </div>
-        )}
+        </div>
+        {/* )} */}
       </div>
     </div>
   );

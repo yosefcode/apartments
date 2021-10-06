@@ -70,6 +70,10 @@ function App() {
               <Kesher />
             </Route>
 
+            <Route path="/myfavorite/">
+              <Kesher />
+            </Route>
+
             <Route exact path="/:id">
               <ApartmentShow />
             </Route>

@@ -3,7 +3,7 @@ import React, { useState, useEffect, useContext } from "react";
 
 import { Link } from "react-router-dom";
 import { AppContext } from "../../variable-Context";
-import ShowFavorite from "../showFavorite/showFavorite";
+import ShowFavorite from "../favorite/showFavorite/showFavorite";
 
 function FilterArea() {
   const { filter, setFilter } = useContext(AppContext);

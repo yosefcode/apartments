@@ -3,7 +3,7 @@ import React, { useState, useEffect, useContext } from "react";
 import { Favorite } from "@mui/icons-material/";
 import { Link } from "react-router-dom";
 import { Cancel, ArrowBack } from "@mui/icons-material/";
-import { AppContext } from "../../variable-Context";
+import { AppContext } from "../../../variable-Context";
 
 function ShowFavorite() {
   const { listIDForFavorite, setListIDForFavorite } = useContext(AppContext);
@@ -44,7 +44,11 @@ function ShowFavorite() {
         <Favorite
           // onMouseOver={onmouseOver}
           // onMouseOut={onmouseOut}
-          className="iconShowFavorite"
+          className={
+            listIDForFavorite.length > 0
+              ? "iconShowFavorite"
+              : "iconShowFavorite1"
+          }
         ></Favorite>
         <div className="amountFavorite">{listIDForFavorite.length}</div>
         <div className="divAllFavorite">
@@ -81,12 +85,12 @@ function ShowFavorite() {
                   <Link className="link" to={"/" + list._id} target="_blank">
                     <img
                       className="imgApartmentFavorite"
-                      src={list.firstImage}
+                      src={list.images[0]}
                       alt=""
                     ></img>
 
                     <div className="infoApartmentFavorite">
-                      נופש חלומי ב{list.city}
+                      {list.name}
                       <br /> {list.city}. {list.phone}
                     </div>
                   </Link>

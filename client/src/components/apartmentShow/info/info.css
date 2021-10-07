@@ -1,8 +1,8 @@
 .apartmentShow .information {
   position: absolute;
   height: 30vw;
-  width: 72%;
-  left: 10%;
+  width: 60%;
+  right: 18vw;
 }
 
 .apartmentShow .headerInfo {

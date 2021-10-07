@@ -1,36 +1,19 @@
-import "./apartment.css";
+import "./apartment-myFavorite-page.css";
 import React, { useState, useEffect, useContext } from "react";
-import axios from "axios";
 import { Link } from "react-router-dom";
-import { AppContext } from "../../../variable-Context";
 import Carousel from "react-gallery-carousel";
 import "react-gallery-carousel/dist/index.css";
-import FavoriteIcon from "../../favorite/addToFavorite/addToFavorite";
+import AddToFavorite from "../../addToFavorite/addToFavorite";
 
 function Apartment() {
-  let [list, setList] = useState([]);
-  const { filter, setListIDForFavorite } = useContext(AppContext);
-
-  useEffect(() => {
-    axios.post(`/api/list/filter/`, filter).then((res) => {
-      const getFilter = () => {
-        setList(res.data);
-      };
-      res.data < 1 ? getData() : getFilter();
-    });
-  }, [filter]);
-
-  const getData = () => {
-    axios.get("/api/list/").then((res) => {
-      setList(res.data);
-    });
-  };
+  var listFavoriteLocalStorage =
+    JSON.parse(localStorage.getItem(`favorite`)) || [];
 
   return (
     <div className="allApartments">
       <div>
         {" "}
-        {list.map((list) => (
+        {listFavoriteLocalStorage.map((list) => (
           <div className="boxApartmentHome" key={list._id}>
             <div dir="ltr" className="carouselApartment">
               <Carousel
@@ -46,7 +29,7 @@ function Apartment() {
               />
             </div>
             <div className="divFavoriteIcon">
-              <FavoriteIcon apartmentForFavorite={list} />
+              <AddToFavorite apartmentForFavorite={list} />
             </div>
             <Link className="link" to={"/" + list._id} target="_blank">
               {/* <div>

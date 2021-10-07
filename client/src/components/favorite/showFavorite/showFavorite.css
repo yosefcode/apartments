@@ -9,8 +9,11 @@
 }
 .iconShowFavorite {
   font-size: 3vw !important;
-  cursor: pointer;
   color: red;
+}
+.iconShowFavorite1 {
+  font-size: 3vw !important;
+  color: rgb(255, 255, 255);
 }
 .amountFavorite {
   display: flex;
@@ -23,6 +26,7 @@
   position: absolute;
   top: 0;
   left: 0;
+  cursor: pointer;
 }
 
 .showFavorite:hover .divAllFavorite {

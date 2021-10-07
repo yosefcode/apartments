@@ -60,7 +60,7 @@ const MoreApartment = ({ apartmentShow }) => {
                 <div>
                   <img
                     className="imgApartment"
-                    src={list.firstImage}
+                    src={list.images[0]}
                     alt=""
                   ></img>
                 </div>

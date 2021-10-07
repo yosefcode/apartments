@@ -6,6 +6,7 @@ import Home from "./components/home/home";
 import Kesher from "./components/kesher/kesher";
 import Bar from "./components/bar/bar";
 import ApartmentShow from "./components/apartmentShow/apartmentShow";
+import MyFavoritePage from "./components/favorite/myFavorite-page/myFavorite-page";
 import { AppContext } from "./variable-Context";
 import axios from "axios";
 
@@ -71,7 +72,7 @@ function App() {
             </Route>
 
             <Route path="/myfavorite/">
-              <Kesher />
+              <MyFavoritePage />
             </Route>
 
             <Route exact path="/:id">

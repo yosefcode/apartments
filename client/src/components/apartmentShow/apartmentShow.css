@@ -5,14 +5,6 @@
   width: 100%;
 }
 
-.apartmentShow .divContact {
-  position: sticky;
-  top: 15vw;
-  right: 11vw;
-  z-index: 10;
-  width: 5vw;
-  height: 30vw;
-}
 .apartmentShow .divHeader {
   position: sticky;
   top: 0vw;
@@ -24,7 +16,7 @@
 }
 .apartmentShow .divCarousel {
   width: 100%;
-  height: 51vw;
+  height: 43vw;
   position: relative;
 }
 
@@ -52,7 +44,7 @@
 }
 
 .apartmentShow .filterArea {
-  height: 50px;
+  height: 4vw;
   width: 100%;
   margin: 10px auto 0px;
   background-color: rgb(28, 2, 99);

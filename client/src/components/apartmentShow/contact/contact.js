@@ -2,7 +2,7 @@ import "./contact.css";
 import React, { useState, useEffect } from "react";
 import what from "./img/WhatsApp.png";
 import phone from "./img/phone.png";
-import AddFavorite from "../../home/apartment/favoriteIcon/addFavorite";
+import AddToFavorite from "../../favorite/addToFavorite/addToFavorite";
 import { AlternateEmail, Language, Message } from "@mui/icons-material";
 
 function Contact({ apartmentShow }) {
@@ -35,7 +35,7 @@ function Contact({ apartmentShow }) {
       />
 
       <a
-        href={`https://mail.google.com/mail/?view=cm&fs=1&to=${apartment.phone}@gmail.com`}
+        href={`https://mail.google.com/mail/?view=cm&fs=1&to=${apartment.mail}`}
         target="_blank"
         rel="noreferrer"
       >
@@ -59,7 +59,7 @@ function Contact({ apartmentShow }) {
           }}
         />
       </a>
-      <AddFavorite apartmentForFavorite={apartment} />
+      <AddToFavorite apartmentForFavorite={apartment} />
     </div>
   ));
 }

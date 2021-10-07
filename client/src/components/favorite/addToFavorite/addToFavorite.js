@@ -1,9 +1,9 @@
-import "./addFavorite.css";
+import "./addToFavorite.css";
 import React, { useState, useEffect, useContext } from "react";
 import { FavoriteBorder, Favorite } from "@mui/icons-material/";
-import { AppContext } from "../../../../variable-Context";
+import { AppContext } from "../../../variable-Context";
 
-function FavoriteIcon({ apartmentForFavorite }) {
+function AddToFavorite({ apartmentForFavorite }) {
   const { listIDForFavorite, setListIDForFavorite } = useContext(AppContext);
 
   var listFavorite = JSON.parse(localStorage.getItem(`favorite`)) || [];
@@ -57,4 +57,4 @@ function FavoriteIcon({ apartmentForFavorite }) {
   return <div onClick={changeFavorite}>{iconFavorite} </div>;
 }
 
-export default FavoriteIcon;
+export default AddToFavorite;

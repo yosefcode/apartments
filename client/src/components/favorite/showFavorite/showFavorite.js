@@ -1,6 +1,6 @@
 import "./showFavorite.css";
 import React, { useState, useEffect, useContext } from "react";
-import { Favorite } from "@mui/icons-material/";
+import { FavoriteBorder, Favorite } from "@mui/icons-material/";
 import { Link } from "react-router-dom";
 import { Cancel, ArrowBack } from "@mui/icons-material/";
 import { AppContext } from "../../../variable-Context";
@@ -45,12 +45,12 @@ function ShowFavorite() {
           // onMouseOver={onmouseOver}
           // onMouseOut={onmouseOut}
           className={
-            listIDForFavorite.length > 0
+            listFavoriteLocalStorage.length > 0
               ? "iconShowFavorite"
               : "iconShowFavorite1"
           }
         ></Favorite>
-        <div className="amountFavorite">{listIDForFavorite.length}</div>
+        <div className="amountFavorite">{listFavoriteLocalStorage.length}</div>
         <div className="divAllFavorite">
           <Link className="link" to={"/myfavorite/"} target="_blank">
             <div className="haederShowFavorite">
@@ -64,8 +64,15 @@ function ShowFavorite() {
             </div>
           </Link>
           <div className="contentShowFavorite">
-            {listIDForFavorite.length < 1 ? (
-              <div className="boxApartmentFavorite">אין מועדפים</div>
+            {listFavoriteLocalStorage.length < 1 ? (
+              <div className="infoError">
+                אין כאן עדיין מועדפים &#128542;
+                <br />
+                <br /> ניתן להוסיף ע"י לחיצה על{" "}
+                <FavoriteBorder className="iconError" /> הנמצא בכל מודעה.
+                <br />
+                <br /> כך תוכלו למצוא תמיד את המודעות שאהבתם.
+              </div>
             ) : (
               listIDForFavorite.map((list) => (
                 <div className="boxApartmentFavorite" key={list._id}>

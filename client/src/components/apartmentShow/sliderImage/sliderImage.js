@@ -9,7 +9,7 @@ function SliderImage({ apartmentShow }) {
         <Carousel
           isLoop={true}
           isAutoPlaying={true}
-          autoPlayInterval={5000}
+          autoPlayInterval={10000}
           transitionDurationMin={1000}
           // // hasIndexBoard={false}
           hasMediaButton={false}

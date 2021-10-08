@@ -96,3 +96,19 @@
   text-align: center;
   color: rgb(28, 2, 99);
 }
+.infoError {
+  font-size: 1.1vw;
+  font-weight: 700;
+  line-height: 2vw;
+  text-align: center;
+  color: rgb(28, 2, 99);
+  margin: 2vw;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+}
+.iconError {
+  font-size: 1.5vw !important;
+  color: red !important;
+}

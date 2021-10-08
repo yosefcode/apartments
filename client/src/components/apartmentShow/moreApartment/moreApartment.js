@@ -32,52 +32,51 @@ import "./moreApartment.css";
 import React, { useState, useEffect, useContext } from "react";
 import axios from "axios";
 import { Link } from "react-router-dom";
-// import { AppContext } from "../../../variable-Context";
+import AddToFavorite from "../../favorite/addToFavorite/addToFavorite";
 
 const MoreApartment = ({ apartmentShow }) => {
   // const { filter, setFilter } = useContext(AppContext);
 
-  // eslint-disable-next-line react-hooks/exhaustive-deps
-  const area = { area: apartmentShow.map((area) => area.area) };
+  const area = apartmentShow.map((area) => area.area);
 
-  let [list, setList] = useState([]);
+  let [apartment, setApartment] = useState([]);
 
   useEffect(() => {
-    axios.post(`/api/list/filter/`, area).then((res) => {
-      setList(res.data);
+    axios.post(`/api/list/filter/`, { area: area }).then((res) => {
+      setApartment(res.data);
     });
   }, [area]);
 
   return (
     <div className="divMore">
-      <div className="headerMore headerMore1">דירות באיזור</div>
+      <div className="headerMore headerMore1"> דירות באיזור ה{area}</div>
       <div className="more">
         <div className="divAllBoxApartment">
           {" "}
-          {list.map((list) => (
-            <Link to={"/" + list._id} target="_blank">
-              <div className="boxApartment" key={list._id}>
+          {apartment.map((apartment) => (
+            <div className="boxApartment" key={apartment._id}>
+              <div className="addToFavorite">
+                <AddToFavorite apartmentForFavorite={apartment} />
+              </div>
+              <Link className="link" to={"/" + apartment._id} target="_blank">
                 <div>
                   <img
                     className="imgApartment"
-                    src={list.images[0]}
+                    src={apartment.images[0]}
                     alt=""
                   ></img>
                 </div>
-                <div>
-                  דירת {list.rooms} חדרים - ב{list.city}
-                  <br />
-                  עד {list.beds} מיטות
-                  <br />
-                  {list.short}
+                <div className="infoApartment">
+                  <div className="nameApartment">{apartment.name}</div>
+                  <div className="location">{apartment.city}</div>
+                  <div className="beds"> עד {apartment.beds} מיטות</div>
+                  <div className="price">
+                    החל מ- {apartment.price} ש"ח ל{apartment.priceMethod}
+                  </div>
+                  <div className="phone">{apartment.phone}</div>
                 </div>
-                <div>
-                  החל מ{list.price} ש"ח ללילה
-                  <br />
-                  {list.phone}
-                </div>
-              </div>
-            </Link>
+              </Link>
+            </div>
           ))}{" "}
         </div>
       </div>

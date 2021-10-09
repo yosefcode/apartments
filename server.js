@@ -110,11 +110,13 @@ let transporter = nodemailer.createTransport(
   })
 );
 
-app.post("/api/send-mail/", function (req, res) {
+app.post("/api/sendMessageForApartment/", function (req, res) {
   var mailOptions = {
-    to: process.env.GOOGLE_MAIL,
-    subject: "הודעה מכספומט",
-    text: `שם: ${req.body.name} \nמייל: ${req.body.email} \nהודעה: ${req.body.message}`,
+    to: req.body.mail,
+    subject: `הודעה מאת ${
+      req.body.name || req.body.phone
+    } מתעניין לגבי הדירת נופש "${req.body.nameApartment}"`,
+    text: `שם: ${req.body.name} \nטלפון: ${req.body.phone} \nהודעה: ${req.body.message}`,
   };
 
   transporter.sendMail(mailOptions, function (error, info) {
@@ -130,7 +132,7 @@ app.post("/api/newsletter/", function (req, res) {
   var mailOptions = {
     to: process.env.GOOGLE_MAIL,
     subject: "רשימת תפוצה - כספומט",
-    text: `שם: ${req.body.name} \nמייל: ${req.body.email}`,
+    text: `שם: ${req.body.name} \nטלפון: ${req.body.email}`,
   };
 
   transporter.sendMail(mailOptions, function (error, info) {

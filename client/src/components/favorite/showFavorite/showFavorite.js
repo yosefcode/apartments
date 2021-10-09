@@ -10,26 +10,15 @@ function ShowFavorite() {
 
   var listFavoriteLocalStorage =
     JSON.parse(localStorage.getItem(`favorite`)) || [];
-  // var listFavoriteLocalStorage =
-  //   JSON.parse(localStorage.getItem(`favorite`)) || [];
 
   useEffect(() => {
-    // console.log(vorite);
     setListIDForFavorite(listFavoriteLocalStorage);
-    // setListIDForFavorite(JSON.parse(localStorage.getItem(`favorite`)));
-
-    // if (findFavorite) {
-    //   setIconFavorite(favorite);
-    // } else {
-    //   setIconFavorite(notFavorite);
-    // }
   }, [!listIDForFavorite]);
 
   const onmouseOver = () => {
     setListIDForFavorite(listFavoriteLocalStorage);
-
-    // console.log("jjjjj");
   };
+
   const onmouseOut = () => {
     // console.log("jjjjj");
   };
@@ -42,15 +31,17 @@ function ShowFavorite() {
         // onMouseOut={onmouseOut}
       >
         <Favorite
-          // onMouseOver={onmouseOver}
-          // onMouseOut={onmouseOut}
           className={
             listFavoriteLocalStorage.length > 0
               ? "iconShowFavorite"
               : "iconShowFavorite1"
           }
         ></Favorite>
-        <div className="amountFavorite">{listFavoriteLocalStorage.length}</div>
+        <Link className="link" to={"/myfavorite/"} target="_blank">
+          <div className="amountFavorite">
+            {listFavoriteLocalStorage.length}
+          </div>
+        </Link>
         <div className="divAllFavorite">
           <Link className="link" to={"/myfavorite/"} target="_blank">
             <div className="haederShowFavorite">
@@ -66,7 +57,7 @@ function ShowFavorite() {
           <div className="contentShowFavorite">
             {listFavoriteLocalStorage.length < 1 ? (
               <div className="infoError">
-                אין כאן עדיין מועדפים &#128542;
+                אין לך עדיין מועדפים &#128542;
                 <br />
                 <br /> ניתן להוסיף ע"י לחיצה על{" "}
                 <FavoriteBorder className="iconError" /> הנמצא בכל מודעה.

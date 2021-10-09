@@ -1,8 +1,8 @@
 .apartmentShow .divMaps {
-  position: absolute;
-  height: 30vw;
+  position: relative;
   width: 60%;
   right: 18vw;
+  height: auto;
 }
 
 .divMaps .imgmarker {
@@ -16,7 +16,7 @@
   border-radius: 1vw 1vw 0vw 0vw;
   font-size: 1.4vw;
   font-weight: 700;
-  position: absolute;
+  position: relative;
   right: 0.6vw;
   display: flex;
   align-items: center;
@@ -42,8 +42,7 @@
 
 .divMaps .map {
   width: calc(100% - 0.4vw);
-  position: absolute;
-  top: 2.9vw;
+  position: relative;
   border: rgb(16, 0, 61) 0.2vw solid;
   border-top: rgb(16, 0, 61) 0.5vw solid;
   color: rgb(24, 0, 90);

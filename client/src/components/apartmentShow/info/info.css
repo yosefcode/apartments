@@ -1,8 +1,8 @@
 .apartmentShow .information {
-  position: absolute;
-  height: 40vw;
+  position: relative;
   width: 60%;
   right: 18vw;
+  height: auto;
 }
 
 .information .headerInfo {
@@ -12,7 +12,7 @@
   border-radius: 1vw 1vw 0vw 0vw;
   font-size: 1.4vw;
   font-weight: 700;
-  position: absolute;
+  position: relative;
   right: 0.6vw;
   display: flex;
   align-items: center;
@@ -37,21 +37,17 @@
 }
 
 .information .allInfo {
-  width: calc(100% - 0.4vw);
-  position: absolute;
-  top: 2.9vw;
+  display: grid;
+  grid-template-columns: 50% 50%;
+  width: 100%;
+  position: relative;
   border: rgb(16, 0, 61) 0.2vw solid;
   border-top: rgb(16, 0, 61) 0.5vw solid;
   color: rgb(24, 0, 90);
   font-weight: 700;
-  height: 36vw;
+  /* height: auto; */
 }
 .information .info {
-  width: calc(45% - 4vw);
-  position: absolute;
-  top: 0;
-  height: 32vw;
-  right: 0;
   padding: 2vw;
   font-size: 1.2vw;
 }
@@ -73,20 +69,14 @@
   margin-block-end: 0.6vw !important;
 }
 .information .special {
-  width: calc(50% - 3vw);
-  position: absolute;
-  top: 0;
   column-count: 2;
   font-weight: 700;
-  height: 33vw;
-  right: 50%;
   padding: 1.5vw;
   font-size: 1.2vw;
 }
 
 .information ul {
   list-style-image: url(check.png);
-  /* list-style-type: square; */
   color: rgb(216, 0, 0);
   display: list-item;
   list-style-position: inside;

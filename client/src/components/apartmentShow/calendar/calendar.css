@@ -1,9 +1,47 @@
-.calendar {
-  position: absolute;
-  top: 1.5vw;
-  width: 20vw;
-  left: 15vw;
+.apartmentShow .calendar {
+  position: relative;
+  width: 95%;
+  margin-right: 5%;
+  height: auto;
 }
-.aaaa {
-  background-color: blueviolet;
+
+.calendar .headerCalendar {
+  width: 12vw;
+  height: 2.5vw;
+  background-color: rgb(16, 0, 61);
+  border-radius: 1vw 1vw 0vw 0vw;
+  font-size: 1.4vw;
+  font-weight: 700;
+  position: relative;
+  right: 0.6vw;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.calendar .headerCalendar:after {
+  border-radius: 1.5vw 1.5vw 0vw 0vw;
+  content: "";
+  position: absolute;
+  top: -0.8vw;
+  left: -0.8vw;
+  right: -0.8vw;
+  bottom: -0.3vw;
+  z-index: -1;
+  background: rgb(16, 0, 61);
+}
+
+.calendar .headerCalendar1 {
+  border: rgb(214, 174, 255) 0.2vw solid;
+  color: rgb(214, 174, 255);
+}
+
+.calendar .aaa {
+  width: calc(100% - 0.4vw);
+  position: relative;
+  border: rgb(16, 0, 61) 0.2vw solid;
+  border-top: rgb(16, 0, 61) 0.5vw solid;
+  color: rgb(24, 0, 90);
+  font-weight: 700;
+  /* height: 25vw; */
 }

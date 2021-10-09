@@ -1,5 +1,6 @@
 import "./info.css";
 import "react-gallery-carousel/dist/index.css";
+
 function Info({ apartmentShow }) {
   return apartmentShow.map((list) => (
     <div className="information">

@@ -1,7 +1,7 @@
 .apartmentShow {
   position: relative;
   z-index: 0;
-  display: initial;
+  /* display: initial; */
   width: 100%;
 }
 
@@ -16,31 +16,20 @@
 }
 .apartmentShow .divCarousel {
   width: 100%;
-  height: 43vw;
   position: relative;
 }
 
-.apartmentShow .divInfo {
+.apartmentShow .divCommponent {
   margin-top: 3vw;
-  padding: 5px;
   width: 100%;
-  height: 40vw;
   position: relative;
 }
-
-.apartmentShow .divMap {
-  margin-top: 3vw;
-  padding: 5px;
-  width: 100%;
-  height: 29vw;
+.apartmentShow .divCommponent-SendMessage-Calendar {
+  width: 60%;
   position: relative;
-}
-.apartmentShow .divMoreApartment {
-  margin-top: 3vw;
-  padding: 5px;
-  width: 100%;
-  height: 80vw;
-  position: relative;
+  right: 18vw;
+  display: grid;
+  grid-template-columns: 50% 50%;
 }
 
 .apartmentShow .filterArea {

@@ -1,7 +1,8 @@
 .apartmentShow .divMore {
-  position: absolute;
+  position: relative;
   width: 60%;
   right: 18vw;
+  height: auto;
 }
 
 .divMore .headerMore {
@@ -11,7 +12,7 @@
   border-radius: 1vw 1vw 0vw 0vw;
   font-size: 1.4vw;
   font-weight: 700;
-  position: absolute;
+  position: relative;
   right: 0.6vw;
   display: flex;
   align-items: center;
@@ -37,17 +38,14 @@
 
 .divMore .more {
   width: calc(100% - 0.4vw);
-  position: absolute;
-  top: 2.9vw;
+  position: relative;
   border-top: rgb(16, 0, 61) 0.5vw solid;
   color: rgb(24, 0, 90);
   font-weight: 700;
-  /* height: 25vw; */
 }
 
 .divMore .divAllBoxApartment {
   width: 100%;
-  /* background-color: blue; */
 }
 .divMore .boxApartment {
   position: relative;
@@ -70,7 +68,7 @@
   position: absolute;
   top: 1vw;
   right: 1vw;
-  z-index: 10;
+  z-index: 1;
   background-color: white;
   border-radius: 50%;
   width: 2vw;

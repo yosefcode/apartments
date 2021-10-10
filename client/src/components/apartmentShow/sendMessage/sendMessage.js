@@ -6,18 +6,18 @@ function SendMessage({ apartmentShow }) {
   const nameApartment = apartmentShow.map((mail) => mail.name);
   const mail = apartmentShow.map((mail) => mail.mail);
   // const mail = ["michal0361@gmail.com"];
+  // const mail = [
+  //   "A0575172432@gmail.com",
+  //   "michal0361@gmail.com",
+  //   "yosef9987@walla.com",
+  // ];
 
-  // let message = { mail: mail[0], nameApartment: nameApartment[0] };
-  // let message = {
-  //   mail: "michal0361@gmail.com",
-  //   nameApartment: nameApartment[0],
-  // };
   const [message, setMessage] = useState({});
 
   const onchange = (e) =>
     setMessage({
       ...message,
-      mail: mail[0],
+      mail: mail,
       nameApartment: nameApartment[0],
       [e.target.name]: e.target.value,
     });
@@ -32,7 +32,7 @@ function SendMessage({ apartmentShow }) {
   const nomsg = () => {
     setMsgmodal(
       !message.message && !message.phone && !message.name
-        ? "מה אני אשלח? לא מילאת כלום  \ud83d\ude14"
+        ? "מה אני אשלח? לא מילאת כלום \ud83d\ude14"
         : !message.message && !message.phone
         ? "שם זה נחמד אבל איך נדע מה אתה מעוניין לדעת?"
         : !message.phone
@@ -45,7 +45,7 @@ function SendMessage({ apartmentShow }) {
     setModal("modal");
     setTimeout(function () {
       setModal("display-none");
-    }, 2000);
+    }, 4000);
   };
 
   const yesmsg = () => {
@@ -60,7 +60,7 @@ function SendMessage({ apartmentShow }) {
     document.getElementById("inputPhone").value = "";
     setTimeout(function () {
       setModal("display-none");
-    }, 2000);
+    }, 4000);
   };
 
   return apartmentShow.map((list) => (

@@ -26,11 +26,22 @@ function Apartment() {
     });
   };
 
+  function shuffleArray(array) {
+    for (let i = array.length - 1; i > 0; i--) {
+      const j = Math.floor(Math.random() * (i + 1));
+      [array[i], array[j]] = [array[j], array[i]];
+    }
+  }
+
+  var arr = list;
+  shuffleArray(arr);
+  console.log(arr);
+
   return (
     <div className="allApartments">
       <div>
         {" "}
-        {list.map((list) => (
+        {arr.map((list) => (
           <div className="boxApartmentHome" key={list._id}>
             <div dir="ltr" className="carouselApartment">
               <Carousel

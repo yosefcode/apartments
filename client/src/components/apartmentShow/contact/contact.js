@@ -5,7 +5,7 @@ import phone from "./img/phone.png";
 import AddToFavorite from "../../favorite/addToFavorite/addToFavorite";
 import { AlternateEmail, Language, Message } from "@mui/icons-material";
 
-function Contact({ apartmentShow }) {
+function Contact({ apartmentShow, executeScroll }) {
   return apartmentShow.map((apartment) => (
     <div className="contact" key={apartment._id}>
       <img
@@ -29,9 +29,7 @@ function Contact({ apartmentShow }) {
       <Message
         className="message"
         style={{ fontSize: "3vw @media only screen and (max-width: 999px)" }}
-        onClick={() => {
-          console.log("Message");
-        }}
+        onClick={executeScroll}
       />
 
       <a

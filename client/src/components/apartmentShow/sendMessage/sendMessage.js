@@ -5,44 +5,61 @@ import { useState } from "react";
 function SendMessage({ apartmentShow }) {
   const nameApartment = apartmentShow.map((mail) => mail.name);
   const mail = apartmentShow.map((mail) => mail.mail);
+  // const mail = ["michal0361@gmail.com"];
 
   // let message = { mail: mail[0], nameApartment: nameApartment[0] };
-  let message = {
-    mail: "michal0361@gmail.com",
-    nameApartment: nameApartment[0],
-  };
+  // let message = {
+  //   mail: "michal0361@gmail.com",
+  //   nameApartment: nameApartment[0],
+  // };
+  const [message, setMessage] = useState({});
 
-  const [modal, setModal] = useState("modal display-none");
+  const onchange = (e) =>
+    setMessage({
+      ...message,
+      mail: mail[0],
+      nameApartment: nameApartment[0],
+      [e.target.name]: e.target.value,
+    });
+
+  const [modal, setModal] = useState("display-none");
   const [msgmodal, setMsgmodal] = useState();
 
   const sendMessage = () => {
-    !message.message ? nomsg() : yesmsg();
+    message.message && message.phone ? yesmsg() : nomsg();
   };
 
   const nomsg = () => {
-    setMsgmodal("מה אני אשלח? לא כתבת כלום  \ud83d\ude14");
-    setModal("modal display-block");
+    setMsgmodal(
+      !message.message && !message.phone && !message.name
+        ? "מה אני אשלח? לא מילאת כלום  \ud83d\ude14"
+        : !message.message && !message.phone
+        ? "שם זה נחמד אבל איך נדע מה אתה מעוניין לדעת?"
+        : !message.phone
+        ? "חסר פרטים ליצירת קשר איתך. איך נחזור אליך עם תשובה?"
+        : !message.message
+        ? "נשמח לדעת מה אתה רוצה לברר מבעלי הדירה"
+        : ""
+    );
+
+    setModal("modal");
     setTimeout(function () {
-      setModal("modal display-none");
+      setModal("display-none");
     }, 2000);
   };
 
-  const [name, setName] = useState("");
-  console.log(name);
   const yesmsg = () => {
     axios
       .post("/api/sendMessageForApartment/", message)
       .then((res) => console.log("res.data"));
     setMsgmodal("ההודעה נשלחה בהצלחה  \ud83d\ude00");
-    setModal("modal display-block");
-    // console.log(message);
-    // setName({ [e.target.name]: e.target.value });
-    document.getElementById("textarea").innerHTML = "";
-    document.getElementById("in").value = "";
-    document.getElementById("in1").value = "";
+    setModal("modal");
+    setMessage({});
+    document.getElementById("message").innerHTML = "";
+    document.getElementById("inputName").value = "";
+    document.getElementById("inputPhone").value = "";
     setTimeout(function () {
-      setModal("modal display-none");
-      // setModalmessage("displaynone");
+      setModal("display-none");
     }, 2000);
   };
 
@@ -52,50 +69,41 @@ function SendMessage({ apartmentShow }) {
       <div className="headerSendMessage headerSendMessage1">
         שלח הודעה לבעל הדירה
       </div>
-      {/* <form onSubmit={handleSubmit}> */}
       <div className="allSendMessage">
-        <div className="info">
-          <input
-            id="in"
-            placeholder="שם"
-            // onChange={yesmsg}
-            onInput={(e) => (message.name = e.target.value)}
-            name="name"
-            // value="ffff"
-          ></input>
-          <input
-            id="in1"
-            placeholder="טלפון"
-            onInput={(e) => (message.phone = e.target.value)}
-          ></input>
+        <input
+          type="text"
+          id="inputName"
+          placeholder="שם"
+          name="name"
+          onChange={onchange}
+        />
 
-          <div className={"message"}>
-            <div
-              onInput={(e) => (message.message = e.currentTarget.textContent)}
-              id="textarea"
-              className="textarea"
-              contentEditable
-              placeholder=" אשמח לשמוע מכם ... &#x1F60A;"
-            ></div>
+        <input
+          type="text"
+          id="inputPhone"
+          placeholder="טלפון / מייל"
+          onChange={onchange}
+          name="phone"
+        ></input>
 
-            <div
-              className="btnmessage"
-              type="submit"
-              onClick={() => {
-                sendMessage();
-                // console.log(message);
-              }}
-            >
-              שלח
-            </div>
+        <div
+          onInput={(e) => (message.message = e.currentTarget.textContent)}
+          id="message"
+          contentEditable
+          placeholder="בעלי הדירה ישמחו לשמוע מכם ... &#x1F60A;"
+        ></div>
 
-            <div className={modal}>{msgmodal}</div>
+        <button
+          className="btnmessage btnmessage1"
+          onClick={() => {
+            sendMessage();
+          }}
+        >
+          שלח
+        </button>
 
-            <div style={{ height: "70px" }}></div>
-          </div>
-        </div>
+        <div className={modal}>{msgmodal}</div>
       </div>
-      {/* </form> */}
     </div>
   ));
 }

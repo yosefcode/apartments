@@ -112,11 +112,13 @@ let transporter = nodemailer.createTransport(
 
 app.post("/api/sendMessageForApartment/", function (req, res) {
   var mailOptions = {
-    to: req.body.mail,
+    to: [req.body.mail, process.env.GOOGLE_MAIL],
     subject: `הודעה מאת ${
       req.body.name || req.body.phone
     } מתעניין לגבי הדירת נופש "${req.body.nameApartment}"`,
-    text: `שם: ${req.body.name} \nטלפון: ${req.body.phone} \nהודעה: ${req.body.message}`,
+    text: `שם: ${req.body.name ? req.body.name : "לא צוין"} \nטלפון: ${
+      req.body.phone
+    } \nהודעה: ${req.body.message}`,
   };
 
   transporter.sendMail(mailOptions, function (error, info) {

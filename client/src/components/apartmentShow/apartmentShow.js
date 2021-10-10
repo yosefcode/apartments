@@ -1,5 +1,5 @@
 import "./apartmentShow.css";
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import { useParams } from "react-router-dom";
 import axios from "axios";
 import Location from "./location/location";
@@ -17,6 +17,10 @@ function ApartmentShow() {
 
   const [apartmentShow, setApartmentShow] = useState([]);
 
+  const myRef = useRef(null);
+
+  const executeScroll = () => myRef.current.scrollIntoView({ block: "center" });
+
   useEffect(() => {
     axios.post("/api/list/" + id).then((res) => {
       setApartmentShow(res.data);
@@ -31,7 +35,7 @@ function ApartmentShow() {
 
       <div className="divHeader">
         <Header apartmentShow={apartmentShow} />
-        <Contact apartmentShow={apartmentShow} />
+        <Contact apartmentShow={apartmentShow} executeScroll={executeScroll} />
       </div>
 
       <div className="divCarousel">
@@ -41,7 +45,8 @@ function ApartmentShow() {
       <div className="divCommponent">
         <Info apartmentShow={apartmentShow} />
       </div>
-      <div className="divCommponent">
+
+      <div ref={myRef} className="divCommponent">
         <div className="divCommponent-SendMessage-Calendar">
           <SendMessage apartmentShow={apartmentShow} />
           <Calendar apartmentShow={apartmentShow} />

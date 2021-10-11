@@ -1,58 +1,48 @@
 import "./kesher.css";
 import axios from "axios";
-import React from "react";
+import React, { useState, useEffect, useContext } from "react";
 
 function Kesher() {
-  let product = {};
+  let [list, setList] = useState([]);
 
-  const addProduct = () => {
-    axios
-      .post("/api/send-mail/", product)
-      .then((res) => console.log("res.data"));
+  useEffect(() => {
+    axios.get("/api/messages/").then((res) => {
+      setList(res.data);
+    });
+  }, []);
 
-    document.getElementById("name").value = "";
-    document.getElementById("mail").value = "";
-    document.getElementById("message").value = "";
-  };
+  // const month = new Date().getMonth() + 1;
+  // const date = new Date().getDate();
+  // const [hours, setHours] = useState(new Date().getHours());
+  // const [minutes, setMinutes] = useState(new Date().getMinutes());
+
+  console.log(new Date());
+  console.log(new Date(Date.now()).toLocaleString());
 
   return (
     <div className="kesher">
-      <form method="GET">
-        <h5>
-          רוצים להיות ראשונים להתעדכן על הטבות? אפשרויות חדשות לעשות כסף? הכניסו
-          את המייל שלכם ואנו נעדכן אתכם ראשונים.
-        </h5>
-        <input
-          id="name"
-          className="inputKesher"
-          type="text"
-          onInput={(e) => (product.name = e.target.value)}
-          placeholder="שם"
-        />
-        <input
-          id="mail"
-          className="inputKesher"
-          type="text"
-          onChange={(e) => (product.email = e.target.value)}
-          placeholder="מייל"
-        />{" "}
-        <textarea
-          id="message"
-          className="textareaKesher"
-          type="text"
-          onChange={(e) => (product.message = e.target.value)}
-          placeholder="שתף אותנו..."
-        />{" "}
-        <button
-          className="btnKesher"
-          type="reset"
-          onClick={() => {
-            addProduct();
-          }}
-        >
-          שלח
-        </button>
-      </form>
+      <div key={list._id} className="divTable">
+        <table>
+          <tr>
+            <th style={{ width: "10%" }}>{"זמן הפניה"}</th>
+            <th style={{ width: "15%" }}>{"שם פונה"}</th>
+            <th style={{ width: "15%" }}>{"שם בעל הצימר"}</th>
+            <th style={{ width: "15%" }}>{"מייל פונה"}</th>
+            <th style={{ width: "15%" }}>{"מייל בעל הצימר"}</th>
+            <th style={{ width: "30%" }}>{"תוכן ההודעה"}</th>
+          </tr>
+          {list.map((list) => (
+            <tr key={list._id}>
+              <td>{list.date4}</td>
+              <td>{list.nameUser}</td>
+              <td>{list.nameApartment}</td>
+              <td>{list.mailUser}</td>
+              <td>{list.mailApartment}</td>
+              <td>{list.message}</td>
+            </tr>
+          ))}
+        </table>
+      </div>
     </div>
   );
 }

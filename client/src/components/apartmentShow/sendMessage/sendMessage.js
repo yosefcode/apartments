@@ -17,7 +17,7 @@ function SendMessage({ apartmentShow }) {
   const onchange = (e) =>
     setMessage({
       ...message,
-      mail: mail,
+      mail: mail[0],
       nameApartment: nameApartment[0],
       [e.target.name]: e.target.value,
     });

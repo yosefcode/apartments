@@ -74,24 +74,31 @@ app.post("/api/list/:id", async (req, res) => {
   }
 });
 
-// app.post("/api/sendemail/", (req, res) => {
-//   fs.readFile("products.json", (err, data) => {
-//     const products = JSON.parse(data);
-//     var name = req.body.name;
-//     var email = req.body.email;
-//     var subject = req.body.subject;
-//     var message = req.body.message;
-//     products.push({
-//       id: products.length + 1,
-//       name: name,
-//       email: email,
-//       subject: subject,
-//       message: message,
-//     });
-//     fs.writeFile("products.json", JSON.stringify(products), (err) => {
-//       res.send(products);
-//     });
+app.get("/api/messages/", async (req, res) => {
+  const message = await models.messagesSchema.find();
+  try {
+    res.send(message);
+  } catch (err) {
+    res.status(500).send(err);
+  }
+});
+
+// app.post(URL, async (req, res) => {
+//   const newproduct = new models.messagesSchema({
+//     title: req.body.title || "הכנס שם מוצר",
+//     quantity: +req.body.quantity || 0,
+//     image: req.body.image || imgerr,
+//     price: +req.body.price || 0,
+//     items: 0,
 //   });
+//   console.log("add");
+//   try {
+//     await newproduct.save();
+//     res.send(newproduct);
+//     io.emit("AddProduct");
+//   } catch (err) {
+//     res.status(500).send(err);
+//   }
 // });
 
 let transporter = nodemailer.createTransport(
@@ -110,7 +117,21 @@ let transporter = nodemailer.createTransport(
   })
 );
 
-app.post("/api/sendMessageForApartment/", function (req, res) {
+app.post("/api/sendMessageForApartment/", async function (req, res) {
+  const newMessage = new models.messagesSchema({
+    nameUser: req.body.name,
+    nameApartment: req.body.nameApartment,
+    mailUser: req.body.phone,
+    mailApartment: req.body.mail,
+    message: req.body.message,
+    // date: Date.now(),
+  });
+  try {
+    await newMessage.save();
+  } catch (err) {
+    res.status(500).send(err);
+  }
+
   var mailOptions = {
     from: process.env.GOOGLE_MAIL,
     to: req.body.mail,

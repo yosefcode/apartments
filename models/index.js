@@ -1,5 +1,6 @@
 const mongoose = require("mongoose");
 const apartmentSchema = require("./ApartmentSchema");
+const messagesSchema = require("./messages");
 
 // שליחה לDB מקומי
 // function connectToDb() {
@@ -23,6 +24,6 @@ function connectToDb() {
   );
 }
 
-const models = { apartmentSchema };
+const models = { messagesSchema, apartmentSchema };
 
 module.exports = { connectToDb, models };

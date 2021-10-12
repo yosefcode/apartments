@@ -4,6 +4,8 @@ import React, { useState, useEffect, useContext } from "react";
 
 function Kesher() {
   let [list, setList] = useState([]);
+  let [list1, setList1] = useState([]);
+  console.log(list1);
 
   useEffect(() => {
     axios.get("/api/messages/").then((res) => {
@@ -11,13 +13,17 @@ function Kesher() {
     });
   }, []);
 
+  const aa = (list) => {
+    setList1(list);
+  };
+
   // const month = new Date().getMonth() + 1;
   // const date = new Date().getDate();
   // const [hours, setHours] = useState(new Date().getHours());
   // const [minutes, setMinutes] = useState(new Date().getMinutes());
 
-  console.log(new Date());
-  console.log(new Date(Date.now()).toLocaleString());
+  // console.log(new Date().toLocaleString());
+  // console.log(new Date(Date.now()).toLocaleString());
 
   return (
     <div className="kesher">
@@ -33,7 +39,7 @@ function Kesher() {
           </tr>
           {list.map((list) => (
             <tr key={list._id}>
-              <td>{list.date4}</td>
+              <td>{new Date(list.date).toLocaleString()}</td>
               <td>{list.nameUser}</td>
               <td>{list.nameApartment}</td>
               <td>{list.mailUser}</td>

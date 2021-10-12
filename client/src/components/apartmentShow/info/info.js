@@ -1,5 +1,6 @@
 import "./info.css";
 import "react-gallery-carousel/dist/index.css";
+import CheckBoxIcon from "@mui/icons-material/CheckBox";
 
 function Info({ apartmentShow }) {
   return apartmentShow.map((list) => (
@@ -22,7 +23,17 @@ function Info({ apartmentShow }) {
         <div className="special">
           <h5>
             {list.special.map((special) => (
-              <li>{special}</li>
+              <li>
+                <CheckBoxIcon
+                  style={{
+                    fontSize: "1.4vw",
+                    position: "relative",
+                    top: "0.4vw",
+                    color: "green",
+                  }}
+                />{" "}
+                {special}
+              </li>
             ))}
           </h5>
         </div>

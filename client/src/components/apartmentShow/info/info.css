@@ -76,7 +76,6 @@
 }
 
 .information ul {
-  list-style-image: url(check.png);
   color: rgb(216, 0, 0);
   display: list-item;
   list-style-position: inside;
@@ -84,13 +83,4 @@
 
 .information li {
   list-style: none;
-}
-.special li::before {
-  content: "";
-  display: inline-block;
-  height: 1vw;
-  width: 1vw;
-  background-image: url(1.jpg);
-  background-size: 100% 100%;
-  margin-left: 0.6vw;
 }

@@ -3,9 +3,9 @@ import "./myFavorite-page.css";
 import Apartment from "./apartment-myFavorite-page/apartment-myFavorite-page";
 import FilterArea from "../../filterArea/filterArea";
 
-function Home() {
+function myFavoritePage() {
   return (
-    <div className="home">
+    <div className="myFavorite-page">
       <div className="filterArea">
         <FilterArea />
       </div>
@@ -17,4 +17,4 @@ function Home() {
   );
 }
 
-export default Home;
+export default myFavoritePage;

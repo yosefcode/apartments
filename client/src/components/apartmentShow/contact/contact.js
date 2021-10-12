@@ -1,26 +1,34 @@
 import "./contact.css";
 import React, { useState, useEffect } from "react";
-import what from "./img/WhatsApp.png";
-import phone from "./img/phone.png";
 import AddToFavorite from "../../favorite/addToFavorite/addToFavorite";
-import { AlternateEmail, Language, Message } from "@mui/icons-material";
+import {
+  AlternateEmail,
+  Language,
+  Message,
+  Call,
+  WhatsApp,
+} from "@mui/icons-material";
 
 function Contact({ apartmentShow, executeScroll }) {
   return apartmentShow.map((apartment) => (
     <div className="contact" key={apartment._id}>
-      <img
+      <Call
+        style={{
+          fontSize: "3vw @media only screen and (max-width: 999px)",
+          color: "blue",
+        }}
         className="phone"
-        src={phone}
-        alt="תמונה חסרה"
         onClick={() => {
           window.open(`tel:${apartment.phone}`);
         }}
       />
 
-      <img
+      <WhatsApp
+        style={{
+          fontSize: "3vw @media only screen and (max-width: 999px)",
+          color: "green",
+        }}
         className="what"
-        src={what}
-        alt="תמונה חסרה"
         onClick={() => {
           window.open(`https://wa.me/972${apartment.phone.replace(/-/, "")}`);
         }}
@@ -45,6 +53,7 @@ function Contact({ apartmentShow, executeScroll }) {
           }}
         />
       </a>
+
       <a href={`/`} target="_blank" rel="noreferrer">
         <Language
           className="message"
@@ -57,6 +66,7 @@ function Contact({ apartmentShow, executeScroll }) {
           }}
         />
       </a>
+
       <AddToFavorite apartmentForFavorite={apartment} />
     </div>
   ));

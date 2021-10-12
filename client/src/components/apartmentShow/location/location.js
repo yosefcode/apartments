@@ -1,8 +1,9 @@
 import "./location.css";
 import React, { useState, useEffect } from "react";
 import GoogleMapReact from "google-map-react";
-import marker from "./marker.png";
+// import marker from "./marker.png";
 import Geocode from "react-geocode";
+import RoomIcon from "@mui/icons-material/Room";
 
 const Location = ({ apartmentShow }) => {
   // const [pointsmap, setPointsmap] = useState([]);
@@ -64,7 +65,17 @@ const Location = ({ apartmentShow }) => {
           <AnyReactComponent
             lat={lat}
             lng={lng}
-            icon={<img className="imgmarker" src={marker} alt="" />}
+            icon={
+              <RoomIcon
+                style={{
+                  fontSize: "3vw",
+                  position: "relative",
+                  bottom: "3vw",
+                  left: "1.5vw",
+                  color: "red",
+                }}
+              />
+            }
           />
         </GoogleMapReact>
       </div>

@@ -1,6 +1,7 @@
 import "./bar.css";
 import iconhome from "./iconPage.png";
-
+import AccountCircleIcon from "@mui/icons-material/AccountCircle";
+import PersonIcon from "@mui/icons-material/Person";
 const Bar = () => {
   return (
     <div className="bar">
@@ -40,8 +41,15 @@ const Bar = () => {
         <div></div>
         <div></div>
         <div></div>
-        <a className="btnhome" href="/send/">
-          הודעות{" "}
+        <a className="btnhome" href="/login/" target={"_blank"}>
+          <PersonIcon
+            style={{
+              fontSize: "4vw",
+              color: "blue",
+              background: "white",
+              borderRadius: "50%",
+            }}
+          />{" "}
         </a>{" "}
       </div>
     </div>

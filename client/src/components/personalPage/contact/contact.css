@@ -1,0 +1,35 @@
+.contact {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-direction: column;
+  height: 25vw;
+  width: 5vw;
+  top: 7vw;
+  position: absolute;
+  right: 10vw;
+}
+
+.contact .what {
+  width: 2.7vw;
+  height: 2.7vw;
+  cursor: pointer;
+}
+
+.contact .mail {
+  cursor: pointer;
+  width: 2.2vw;
+  height: 2vw;
+  margin-top: 0.3vw;
+}
+.contact .message {
+  cursor: pointer;
+  width: 2.4vw;
+  height: 2.4vw;
+}
+.contact .phone {
+  cursor: pointer;
+  width: 2.2vw;
+  height: 2.2vw;
+  border-radius: 30px;
+}

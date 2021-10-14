@@ -1,7 +1,7 @@
 import "./bar.css";
-import iconhome from "./iconPage.png";
-import AccountCircleIcon from "@mui/icons-material/AccountCircle";
-import PersonIcon from "@mui/icons-material/Person";
+import { Person, Home } from "@mui/icons-material/";
+import Login from "../login/login";
+
 const Bar = () => {
   return (
     <div className="bar">
@@ -36,13 +36,24 @@ const Bar = () => {
       </div>
       <div className="allURL">
         <a className="btnhome" href="/">
-          <img style={{ height: "80%" }} src={iconhome} alt="" />
+          {" "}
+          <Home
+            style={{
+              fontSize: "6vw",
+              color: "black",
+              background: "white",
+              borderRadius: "50%",
+            }}
+          />
         </a>
         <div></div>
         <div></div>
         <div></div>
-        <a className="btnhome" href="/login/" target={"_blank"}>
-          <PersonIcon
+        <div className="btnhome">
+          <Login />
+        </div>
+        {/* <a className="btnhome" href="/login/" target={"_blank"}>
+          <Person
             style={{
               fontSize: "4vw",
               color: "blue",
@@ -50,7 +61,7 @@ const Bar = () => {
               borderRadius: "50%",
             }}
           />{" "}
-        </a>{" "}
+        </a>{" "} */}
       </div>
     </div>
   );

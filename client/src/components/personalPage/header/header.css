@@ -1,0 +1,53 @@
+.header {
+  color: rgb(255, 94, 0);
+  font-weight: 700;
+  width: 100%;
+  position: absolute;
+  height: 4vw;
+}
+
+.header1 {
+  font-weight: 700;
+  display: grid;
+  grid-template-columns: 70% 30%;
+  width: 58%;
+  right: 19vw;
+  position: absolute;
+  height: 4vw;
+}
+
+.nameHeader {
+  font-size: 2vw;
+  height: 4vw;
+  display: flex;
+  align-items: center;
+}
+.addressHeader {
+  font-size: 1.5vw;
+  margin-right: 1vw;
+  height: 3.5vw;
+  display: flex;
+  align-items: center;
+}
+.phoneHeader {
+  font-size: 2vw;
+  margin-left: 1.5vw;
+  height: 3.5vw;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+}
+.bgcolorHeader {
+  background-color: rgb(28, 2, 99);
+  color: white !important;
+  /* box-shadow: 0 0 1vw rgb(214, 174, 255); */
+
+  border-bottom: rgb(214, 174, 255) 0.4vw solid;
+}
+
+.noneShowFavorite {
+  display: none;
+}
+.yesShowFavorite {
+  display: block;
+}

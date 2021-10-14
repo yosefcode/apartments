@@ -38,7 +38,6 @@ const Login = () => {
   useEffect(() => {
     onAuthStateChanged(auth, (user) => {
       if (user) {
-        console.log(user);
         setuser5(user.uid);
         setname(user.displayName);
         setuser1(true);

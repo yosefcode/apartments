@@ -9,10 +9,10 @@ function FilterArea() {
   const { filter, setFilter } = useContext(AppContext);
 
   const listArea = [
-    { area: "בצפון", filter: "צפון" },
-    { area: "במרכז", filter: "מרכז" },
-    { area: "בירושלים", filter: "ירושלים" },
-    { area: "בדרום", filter: "דרום" },
+    { area: "באיזור הצפון", filter: "צפון" },
+    { area: "באיזור המרכז", filter: "מרכז" },
+    { area: "באיזור ירושלים", filter: "ירושלים" },
+    { area: "באיזור הדרום", filter: "דרום" },
     { area: "להחלפה", filter: "" },
   ];
 

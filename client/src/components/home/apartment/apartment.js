@@ -64,12 +64,14 @@ function Apartment() {
                   <img className="imgaa" src={list.firstImage} alt=""></img>
                 </div> */}
               <div>
-                <div className="nameApartment">{list.name}</div>
+                <div className="nameApartment">{list.nameApartment}</div>
                 <div className="location">
                   {list.city}, {list.area}.
                 </div>
                 <div className="beds"> עד {list.beds} מיטות</div>
-                <div className="phone">{list.phone}</div>
+                <div className="phone">
+                  {list.name} - {list.phone}
+                </div>
                 <div className="price">
                   החל מ- {list.price} ש"ח ל{list.priceMethod}
                 </div>

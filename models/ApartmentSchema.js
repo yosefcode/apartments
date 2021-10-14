@@ -1,6 +1,7 @@
 const mongoose = require("mongoose");
 
 const ApartmentSchema = new mongoose.Schema({
+  nameApartment: String,
   name: String,
   firstImage: String,
   images: Array,
@@ -15,12 +16,15 @@ const ApartmentSchema = new mongoose.Schema({
   mail: String,
   priceMethod: String,
   special: Array,
+  uidFirebase: String,
 });
 
 const Apartment = mongoose.model("Apartments", ApartmentSchema);
 
 const product1 = new Apartment({
-  name: "הצימר של אירית",
+  uidFirebase: "IrIjt7LCTVONyGLL9bkPQ1PwyLm2",
+  nameApartment: "הצימר של אירית",
+  name: "אבי",
   firstImage:
     "https://zarfati-zvi.com/wp-content/uploads/2014/12/gallery_12.jpg",
   images: [
@@ -73,7 +77,10 @@ const product1 = new Apartment({
 });
 
 const product2 = new Apartment({
-  name: "סייסטה ברמות",
+  nameApartment: "סייסטה ברמות",
+  name: "משה",
+  uidFirebase: "hijObkCnIHZ9aPh7WO4Q8ifDZzA2",
+
   firstImage:
     "https://www.halel.co.il/wp-content/uploads/2018/06/DSC2016AAA_copy.jpg",
   images: [
@@ -132,7 +139,10 @@ const product2 = new Apartment({
 });
 
 const product3 = new Apartment({
-  name: "נקודת חן",
+  nameApartment: "נקודת חן",
+  name: "רבקה",
+  uidFirebase: "IrIjt7LCTVONyGLL9bkPQ1PwyLm2",
+
   firstImage:
     "https://www.nadlancoda.co.il/wp-content/uploads/2021/08/3V8A3198-26.jpg",
   images: [
@@ -192,7 +202,10 @@ const product3 = new Apartment({
 });
 
 const product4 = new Apartment({
-  name: "אחוזת גלית בצפת",
+  nameApartment: "אחוזת גלית בצפת",
+  name: "יעקב",
+  uidFirebase: "YaqdPHVnETfnLoHBWKB0rocoRPU2",
+
   firstImage:
     "https://zimuki.com/wp-content/uploads/2019/02/Jerusalem.of_.gold_.3br.apt0003.jpg",
   images: [
@@ -246,7 +259,10 @@ const product4 = new Apartment({
 });
 
 const product5 = new Apartment({
-  name: "בקתות התפוח",
+  nameApartment: "בקתות התפוח",
+  name: "יצחק",
+  uidFirebase: "hijObkCnIHZ9aPh7WO4Q8ifDZzA2",
+
   firstImage: "https://pics.yad2.co.il/Pics/2018/03/20180321164933.jpg",
   images: [
     "https://pics.yad2.co.il/Pics/2018/03/20180321164933.jpg",
@@ -305,7 +321,10 @@ const product5 = new Apartment({
 });
 
 const product6 = new Apartment({
-  name: "צימרים אחוזת דבש",
+  nameApartment: "צימרים אחוזת דבש",
+  name: "חיים",
+  uidFirebase: "YaqdPHVnETfnLoHBWKB0rocoRPU2",
+
   firstImage: "https://dira4u.co.il/storage/2020/10/1-2.jpeg",
 
   images: [
@@ -359,7 +378,10 @@ const product6 = new Apartment({
 });
 
 const product7 = new Apartment({
-  name: "חלומות ספיר",
+  nameApartment: "חלומות ספיר",
+  name: "רבקה",
+  uidFirebase: "IrIjt7LCTVONyGLL9bkPQ1PwyLm2",
+
   firstImage:
     "https://metaylimbkipa.com/wp-content/uploads/thumbs/74d66485-b335-4cde-8244-f52b89c6d6ae-3b4923mlhc4e0ata0r12ww.jpg",
   images: [
@@ -419,7 +441,10 @@ const product7 = new Apartment({
 });
 
 const product8 = new Apartment({
-  name: "אחוזת רוטצי",
+  nameApartment: "אחוזת רוטצי",
+  name: "חיים",
+  uidFirebase: "hijObkCnIHZ9aPh7WO4Q8ifDZzA2",
+
   firstImage: "https://uploads.homeless.co.il/sale/202006/nvFile3861212.jpg",
   images: [
     "https://uploads.homeless.co.il/sale/202006/nvFile3861212.jpg",
@@ -478,7 +503,10 @@ const product8 = new Apartment({
 });
 
 const product9 = new Apartment({
-  name: "טוסקנה בשזור",
+  nameApartment: "טוסקנה בשזור",
+  name: "מרדכי",
+  uidFirebase: "YaqdPHVnETfnLoHBWKB0rocoRPU2",
+
   firstImage: "https://img2.ad.co.il/NadlanSaleImages/1102789_0.jpg",
   images: [
     "https://img2.ad.co.il/NadlanSaleImages/1102789_0.jpg",
@@ -530,7 +558,10 @@ const product9 = new Apartment({
 });
 
 const product10 = new Apartment({
-  name: "סוויטות כחול לבן",
+  nameApartment: "סוויטות כחול לבן",
+  name: "יעקב",
+  uidFirebase: "IrIjt7LCTVONyGLL9bkPQ1PwyLm2",
+
   firstImage:
     "https://images1.ynet.co.il/PicServer5/2017/02/15/7590673/75897210100791980551no.jpg",
   images: [
@@ -590,7 +621,10 @@ const product10 = new Apartment({
 });
 
 const product11 = new Apartment({
-  name: "בקתות לוטן",
+  nameApartment: "בקתות לוטן",
+  name: "חנה",
+  uidFirebase: "hijObkCnIHZ9aPh7WO4Q8ifDZzA2",
+
   firstImage:
     "https://www.israelhayom.co.il/sites/default/files/styles/566x349/public/images/articles/2020/07/10/15943294905962_b.jpg",
   images: [
@@ -650,7 +684,10 @@ const product11 = new Apartment({
 });
 
 const product12 = new Apartment({
-  name: "צימר האפרסק",
+  nameApartment: "צימר האפרסק",
+  name: "מיכל",
+  uidFirebase: "IrIjt7LCTVONyGLL9bkPQ1PwyLm2",
+
   firstImage:
     "https://ainevo.co.il/wp-content/uploads/elementor/thumbs/dira1_c-Medium-1024x728-ogie6jc9med5opsjdt3wp20l2tftccacq9otq5pymg.jpg",
 
@@ -705,7 +742,10 @@ const product12 = new Apartment({
 });
 
 const product13 = new Apartment({
-  name: "קסם האלה",
+  nameApartment: "קסם האלה",
+  name: "נועם",
+  uidFirebase: "YaqdPHVnETfnLoHBWKB0rocoRPU2",
+
   firstImage: "https://images1.ynet.co.il/PicServer5/2017/08/21/7983208/3.jpg",
   images: [
     "https://images1.ynet.co.il/PicServer5/2017/08/21/7983208/3.jpg",
@@ -758,7 +798,10 @@ const product13 = new Apartment({
 });
 
 const product14 = new Apartment({
-  name: "בקתות נוף הצוק",
+  nameApartment: "בקתות נוף הצוק",
+  name: "שלמה",
+  uidFirebase: "IrIjt7LCTVONyGLL9bkPQ1PwyLm2",
+
   firstImage:
     "https://www.ahouse.co.il/upload/imgs/db7fe1017d08492307d7d70d458fe488.jpg",
   images: [
@@ -812,7 +855,10 @@ const product14 = new Apartment({
 });
 
 const product15 = new Apartment({
-  name: "אחוזת ארגמן",
+  nameApartment: "אחוזת ארגמן",
+  name: "רבקה",
+  uidFirebase: "hijObkCnIHZ9aPh7WO4Q8ifDZzA2",
+
   firstImage: "https://img3.ad.co.il/NadlanSaleImages/1614750_0.jpg",
   images: [
     "https://img3.ad.co.il/NadlanSaleImages/1614750_0.jpg",
@@ -864,7 +910,10 @@ const product15 = new Apartment({
 });
 
 const product16 = new Apartment({
-  name: "בתי נורית",
+  nameApartment: "בתי נורית",
+  name: "דוד",
+  uidFirebase: "YaqdPHVnETfnLoHBWKB0rocoRPU2",
+
   firstImage:
     "https://refamily.co.il/wp-content/uploads/2020/07/%D7%94%D7%A8%D7%95%D7%A4%D7%90-41-%D7%9E%D7%98%D7%91%D7%97.jpg",
   images: [
@@ -916,7 +965,10 @@ const product16 = new Apartment({
   long: "קוטג' חדש נקי ומטופח + סלון מטבח. חצר מאובזרת עם נדנדות וטרמפולינה. נוף מדהים פתוח, ללא היזק ראיה. גינת משחקים ובית כנסת צמודים. במרחק הליכה מפארק ענק. מקום אידיאלי לשבתות משפחתיות.",
 });
 const product17 = new Apartment({
-  name: "אחוזה בגליל",
+  nameApartment: "אחוזה בגליל",
+  name: "נועם",
+  uidFirebase: "IrIjt7LCTVONyGLL9bkPQ1PwyLm2",
+
   firstImage:
     "http://www.yokra-estate.co.il/images/com_jea/images/489/GARDEN.jpg",
   images: [
@@ -969,7 +1021,10 @@ const product17 = new Apartment({
 });
 
 const product18 = new Apartment({
-  name: "אחוזת שרונה",
+  nameApartment: "אחוזת שרונה",
+  name: "אפרת",
+  uidFirebase: "hijObkCnIHZ9aPh7WO4Q8ifDZzA2",
+
   firstImage:
     "https://www.halel.co.il/wp-content/uploads/2018/06/DSC2016AAA_copy.jpg",
   images: [
@@ -1028,7 +1083,10 @@ const product18 = new Apartment({
 });
 
 const product19 = new Apartment({
-  name: "בוסתן בכפר",
+  nameApartment: "בוסתן בכפר",
+  name: "ליאת",
+  uidFirebase: "YaqdPHVnETfnLoHBWKB0rocoRPU2",
+
   firstImage:
     "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRb9Om3Uu5NytnjOeUnTTlD793pPeqcPkAS3A&usqp=CAU",
   images: [
@@ -1081,7 +1139,10 @@ const product19 = new Apartment({
 });
 
 const product20 = new Apartment({
-  name: "הפינה הקסומה במושב",
+  nameApartment: "הפינה הקסומה במושב",
+  name: "אביטל",
+  uidFirebase: "IrIjt7LCTVONyGLL9bkPQ1PwyLm2",
+
   firstImage:
     "https://zimuki.com/wp-content/uploads/2019/02/Jerusalem.of_.gold_.3br.apt0003.jpg",
   images: [
@@ -1134,7 +1195,10 @@ const product20 = new Apartment({
 });
 
 const product21 = new Apartment({
-  name: "סוויטות אמיליה",
+  nameApartment: "סוויטות אמיליה",
+  name: "אלחנן",
+  uidFirebase: "hijObkCnIHZ9aPh7WO4Q8ifDZzA2",
+
   firstImage:
     "https://img.mako.co.il/2018/10/16/Appartment_In_Tel_Aviv_0918_Zion_13_i.jpg",
   images: [
@@ -1187,7 +1251,10 @@ const product21 = new Apartment({
 });
 
 const product22 = new Apartment({
-  name: "צליל בגליל",
+  nameApartment: "צליל בגליל",
+  name: "אסנת",
+  uidFirebase: "hijObkCnIHZ9aPh7WO4Q8ifDZzA2",
+
   firstImage:
     "https://uploads.homeless.co.il/shortterm/201206/300/nvFile3777377.jpeg",
   images: [
@@ -1241,7 +1308,10 @@ const product22 = new Apartment({
 });
 
 const product23 = new Apartment({
-  name: "אחוזת אורפז",
+  nameApartment: "אחוזת אורפז",
+  name: "אליה",
+  uidFirebase: "YaqdPHVnETfnLoHBWKB0rocoRPU2",
+
   firstImage:
     "https://www.halel.co.il/wp-content/uploads/2018/02/DSC2480AAA_copy.jpg",
   images: [
@@ -1294,7 +1364,10 @@ const product23 = new Apartment({
 });
 
 const product24 = new Apartment({
-  name: "אחוזת פאר בדלתון",
+  nameApartment: "אחוזת פאר בדלתון",
+  name: "הילה",
+  uidFirebase: "IrIjt7LCTVONyGLL9bkPQ1PwyLm2",
+
   firstImage: "https://img.mako.co.il/2018/12/26/6_Rooms_Money_261218_22_i.jpg",
   images: [
     "https://img.mako.co.il/2018/12/26/6_Rooms_Money_261218_22_i.jpg",

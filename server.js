@@ -65,6 +65,18 @@ app.get("/api/list/", async (req, res) => {
 app.post("/api/list/:id", async (req, res) => {
   const productId = req.params.id;
   const products = await models.apartmentSchema.find({
+    uidFirebase: productId,
+  });
+  try {
+    res.send(products);
+  } catch (err) {
+    res.status(500).send(err);
+  }
+});
+
+app.post("/api/list/:id", async (req, res) => {
+  const productId = req.params.id;
+  const products = await models.apartmentSchema.find({
     _id: productId,
   });
   try {

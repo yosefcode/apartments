@@ -1,11 +1,13 @@
 import "./myApartment.css";
 import * as React from "react";
 import { styled } from "@mui/material/styles";
-import ArrowForwardIosSharpIcon from "@mui/icons-material/ArrowForwardIosSharp";
+import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import MuiAccordion from "@mui/material/Accordion";
 import MuiAccordionSummary from "@mui/material/AccordionSummary";
 import MuiAccordionDetails from "@mui/material/AccordionDetails";
 import Typography from "@mui/material/Typography";
+import AddApartment from "../addApartment/addApartment";
+import Calendar from "../calendar/calendar";
 
 function Info({ apartmentShow }) {
   const Accordion = styled((props) => (
@@ -22,7 +24,7 @@ function Info({ apartmentShow }) {
 
   const AccordionSummary = styled((props) => (
     <MuiAccordionSummary
-      expandIcon={<ArrowForwardIosSharpIcon sx={{ fontSize: "0.9rem" }} />}
+      expandIcon={<ExpandMoreIcon sx={{ fontSize: "1.9vw" }} />}
       {...props}
     />
   ))(({ theme }) => ({
@@ -32,7 +34,7 @@ function Info({ apartmentShow }) {
         : "rgba(0, 0, 0, .03)",
     flexDirection: "row-reverse",
     "& .MuiAccordionSummary-expandIconWrapper.Mui-expanded": {
-      transform: "rotate(90deg)",
+      transform: "rotate(180deg)",
     },
     "& .MuiAccordionSummary-content": {
       marginLeft: theme.spacing(1),
@@ -52,10 +54,9 @@ function Info({ apartmentShow }) {
 
   return (
     <div className="myApartment">
-      <div className="headerInfo headerInfo1">הדירות שלי</div>
-      <div className="allInfo">
-        <div className="info">
-          {apartmentShow.map((list) => (
+      <div className="info">
+        {apartmentShow.length > 0 ? (
+          apartmentShow.map((list) => (
             <div>
               <Accordion
                 expanded={expanded === list._id}
@@ -81,12 +82,18 @@ function Info({ apartmentShow }) {
                     <h4>
                       החל מ{list.price} ש"ח ל{list.priceMethod}.
                     </h4>
+                    <Calendar />
                   </Typography>
                 </AccordionDetails>
               </Accordion>
             </div>
-          ))}
-        </div>
+          ))
+        ) : (
+          <div>
+            {" "}
+            אין לך עדיין דירות זה הזמן להוסיף את דירתך <AddApartment />
+          </div>
+        )}
       </div>
     </div>
   );

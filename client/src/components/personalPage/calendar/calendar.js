@@ -6,12 +6,8 @@ import "react-calendar/dist/Calendar.css";
 const calendar = ({ apartmentShow }) => {
   return (
     //  apartmentShow.map((list) => (
-    <div className="calendar">
-      {" "}
-      <div className="headerCalendar headerCalendar1">תאריכים פנויים</div>
-      <div className="aaa">
-        <Calendar />
-      </div>
+    <div className="aaa">
+      <Calendar />
     </div>
     // ));
   );

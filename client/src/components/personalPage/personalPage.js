@@ -18,7 +18,7 @@ function ApartmentShow() {
   const [apartmentShow, setApartmentShow] = useState([]);
 
   useEffect(() => {
-    axios.post("/api/list/" + id).then((res) => {
+    axios.post("/api/person/" + id).then((res) => {
       setApartmentShow(res.data);
       console.log(res.data);
     });

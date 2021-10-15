@@ -3,8 +3,8 @@ import React, { useState, useEffect, useRef } from "react";
 import { useParams } from "react-router-dom";
 import axios from "axios";
 import Calendar from "./calendar/calendar";
-import Info from "./info/info";
-import SendMessage from "./sendMessage/sendMessage";
+import Info from "./myApartment/myApartment";
+import SendMessage from "./addApartment/addApartment";
 
 function ApartmentShow() {
   const { id } = useParams();

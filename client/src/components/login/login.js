@@ -1,5 +1,5 @@
 import "./login.css";
-import { Person, Home } from "@mui/icons-material/";
+import { Person } from "@mui/icons-material/";
 import { initializeApp } from "firebase/app";
 import { getAnalytics } from "firebase/analytics";
 import { useEffect, useState } from "react";
@@ -31,21 +31,19 @@ const Login = () => {
 
   const auth = getAuth();
 
-  const [user5, setuser5] = useState("");
-  const [user1, setuser1] = useState();
-  const [name, setname] = useState("");
+  const [uidUser, setUidUser] = useState("");
+  const [userConnect, setUserConnect] = useState();
+  const [nameUser, setNameUser] = useState("");
 
   useEffect(() => {
     onAuthStateChanged(auth, (user) => {
       if (user) {
-        setuser5(user.uid);
-        setname(user.displayName);
-        setuser1(true);
-      } else {
-        // setuser1(false);
+        setUidUser(user.uid);
+        setNameUser(user.displayName);
+        setUserConnect(true);
       }
     });
-  }, [auth, user5, user1]);
+  }, [auth, uidUser, userConnect]);
 
   const login = () => {
     signInWithPopup(auth, provider)
@@ -54,7 +52,7 @@ const Login = () => {
         const credential = GoogleAuthProvider.credentialFromResult(result);
         const token = credential.accessToken;
         const user = result.user;
-        setuser5(user.uid);
+        setUidUser(user.uid);
       })
       .catch((error) => {
         const errorCode = error.code;
@@ -72,16 +70,16 @@ const Login = () => {
       .catch((error) => {
         // An error happened.
       });
-    setuser1(false);
+    setUserConnect(false);
   };
 
   return (
     <div className="login">
       <div className="a">
-        {user1 === true ? (
+        {userConnect === true ? (
           <div>
-            <Link className="link" to={"/login/" + user5} target="_blank">
-              <button>{name}</button>
+            <Link className="link" to={"/login/" + uidUser} target="_blank">
+              <button>{nameUser}</button>
             </Link>
             <button onClick={exit}>התנתק</button>
           </div>

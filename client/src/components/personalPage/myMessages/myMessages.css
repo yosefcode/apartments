@@ -1,21 +1,21 @@
-.kesher {
+.myMessages {
   width: 100%;
   position: relative;
-  border: black 10px solid;
 }
-.divTable {
-  width: 80%;
-  margin: 5vw auto;
+.myMessages .divTable {
+  width: 100%;
+  margin: 0 auto;
 }
 table {
   border-collapse: collapse;
   width: 100%;
 }
 
-td {
+.myMessages td {
   border: 2px solid #888888;
   text-align: right;
-  padding: 8px 20px;
+  padding: 8px;
+  line-height: 1.6vw;
 }
 th {
   border: 2px solid #888888;

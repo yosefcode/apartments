@@ -23,7 +23,7 @@ function SendMessage({ apartmentShow }) {
   //   });
 
   return (
-    <div className="sendMessage">
+    <div className="addApartment">
       <button>addApartment</button>
     </div>
   );

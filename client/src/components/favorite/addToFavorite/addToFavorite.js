@@ -7,31 +7,19 @@ function AddToFavorite({ apartmentForFavorite }) {
   const { listIDForFavorite, setListIDForFavorite } = useContext(AppContext);
 
   var listFavorite = JSON.parse(localStorage.getItem(`favorite`)) || [];
-  // const favorite = console.log("aaa");
-  // const notFavorite = console.log("sss");
   const favorite = <Favorite className="favoriteIcon" />;
   const notFavorite = <FavoriteBorder className="favoriteIcon" />;
 
   const [iconFavorite, setIconFavorite] = useState("");
-  const [vorite, setvorite] = useState([]);
 
   const findFavorite = listFavorite.find(
     (favorite) => favorite._id === apartmentForFavorite._id
   );
 
   useEffect(() => {
-    // console.log(vorite);
     setListIDForFavorite(JSON.parse(localStorage.getItem(`favorite`)));
-
-    // if (findFavorite) {
-    //   setIconFavorite(favorite);
-    // } else {
-    //   setIconFavorite(notFavorite);
-    // }
-
     setIconFavorite(findFavorite ? favorite : notFavorite);
   }, [!findFavorite]);
-  // console.log(findFavorite);
 
   const changeFavorite = () => {
     if (!findFavorite) {

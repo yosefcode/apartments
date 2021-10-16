@@ -9,10 +9,11 @@ import Typography from "@mui/material/Typography";
 import AddApartment from "../addApartment/addApartment";
 import Calendar from "../calendar/calendar";
 
-function Info({ apartmentShow }) {
+function MyApartments({ myApartments }) {
   const Accordion = styled((props) => (
     <MuiAccordion disableGutters elevation={0} square {...props} />
   ))(({ theme }) => ({
+    margin: "1vw",
     border: `1px solid ${theme.palette.divider}`,
     "&:not(:last-child)": {
       borderBottom: 0,
@@ -54,49 +55,59 @@ function Info({ apartmentShow }) {
 
   return (
     <div className="myApartment">
-      <div className="info">
-        {apartmentShow.length > 0 ? (
-          apartmentShow.map((list) => (
-            <div>
-              <Accordion
-                expanded={expanded === list._id}
-                onChange={handleChange(list._id)}
-              >
-                <AccordionSummary
-                  aria-controls="panel1d-content"
-                  id="panel1d-header"
-                >
-                  <Typography>
-                    {" "}
-                    <h2>{list.nameApartment}.</h2>
-                  </Typography>
-                </AccordionSummary>
-                <AccordionDetails>
-                  <Typography>
-                    <h3>
-                      {list.area}, {list.city}.
-                    </h3>
-                    <h4>
-                      {list.rooms} חדרים, עד {list.beds} מיטות.
-                    </h4>
-                    <h4>
-                      החל מ{list.price} ש"ח ל{list.priceMethod}.
-                    </h4>
-                    <Calendar />
-                  </Typography>
-                </AccordionDetails>
-              </Accordion>
-            </div>
-          ))
-        ) : (
+      {myApartments.length > 0 ? (
+        myApartments.map((list) => (
           <div>
-            {" "}
-            אין לך עדיין דירות זה הזמן להוסיף את דירתך <AddApartment />
+            <Accordion
+              expanded={expanded === list._id}
+              onChange={handleChange(list._id)}
+            >
+              <AccordionSummary
+                aria-controls="panel1d-content"
+                id="panel1d-header"
+              >
+                <Typography>
+                  <div className="boxheader">
+                    <div>
+                      <h2>{list.nameApartment},</h2>
+                      <h3>{list.city}.</h3>
+                    </div>
+                    <div>
+                      <h3>מודעה פעילה</h3>
+                    </div>
+                  </div>
+                </Typography>
+              </AccordionSummary>
+              <AccordionDetails>
+                <Typography>
+                  <h3>
+                    {list.area}, {list.city}.
+                  </h3>
+                  <h4>
+                    {list.rooms} חדרים, עד {list.beds} מיטות.
+                  </h4>
+                  <h4>
+                    החל מ{list.price} ש"ח ל{list.priceMethod}.
+                  </h4>
+                  <Calendar />
+                  <div className="btnsbottom">
+                    <button className="btn">ערוך מודעה</button>
+                    <button className="btn">מחק מודעה</button>
+                    <button className="btn">הקפא מודעה</button>
+                  </div>
+                </Typography>
+              </AccordionDetails>
+            </Accordion>
           </div>
-        )}
-      </div>
+        ))
+      ) : (
+        <div>
+          {" "}
+          אין לך עדיין דירות זה הזמן להוסיף את דירתך <AddApartment />
+        </div>
+      )}
     </div>
   );
 }
 
-export default Info;
+export default MyApartments;

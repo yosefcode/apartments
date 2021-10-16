@@ -1,8 +1,8 @@
 import "./myMessages.css";
 import axios from "axios";
-import React, { useState, useEffect, useContext } from "react";
+import React, { useState, useEffect } from "react";
 
-function Kesher() {
+function MyMessages() {
   let [list, setList] = useState([]);
 
   useEffect(() => {
@@ -12,24 +12,20 @@ function Kesher() {
   }, []);
 
   return (
-    <div className="kesher">
+    <div className="myMessages">
       <div key={list._id} className="divTable">
         <table>
           <tr>
-            <th style={{ width: "10%" }}>{"זמן הפניה"}</th>
+            <th style={{ width: "15%" }}>{"זמן הפניה"}</th>
             <th style={{ width: "15%" }}>{"שם פונה"}</th>
-            <th style={{ width: "15%" }}>{"שם בעל הצימר"}</th>
-            <th style={{ width: "15%" }}>{"מייל פונה"}</th>
-            <th style={{ width: "15%" }}>{"מייל בעל הצימר"}</th>
-            <th style={{ width: "30%" }}>{"תוכן ההודעה"}</th>
+            <th style={{ width: "15%" }}>{"פרטי חזרה לפונה"}</th>
+            <th style={{ width: "55%" }}>{"תוכן ההודעה"}</th>
           </tr>
           {list.map((list) => (
             <tr key={list._id}>
               <td>{new Date(list.date).toLocaleString()}</td>
               <td>{list.nameUser}</td>
-              <td>{list.nameApartment}</td>
               <td>{list.mailUser}</td>
-              <td>{list.mailApartment}</td>
               <td>{list.message}</td>
             </tr>
           ))}
@@ -39,4 +35,4 @@ function Kesher() {
   );
 }
 
-export default Kesher;
+export default MyMessages;

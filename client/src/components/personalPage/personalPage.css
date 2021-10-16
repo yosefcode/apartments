@@ -1,50 +1,26 @@
-.apartmentShow {
+.personalPage {
   position: relative;
-  z-index: 0;
-  /* display: initial; */
-  width: 100%;
+  width: 70%;
+  margin: 4vw auto;
 }
 
-.apartmentShow .divHeader {
-  position: sticky;
-  top: 0vw;
-  right: 10.2%;
-  z-index: 10;
-  width: 100%;
-  height: 4vw;
+.css-1h9z7r5-MuiButtonBase-root-MuiTab-root {
+  color: white !important;
+  font-size: 1.4vw !important;
+  font-weight: 700 !important;
+  width: 20%;
+}
+.css-1h9z7r5-MuiButtonBase-root-MuiTab-root.Mui-selected {
+  font-size: 1.6vw !important;
+  font-weight: 700 !important;
+  color: rgb(0, 0, 0) !important;
   background-color: white;
 }
-.apartmentShow .divCarousel {
-  width: 100%;
-  position: relative;
+
+.MuiTabs-flexContainer {
+  border: 0.2vw solid black !important;
 }
 
-.apartmentShow .divCommponent {
-  margin-top: 3vw;
-  width: 100%;
-  position: relative;
-}
-.apartmentShow .divCommponent-SendMessage-Calendar {
-  width: 60%;
-  position: relative;
-  right: 18vw;
-  display: grid;
-  grid-template-columns: 50% 50%;
-}
-
-.apartmentShow .filterArea {
-  height: 4vw;
-  width: 100%;
-  margin: 0px auto 0px;
-  background-color: rgb(28, 2, 99);
-  /* position: sticky;
-  top: 0; */
-  border-bottom: rgb(222, 241, 255) 9px solid;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  color: white;
-  font-size: 20px;
-  font-weight: 700;
-  z-index: 100;
+.css-1aquho2-MuiTabs-indicator {
+  height: 0 !important;
 }

@@ -2,10 +2,9 @@ import "./personalPage.css";
 import React, { useState, useEffect, useRef } from "react";
 import { useParams } from "react-router-dom";
 import axios from "axios";
-import Info from "./myApartment/myApartment";
+import MyApartments from "./myApartment/myApartment";
 import AddApartment from "./addApartment/addApartment";
 import MyMessages from "./myMessages/myMessages";
-
 import PropTypes from "prop-types";
 import Tabs from "@mui/material/Tabs";
 import Tab from "@mui/material/Tab";
@@ -15,12 +14,11 @@ import Box from "@mui/material/Box";
 function ApartmentShow() {
   const { id } = useParams();
 
-  const [apartmentShow, setApartmentShow] = useState([]);
+  const [myApartments, setMyApartments] = useState([]);
 
   useEffect(() => {
-    axios.post("/api/person/" + id).then((res) => {
-      setApartmentShow(res.data);
-      console.log(res.data);
+    axios.post("/api/myApartments/" + id).then((res) => {
+      setMyApartments(res.data);
     });
   }, [id]);
 
@@ -64,9 +62,13 @@ function ApartmentShow() {
   };
 
   return (
-    <div className="apartmentShow">
+    <div className="personalPage">
       <Box sx={{ width: "100%" }}>
-        <Box sx={{ borderBottom: 1, borderColor: "divider" }}>
+        <Box
+          sx={{
+            backgroundColor: "rgb(28, 2, 99)",
+          }}
+        >
           <Tabs
             value={value}
             onChange={handleChange}
@@ -82,13 +84,13 @@ function ApartmentShow() {
           {id}{" "}
         </TabPanel>
         <TabPanel value={value} index={1}>
-          <Info apartmentShow={apartmentShow} />
+          <MyApartments myApartments={myApartments} />
         </TabPanel>
         <TabPanel value={value} index={2}>
-          <MyMessages />
+          <MyMessages id={id} />
         </TabPanel>
         <TabPanel value={value} index={3}>
-          <AddApartment />
+          <AddApartment id={id} />
         </TabPanel>
       </Box>
     </div>

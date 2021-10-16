@@ -1,5 +1,5 @@
 import "./bar.css";
-import { Person, Home } from "@mui/icons-material/";
+import { Home } from "@mui/icons-material/";
 import Login from "../login/login";
 
 const Bar = () => {
@@ -52,16 +52,6 @@ const Bar = () => {
         <div className="btnhome">
           <Login />
         </div>
-        {/* <a className="btnhome" href="/login/" target={"_blank"}>
-          <Person
-            style={{
-              fontSize: "4vw",
-              color: "blue",
-              background: "white",
-              borderRadius: "50%",
-            }}
-          />{" "}
-        </a>{" "} */}
       </div>
     </div>
   );

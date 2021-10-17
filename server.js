@@ -1,7 +1,6 @@
 const fs = require("fs");
 const cors = require("cors");
 const express = require("express");
-const bodyParser = require("body-parser");
 const app = express();
 const path = require("path");
 const { connectToDb, models } = require("./models");
@@ -13,7 +12,6 @@ const apartmentShow = require("./funcOftheServer/apartmentShow");
 
 app.use(cors());
 app.use(express.json());
-app.use(bodyParser.json());
 
 const dotenv = require("dotenv");
 
@@ -40,6 +38,8 @@ app.get("/api/messages/", messages.allMessage);
 app.post("/api/messages/:id", messages.messageFromUID);
 
 app.post("/api/myApartments/:id", myApartments.myApartments);
+app.delete(`/api/deleteApartment/:id`, myApartments.deleteApartment);
+app.put(`/api/holdApartment/:id`, myApartments.holdApartment);
 
 app.post("/api/apartmentShow/:id", apartmentShow.apartmentShow);
 

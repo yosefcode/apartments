@@ -8,6 +8,8 @@ import MuiAccordionDetails from "@mui/material/AccordionDetails";
 import Typography from "@mui/material/Typography";
 import AddApartment from "../addApartment/addApartment";
 import Calendar from "../calendar/calendar";
+import RmoveApartment from "./removeApartment/removeApartment";
+import HoldApartment from "./holdApartment/holdApartment";
 
 function MyApartments({ myApartments }) {
   const Accordion = styled((props) => (
@@ -89,11 +91,11 @@ function MyApartments({ myApartments }) {
                   <h4>
                     החל מ{list.price} ש"ח ל{list.priceMethod}.
                   </h4>
-                  <Calendar />
+                  {/* <Calendar /> */}
                   <div className="btnsbottom">
                     <button className="btn">ערוך מודעה</button>
-                    <button className="btn">מחק מודעה</button>
-                    <button className="btn">הקפא מודעה</button>
+                    <RmoveApartment id={list._id} />
+                    <HoldApartment id={list._id} show={list.show} />
                   </div>
                 </Typography>
               </AccordionDetails>

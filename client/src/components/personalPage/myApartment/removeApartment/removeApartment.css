@@ -1,0 +1,11 @@
+.divModel {
+  width: 50%;
+  height: auto;
+  border: 3px rgb(146, 82, 82) solid;
+  background-color: rgb(255, 253, 224);
+  border-radius: 20px;
+  font-weight: 700;
+  bottom: 50px;
+  position: absolute;
+  font-size: 1.5vw;
+}

@@ -35,7 +35,7 @@ function MyMessages({ id }) {
           ))}
         </table>
       </div>
-      <Allmessage />
+      {/* <Allmessage /> */}
     </div>
   );
 }

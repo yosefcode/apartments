@@ -1,6 +1,7 @@
 const mongoose = require("mongoose");
 
 const ApartmentSchema = new mongoose.Schema({
+  show: Boolean,
   nameApartment: String,
   name: String,
   firstImage: String,
@@ -23,13 +24,14 @@ const Apartment = mongoose.model("Apartments", ApartmentSchema);
 
 const product1 = new Apartment({
   uidFirebase: "IrIjt7LCTVONyGLL9bkPQ1PwyLm2",
+  show: true,
   nameApartment: "הצימר של אירית",
   name: "אבי",
   firstImage:
     "https://zarfati-zvi.com/wp-content/uploads/2014/12/gallery_12.jpg",
   images: [
     "https://zarfati-zvi.com/wp-content/uploads/2014/12/gallery_12.jpg",
-    "https://zimuki.com/wp-content/uploads/2019/02/Jerusalem.of_.gold_.3br.apt0003.jpg",
+    "https://www.harova.co.il/wp-content/uploads/2017/10/20161214_152417.jpg",
     "https://www.halel.co.il/wp-content/uploads/2018/06/DSC2016AAA_copy.jpg",
     "https://www.nadlancoda.co.il/wp-content/uploads/2021/08/3V8A3198-26.jpg",
     "https://pics.yad2.co.il/Pics/2018/03/20180321164933.jpg",
@@ -80,6 +82,7 @@ const product2 = new Apartment({
   nameApartment: "סייסטה ברמות",
   name: "משה",
   uidFirebase: "hijObkCnIHZ9aPh7WO4Q8ifDZzA2",
+  show: true,
 
   firstImage:
     "https://www.halel.co.il/wp-content/uploads/2018/06/DSC2016AAA_copy.jpg",
@@ -88,10 +91,10 @@ const product2 = new Apartment({
     "https://www.nadlancoda.co.il/wp-content/uploads/2021/08/3V8A3198-26.jpg",
     "https://www.halel.co.il/wp-content/uploads/2018/06/DSC2016AAA_copy.jpg",
     "https://www.nadlancoda.co.il/wp-content/uploads/2021/08/3V8A3198-26.jpg",
-    "https://zimuki.com/wp-content/uploads/2019/02/Jerusalem.of_.gold_.3br.apt0003.jpg",
+    "https://www.harova.co.il/wp-content/uploads/2017/10/20161214_152417.jpg",
     "https://dira4u.co.il/storage/2020/10/1-2.jpeg",
     "https://pics.yad2.co.il/Pics/2018/03/20180321164933.jpg",
-    "https://zimuki.com/wp-content/uploads/2019/02/Jerusalem.of_.gold_.3br.apt0003.jpg",
+    "https://www.harova.co.il/wp-content/uploads/2017/10/20161214_152417.jpg",
     "https://dira4u.co.il/storage/2020/10/1-2.jpeg",
     "https://pics.yad2.co.il/Pics/2018/03/20180321164933.jpg",
     "https://images1.calcalist.co.il/PicServer3/2018/07/22/834349/3L.jpg",
@@ -142,6 +145,7 @@ const product3 = new Apartment({
   nameApartment: "נקודת חן",
   name: "רבקה",
   uidFirebase: "IrIjt7LCTVONyGLL9bkPQ1PwyLm2",
+  show: true,
 
   firstImage:
     "https://www.nadlancoda.co.il/wp-content/uploads/2021/08/3V8A3198-26.jpg",
@@ -151,10 +155,10 @@ const product3 = new Apartment({
     "https://www.nadlancoda.co.il/wp-content/uploads/2021/08/3V8A3198-26.jpg",
     "https://www.halel.co.il/wp-content/uploads/2018/06/DSC2016AAA_copy.jpg",
     "https://www.nadlancoda.co.il/wp-content/uploads/2021/08/3V8A3198-26.jpg",
-    "https://zimuki.com/wp-content/uploads/2019/02/Jerusalem.of_.gold_.3br.apt0003.jpg",
+    "https://www.harova.co.il/wp-content/uploads/2017/10/20161214_152417.jpg",
     "https://dira4u.co.il/storage/2020/10/1-2.jpeg",
     "https://pics.yad2.co.il/Pics/2018/03/20180321164933.jpg",
-    "https://zimuki.com/wp-content/uploads/2019/02/Jerusalem.of_.gold_.3br.apt0003.jpg",
+    "https://www.harova.co.il/wp-content/uploads/2017/10/20161214_152417.jpg",
     "https://dira4u.co.il/storage/2020/10/1-2.jpeg",
     "https://pics.yad2.co.il/Pics/2018/03/20180321164933.jpg",
     "https://images1.calcalist.co.il/PicServer3/2018/07/22/834349/3L.jpg",
@@ -205,14 +209,15 @@ const product4 = new Apartment({
   nameApartment: "אחוזת גלית בצפת",
   name: "יעקב",
   uidFirebase: "YaqdPHVnETfnLoHBWKB0rocoRPU2",
+  show: true,
 
   firstImage:
-    "https://zimuki.com/wp-content/uploads/2019/02/Jerusalem.of_.gold_.3br.apt0003.jpg",
+    "https://www.harova.co.il/wp-content/uploads/2017/10/20161214_152417.jpg",
   images: [
-    "https://zimuki.com/wp-content/uploads/2019/02/Jerusalem.of_.gold_.3br.apt0003.jpg",
+    "https://www.harova.co.il/wp-content/uploads/2017/10/20161214_152417.jpg",
     "https://www.halel.co.il/wp-content/uploads/2018/06/DSC2016AAA_copy.jpg",
     "https://www.nadlancoda.co.il/wp-content/uploads/2021/08/3V8A3198-26.jpg",
-    "https://zimuki.com/wp-content/uploads/2019/02/Jerusalem.of_.gold_.3br.apt0003.jpg",
+    "https://www.harova.co.il/wp-content/uploads/2017/10/20161214_152417.jpg",
     "https://dira4u.co.il/storage/2020/10/1-2.jpeg",
     "https://pics.yad2.co.il/Pics/2018/03/20180321164933.jpg",
     "https://images1.calcalist.co.il/PicServer3/2018/07/22/834349/3L.jpg",
@@ -262,6 +267,7 @@ const product5 = new Apartment({
   nameApartment: "בקתות התפוח",
   name: "יצחק",
   uidFirebase: "hijObkCnIHZ9aPh7WO4Q8ifDZzA2",
+  show: true,
 
   firstImage: "https://pics.yad2.co.il/Pics/2018/03/20180321164933.jpg",
   images: [
@@ -270,10 +276,10 @@ const product5 = new Apartment({
     "https://www.nadlancoda.co.il/wp-content/uploads/2021/08/3V8A3198-26.jpg",
     "https://www.halel.co.il/wp-content/uploads/2018/06/DSC2016AAA_copy.jpg",
     "https://www.nadlancoda.co.il/wp-content/uploads/2021/08/3V8A3198-26.jpg",
-    "https://zimuki.com/wp-content/uploads/2019/02/Jerusalem.of_.gold_.3br.apt0003.jpg",
+    "https://www.harova.co.il/wp-content/uploads/2017/10/20161214_152417.jpg",
     "https://dira4u.co.il/storage/2020/10/1-2.jpeg",
     "https://pics.yad2.co.il/Pics/2018/03/20180321164933.jpg",
-    "https://zimuki.com/wp-content/uploads/2019/02/Jerusalem.of_.gold_.3br.apt0003.jpg",
+    "https://www.harova.co.il/wp-content/uploads/2017/10/20161214_152417.jpg",
     "https://dira4u.co.il/storage/2020/10/1-2.jpeg",
     "https://pics.yad2.co.il/Pics/2018/03/20180321164933.jpg",
     "https://images1.calcalist.co.il/PicServer3/2018/07/22/834349/3L.jpg",
@@ -324,6 +330,7 @@ const product6 = new Apartment({
   nameApartment: "צימרים אחוזת דבש",
   name: "חיים",
   uidFirebase: "YaqdPHVnETfnLoHBWKB0rocoRPU2",
+  show: true,
 
   firstImage: "https://dira4u.co.il/storage/2020/10/1-2.jpeg",
 
@@ -331,7 +338,7 @@ const product6 = new Apartment({
     "https://dira4u.co.il/storage/2020/10/1-2.jpeg",
     "https://www.halel.co.il/wp-content/uploads/2018/06/DSC2016AAA_copy.jpg",
     "https://www.nadlancoda.co.il/wp-content/uploads/2021/08/3V8A3198-26.jpg",
-    "https://zimuki.com/wp-content/uploads/2019/02/Jerusalem.of_.gold_.3br.apt0003.jpg",
+    "https://www.harova.co.il/wp-content/uploads/2017/10/20161214_152417.jpg",
     "https://dira4u.co.il/storage/2020/10/1-2.jpeg",
     "https://pics.yad2.co.il/Pics/2018/03/20180321164933.jpg",
     "https://images1.calcalist.co.il/PicServer3/2018/07/22/834349/3L.jpg",
@@ -381,6 +388,7 @@ const product7 = new Apartment({
   nameApartment: "חלומות ספיר",
   name: "רבקה",
   uidFirebase: "IrIjt7LCTVONyGLL9bkPQ1PwyLm2",
+  show: true,
 
   firstImage:
     "https://metaylimbkipa.com/wp-content/uploads/thumbs/74d66485-b335-4cde-8244-f52b89c6d6ae-3b4923mlhc4e0ata0r12ww.jpg",
@@ -390,10 +398,10 @@ const product7 = new Apartment({
     "https://www.nadlancoda.co.il/wp-content/uploads/2021/08/3V8A3198-26.jpg",
     "https://www.halel.co.il/wp-content/uploads/2018/06/DSC2016AAA_copy.jpg",
     "https://www.nadlancoda.co.il/wp-content/uploads/2021/08/3V8A3198-26.jpg",
-    "https://zimuki.com/wp-content/uploads/2019/02/Jerusalem.of_.gold_.3br.apt0003.jpg",
+    "https://www.harova.co.il/wp-content/uploads/2017/10/20161214_152417.jpg",
     "https://dira4u.co.il/storage/2020/10/1-2.jpeg",
     "https://pics.yad2.co.il/Pics/2018/03/20180321164933.jpg",
-    "https://zimuki.com/wp-content/uploads/2019/02/Jerusalem.of_.gold_.3br.apt0003.jpg",
+    "https://www.harova.co.il/wp-content/uploads/2017/10/20161214_152417.jpg",
     "https://dira4u.co.il/storage/2020/10/1-2.jpeg",
     "https://pics.yad2.co.il/Pics/2018/03/20180321164933.jpg",
     "https://images1.calcalist.co.il/PicServer3/2018/07/22/834349/3L.jpg",
@@ -444,6 +452,7 @@ const product8 = new Apartment({
   nameApartment: "אחוזת רוטצי",
   name: "חיים",
   uidFirebase: "hijObkCnIHZ9aPh7WO4Q8ifDZzA2",
+  show: true,
 
   firstImage: "https://uploads.homeless.co.il/sale/202006/nvFile3861212.jpg",
   images: [
@@ -452,10 +461,10 @@ const product8 = new Apartment({
     "https://www.nadlancoda.co.il/wp-content/uploads/2021/08/3V8A3198-26.jpg",
     "https://www.halel.co.il/wp-content/uploads/2018/06/DSC2016AAA_copy.jpg",
     "https://www.nadlancoda.co.il/wp-content/uploads/2021/08/3V8A3198-26.jpg",
-    "https://zimuki.com/wp-content/uploads/2019/02/Jerusalem.of_.gold_.3br.apt0003.jpg",
+    "https://www.harova.co.il/wp-content/uploads/2017/10/20161214_152417.jpg",
     "https://dira4u.co.il/storage/2020/10/1-2.jpeg",
     "https://pics.yad2.co.il/Pics/2018/03/20180321164933.jpg",
-    "https://zimuki.com/wp-content/uploads/2019/02/Jerusalem.of_.gold_.3br.apt0003.jpg",
+    "https://www.harova.co.il/wp-content/uploads/2017/10/20161214_152417.jpg",
     "https://dira4u.co.il/storage/2020/10/1-2.jpeg",
     "https://pics.yad2.co.il/Pics/2018/03/20180321164933.jpg",
     "https://images1.calcalist.co.il/PicServer3/2018/07/22/834349/3L.jpg",
@@ -506,13 +515,14 @@ const product9 = new Apartment({
   nameApartment: "טוסקנה בשזור",
   name: "מרדכי",
   uidFirebase: "YaqdPHVnETfnLoHBWKB0rocoRPU2",
+  show: true,
 
   firstImage: "https://img2.ad.co.il/NadlanSaleImages/1102789_0.jpg",
   images: [
     "https://img2.ad.co.il/NadlanSaleImages/1102789_0.jpg",
     "https://www.halel.co.il/wp-content/uploads/2018/06/DSC2016AAA_copy.jpg",
     "https://www.nadlancoda.co.il/wp-content/uploads/2021/08/3V8A3198-26.jpg",
-    "https://zimuki.com/wp-content/uploads/2019/02/Jerusalem.of_.gold_.3br.apt0003.jpg",
+    "https://www.harova.co.il/wp-content/uploads/2017/10/20161214_152417.jpg",
     "https://dira4u.co.il/storage/2020/10/1-2.jpeg",
     "https://pics.yad2.co.il/Pics/2018/03/20180321164933.jpg",
     "https://images1.calcalist.co.il/PicServer3/2018/07/22/834349/3L.jpg",
@@ -561,20 +571,20 @@ const product10 = new Apartment({
   nameApartment: "סוויטות כחול לבן",
   name: "יעקב",
   uidFirebase: "IrIjt7LCTVONyGLL9bkPQ1PwyLm2",
-
+  show: true,
   firstImage:
     "https://images1.ynet.co.il/PicServer5/2017/02/15/7590673/75897210100791980551no.jpg",
   images: [
     "https://images1.ynet.co.il/PicServer5/2017/02/15/7590673/75897210100791980551no.jpg",
     "https://www.halel.co.il/wp-content/uploads/2018/06/DSC2016AAA_copy.jpg",
     "https://www.nadlancoda.co.il/wp-content/uploads/2021/08/3V8A3198-26.jpg",
-    "https://zimuki.com/wp-content/uploads/2019/02/Jerusalem.of_.gold_.3br.apt0003.jpg",
+    "https://www.harova.co.il/wp-content/uploads/2017/10/20161214_152417.jpg",
     "https://dira4u.co.il/storage/2020/10/1-2.jpeg",
     "https://pics.yad2.co.il/Pics/2018/03/20180321164933.jpg",
     "https://images1.calcalist.co.il/PicServer3/2018/07/22/834349/3L.jpg",
     "https://www.halel.co.il/wp-content/uploads/2018/06/DSC2016AAA_copy.jpg",
     "https://www.nadlancoda.co.il/wp-content/uploads/2021/08/3V8A3198-26.jpg",
-    "https://zimuki.com/wp-content/uploads/2019/02/Jerusalem.of_.gold_.3br.apt0003.jpg",
+    "https://www.harova.co.il/wp-content/uploads/2017/10/20161214_152417.jpg",
     "https://dira4u.co.il/storage/2020/10/1-2.jpeg",
     "https://pics.yad2.co.il/Pics/2018/03/20180321164933.jpg",
     "https://images1.calcalist.co.il/PicServer3/2018/07/22/834349/3L.jpg",
@@ -624,7 +634,7 @@ const product11 = new Apartment({
   nameApartment: "בקתות לוטן",
   name: "חנה",
   uidFirebase: "hijObkCnIHZ9aPh7WO4Q8ifDZzA2",
-
+  show: true,
   firstImage:
     "https://www.israelhayom.co.il/sites/default/files/styles/566x349/public/images/articles/2020/07/10/15943294905962_b.jpg",
   images: [
@@ -633,10 +643,10 @@ const product11 = new Apartment({
     "https://www.nadlancoda.co.il/wp-content/uploads/2021/08/3V8A3198-26.jpg",
     "https://www.halel.co.il/wp-content/uploads/2018/06/DSC2016AAA_copy.jpg",
     "https://www.nadlancoda.co.il/wp-content/uploads/2021/08/3V8A3198-26.jpg",
-    "https://zimuki.com/wp-content/uploads/2019/02/Jerusalem.of_.gold_.3br.apt0003.jpg",
+    "https://www.harova.co.il/wp-content/uploads/2017/10/20161214_152417.jpg",
     "https://dira4u.co.il/storage/2020/10/1-2.jpeg",
     "https://pics.yad2.co.il/Pics/2018/03/20180321164933.jpg",
-    "https://zimuki.com/wp-content/uploads/2019/02/Jerusalem.of_.gold_.3br.apt0003.jpg",
+    "https://www.harova.co.il/wp-content/uploads/2017/10/20161214_152417.jpg",
     "https://dira4u.co.il/storage/2020/10/1-2.jpeg",
     "https://pics.yad2.co.il/Pics/2018/03/20180321164933.jpg",
     "https://images1.calcalist.co.il/PicServer3/2018/07/22/834349/3L.jpg",
@@ -687,7 +697,7 @@ const product12 = new Apartment({
   nameApartment: "צימר האפרסק",
   name: "מיכל",
   uidFirebase: "IrIjt7LCTVONyGLL9bkPQ1PwyLm2",
-
+  show: true,
   firstImage:
     "https://ainevo.co.il/wp-content/uploads/elementor/thumbs/dira1_c-Medium-1024x728-ogie6jc9med5opsjdt3wp20l2tftccacq9otq5pymg.jpg",
 
@@ -695,7 +705,7 @@ const product12 = new Apartment({
     "https://ainevo.co.il/wp-content/uploads/elementor/thumbs/dira1_c-Medium-1024x728-ogie6jc9med5opsjdt3wp20l2tftccacq9otq5pymg.jpg",
     "https://www.halel.co.il/wp-content/uploads/2018/06/DSC2016AAA_copy.jpg",
     "https://www.nadlancoda.co.il/wp-content/uploads/2021/08/3V8A3198-26.jpg",
-    "https://zimuki.com/wp-content/uploads/2019/02/Jerusalem.of_.gold_.3br.apt0003.jpg",
+    "https://www.harova.co.il/wp-content/uploads/2017/10/20161214_152417.jpg",
     "https://dira4u.co.il/storage/2020/10/1-2.jpeg",
     "https://pics.yad2.co.il/Pics/2018/03/20180321164933.jpg",
     "https://images1.calcalist.co.il/PicServer3/2018/07/22/834349/3L.jpg",
@@ -745,13 +755,13 @@ const product13 = new Apartment({
   nameApartment: "קסם האלה",
   name: "נועם",
   uidFirebase: "YaqdPHVnETfnLoHBWKB0rocoRPU2",
-
+  show: true,
   firstImage: "https://images1.ynet.co.il/PicServer5/2017/08/21/7983208/3.jpg",
   images: [
     "https://images1.ynet.co.il/PicServer5/2017/08/21/7983208/3.jpg",
     "https://www.halel.co.il/wp-content/uploads/2018/06/DSC2016AAA_copy.jpg",
     "https://www.nadlancoda.co.il/wp-content/uploads/2021/08/3V8A3198-26.jpg",
-    "https://zimuki.com/wp-content/uploads/2019/02/Jerusalem.of_.gold_.3br.apt0003.jpg",
+    "https://www.harova.co.il/wp-content/uploads/2017/10/20161214_152417.jpg",
     "https://dira4u.co.il/storage/2020/10/1-2.jpeg",
     "https://pics.yad2.co.il/Pics/2018/03/20180321164933.jpg",
     "https://images1.calcalist.co.il/PicServer3/2018/07/22/834349/3L.jpg",
@@ -801,14 +811,14 @@ const product14 = new Apartment({
   nameApartment: "בקתות נוף הצוק",
   name: "שלמה",
   uidFirebase: "IrIjt7LCTVONyGLL9bkPQ1PwyLm2",
-
+  show: true,
   firstImage:
     "https://www.ahouse.co.il/upload/imgs/db7fe1017d08492307d7d70d458fe488.jpg",
   images: [
     "https://www.ahouse.co.il/upload/imgs/db7fe1017d08492307d7d70d458fe488.jpg",
     "https://www.halel.co.il/wp-content/uploads/2018/06/DSC2016AAA_copy.jpg",
     "https://www.nadlancoda.co.il/wp-content/uploads/2021/08/3V8A3198-26.jpg",
-    "https://zimuki.com/wp-content/uploads/2019/02/Jerusalem.of_.gold_.3br.apt0003.jpg",
+    "https://www.harova.co.il/wp-content/uploads/2017/10/20161214_152417.jpg",
     "https://dira4u.co.il/storage/2020/10/1-2.jpeg",
     "https://pics.yad2.co.il/Pics/2018/03/20180321164933.jpg",
     "https://images1.calcalist.co.il/PicServer3/2018/07/22/834349/3L.jpg",
@@ -858,13 +868,13 @@ const product15 = new Apartment({
   nameApartment: "אחוזת ארגמן",
   name: "רבקה",
   uidFirebase: "hijObkCnIHZ9aPh7WO4Q8ifDZzA2",
-
+  show: true,
   firstImage: "https://img3.ad.co.il/NadlanSaleImages/1614750_0.jpg",
   images: [
     "https://img3.ad.co.il/NadlanSaleImages/1614750_0.jpg",
     "https://www.halel.co.il/wp-content/uploads/2018/06/DSC2016AAA_copy.jpg",
     "https://www.nadlancoda.co.il/wp-content/uploads/2021/08/3V8A3198-26.jpg",
-    "https://zimuki.com/wp-content/uploads/2019/02/Jerusalem.of_.gold_.3br.apt0003.jpg",
+    "https://www.harova.co.il/wp-content/uploads/2017/10/20161214_152417.jpg",
     "https://dira4u.co.il/storage/2020/10/1-2.jpeg",
     "https://pics.yad2.co.il/Pics/2018/03/20180321164933.jpg",
     "https://images1.calcalist.co.il/PicServer3/2018/07/22/834349/3L.jpg",
@@ -913,14 +923,14 @@ const product16 = new Apartment({
   nameApartment: "בתי נורית",
   name: "דוד",
   uidFirebase: "YaqdPHVnETfnLoHBWKB0rocoRPU2",
-
+  show: true,
   firstImage:
     "https://refamily.co.il/wp-content/uploads/2020/07/%D7%94%D7%A8%D7%95%D7%A4%D7%90-41-%D7%9E%D7%98%D7%91%D7%97.jpg",
   images: [
     "https://refamily.co.il/wp-content/uploads/2020/07/%D7%94%D7%A8%D7%95%D7%A4%D7%90-41-%D7%9E%D7%98%D7%91%D7%97.jpg",
     "https://www.halel.co.il/wp-content/uploads/2018/06/DSC2016AAA_copy.jpg",
     "https://www.nadlancoda.co.il/wp-content/uploads/2021/08/3V8A3198-26.jpg",
-    "https://zimuki.com/wp-content/uploads/2019/02/Jerusalem.of_.gold_.3br.apt0003.jpg",
+    "https://www.harova.co.il/wp-content/uploads/2017/10/20161214_152417.jpg",
     "https://dira4u.co.il/storage/2020/10/1-2.jpeg",
     "https://pics.yad2.co.il/Pics/2018/03/20180321164933.jpg",
     "https://images1.calcalist.co.il/PicServer3/2018/07/22/834349/3L.jpg",
@@ -968,14 +978,14 @@ const product17 = new Apartment({
   nameApartment: "אחוזה בגליל",
   name: "נועם",
   uidFirebase: "IrIjt7LCTVONyGLL9bkPQ1PwyLm2",
-
+  show: true,
   firstImage:
     "http://www.yokra-estate.co.il/images/com_jea/images/489/GARDEN.jpg",
   images: [
     "http://www.yokra-estate.co.il/images/com_jea/images/489/GARDEN.jpg",
     "https://www.halel.co.il/wp-content/uploads/2018/06/DSC2016AAA_copy.jpg",
     "https://www.nadlancoda.co.il/wp-content/uploads/2021/08/3V8A3198-26.jpg",
-    "https://zimuki.com/wp-content/uploads/2019/02/Jerusalem.of_.gold_.3br.apt0003.jpg",
+    "https://www.harova.co.il/wp-content/uploads/2017/10/20161214_152417.jpg",
     "https://dira4u.co.il/storage/2020/10/1-2.jpeg",
     "https://pics.yad2.co.il/Pics/2018/03/20180321164933.jpg",
     "https://images1.calcalist.co.il/PicServer3/2018/07/22/834349/3L.jpg",
@@ -1024,19 +1034,19 @@ const product18 = new Apartment({
   nameApartment: "אחוזת שרונה",
   name: "אפרת",
   uidFirebase: "hijObkCnIHZ9aPh7WO4Q8ifDZzA2",
-
+  show: true,
   firstImage:
     "https://www.halel.co.il/wp-content/uploads/2018/06/DSC2016AAA_copy.jpg",
   images: [
     "https://www.halel.co.il/wp-content/uploads/2018/06/DSC2016AAA_copy.jpg",
     "https://www.nadlancoda.co.il/wp-content/uploads/2021/08/3V8A3198-26.jpg",
-    "https://zimuki.com/wp-content/uploads/2019/02/Jerusalem.of_.gold_.3br.apt0003.jpg",
+    "https://www.harova.co.il/wp-content/uploads/2017/10/20161214_152417.jpg",
     "https://dira4u.co.il/storage/2020/10/1-2.jpeg",
     "https://pics.yad2.co.il/Pics/2018/03/20180321164933.jpg",
     "https://images1.calcalist.co.il/PicServer3/2018/07/22/834349/3L.jpg",
     "https://www.halel.co.il/wp-content/uploads/2018/06/DSC2016AAA_copy.jpg",
     "https://www.nadlancoda.co.il/wp-content/uploads/2021/08/3V8A3198-26.jpg",
-    "https://zimuki.com/wp-content/uploads/2019/02/Jerusalem.of_.gold_.3br.apt0003.jpg",
+    "https://www.harova.co.il/wp-content/uploads/2017/10/20161214_152417.jpg",
     "https://dira4u.co.il/storage/2020/10/1-2.jpeg",
     "https://pics.yad2.co.il/Pics/2018/03/20180321164933.jpg",
     "https://images1.calcalist.co.il/PicServer3/2018/07/22/834349/3L.jpg",
@@ -1086,14 +1096,14 @@ const product19 = new Apartment({
   nameApartment: "בוסתן בכפר",
   name: "ליאת",
   uidFirebase: "YaqdPHVnETfnLoHBWKB0rocoRPU2",
-
+  show: true,
   firstImage:
     "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRb9Om3Uu5NytnjOeUnTTlD793pPeqcPkAS3A&usqp=CAU",
   images: [
     "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRb9Om3Uu5NytnjOeUnTTlD793pPeqcPkAS3A&usqp=CAU",
     "https://www.halel.co.il/wp-content/uploads/2018/06/DSC2016AAA_copy.jpg",
     "https://www.nadlancoda.co.il/wp-content/uploads/2021/08/3V8A3198-26.jpg",
-    "https://zimuki.com/wp-content/uploads/2019/02/Jerusalem.of_.gold_.3br.apt0003.jpg",
+    "https://www.harova.co.il/wp-content/uploads/2017/10/20161214_152417.jpg",
     "https://dira4u.co.il/storage/2020/10/1-2.jpeg",
     "https://pics.yad2.co.il/Pics/2018/03/20180321164933.jpg",
     "https://images1.calcalist.co.il/PicServer3/2018/07/22/834349/3L.jpg",
@@ -1142,13 +1152,13 @@ const product20 = new Apartment({
   nameApartment: "הפינה הקסומה במושב",
   name: "אביטל",
   uidFirebase: "IrIjt7LCTVONyGLL9bkPQ1PwyLm2",
-
+  show: true,
   firstImage:
-    "https://zimuki.com/wp-content/uploads/2019/02/Jerusalem.of_.gold_.3br.apt0003.jpg",
+    "https://www.harova.co.il/wp-content/uploads/2017/10/20161214_152417.jpg",
   images: [
     "https://www.halel.co.il/wp-content/uploads/2018/06/DSC2016AAA_copy.jpg",
     "https://www.nadlancoda.co.il/wp-content/uploads/2021/08/3V8A3198-26.jpg",
-    "https://zimuki.com/wp-content/uploads/2019/02/Jerusalem.of_.gold_.3br.apt0003.jpg",
+    "https://www.harova.co.il/wp-content/uploads/2017/10/20161214_152417.jpg",
     "https://dira4u.co.il/storage/2020/10/1-2.jpeg",
     "https://pics.yad2.co.il/Pics/2018/03/20180321164933.jpg",
     "https://images1.calcalist.co.il/PicServer3/2018/07/22/834349/3L.jpg",
@@ -1198,14 +1208,14 @@ const product21 = new Apartment({
   nameApartment: "סוויטות אמיליה",
   name: "אלחנן",
   uidFirebase: "hijObkCnIHZ9aPh7WO4Q8ifDZzA2",
-
+  show: true,
   firstImage:
     "https://img.mako.co.il/2018/10/16/Appartment_In_Tel_Aviv_0918_Zion_13_i.jpg",
   images: [
     "https://img.mako.co.il/2018/10/16/Appartment_In_Tel_Aviv_0918_Zion_13_i.jpg",
     "https://www.halel.co.il/wp-content/uploads/2018/06/DSC2016AAA_copy.jpg",
     "https://www.nadlancoda.co.il/wp-content/uploads/2021/08/3V8A3198-26.jpg",
-    "https://zimuki.com/wp-content/uploads/2019/02/Jerusalem.of_.gold_.3br.apt0003.jpg",
+    "https://www.harova.co.il/wp-content/uploads/2017/10/20161214_152417.jpg",
     "https://dira4u.co.il/storage/2020/10/1-2.jpeg",
     "https://pics.yad2.co.il/Pics/2018/03/20180321164933.jpg",
     "https://images1.calcalist.co.il/PicServer3/2018/07/22/834349/3L.jpg",
@@ -1254,14 +1264,14 @@ const product22 = new Apartment({
   nameApartment: "צליל בגליל",
   name: "אסנת",
   uidFirebase: "hijObkCnIHZ9aPh7WO4Q8ifDZzA2",
-
+  show: true,
   firstImage:
     "https://uploads.homeless.co.il/shortterm/201206/300/nvFile3777377.jpeg",
   images: [
     "https://uploads.homeless.co.il/shortterm/201206/300/nvFile3777377.jpeg",
     "https://www.halel.co.il/wp-content/uploads/2018/06/DSC2016AAA_copy.jpg",
     "https://www.nadlancoda.co.il/wp-content/uploads/2021/08/3V8A3198-26.jpg",
-    "https://zimuki.com/wp-content/uploads/2019/02/Jerusalem.of_.gold_.3br.apt0003.jpg",
+    "https://www.harova.co.il/wp-content/uploads/2017/10/20161214_152417.jpg",
     "https://dira4u.co.il/storage/2020/10/1-2.jpeg",
     "https://pics.yad2.co.il/Pics/2018/03/20180321164933.jpg",
     "https://images1.calcalist.co.il/PicServer3/2018/07/22/834349/3L.jpg",
@@ -1311,14 +1321,14 @@ const product23 = new Apartment({
   nameApartment: "אחוזת אורפז",
   name: "אליה",
   uidFirebase: "YaqdPHVnETfnLoHBWKB0rocoRPU2",
-
+  show: true,
   firstImage:
     "https://www.halel.co.il/wp-content/uploads/2018/02/DSC2480AAA_copy.jpg",
   images: [
     "https://www.halel.co.il/wp-content/uploads/2018/02/DSC2480AAA_copy.jpg",
     "https://www.halel.co.il/wp-content/uploads/2018/06/DSC2016AAA_copy.jpg",
     "https://www.nadlancoda.co.il/wp-content/uploads/2021/08/3V8A3198-26.jpg",
-    "https://zimuki.com/wp-content/uploads/2019/02/Jerusalem.of_.gold_.3br.apt0003.jpg",
+    "https://www.harova.co.il/wp-content/uploads/2017/10/20161214_152417.jpg",
     "https://dira4u.co.il/storage/2020/10/1-2.jpeg",
     "https://pics.yad2.co.il/Pics/2018/03/20180321164933.jpg",
     "https://images1.calcalist.co.il/PicServer3/2018/07/22/834349/3L.jpg",
@@ -1367,13 +1377,13 @@ const product24 = new Apartment({
   nameApartment: "אחוזת פאר בדלתון",
   name: "הילה",
   uidFirebase: "IrIjt7LCTVONyGLL9bkPQ1PwyLm2",
-
+  show: true,
   firstImage: "https://img.mako.co.il/2018/12/26/6_Rooms_Money_261218_22_i.jpg",
   images: [
     "https://img.mako.co.il/2018/12/26/6_Rooms_Money_261218_22_i.jpg",
     "https://www.halel.co.il/wp-content/uploads/2018/06/DSC2016AAA_copy.jpg",
     "https://www.nadlancoda.co.il/wp-content/uploads/2021/08/3V8A3198-26.jpg",
-    "https://zimuki.com/wp-content/uploads/2019/02/Jerusalem.of_.gold_.3br.apt0003.jpg",
+    "https://www.harova.co.il/wp-content/uploads/2017/10/20161214_152417.jpg",
     "https://dira4u.co.il/storage/2020/10/1-2.jpeg",
     "https://pics.yad2.co.il/Pics/2018/03/20180321164933.jpg",
     "https://images1.calcalist.co.il/PicServer3/2018/07/22/834349/3L.jpg",

@@ -1,12 +1,12 @@
 const { models } = require("../models");
 
 exports.apartmentShow = async (req, res) => {
-  const productId = req.params.id;
-  const products = await models.apartmentSchema.find({
-    _id: productId,
+  const apartmentShowId = req.params.id;
+  const apartmentShow = await models.apartmentSchema.find({
+    _id: apartmentShowId,
   });
   try {
-    res.send(products);
+    res.send(apartmentShow);
   } catch (err) {
     res.status(500).send(err);
   }

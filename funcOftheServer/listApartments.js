@@ -24,9 +24,9 @@ exports.filterOfList = async (req, res) => {
 };
 
 exports.list = async (req, res) => {
-  const products = await models.apartmentSchema.find();
+  const listApartments = await models.apartmentSchema.find();
   try {
-    res.send(products);
+    res.send(listApartments);
   } catch (err) {
     res.status(500).send(err);
   }

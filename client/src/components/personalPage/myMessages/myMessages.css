@@ -5,6 +5,7 @@
 .myMessages .divTable {
   width: 100%;
   margin: 0 auto;
+  font-size: 1vw;
 }
 table {
   border-collapse: collapse;

@@ -47,7 +47,7 @@ function Apartment() {
                   <img className="imgaa" src={list.firstImage} alt=""></img>
                 </div> */}
                 <div>
-                  <div className="nameApartment">{list.name}</div>
+                  <div className="nameApartment">{list.nameApartment}</div>
                   <div className="location">
                     {list.city}, {list.area}.
                   </div>

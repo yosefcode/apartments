@@ -8,7 +8,7 @@ function Info({ apartmentShow }) {
       <div className="headerInfo headerInfo1">מידע</div>
       <div className="allInfo">
         <div className="info">
-          <h2>{list.name}.</h2>
+          <h2>{list.nameApartment}.</h2>
           <h3>
             {list.area}, {list.city}.
           </h3>

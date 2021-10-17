@@ -3,8 +3,6 @@ import axios from "axios";
 import { useState } from "react";
 
 function SendMessage({ apartmentShow }) {
-  const nameApartment = apartmentShow.map((mail) => mail.name);
-  const mail = apartmentShow.map((mail) => mail.mail);
   // const mail = ["michal0361@gmail.com"];
   // const mail = [
   //   "A0575172432@gmail.com",
@@ -15,27 +13,30 @@ function SendMessage({ apartmentShow }) {
   const [message, setMessage] = useState({});
 
   const onchange = (e) =>
-    setMessage({
-      ...message,
-      mail: mail[0],
-      nameApartment: nameApartment[0],
-      [e.target.name]: e.target.value,
-    });
+    apartmentShow.map((mail) =>
+      setMessage({
+        ...message,
+        uidFirebase: mail.uidFirebase,
+        mailApartment: mail.mail,
+        nameApartment: mail.nameApartment,
+        [e.target.name]: e.target.value,
+      })
+    );
 
   const [modal, setModal] = useState("display-none");
   const [msgmodal, setMsgmodal] = useState();
 
   const sendMessage = () => {
-    message.message && message.phone ? yesmsg() : nomsg();
+    message.message && message.phoneMailUser ? yesmsg() : nomsg();
   };
 
   const nomsg = () => {
     setMsgmodal(
-      !message.message && !message.phone && !message.name
+      !message.message && !message.phoneMailUser && !message.nameUser
         ? "מה אני אשלח? לא מילאת כלום \ud83d\ude14"
-        : !message.message && !message.phone
+        : !message.message && !message.phoneMailUser
         ? "שם זה נחמד אבל איך נדע מה אתה מעוניין לדעת?"
-        : !message.phone
+        : !message.phoneMailUser
         ? "חסר פרטים ליצירת קשר איתך. איך נחזור אליך עם תשובה?"
         : !message.message
         ? "נשמח לדעת מה אתה רוצה לברר מבעלי הדירה"
@@ -74,7 +75,7 @@ function SendMessage({ apartmentShow }) {
           type="text"
           id="inputName"
           placeholder="שם"
-          name="name"
+          name="nameUser"
           onChange={onchange}
         />
 
@@ -83,7 +84,7 @@ function SendMessage({ apartmentShow }) {
           id="inputPhone"
           placeholder="טלפון / מייל"
           onChange={onchange}
-          name="phone"
+          name="phoneMailUser"
         ></input>
 
         <div

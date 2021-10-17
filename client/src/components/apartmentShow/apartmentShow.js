@@ -22,7 +22,7 @@ function ApartmentShow() {
   const executeScroll = () => myRef.current.scrollIntoView({ block: "center" });
 
   useEffect(() => {
-    axios.post("/api/list/" + id).then((res) => {
+    axios.post("/api/apartmentShow/" + id).then((res) => {
       setApartmentShow(res.data);
     });
   }, [id]);

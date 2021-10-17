@@ -25,7 +25,7 @@ function Info({ apartmentShow }) {
     <div className={bgcolorHeader}>
       <div className="header1">
         <div className="nameHeader">
-          {list.name}.
+          {list.nameApartment}.
           <span className="addressHeader">
             {list.area}, {list.city}.
           </span>

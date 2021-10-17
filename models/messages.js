@@ -6,6 +6,7 @@ const MessagesSchema = new mongoose.Schema({
   mailUser: String,
   mailApartment: String,
   message: String,
+  uidFirebase: String,
   date: { type: String, default: Date },
 });
 

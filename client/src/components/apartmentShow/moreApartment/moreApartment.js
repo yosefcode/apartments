@@ -67,7 +67,7 @@ const MoreApartment = ({ apartmentShow }) => {
                   ></img>
                 </div>
                 <div className="infoApartment">
-                  <div className="nameApartment">{apartment.name}</div>
+                  <div className="nameApartment">{apartment.nameApartment}</div>
                   <div className="location">{apartment.city}</div>
                   <div className="beds"> עד {apartment.beds} מיטות</div>
                   <div className="price">

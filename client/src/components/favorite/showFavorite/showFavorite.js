@@ -88,7 +88,7 @@ function ShowFavorite() {
                     ></img>
 
                     <div className="infoApartmentFavorite">
-                      {list.name}
+                      {list.nameApartment}
                       <br /> {list.city}. {list.phone}
                     </div>
                   </Link>

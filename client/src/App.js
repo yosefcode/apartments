@@ -70,6 +70,7 @@ function App() {
     appId: "1:581621671195:web:c9460ca056d94d63d49fbe",
     measurementId: "G-9T05LHHKK5",
   };
+
   initializeApp(firebaseConfig);
 
   return (

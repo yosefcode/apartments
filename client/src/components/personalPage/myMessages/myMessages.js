@@ -11,7 +11,6 @@ function MyMessages({ id }) {
       setList(res.data);
     });
   }, []);
-  console.log(list);
 
   return (
     <div className="myMessages">

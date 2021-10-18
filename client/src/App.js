@@ -8,13 +8,16 @@ import Bar from "./components/bar/bar";
 import ApartmentShow from "./components/apartmentShow/apartmentShow";
 import MyFavoritePage from "./components/favorite/myFavorite-page/myFavorite-page";
 import PersonalPage from "./components/personalPage/personalPage";
+import Login from "./components/login/login";
 import { AppContext } from "./variable-Context";
 import axios from "axios";
+import { initializeApp } from "firebase/app";
 
 function App() {
-  //   const topFunction = () => {
-  //     document.documentElement.scrollTop = 0;
-  //   };
+  const topFunction = () => {
+    window.scrollTo(0, 0);
+  };
+
   const [filter, setFilter] = useState({});
   let [list, setList] = useState([]);
   let [listIDForFavorite, setListIDForFavorite] = useState([]);
@@ -57,10 +60,25 @@ function App() {
     setListIDForFavorite: (value) => setListIDForFavorite(value),
   };
 
+  const firebaseConfig = {
+    apiKey: "AIzaSyAm6XyXktf-Yp4FcKAIVwqOop5dTtpPKeo",
+    authDomain: "loginapartment-9d83c.firebaseapp.com",
+    databaseURL: "https://loginapartment-9d83c-default-rtdb.firebaseio.com",
+    projectId: "loginapartment-9d83c",
+    storageBucket: "loginapartment-9d83c.appspot.com",
+    messagingSenderId: "581621671195",
+    appId: "1:581621671195:web:c9460ca056d94d63d49fbe",
+    measurementId: "G-9T05LHHKK5",
+  };
+  initializeApp(firebaseConfig);
+
   return (
     <div className="App" dir="rtl">
       <AppContext.Provider value={globalVariable}>
         <Router>
+          <div className="top">
+            <button onClick={topFunction}>top</button>
+          </div>
           <Bar />
           <Switch>
             <Route exact path="/">
@@ -71,7 +89,14 @@ function App() {
             <Route path="/message/">
               <Kesher />
             </Route>
-            <Route path="/login/:id">{<PersonalPage />}</Route>
+
+            <Route exact path="/login/">
+              <Login />
+            </Route>
+
+            <Route path="/login/:id">
+              <PersonalPage />
+            </Route>
 
             <Route path="/myfavorite/">
               <MyFavoritePage />

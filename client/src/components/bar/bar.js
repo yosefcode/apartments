@@ -1,57 +1,55 @@
 import "./bar.css";
-import { Home } from "@mui/icons-material/";
-import Login from "../login/login";
+import logo from "./logo.png";
+import { useEffect, useState } from "react";
+import { getAuth, onAuthStateChanged, signOut } from "firebase/auth";
+import { Link } from "react-router-dom";
 
 const Bar = () => {
+  const auth = getAuth();
+
+  const [uidUser, setUidUser] = useState("");
+  const [userConnect, setUserConnect] = useState();
+  const [nameUser, setNameUser] = useState("");
+
+  useEffect(() => {
+    onAuthStateChanged(auth, (user) => {
+      if (user) {
+        setUidUser(user.uid);
+        setNameUser(user.displayName);
+        setUserConnect(true);
+      }
+    });
+  }, [auth, uidUser, userConnect]);
+
+  const exit = () => {
+    signOut(auth)
+      .then(() => {})
+      .catch((error) => {});
+    setUserConnect(false);
+    window.location.href = "/login/";
+  };
+
   return (
     <div className="bar">
-      <div class="waveWrapper waveAnimation">
-        <div class="waveWrapperInner bgTop">
-          <div
-            class="wave waveTop"
-            style={{
-              backgroundImage:
-                "  url(http://front-end-noobs.com/jecko/img/wave-top.png)",
-            }}
-          ></div>
-        </div>
-        <div class="waveWrapperInner bgMiddle">
-          <div
-            class="wave waveMiddle"
-            style={{
-              backgroundImage:
-                "url(http://front-end-noobs.com/jecko/img/wave-mid.png)",
-            }}
-          ></div>
-        </div>
-        <div class="waveWrapperInner bgBottom">
-          <div
-            class="wave waveBottom"
-            style={{
-              backgroundImage:
-                "url(http://front-end-noobs.com/jecko/img/wave-bot.png) ",
-            }}
-          ></div>
-        </div>
-      </div>
-      <div className="allURL">
-        <a className="btnhome" href="/">
-          {" "}
-          <Home
-            style={{
-              fontSize: "6vw",
-              color: "black",
-              background: "white",
-              borderRadius: "50%",
-            }}
-          />
+      <div className="divBar">
+        <a href="/">
+          <img src={logo} alt="" className="imgLogo" />
         </a>
-        <div></div>
-        <div></div>
-        <div></div>
-        <div className="btnhome">
-          <Login />
-        </div>
+      </div>
+
+      <div className="divBar">
+        {userConnect === true ? (
+          <div>
+            <Link className="link" to={"/login/" + uidUser} target="_blank">
+              <button>{nameUser}</button>
+            </Link>
+            <button onClick={exit}>התנתק</button>
+          </div>
+        ) : (
+          <a href="/login/">
+            <img src={logo} alt="" className="imgLogo" />
+          </a>
+        )}
       </div>
     </div>
   );

@@ -14,13 +14,12 @@ import Box from "@mui/material/Box";
 function ApartmentShow() {
   const { id } = useParams();
 
-  const [myApartments, setMyApartments] = useState([]);
-
-  useEffect(() => {
-    axios.post("/api/myApartments/" + id).then((res) => {
-      setMyApartments(res.data);
-    });
-  }, [id]);
+  // const [myApartments, setMyApartments] = useState([]);
+  // useEffect(() => {
+  //   axios.post("/api/myApartments/" + id).then((res) => {
+  //     setMyApartments(res.data);
+  //   });
+  // }, []);
 
   function TabPanel(props) {
     const { children, value, index, ...other } = props;
@@ -74,7 +73,7 @@ function ApartmentShow() {
             onChange={handleChange}
             aria-label="basic tabs example"
           >
-            <Tab label="uid" {...a11yProps(0)} />
+            <Tab label="הפרטים שלי" {...a11yProps(0)} />
             <Tab label="הדירות שלי" {...a11yProps(1)} />
             <Tab label="ההודעות שלי" {...a11yProps(2)} />
             <Tab label="הוסף דירה" {...a11yProps(3)} />
@@ -84,7 +83,7 @@ function ApartmentShow() {
           {id}{" "}
         </TabPanel>
         <TabPanel value={value} index={1}>
-          <MyApartments myApartments={myApartments} />
+          <MyApartments id={id} />
         </TabPanel>
         <TabPanel value={value} index={2}>
           <MyMessages id={id} />

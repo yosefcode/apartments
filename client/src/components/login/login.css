@@ -1,0 +1,8 @@
+.login {
+  position: relative;
+  width: 100%;
+  /* display: flex;
+  justify-content: space-around; */
+  display: grid;
+  grid-template-columns: 33.3% 33.3% 33.3%;
+}

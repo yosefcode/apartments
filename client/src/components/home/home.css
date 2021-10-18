@@ -15,7 +15,7 @@
   background-color: rgb(28, 2, 99);
   position: sticky;
   top: 0;
-  border-bottom: rgb(222, 241, 255) 9px solid;
+  border-bottom: rgb(222, 241, 255) 0.3vw solid;
   display: flex;
   justify-content: center;
   align-items: center;

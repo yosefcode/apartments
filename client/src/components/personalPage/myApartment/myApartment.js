@@ -1,5 +1,5 @@
 import "./myApartment.css";
-import * as React from "react";
+import React, { useState, useEffect } from "react";
 import { styled } from "@mui/material/styles";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import MuiAccordion from "@mui/material/Accordion";
@@ -10,8 +10,9 @@ import AddApartment from "../addApartment/addApartment";
 import Calendar from "../calendar/calendar";
 import RmoveApartment from "./removeApartment/removeApartment";
 import HoldApartment from "./holdApartment/holdApartment";
+import axios from "axios";
 
-function MyApartments({ myApartments }) {
+function MyApartments({ id }) {
   const Accordion = styled((props) => (
     <MuiAccordion disableGutters elevation={0} square {...props} />
   ))(({ theme }) => ({
@@ -55,6 +56,15 @@ function MyApartments({ myApartments }) {
     setExpanded(newExpanded ? panel : false);
   };
 
+  const [status, setStatus] = useState(true);
+  const [myApartments, setMyApartments] = useState([]);
+
+  useEffect(() => {
+    axios.post("/api/myApartments/" + id).then((res) => {
+      setMyApartments(res.data);
+    });
+  }, [status]);
+
   return (
     <div className="myApartment">
       {myApartments.length > 0 ? (
@@ -75,7 +85,9 @@ function MyApartments({ myApartments }) {
                       <h3>{list.city}.</h3>
                     </div>
                     <div>
-                      <h3>מודעה פעילה</h3>
+                      <h3>
+                        {list.show === true ? "מודעה פעילה" : "מודעה לא פעילה"}
+                      </h3>
                     </div>
                   </div>
                 </Typography>
@@ -94,8 +106,17 @@ function MyApartments({ myApartments }) {
                   {/* <Calendar /> */}
                   <div className="btnsbottom">
                     <button className="btn">ערוך מודעה</button>
-                    <RmoveApartment id={list._id} />
-                    <HoldApartment id={list._id} show={list.show} />
+                    <RmoveApartment
+                      id={list._id}
+                      setStatus={setStatus}
+                      status={status}
+                    />
+                    <HoldApartment
+                      id={list._id}
+                      show={list.show}
+                      setStatus={setStatus}
+                      status={status}
+                    />
                   </div>
                 </Typography>
               </AccordionDetails>

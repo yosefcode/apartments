@@ -2,12 +2,13 @@ import React, { useState, useEffect } from "react";
 import "./removeApartment.css";
 import axios from "axios";
 
-const RmoveApartment = ({ id }) => {
+const RmoveApartment = ({ id, setStatus, status }) => {
   const [modal, setModal] = useState(false);
 
   const rmoveApartment = () => {
     axios.delete("/api/deleteApartment/" + id).then();
     setModal(false);
+    setStatus(status === true ? false : true);
   };
 
   return (

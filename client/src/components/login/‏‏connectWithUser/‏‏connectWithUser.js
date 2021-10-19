@@ -3,13 +3,38 @@ import "./‏‏connectWithUser.css";
 import VisibilityOffIcon from "@mui/icons-material/VisibilityOff";
 import VisibilityIcon from "@mui/icons-material/Visibility";
 import validator from "validator";
+import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
 
-export default function Login() {
+export default function ConnectWithUser() {
   const [messageAccess, setMessageAccess] = useState(false);
   const [messageErr, setMessageErr] = useState(false);
   const [messageErrEmail, setMessageErrEmail] = useState(false);
   const [open, setOpen] = useState(true);
   const [typepassword, setTypepassword] = useState("password");
+  const [email, setname] = useState("");
+  // const [password, setpas] = useState("");
+  const personalInformation = {};
+
+  const auth = getAuth();
+  const asd = () => {
+    console.log(personalInformation);
+
+    signInWithEmailAndPassword(
+      auth,
+      personalInformation.email,
+      personalInformation.password
+    )
+      .then((userCredential) => {
+        // Signed in
+        const user = userCredential.user;
+        console.log(user);
+        // ...
+      })
+      .catch((error) => {
+        const errorCode = error.code;
+        const errorMessage = error.message;
+      });
+  };
 
   const validateEmail = (e) => {
     var email = e.target.value;
@@ -30,14 +55,6 @@ export default function Login() {
     }, 2000);
   };
 
-  const handleClose = () => {
-    JSON.parse(localStorage.getItem("userName")) === "1" &&
-    // process.env.REACT_APP_EMAILDEMO &&
-    JSON.parse(localStorage.getItem("password")) === "1" // process.env.REACT_APP_PASSDEMO
-      ? access()
-      : setMessageErr(true);
-  };
-
   return (
     <div className="login-wrapper">
       <h1>הכנס שם משתמש וסיסמא</h1>
@@ -45,7 +62,10 @@ export default function Login() {
         <input
           placeholder="אימייל"
           type="text"
-          onChange={(e) => validateEmail(e)}
+          // onChange={(e) => validateEmail(e)}
+          onChange={(e) => {
+            personalInformation.email = e.target.value;
+          }}
         />
 
         {messageErrEmail && (
@@ -57,9 +77,12 @@ export default function Login() {
           <input
             placeholder="סיסמא"
             type={typepassword}
-            onChange={(e) =>
-              localStorage.setItem("password", JSON.stringify(e.target.value))
-            }
+            // onChange={(e) =>
+            //   localStorage.setItem("password", JSON.stringify(e.target.value))
+            // }
+            onChange={(e) => {
+              personalInformation.password = e.target.value;
+            }}
           />
         </div>
 
@@ -91,9 +114,10 @@ export default function Login() {
       <div className="btnmodal">
         <button
           // href="/works/a"
-          onClick={() => {
-            handleClose();
-          }}
+          onClick={asd}
+          // onClick={() => {
+          //   handleClose();
+          // }}
         >
           אישור{" "}
         </button>

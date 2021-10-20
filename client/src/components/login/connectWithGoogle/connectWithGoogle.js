@@ -1,7 +1,12 @@
 import "./connectWithGoogle.css";
 import { Person } from "@mui/icons-material/";
 import { useEffect, useState } from "react";
-import { getAuth, signInWithPopup, GoogleAuthProvider } from "firebase/auth";
+import {
+  getAuth,
+  signInWithPopup,
+  GoogleAuthProvider,
+  signInWithRedirect,
+} from "firebase/auth";
 
 const ConnectWithGoogle = () => {
   const provider = new GoogleAuthProvider();
@@ -23,9 +28,9 @@ const ConnectWithGoogle = () => {
         const credential = GoogleAuthProvider.credentialFromError(error);
       });
   };
-
+  // login();
   return (
-    <div className="login">
+    <div className="connectWithGoogle">
       <div className="a">
         התחבר דרך גוגל
         <Person

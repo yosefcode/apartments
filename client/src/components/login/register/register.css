@@ -1,4 +1,11 @@
 .divErr {
-  height: 5vw;
+  height: 2vw;
   color: red;
+  line-height: 1vw;
+  font-size: 1vw;
+  font-weight: bold;
+}
+
+.register {
+  width: 100%;
 }

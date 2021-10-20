@@ -42,6 +42,23 @@ export default function Register() {
             const errorCode = error.code;
             const errorMessage = error.message;
             console.log(errorCode, errorMessage);
+            console.log(errorCode);
+            console.log(errorMessage);
+            console.log(personalInformation);
+
+            if (errorCode === "auth/wrong-password") {
+              document.getElementById("errLengthPassword").innerHTML =
+                "סיסמא שגויה";
+            } else if (errorCode === "auth/invalid-email") {
+              document.getElementById("errLengthPassword").innerHTML =
+                "כתובת מייל לא חוקית";
+            } else if (errorCode === "auth/user-not-found") {
+              document.getElementById("errLengthPassword").innerHTML =
+                "משתמש אינו קיים";
+            } else {
+              document.getElementById("errLengthPassword").innerHTML =
+                "שגיאה בהתחברות";
+            }
           })
       : console.log("eror");
     validateEmail();
@@ -58,66 +75,68 @@ export default function Register() {
 
   const validatePassword = () => {
     personalInformation.password.length < 1
-      ? (document.getElementById("errLengthLassword").innerHTML =
+      ? (document.getElementById("errLengthPassword").innerHTML =
           "נא לבחור סיסמא") &&
         (document.getElementById("errPasswordAgain").innerHTML = "")
       : personalInformation.password.length < 6
-      ? (document.getElementById("errLengthLassword").innerHTML =
+      ? (document.getElementById("errLengthPassword").innerHTML =
           "סיסמא מינימום 6 תווים") &&
         (document.getElementById("errPasswordAgain").innerHTML = "")
       : document.getElementById("passwordAgain").value !==
         document.getElementById("password").value
       ? (document.getElementById("errPasswordAgain").innerHTML =
           "הסיסמאות אינם תואמות") &&
-        (document.getElementById("errLengthLassword").innerHTML = "סיסמא תקינה")
+        (document.getElementById("errLengthPassword").innerHTML = "סיסמא תקינה")
       : (document.getElementById("errPasswordAgain").innerHTML = "");
 
     console.log(personalInformation);
   };
 
   return (
-    <div className="login-wrapper">
-      <h1>הרשמה</h1>
+    <div className="lregister">
+      <p>הרשמה</p>
 
-      <div>
-        <input
-          placeholder="שם"
-          type="text"
-          onChange={(e) => {
-            personalInformation.displayName = e.target.value;
-          }}
-        />
-        <div className="divErr" />
+      <input
+        placeholder="שם"
+        type="text"
+        onChange={(e) => {
+          personalInformation.displayName = e.target.value;
+        }}
+      />
 
-        <input
-          placeholder="אימייל"
-          type="text"
-          onChange={(e) => {
-            personalInformation.email = e.target.value;
-          }}
-        />
-        <div id="errEmail" className="divErr" />
+      <div className="divErr" />
 
-        <input
-          id="password"
-          placeholder="סיסמא"
-          type={typePassword}
-          onInput={(e) => {
-            personalInformation.password = e.target.value;
-          }}
-        />
+      <input
+        placeholder="אימייל"
+        type="text"
+        onChange={(e) => {
+          personalInformation.email = e.target.value;
+        }}
+      />
 
-        <div id="errLengthLassword" className="divErr" />
-        <input
-          id="passwordAgain"
-          placeholder="passwordAgain"
-          type={typePassword}
-          onInput={(e) => {
-            personalInformation.passwordAgain = e.target.value;
-          }}
-        />
+      <div id="errEmail" className="divErr" />
 
-        {/* {typePassword === "password" ? (
+      <input
+        id="password"
+        placeholder="סיסמא"
+        type={typePassword}
+        onInput={(e) => {
+          personalInformation.password = e.target.value;
+        }}
+      />
+
+      <div id="errLengthPassword" className="divErr" />
+
+      <input
+        id="passwordAgain"
+        placeholder="אשר סיסמא"
+        type={typePassword}
+        onInput={(e) => {
+          personalInformation.passwordAgain = e.target.value;
+        }}
+      />
+
+      {/* {typePassword === "password" ? (
             <VisibilityIcon
               className="iconhiden"
               onClick={() => {
@@ -133,11 +152,9 @@ export default function Register() {
             />
           )} */}
 
-        <div id="errPasswordAgain" className="divErr" />
-        <div className="btnmodal">
-          <button onClick={login}>אישור </button>
-        </div>
-      </div>
+      <div id="errPasswordAgain" className="divErr" />
+
+      <button onClick={login}>אישור </button>
     </div>
   );
 }

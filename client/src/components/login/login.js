@@ -7,15 +7,18 @@ import Register from "./register/register";
 export default function Login() {
   return (
     <div className="login">
-      {/* התחברות לאיזור האישי */}
-      <div>
-        <ConnectWithGoogle />
-      </div>
-      <div>
-        <ConnectWithUser />
-      </div>
-      <div>
-        <Register />
+      <div className="headerLogin">כניסה - איזור אישי</div>
+      <div className="login-register">
+        {/* התחברות לאיזור האישי */}
+        <div className="divContainer">
+          <ConnectWithGoogle />
+        </div>
+        <div className="divContainer">
+          <ConnectWithUser />
+        </div>
+        <div className="divContainer">
+          <Register />
+        </div>
       </div>
     </div>
   );

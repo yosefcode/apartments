@@ -1,8 +1,72 @@
 .login {
   position: relative;
   width: 100%;
+  height: 80vh;
+}
+.headerLogin {
+  position: relative;
+  width: 100%;
+  height: 8vh;
+  background-color: rgb(6, 0, 61);
+  color: white;
+  font-size: 2vw;
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.login-register {
+  position: relative;
+  width: 100%;
   /* display: flex;
   justify-content: space-around; */
   display: grid;
   grid-template-columns: 33.3% 33.3% 33.3%;
+}
+.divContainer {
+  position: relative;
+  width: 80%;
+  height: 80%;
+  margin: 10%;
+  border-radius: 2vw;
+  display: flex;
+  /* align-items: center; */
+  justify-content: center;
+  flex-direction: column;
+}
+.divContainer::before {
+  /* ADDED */
+  content: "";
+  position: absolute;
+  border-left: 1px solid black;
+  height: 100%;
+  top: 0;
+  left: 0;
+}
+
+.divContainer:last-child:before {
+  display: none;
+}
+
+.login input {
+  border: none;
+  width: 70%;
+  border-bottom: 1px solid rgb(150, 150, 150);
+  background-color: #fff !important;
+  line-height: 1vw;
+  height: 2vw;
+  font-size: 1.1vw;
+}
+
+.login button {
+  width: 70%;
+  border: 1px solid rgb(150, 150, 150);
+  background-color: white;
+  border-radius: 2vw;
+  font-size: 1.1vw;
+  cursor: pointer;
+}
+.login p {
+  font-size: 1.5vw;
+  font-weight: 700;
 }

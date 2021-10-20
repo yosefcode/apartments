@@ -6,87 +6,100 @@ import validator from "validator";
 import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
 
 export default function ConnectWithUser() {
-  const [messageAccess, setMessageAccess] = useState(false);
-  const [messageErr, setMessageErr] = useState(false);
-  const [messageErrEmail, setMessageErrEmail] = useState(false);
-  const [open, setOpen] = useState(true);
   const [typepassword, setTypepassword] = useState("password");
-  const [email, setname] = useState("");
-  // const [password, setpas] = useState("");
-  const personalInformation = {};
+
+  const personalInformation = {
+    password: "",
+    email: "",
+  };
 
   const auth = getAuth();
-  const asd = () => {
-    console.log(personalInformation);
+  console.log(personalInformation);
 
+  const login = () => {
+    // validator.isEmail(personalInformation.email) &&
+    // personalInformation.password.length > 5
+    //   ?
     signInWithEmailAndPassword(
       auth,
       personalInformation.email,
       personalInformation.password
     )
       .then((userCredential) => {
-        // Signed in
+        document.getElementById("errEmailConect").innerHTML = "התחברת בהצלחה";
+        document.getElementById("errPassword").innerHTML = "התחברת בהצלחה";
         const user = userCredential.user;
         console.log(user);
-        // ...
       })
       .catch((error) => {
         const errorCode = error.code;
         const errorMessage = error.message;
+        console.log(errorCode);
+        console.log(errorMessage);
+        console.log(personalInformation);
+
+        if (errorCode === "auth/wrong-password") {
+          document.getElementById("errPassword").innerHTML = "סיסמא שגויה";
+        } else if (errorCode === "auth/invalid-email") {
+          document.getElementById("errPassword").innerHTML =
+            "כתובת מייל לא חוקית";
+        } else if (errorCode === "auth/user-not-found") {
+          document.getElementById("errPassword").innerHTML = "משתמש אינו קיים";
+        } else {
+          document.getElementById("errPassword").innerHTML = "שגיאה בהתחברות";
+        }
       });
+
+    //   : console.log("eror");
+    // validateEmail();
+    // validatePassword();
   };
 
-  const validateEmail = (e) => {
-    var email = e.target.value;
-    localStorage.setItem("userName", JSON.stringify(e.target.value));
-
-    if (validator.isEmail(email)) {
-      setMessageErrEmail(false);
-    } else {
-      setMessageErrEmail(true);
-    }
+  const validateEmail = () => {
+    personalInformation.email.length < 1
+      ? (document.getElementById("errEmailConect").innerHTML =
+          "נא למלא כתובת אימייל")
+      : validator.isEmail(personalInformation.email)
+      ? (document.getElementById("errEmailConect").innerHTML = "אימייל  תקין")
+      : (document.getElementById("errEmailConect").innerHTML =
+          "אימייל לא תקין");
   };
 
-  const access = () => {
-    setMessageErr(false);
-    setMessageAccess(true);
-    setTimeout(() => {
-      window.top.location.href = "/message/";
-    }, 2000);
+  const validatePassword = () => {
+    personalInformation.password.length < 1
+      ? (document.getElementById("errPassword").innerHTML = "יש להכניס סיסמא")
+      : personalInformation.password.length < 6
+      ? (document.getElementById("errPassword").innerHTML =
+          "סיסמא מינימום 6 תווים")
+      : (document.getElementById("errPassword").innerHTML = "");
+
+    console.log(personalInformation);
   };
 
   return (
-    <div className="login-wrapper">
-      <h1>הכנס שם משתמש וסיסמא</h1>
+    <div className="‏‏connectWithUser">
+      <p>רשומים כבר?</p>
       <div>
         <input
           placeholder="אימייל"
           type="text"
-          // onChange={(e) => validateEmail(e)}
           onChange={(e) => {
             personalInformation.email = e.target.value;
           }}
         />
 
-        {messageErrEmail && (
-          <div className="msgerr">כתובת האימייל אינה תקנית </div>
-        )}
+        <div id="errEmailConect" className="divErr" />
+        <input
+          placeholder="סיסמא"
+          type={typepassword}
+          onChange={(e) => {
+            personalInformation.password = e.target.value;
+          }}
+        />
+        <div id="errPassword" className="divErr" />
       </div>
-      <div className="divpassword">
-        <div className="divinputpassword">
-          <input
-            placeholder="סיסמא"
-            type={typepassword}
-            // onChange={(e) =>
-            //   localStorage.setItem("password", JSON.stringify(e.target.value))
-            // }
-            onChange={(e) => {
-              personalInformation.password = e.target.value;
-            }}
-          />
-        </div>
 
-        <div className="diviconhiden">
+      {/* <div className="diviconhiden">
           {typepassword === "password" ? (
             <VisibilityIcon
               className="iconhiden"
@@ -102,19 +115,12 @@ export default function ConnectWithUser() {
               }}
             />
           )}
-        </div>
-      </div>
-
-      {messageErr && (
-        <div className="msgerr1">שם המשתמש או הסיסמא אינם נכונים</div>
-      )}
-
-      {messageAccess && <div className="msgerr1">התחברת בהצלחה!</div>}
+        </div> */}
 
       <div className="btnmodal">
         <button
           // href="/works/a"
-          onClick={asd}
+          onClick={login}
           // onClick={() => {
           //   handleClose();
           // }}

@@ -32,7 +32,8 @@ const ConnectWithGoogle = () => {
   return (
     <div className="connectWithGoogle">
       <div className="a">
-        התחבר דרך גוגל
+        <h3>מעוניינים להתחבר בקלות? ללא צורך בהרשמה?</h3>
+        <h3>ניתן להתחבר בצורה מאובטחת וקלה דרך החשבון האישי בגוגל . </h3>
         <Person
           onClick={login}
           style={{

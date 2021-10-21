@@ -35,13 +35,12 @@
   flex-direction: column;
 }
 .divContainer::before {
-  /* ADDED */
   content: "";
   position: absolute;
-  border-left: 1px solid black;
+  border-left: 1px solid rgb(180, 180, 180);
   height: 100%;
   top: 0;
-  left: 0;
+  left: -1vw;
 }
 
 .divContainer:last-child:before {
@@ -65,8 +64,10 @@
   border-radius: 2vw;
   font-size: 1.1vw;
   cursor: pointer;
+  margin-top: 0.5vw;
 }
 .login p {
   font-size: 1.5vw;
   font-weight: 700;
+  margin-top: 0;
 }

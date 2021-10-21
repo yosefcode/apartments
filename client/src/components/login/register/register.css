@@ -9,3 +9,7 @@
 .register {
   width: 100%;
 }
+.noneDisplay {
+  position: absolute;
+  top: -10000px;
+}

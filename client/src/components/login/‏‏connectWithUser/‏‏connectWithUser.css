@@ -1,10 +1,26 @@
 .‏‏connectWithUser {
   width: 100%;
 }
-.diviconhiden {
+.‏‏connectWithUser .diviconhiden {
   position: relative;
 }
-.iconhiden {
+.‏‏connectWithUser .divReset {
+  margin-top: 1.2vw;
+  cursor: pointer;
+  width: 50%;
+  font-weight: 700;
+  font-size: 1.2vw;
+  /* text-align: center; */
+}
+.‏‏connectWithUser .divErr {
+  height: 2vw;
+  color: red;
+  line-height: 1vw;
+  font-size: 1vw;
+  font-weight: bold;
+}
+
+.‏‏connectWithUser .iconhiden {
   position: absolute;
   top: 0.4vw;
   left: 31%;

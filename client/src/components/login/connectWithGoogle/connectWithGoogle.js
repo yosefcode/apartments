@@ -14,7 +14,8 @@ const ConnectWithGoogle = () => {
   const auth = getAuth();
 
   const login = () => {
-    signInWithPopup(auth, provider)
+    // signInWithPopup(auth, provider)
+    signInWithRedirect(auth, provider)
       .then((result) => {
         const credential = GoogleAuthProvider.credentialFromResult(result);
         const token = credential.accessToken;

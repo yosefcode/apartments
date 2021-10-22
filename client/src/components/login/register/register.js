@@ -37,60 +37,58 @@ export default function Register() {
           })
           .catch((error) => {
             const errorCode = error.code;
-            const errorMessage = error.message;
-            console.log(errorCode, errorMessage);
             console.log(errorCode);
-            console.log(errorMessage);
 
-            // if (errorCode === "auth/wrong-password") {
-            //   document.getElementById("errLengthPassword").innerHTML =
-            //     "סיסמא שגויה";
-            // } else if (errorCode === "auth/invalid-email") {
-            //   document.getElementById("errLengthPassword").innerHTML =
-            //     "כתובת מייל לא חוקית";
-            // } else if (errorCode === "auth/user-not-found") {
-            //   document.getElementById("errLengthPassword").innerHTML =
-            //     "משתמש אינו קיים";
-            // } else {
-            //   document.getElementById("errLengthPassword").innerHTML =
-            //     "שגיאה בהתחברות";
-            // }
+            if (errorCode === "auth/weak-password") {
+              setErrorMessagePassword("סיסמא חלשה");
+              setErrorMessageEmail("");
+              setErrorMessagePasswordAgain("");
+            } else if (errorCode === "auth/invalid-email") {
+              setErrorMessageEmail("כתובת מייל לא תקינה");
+              setErrorMessagePassword("");
+              setErrorMessagePasswordAgain("");
+            } else if (errorCode === "auth/email-already-in-use") {
+              setErrorMessageEmail("משתמש זה כבר נרשם באתר");
+              setErrorMessagePassword("");
+              setErrorMessagePasswordAgain("");
+            } else {
+              setErrorMessageEmail("");
+              setErrorMessagePassword("");
+              setErrorMessagePasswordAgain("שגיאת התחברות");
+            }
           })
       : console.log("eror");
-    // validateEmail();
-    // validatePassword();
+    validateEmail();
+    validatePassword();
     console.log(displayName.current);
   };
 
-  // const validateEmail = () => {
-  //   email.length < 1
-  //     ? (document.getElementById("errEmail").innerHTML = "נא למלא כתובת אימייל")
-  //     : validator.isEmail(email)
-  //     ? (document.getElementById("errEmail").innerHTML = "אימייל  תקין")
-  //     : (document.getElementById("errEmail").innerHTML = "אימייל לא תקין");
-  // };
+  const validateEmail = () => {
+    email.current.length < 1
+      ? setErrorMessageEmail("נא למלא כתובת אימייל")
+      : !validator.isEmail(email.current)
+      ? setErrorMessageEmail("כתובת מייל לא תקינה")
+      : setErrorMessageEmail("");
+  };
 
-  // const validatePassword = () => {
-  //   password.length < 1
-  //     ? (document.getElementById("errLengthPassword").innerHTML =
-  //         "נא לבחור סיסמא") &&
-  //       (document.getElementById("errPasswordAgain").innerHTML = "")
-  //     : password.length < 6
-  //     ? (document.getElementById("errLengthPassword").innerHTML =
-  //         "סיסמא מינימום 6 תווים") &&
-  //       (document.getElementById("errPasswordAgain").innerHTML = "")
-  //     : document.getElementById("passwordAgain").value !==
-  //       document.getElementById("password").value
-  //     ? (document.getElementById("errPasswordAgain").innerHTML =
-  //         "הסיסמאות אינם תואמות") &&
-  //       (document.getElementById("errLengthPassword").innerHTML = "סיסמא תקינה")
-  //     : (document.getElementById("errPasswordAgain").innerHTML = "");
-
-  //   console.log(personalInformation);
-  // };
+  const validatePassword = () => {
+    if (password.current.length < 1) {
+      setErrorMessagePassword("נא לבחור סיסמא");
+      setErrorMessagePasswordAgain("");
+    } else if (password.current.length < 6) {
+      setErrorMessagePassword("סיסמא מינימום 6 תווים");
+      setErrorMessagePasswordAgain("");
+    } else if (password.current !== passwordAgain.current) {
+      setErrorMessagePasswordAgain("הסיסמאות אינם תואמות");
+      setErrorMessagePassword("");
+    } else {
+      setErrorMessagePassword("");
+      setErrorMessagePasswordAgain("");
+    }
+  };
 
   return (
-    <div className="lregister">
+    <div className="register">
       <p>הרשמה</p>
       <input type="text" className="noneDisplay" />
       <input type="password" className="noneDisplay" />
@@ -117,7 +115,6 @@ export default function Register() {
 
       <div className="diviconhiden">
         <input
-          id="password"
           placeholder="סיסמא"
           type={typePassword}
           onChange={(e) => {
@@ -153,7 +150,6 @@ export default function Register() {
 
       <div className="diviconhiden">
         <input
-          id="passwordAgain"
           placeholder="אשר סיסמא"
           type={typePasswordAgain}
           onChange={(e) => {
@@ -187,7 +183,7 @@ export default function Register() {
 
       <div className="divErr">{errMessagepasswordAgain}</div>
 
-      <button onClick={login}>אישור </button>
+      <button onClick={login}>הרשם</button>
     </div>
   );
 }

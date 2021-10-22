@@ -19,9 +19,24 @@ export default function ConnectWithUser() {
 
   const auth = getAuth();
 
+  const errorFirebase = (errorCode) => {
+    errorCode === "auth/wrong-password"
+      ? setErrorMessage("סיסמא שגויה")
+      : errorCode === "auth/invalid-email"
+      ? setErrorMessage("כתובת מייל לא תקינה")
+      : errorCode === "auth/user-not-found"
+      ? setErrorMessage("משתמש אינו קיים")
+      : errorCode === "auth/user-disabled"
+      ? setErrorMessage("החשבון מושבת")
+      : setErrorMessage("שגיאה בהתחברות");
+  };
+
   const login = () => {
-    validator.isEmail(email.current) && password.current.length > 5
-      ? signInWithEmailAndPassword(auth, email.current, password.current)
+    !validator.isEmail(email.current)
+      ? setErrorMessage("כתובת מייל לא תקינה")
+      : password.current.length < 6
+      ? setErrorMessage("על הסיסמא להכיל מינימום 6 תווים")
+      : signInWithEmailAndPassword(auth, email.current, password.current)
           .then((userCredential) => {
             setErrorMessage("התחברת בהצלחה");
             const user = userCredential.user;
@@ -29,58 +44,24 @@ export default function ConnectWithUser() {
           })
           .catch((error) => {
             const errorCode = error.code;
-            const errorMessage = error.message;
-            console.log(errorCode);
-            console.log(errorMessage);
-
-            errorCode === "auth/wrong-password"
-              ? setErrorMessage("סיסמא שגויה")
-              : errorCode === "auth/invalid-email"
-              ? setErrorMessage("כתובת מייל לא חוקית")
-              : errorCode === "auth/user-not-found"
-              ? setErrorMessage("משתמש אינו קיים")
-              : setErrorMessage("שגיאה בהתחברות");
-          })
-      : console.log("eror");
-    // validateEmail();
-    // validatePassword();
+            errorFirebase(errorCode);
+          });
   };
 
   const resetPassword = () => {
     sendPasswordResetEmail(auth, email.current)
       .then(() => {
         setErrorMessage("נשלח מייל לאיפוס הסיסמא");
+        setTimeout(function () {
+          setConnectAndReset(true);
+          setErrorMessage("");
+        }, 3000);
       })
       .catch((error) => {
         const errorCode = error.code;
-        const errorMessage = error.message;
-        console.log(errorCode);
+        errorFirebase(errorCode);
       });
-    setTimeout(function () {
-      setConnectAndReset(true);
-      setErrorMessage("");
-    }, 3000);
   };
-
-  // const validateEmail = () => {
-  //   personalInformation.email.length < 1
-  //     ? (document.getElementById("errEmailConect").innerHTML =
-  //         "נא למלא כתובת אימייל")
-  //     : validator.isEmail(personalInformation.email)
-  //     ? (document.getElementById("errEmailConect").innerHTML = "אימייל  תקין")
-  //     : (document.getElementById("errEmailConect").innerHTML =
-  //         "אימייל לא תקין");
-  // };
-
-  // const validatePassword = () => {
-  //   personalInformation.password.length < 1
-  //     ? (document.getElementById("errPassword").innerHTML = "יש להכניס סיסמא")
-  //     : personalInformation.password.length < 6
-  //     ? (document.getElementById("errPassword").innerHTML =
-  //         "סיסמא מינימום 6 תווים")
-  //     : (document.getElementById("errPassword").innerHTML = "");
-  //   console.log(personalInformation);
-  // };
 
   return (
     <div className="‏‏connectWithUser">
@@ -97,7 +78,7 @@ export default function ConnectWithUser() {
               }}
             />
 
-            <div id="errEmailConect" className="divErr" />
+            <div className="divErr" />
             <div className="diviconhiden">
               <input
                 placeholder="סיסמא"
@@ -135,18 +116,18 @@ export default function ConnectWithUser() {
             <div className="divErr">{errMessage}</div>
           </div>
 
-          <div className="btnmodal">
+          <div>
             <button onClick={login}>אישור</button>
             <br />
             <div
-              style={{ cursor: "pointer", fontWeight: 700 }}
+              className="divReset"
               onClick={() => {
                 setConnectAndReset(false);
                 setErrorMessage("");
               }}
             >
               {" "}
-              שכחת סיסמא?
+              שכחת סיסמא? לחץ כאן
             </div>
           </div>
         </div>
@@ -165,8 +146,8 @@ export default function ConnectWithUser() {
             <div className="divErr">{errMessage}</div>
           </div>
 
-          <div className="btnmodal">
-            <button onClick={resetPassword}>אפס סיסמא </button>
+          <div>
+            <button onClick={resetPassword}>אפס סיסמא</button>
             <br />
             <br />
             <button

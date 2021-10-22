@@ -1,2 +1,52 @@
 .connectWithGoogle {
+  width: 100%;
 }
+
+.google-btn {
+  width: 15vw;
+  height: 3vw;
+  background-color: #4285f4;
+  border-radius: 0.2vw;
+  box-shadow: 0 0.3vw 0.4vw 0 rgba(0, 0, 0, 0.25);
+  cursor: pointer;
+  margin-right: 4vw;
+  position: relative;
+}
+
+.google-icon-wrapper {
+  position: absolute;
+  top: 0.15vw;
+  left: 0.15vw;
+  width: 2.75vw;
+  height: 2.75vw;
+  border-radius: 0.2vw;
+  background-color: #fff;
+}
+
+.google-icon {
+  position: absolute;
+  top: 0.4vw;
+  left: 0.3vw;
+  width: 2vw;
+  height: 2vw;
+}
+
+.btn-text {
+  height: 3vw;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  margin-right: 0.4vw;
+  color: #fff;
+  font-size: 1.2vw;
+  font-family: "Roboto";
+}
+
+.google-btn:hover {
+  box-shadow: 0 0 6px #4285f4;
+}
+.google-btn:active {
+  background: #1669f2;
+}
+
+@import url(https://fonts.googleapis.com/css?family=Roboto:500);

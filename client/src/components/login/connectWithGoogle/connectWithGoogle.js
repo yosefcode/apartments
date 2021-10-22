@@ -1,5 +1,4 @@
 import "./connectWithGoogle.css";
-import { Person } from "@mui/icons-material/";
 import { useEffect, useState } from "react";
 import {
   getAuth,
@@ -14,8 +13,8 @@ const ConnectWithGoogle = () => {
   const auth = getAuth();
 
   const login = () => {
-    // signInWithPopup(auth, provider)
-    signInWithRedirect(auth, provider)
+    signInWithPopup(auth, provider)
+      // signInWithRedirect(auth, provider)
       .then((result) => {
         const credential = GoogleAuthProvider.credentialFromResult(result);
         const token = credential.accessToken;
@@ -29,21 +28,25 @@ const ConnectWithGoogle = () => {
         const credential = GoogleAuthProvider.credentialFromError(error);
       });
   };
-  // login();
+
   return (
     <div className="connectWithGoogle">
       <div className="a">
-        <h3>מעוניינים להתחבר בקלות? ללא צורך בהרשמה?</h3>
-        <h3>ניתן להתחבר בצורה מאובטחת וקלה דרך החשבון האישי בגוגל . </h3>
-        <Person
-          onClick={login}
-          style={{
-            fontSize: "4vw",
-            color: "blue",
-            background: "white",
-            borderRadius: "50%",
-          }}
-        />
+        <p>התחברו דרך </p>
+        <p>ניתן להתחבר בצורה מאובטחת וקלה דרך החשבון האישי בגוגל . </p>
+      </div>
+
+      <div className="google-btn" onClick={login}>
+        <div className="google-icon-wrapper">
+          <img
+            className="google-icon"
+            src="https://img.icons8.com/color/50/000000/google-logo.png"
+            alt=""
+          />
+        </div>
+        <span className="btn-text">
+          <b>Sign in with Google</b>
+        </span>
       </div>
     </div>
   );

@@ -33,7 +33,8 @@ export default function Register() {
               displayName: displayName.current,
             });
             const user = userCredential.user;
-            console.log(user);
+            // console.log(user);
+            window.location.href = "/login/" + user.uid;
           })
           .catch((error) => {
             const errorCode = error.code;

@@ -9,7 +9,8 @@
   cursor: pointer;
   width: 50%;
   font-weight: 700;
-  font-size: 1.2vw;
+  /* font-size: 1.2vw; */
+  text-decoration: underline;
   /* text-align: center; */
 }
 .‏‏connectWithUser .divErr {

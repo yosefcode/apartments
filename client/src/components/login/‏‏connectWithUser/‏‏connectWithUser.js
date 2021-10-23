@@ -41,6 +41,7 @@ export default function ConnectWithUser() {
             setErrorMessage("התחברת בהצלחה");
             const user = userCredential.user;
             console.log(user);
+            window.location.href = "/login/" + user.uid;
           })
           .catch((error) => {
             const errorCode = error.code;
@@ -119,16 +120,16 @@ export default function ConnectWithUser() {
           <div>
             <button onClick={login}>אישור</button>
             <br />
-            <div
+            שכחת סיסמא?{" "}
+            <span
               className="divReset"
               onClick={() => {
                 setConnectAndReset(false);
                 setErrorMessage("");
               }}
             >
-              {" "}
-              שכחת סיסמא? לחץ כאן
-            </div>
+              לחץ כאן
+            </span>
           </div>
         </div>
       ) : (

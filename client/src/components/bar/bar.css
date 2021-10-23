@@ -10,12 +10,25 @@
 }
 .divBar {
   height: 7vw;
-  width: 14vw;
+  width: 14;
   display: flex;
   justify-content: center;
   align-items: center;
 }
 .imgLogo {
-  height: 100%;
-  width: 100%;
+  height: 7vw;
+  width: 14vw;
+}
+.divConnect {
+  display: flex;
+  align-items: center;
+  font-size: 1vw;
+  font-weight: 700;
+  cursor: pointer;
+}
+.allConnect {
+  width: 14vw;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 }

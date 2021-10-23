@@ -19,6 +19,7 @@ const ConnectWithGoogle = () => {
         const credential = GoogleAuthProvider.credentialFromResult(result);
         const token = credential.accessToken;
         const user = result.user;
+        // console.log(result);
         window.location.href = "/login/" + user.uid;
       })
       .catch((error) => {
@@ -32,8 +33,10 @@ const ConnectWithGoogle = () => {
   return (
     <div className="connectWithGoogle">
       <div className="a">
-        <p>התחברו דרך </p>
-        <p>ניתן להתחבר בצורה מאובטחת וקלה דרך החשבון האישי בגוגל . </p>
+        <p>
+          התחברו דרך חשבונכם האישי בגוגל <br />
+          בצורה מאובטחת וללא צורך בהרשמה.
+        </p>
       </div>
 
       <div className="google-btn" onClick={login}>

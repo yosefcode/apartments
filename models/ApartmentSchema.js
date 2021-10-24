@@ -660,7 +660,7 @@ const product11 = new Apartment({
   city: "נתיבות",
   phone: "058-4112424",
   mail: "yosef9987@gmail.com",
-  priceMethod: "לזוג",
+  priceMethod: "זוג",
   special: [
     "פינות ישיבה בחצר",
     "מיקרוגל",

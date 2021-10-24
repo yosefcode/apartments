@@ -63,11 +63,7 @@ function ApartmentShow() {
   return (
     <div className="personalPage">
       <Box sx={{ width: "100%" }}>
-        <Box
-        // sx={{
-        //   backgroundColor: "rgb(28, 2, 99)",
-        // }}
-        >
+        <Box>
           <Tabs
             value={value}
             onChange={handleChange}
@@ -83,7 +79,7 @@ function ApartmentShow() {
           {id}{" "}
         </TabPanel>
         <TabPanel value={value} index={1}>
-          <MyApartments id={id} />
+          <MyApartments id={id} setValue={setValue} />
         </TabPanel>
         <TabPanel value={value} index={2}>
           <MyMessages id={id} />

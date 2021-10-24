@@ -12,7 +12,7 @@ import RmoveApartment from "./removeApartment/removeApartment";
 import HoldApartment from "./holdApartment/holdApartment";
 import axios from "axios";
 
-function MyApartments({ id }) {
+function MyApartments({ id, setValue }) {
   const Accordion = styled((props) => (
     <MuiAccordion disableGutters elevation={0} square {...props} />
   ))(({ theme }) => ({
@@ -126,7 +126,8 @@ function MyApartments({ id }) {
       ) : (
         <div>
           {" "}
-          אין לך עדיין דירות זה הזמן להוסיף את דירתך <AddApartment />
+          אין לך עדיין דירות זה הזמן להוסיף את דירתך{" "}
+          <button onClick={() => setValue(3)}>הוסף דירתך</button>
         </div>
       )}
     </div>

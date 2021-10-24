@@ -22,7 +22,7 @@ th {
   border: 2px solid #888888;
   text-align: right;
   padding: 8px;
-  background-color: black;
+  background-color: rgb(78, 78, 78);
   color: white;
   font-weight: 700;
 }

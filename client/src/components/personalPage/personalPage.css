@@ -5,7 +5,7 @@
 }
 
 [id^="simple-tab-"] {
-  font-size: 1.6vw !important;
+  font-size: 1.3vw !important;
   font-weight: 700 !important;
   color: rgb(28, 2, 99) !important;
   background-color: rgb(255, 255, 255) !important;
@@ -13,11 +13,11 @@
   border-top-right-radius: 1vw !important;
   border: solid rgba(28, 2, 99, 0.336) !important;
   border-width: 0.1vw 0.1vw 0vw 0.1vw !important;
-  width: 25% !important;
+  width: 17% !important;
 }
 
 .Mui-selected {
-  font-size: 1.6vw !important;
+  font-size: 1.3vw !important;
   font-weight: 700 !important;
   color: rgb(255, 255, 255) !important;
   background-color: rgb(28, 2, 99) !important;

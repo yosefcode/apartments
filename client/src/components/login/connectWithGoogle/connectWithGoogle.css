@@ -2,7 +2,7 @@
   width: 100%;
 }
 
-.google-btn {
+.connectWithGoogle .google-btn {
   width: 15vw;
   height: 3vw;
   background-color: #4285f4;
@@ -13,7 +13,7 @@
   position: relative;
 }
 
-.google-icon-wrapper {
+.connectWithGoogle .google-icon-wrapper {
   position: absolute;
   top: 0.15vw;
   left: 0.15vw;
@@ -23,7 +23,7 @@
   background-color: #fff;
 }
 
-.google-icon {
+.connectWithGoogle .google-icon {
   position: absolute;
   top: 0.4vw;
   left: 0.3vw;
@@ -31,7 +31,7 @@
   height: 2vw;
 }
 
-.btn-text {
+.connectWithGoogle .btn-text {
   height: 3vw;
   display: flex;
   align-items: center;
@@ -42,10 +42,10 @@
   font-family: "Roboto";
 }
 
-.google-btn:hover {
+.connectWithGoogle .google-btn:hover {
   box-shadow: 0 0 6px #4285f4;
 }
-.google-btn:active {
+.connectWithGoogle .google-btn:active {
   background: #1669f2;
 }
 

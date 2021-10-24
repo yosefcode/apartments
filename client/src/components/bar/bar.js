@@ -41,7 +41,7 @@ const Bar = () => {
       <div className="divBar">
         {userConnect === true ? (
           <div>
-            <div>היי, {nameUser}</div>
+            <div className="divConnect">היי, {nameUser}</div>
             <div className="allConnect">
               <Link className="link" to={"/login/" + uidUser}>
                 <div className="divConnect">

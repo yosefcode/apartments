@@ -8,25 +8,25 @@
   align-items: center;
   border-bottom: 0.1vw solid rgb(207, 207, 207);
 }
-.divBar {
+.bar .divBar {
   height: 7vw;
   width: 14;
   display: flex;
   justify-content: center;
   align-items: center;
 }
-.imgLogo {
+.bar .imgLogo {
   height: 7vw;
   width: 14vw;
 }
-.divConnect {
+.bar .divConnect {
   display: flex;
   align-items: center;
   font-size: 1vw;
   font-weight: 700;
   cursor: pointer;
 }
-.allConnect {
+.bar .allConnect {
   width: 14vw;
   display: flex;
   align-items: center;

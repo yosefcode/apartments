@@ -64,9 +64,9 @@ function ApartmentShow() {
     <div className="personalPage">
       <Box sx={{ width: "100%" }}>
         <Box
-          sx={{
-            backgroundColor: "rgb(28, 2, 99)",
-          }}
+        // sx={{
+        //   backgroundColor: "rgb(28, 2, 99)",
+        // }}
         >
           <Tabs
             value={value}

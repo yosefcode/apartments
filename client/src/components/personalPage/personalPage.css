@@ -4,23 +4,30 @@
   margin: 4vw auto;
 }
 
-.css-1h9z7r5-MuiButtonBase-root-MuiTab-root {
-  color: white !important;
-  font-size: 1.4vw !important;
-  font-weight: 700 !important;
-  width: 20%;
-}
-.css-1h9z7r5-MuiButtonBase-root-MuiTab-root.Mui-selected {
+[id^="simple-tab-"] {
   font-size: 1.6vw !important;
   font-weight: 700 !important;
-  color: rgb(0, 0, 0) !important;
-  background-color: white;
+  color: rgb(28, 2, 99) !important;
+  background-color: rgb(255, 255, 255) !important;
+  border-top-left-radius: 1vw !important;
+  border-top-right-radius: 1vw !important;
+  border: solid rgba(28, 2, 99, 0.336) !important;
+  border-width: 0.1vw 0.1vw 0vw 0.1vw !important;
+  width: 25% !important;
+}
+
+.Mui-selected {
+  font-size: 1.6vw !important;
+  font-weight: 700 !important;
+  color: rgb(255, 255, 255) !important;
+  background-color: rgb(28, 2, 99) !important;
+  border-top-left-radius: 1vw !important;
+  border-top-right-radius: 1vw !important;
 }
 
 .MuiTabs-flexContainer {
-  border: 0.2vw solid black !important;
+  border-bottom: 0.2vw solid rgb(28, 2, 99) !important;
 }
-
-.css-1aquho2-MuiTabs-indicator {
+.MuiTabs-indicator {
   height: 0 !important;
 }

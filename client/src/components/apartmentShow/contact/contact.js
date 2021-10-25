@@ -30,7 +30,9 @@ function Contact({ apartmentShow, executeScroll }) {
         }}
         className="what"
         onClick={() => {
-          window.open(`https://wa.me/972${apartment.phone.replace(/-/, "")}`);
+          window.open(
+            `https://wa.me/972${apartment.phone.replaceAll("-", "")}`
+          );
         }}
       />
 

@@ -1,41 +1,64 @@
-import "./addApartment.css";
+import "./addApartment.scss";
 import axios from "axios";
 import { useState, useEffect } from "react";
-import Box from "@mui/material/Box";
-import TextField from "@mui/material/TextField";
-import InputLabel from "@mui/material/InputLabel";
-import MenuItem from "@mui/material/MenuItem";
-import FormControl from "@mui/material/FormControl";
-import Select from "@mui/material/Select";
+import { styled } from "@mui/material/styles";
+import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
+import MuiAccordion from "@mui/material/Accordion";
+import MuiAccordionSummary from "@mui/material/AccordionSummary";
+import MuiAccordionDetails from "@mui/material/AccordionDetails";
+import Typography from "@mui/material/Typography";
+import DetailsApartment from "./detailsApartment/detailsApartment";
+import Contact from "./contact/contact";
+import SpecialApartment from "./‏specialApartment/‏specialApartment";
 
-function SendMessage({ id }) {
-  // const nameApartment = apartmentShow.map((mail) => mail.name);
-  // const mail = apartmentShow.map((mail) => mail.mail);
-  // // const mail = ["michal0361@gmail.com"];
-  // // const mail = [
-  // //   "A0575172432@gmail.com",
-  // //   "michal0361@gmail.com",
-  // //   "yosef9987@walla.com",
-  // // ];
-  const [aaa, setaaa] = useState([]);
+function AddApartment({ id }) {
+  const Accordion = styled((props) => (
+    <MuiAccordion disableGutters elevation={0} square {...props} />
+  ))(({ theme }) => ({
+    margin: "1vw",
+    border: `1px solid ${theme.palette.divider}`,
+    "&:not(:last-child)": {
+      borderBottom: 0,
+    },
+    "&:before": {
+      display: "none",
+    },
+  }));
 
-  useEffect(() => {
-    axios
-      .get(
-        "https://data.gov.il/dataset/citiesandsettelments/resource/72bd51be-512b-4430-b2d2-f3295c90e569/download/72bd51be-512b-4430-b2d2-f3295c90e569.xml"
-      )
-      .then((res) => {
-        setaaa(res.data);
-      });
-  }, []);
+  const AccordionSummary = styled((props) => (
+    <MuiAccordionSummary
+      expandIcon={<ExpandMoreIcon sx={{ fontSize: "1.9vw" }} />}
+      {...props}
+    />
+  ))(({ theme }) => ({
+    backgroundColor:
+      theme.palette.mode === "dark"
+        ? "rgba(255, 255, 255, .05)"
+        : "rgba(0, 0, 0, .03)",
+    flexDirection: "row-reverse",
+    "& .MuiAccordionSummary-expandIconWrapper.Mui-expanded": {
+      transform: "rotate(180deg)",
+    },
+    "& .MuiAccordionSummary-content": {
+      marginLeft: theme.spacing(1),
+    },
+  }));
 
-  console.log(aaa);
+  const AccordionDetails = styled(MuiAccordionDetails)(({ theme }) => ({
+    padding: theme.spacing(2),
+    borderTop: "1px solid rgba(0, 0, 0, .125)",
+  }));
+
+  const [expanded, setExpanded] = useState("panel1");
+
+  const handleChange = (panel) => (event, newExpanded) => {
+    setExpanded(newExpanded ? panel : false);
+  };
+
   const [apartment, setApartment] = useState({});
 
   const addApartment = () => {
-    axios.post("/api/addApartment/", apartment).then((res) => {
-      setaaa(res.data);
-    });
+    axios.post("/api/addApartment/", apartment).then((res) => {});
   };
 
   const onchange = (e) => {
@@ -59,170 +82,68 @@ function SendMessage({ id }) {
 
   return (
     <div className="addApartment">
-      <Box
-        className="box"
-        // component="form"
-        // sx={{
-        //   "& > :not(style)": { m: 1, width: "25vw" },
-        // }}
-        // noValidate
-        // autoComplete="off"
-      >
-        <TextField
-          id="outlined-basic"
-          label="שם הנכס"
-          variant="outlined"
-          name="nameApartment"
-          onChange={onchange}
-        />
-      </Box>
-      {/* <Box sx={{ width: 120 }}> */}
-      <Box>
-        <FormControl fullWidth>
-          <InputLabel id="demo-simple-select-label">בחר איזור בארץ</InputLabel>
-          <Select
-            labelId="demo-simple-select-label"
-            id="demo-simple-select"
-            label="בחר איזור בארץ"
-            name="area"
-            onChange={onchange}
-          >
-            <MenuItem value={"ירושלים"}>ירושלים</MenuItem>
-            <MenuItem value={"דרום"}>הדרום</MenuItem>
-            <MenuItem value={"מרכז"}>המרכז</MenuItem>
-            <MenuItem value={"צפון"}>הצפון</MenuItem>
-          </Select>
-        </FormControl>
-      </Box>
-      <Box>
-        <FormControl fullWidth>
-          <InputLabel id="demo-simple-select-label">בחר עיר</InputLabel>
-          <Select
-            labelId="demo-simple-select-label"
-            id="demo-simple-select"
-            label="בחר עיר"
-            name="city"
-            onChange={onchange}
-          >
-            <MenuItem value={"ירושלים"}>ירושלים</MenuItem>
-            <MenuItem value={"דרום"}>הדרום</MenuItem>
-            <MenuItem value={"מרכז"}>המרכז</MenuItem>
-            <MenuItem value={"צפון"}>הצפון</MenuItem>
-          </Select>
-        </FormControl>
-      </Box>
-      <Box>
-        <TextField
-          id="outlined-basic"
-          label="מס' חדרים"
-          variant="outlined"
-          name="rooms"
-          onChange={onchange}
-        />
-      </Box>
-      <Box>
-        <TextField
-          id="outlined-basic"
-          label="מס' מיטות"
-          variant="outlined"
-          name="beds"
-          onChange={onchange}
-        />{" "}
-      </Box>
-      <Box>
-        <TextField
-          id="outlined-basic"
-          label="מחיר"
-          variant="outlined"
-          name="price"
-          onChange={onchange}
-        />{" "}
-      </Box>
-      <Box>
-        <FormControl fullWidth>
-          <InputLabel id="demo-simple-select-label">תמחור לפי</InputLabel>
-          <Select
-            labelId="demo-simple-select-label"
-            id="demo-simple-select"
-            label="תמחור לפי"
-            name="priceMethod"
-            onChange={onchange}
-          >
-            <MenuItem value={"מיטה"}>מיטה</MenuItem>
-            <MenuItem value={"זוג"}>זוג</MenuItem>
-            <MenuItem value={"לילה"}>לילה</MenuItem>
-            <MenuItem value={"אדם"}>אדם</MenuItem>
-            <MenuItem value={"דירה"}>דירה</MenuItem>
-          </Select>
-        </FormControl>{" "}
-      </Box>
-      <br />
-      <input
-        placeholder="תמונה ראשית"
-        type="text"
-        name="firstImage"
-        onChange={onchange}
-      />
-      <input
-        placeholder="תמונות"
-        type="text"
-        name="images"
-        onChange={onchange}
-      />
-      <input
-        placeholder="תיאור קצר"
-        type="text"
-        name="short"
-        onChange={onchange}
-      />
-      <input
-        placeholder="תיאור ארוך"
-        type="text"
-        name="long"
-        onChange={onchange}
-      />
-      <input
-        placeholder="יתרונות"
-        type="text"
-        name="special"
-        onChange={onchange}
-      />
-      <br />
-      <br />
-      פרטי יצירת קשר
-      <br />
-      <Box>
-        <TextField
-          id="outlined-basic"
-          label="שם איש הקשר"
-          variant="outlined"
-          name="name"
-          onChange={onchange}
-        />{" "}
-      </Box>
-      <Box>
-        <TextField
-          id="outlined-basic"
-          label="מייל"
-          variant="outlined"
-          name="mail"
-          onChange={onchange}
-        />{" "}
-      </Box>
-      <Box>
-        <TextField
-          id="outlined-basic"
-          label="טלפון"
-          variant="outlined"
-          name="phone"
-          onChange={onchange}
-        />{" "}
-      </Box>
-      <br />
+      <div class="tabs">
+        <div class="tab">
+          <input type="checkbox" id="chck1" className="inputtt" />
+          <label class="tab-label" for="chck1">
+            פרטי הדירה{" "}
+          </label>
+          <div class="tab-content">
+            <DetailsApartment
+              id={id}
+              apartment={apartment}
+              setApartment={setApartment}
+              onchange={onchange}
+            />{" "}
+          </div>
+        </div>
+        <div class="tab">
+          <input type="checkbox" id="chck2" className="inputtt" />
+          <label class="tab-label" for="chck2">
+            תיאור{" "}
+          </label>
+          <div class="tab-content">
+            <SpecialApartment
+              id={id}
+              apartment={apartment}
+              setApartment={setApartment}
+              onchange={onchange}
+            />{" "}
+          </div>
+        </div>
+        <div class="tab">
+          <input type="checkbox" id="chck3" className="inputtt" />
+          <label class="tab-label" for="chck3">
+            הוספת תמונות{" "}
+          </label>
+          <div class="tab-content">
+            {/* <DetailsApartment
+              id={id}
+              apartment={apartment}
+              setApartment={setApartment}
+              onchange={onchange}
+            />{" "} */}
+          </div>
+        </div>
+        <div class="tab">
+          <input type="checkbox" id="chck4" className="inputtt" />
+          <label class="tab-label" for="chck4">
+            פרטי איש קשר{" "}
+          </label>
+          <div class="tab-content">
+            <Contact
+              id={id}
+              apartment={apartment}
+              setApartment={setApartment}
+              onchange={onchange}
+            />{" "}
+          </div>
+        </div>
+      </div>
       <br />
       <button onClick={addApartment}>addApartment</button>
     </div>
   );
 }
 
-export default SendMessage;
+export default AddApartment;

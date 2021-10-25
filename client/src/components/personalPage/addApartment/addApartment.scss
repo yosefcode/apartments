@@ -1,0 +1,147 @@
+#outlined-basic {
+  width: 88% !important;
+  background-color: rgb(255, 255, 255) !important;
+  height: 100% !important;
+  padding: 0 1vw;
+  // opacity: 1;
+}
+
+.addApartment .MuiBox-root {
+  width: 21% !important;
+  /* height: 5vw !important; */
+  margin: 1vw 2%;
+  display: inline-block;
+}
+.addApartment {
+  width: 100%;
+  position: relative;
+  // margin-top: 2vw;
+}
+#outlined-basic-label {
+  font-size: 1.2vw !important;
+  font-weight: 700 !important;
+  margin-top: -0.1vw !important;
+  /* margin-left: 0.1vw !important; */
+}
+.MuiFormControl-root.MuiTextField-root {
+  width: 100% !important;
+}
+
+.MuiInputBase-root {
+  height: 4vw !important;
+  width: 100% !important;
+  font-size: 1.2vw !important;
+  // opacity: 1;
+  // z-index: 520;
+  /* font-weight: bold !important; */
+}
+
+#demo-simple-select-label {
+  font-size: 1.2vw !important;
+  font-weight: 700 !important;
+  margin-top: -0.1vw !important;
+  /* margin-left: 0.1vw !important; */
+}
+
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+input:-webkit-autofill:active {
+  -webkit-box-shadow: 0 0 0 5vw white inset !important;
+}
+
+$midnight: #e2e2e2;
+$clouds: #000000;
+// General
+body {
+  padding: 0 1em 1em;
+}
+h1 {
+  margin: 0;
+  line-height: 2;
+  text-align: center;
+}
+h2 {
+  margin: 0 0 0.5em;
+  font-weight: normal;
+}
+.inputtt {
+  position: absolute;
+  opacity: 0;
+  z-index: -1;
+}
+// Layout
+.row {
+  display: flex;
+  .col {
+    flex: 1;
+    &:last-child {
+      margin-left: 1em;
+    }
+  }
+}
+/* Accordion styles */
+.tabs {
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 4px 4px -2px rgba(0, 0, 0, 0.5);
+}
+.tab {
+  width: 100%;
+  color: rgb(0, 0, 0);
+  overflow: hidden;
+  &-label {
+    font-size: 1.2vw;
+    display: flex;
+    justify-content: space-between;
+    padding: 1.5vw 3vw;
+    background: $midnight;
+    font-weight: 700;
+    cursor: pointer;
+    margin: 1vw;
+    border-radius: 0.8vw;
+    /* Icon */
+    &:hover {
+      background: darken($midnight, 10%);
+    }
+    &::before {
+      content: "\276F";
+      width: 1em;
+      height: 1em;
+      text-align: center;
+      transition: all 0.35s;
+    }
+  }
+  &-content {
+    max-height: 0;
+    padding: 0 1em;
+    color: $midnight;
+    background: white;
+    transition: all 0.35s;
+  }
+  &-close {
+    display: flex;
+    justify-content: flex-end;
+    padding: 1em;
+    font-size: 0.75em;
+    background: $midnight;
+    cursor: pointer;
+    &:hover {
+      background: darken($midnight, 10%);
+    }
+  }
+}
+
+// :checked
+input:checked {
+  + .tab-label {
+    background: darken($midnight, 10%);
+    &::before {
+      transform: rotate(-90deg);
+    }
+  }
+  ~ .tab-content {
+    max-height: 100vh;
+    padding: 1em;
+  }
+}

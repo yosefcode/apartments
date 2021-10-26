@@ -1,0 +1,52 @@
+.addApartment .textarea {
+  border: 1px solid rgb(196, 196, 196);
+  border-radius: 4px;
+  height: 12vw;
+  font-size: 1vw;
+  font-weight: 600;
+  padding: 1vw 1vw;
+  overflow: auto;
+  background-color: rgb(255, 255, 255);
+  scroll-padding: 50px;
+  color: black;
+}
+.addApartment .special {
+  border: 1px solid rgb(196, 196, 196);
+  width: 60vw;
+  border-radius: 4px;
+  /* height: 18vw; */
+  font-size: 1vw;
+  font-weight: 600;
+  padding: 2vw 2vw;
+  overflow: auto;
+  background-color: rgb(255, 255, 255);
+  scroll-padding: 50px;
+  color: black;
+  /* display: flex; */
+  column-count: 4;
+}
+
+.addApartment .textarea:hover {
+  border: 1px solid rgb(0, 0, 0);
+}
+.addApartment .textarea:focus {
+  border: 2px solid rgb(6, 0, 97);
+}
+.addApartment .div-textarea-Details {
+  position: relative;
+  height: auto;
+  margin: 2vw 0;
+  /* background-color: red; */
+}
+.addApartment #short {
+  width: 15vw;
+}
+.addApartment #long {
+  width: 42vw;
+}
+
+.addApartment [placeholder]:empty:before {
+  content: attr(placeholder);
+  color: rgb(133, 133, 133);
+  background-color: transparent;
+}

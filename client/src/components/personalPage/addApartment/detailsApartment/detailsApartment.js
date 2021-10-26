@@ -1,17 +1,6 @@
 import "./detailsApartment.css";
 import axios from "axios";
 import { useState, useEffect } from "react";
-import Box from "@mui/material/Box";
-import TextField from "@mui/material/TextField";
-import InputLabel from "@mui/material/InputLabel";
-import MenuItem from "@mui/material/MenuItem";
-import FormControl from "@mui/material/FormControl";
-import Select from "@mui/material/Select";
-import {
-  parsePhoneNumber,
-  AsYouType,
-  findPhoneNumbersInText,
-} from "libphonenumber-js";
 
 function DetailsApartment({ id, setApartment, apartment, onchange }) {
   const [aaa, setaaa] = useState([]);
@@ -28,115 +17,98 @@ function DetailsApartment({ id, setApartment, apartment, onchange }) {
 
   // console.log(aaa);
 
-  // const onchange = (e) => {
-  //   setApartment({
-  //     ...apartment,
-  //     uidFirebase: id,
-  //     show: true,
-  //     [e.target.name]: e.target.value,
-  //   });
-  // };
-
-  // localStorage.setItem(
-  //   `addApartment`,
-  //   JSON.stringify([
-  //     // ...(JSON.parse(localStorage.getItem(`favorite`)) || []),
-  //     apartment,
-  //   ])
-  // );
-
-  // console.log(apartment);
-
   return (
-    <div className="addApartment">
-      <Box>
-        <TextField
-          id="outlined-basic"
-          label="שם הנכס"
-          variant="outlined"
+    <div className="div-all-input">
+      <div className="divInputDetails">
+        <label className="labelInput">שם מקום האירוח</label>
+        <input
+          className="inputDetails"
+          placeholder="לדוגמא: דירה ברמה"
+          type="text"
           name="nameApartment"
           onChange={onchange}
         />
-      </Box>
-      <Box>
-        <FormControl fullWidth>
-          <InputLabel id="demo-simple-select-label">בחר איזור בארץ</InputLabel>
-          <Select
-            labelId="demo-simple-select-label"
-            id="demo-simple-select"
-            label="בחר איזור בארץ"
-            name="area"
-            onChange={onchange}
-          >
-            <MenuItem value={"ירושלים"}>ירושלים</MenuItem>
-            <MenuItem value={"דרום"}>הדרום</MenuItem>
-            <MenuItem value={"מרכז"}>המרכז</MenuItem>
-            <MenuItem value={"צפון"}>הצפון</MenuItem>
-          </Select>
-        </FormControl>
-      </Box>
-      <Box>
-        <FormControl fullWidth>
-          <InputLabel id="demo-simple-select-label">בחר עיר</InputLabel>
-          <Select
-            labelId="demo-simple-select-label"
-            id="demo-simple-select"
-            label="בחר עיר"
-            name="city"
-            onChange={onchange}
-          >
-            <MenuItem value={"ירושלים"}>ירושלים</MenuItem>
-            <MenuItem value={"דרום"}>הדרום</MenuItem>
-            <MenuItem value={"מרכז"}>המרכז</MenuItem>
-            <MenuItem value={"צפון"}>הצפון</MenuItem>
-          </Select>
-        </FormControl>
-      </Box>
-      <Box>
-        <TextField
-          id="outlined-basic"
-          label="מס' חדרים"
-          variant="outlined"
+      </div>
+
+      <div className="divInputDetails">
+        <label className="labelInput">בחר איזור בארץ</label>
+        <select
+          className="inputDetails"
+          id="width-select"
+          name="area"
+          onChange={onchange}
+        >
+          <option value={""} disabled selected></option>
+          <option value={"ירושלים"}>איזור ירושלים</option>
+          <option value={"דרום"}>איזור הדרום</option>
+          <option value={"מרכז"}>איזור המרכז</option>
+          <option value={"צפון"}>איזור הצפון</option>
+        </select>
+      </div>
+
+      <div className="divInputDetails">
+        <label className="labelInput">בחר עיר</label>
+        <select
+          className="inputDetails"
+          id="width-select"
+          name="city"
+          onChange={onchange}
+        >
+          {" "}
+          <option value={""} disabled selected></option>
+          <option value="volvo">Volvo</option>
+          <option value="saab">Saab</option>
+          <option value="opel">Opel</option>
+          <option value="audi">Audi</option>
+        </select>
+      </div>
+
+      <div className="divInputDetails">
+        <label className="labelInput">מס' חדרים</label>
+        <input
+          className="inputDetails"
+          type="text"
           name="rooms"
           onChange={onchange}
         />
-      </Box>
-      <Box>
-        <TextField
-          id="outlined-basic"
-          label="מס' מיטות"
-          variant="outlined"
+      </div>
+
+      <div className="divInputDetails">
+        <label className="labelInput">מס' מיטות</label>
+        <input
+          className="inputDetails"
+          type="text"
           name="beds"
           onChange={onchange}
-        />{" "}
-      </Box>
-      <Box>
-        <TextField
-          id="outlined-basic"
-          label="מחיר"
-          variant="outlined"
+        />
+      </div>
+
+      <div className="divInputDetails">
+        <label className="labelInput">תמחור לפי</label>
+        <select
+          className="inputDetails"
+          id="width-select"
+          name="priceMethod"
+          onChange={onchange}
+        >
+          <option value={""} disabled selected></option>
+          <option value={"מיטה"}>מיטה</option>
+          <option value={"זוג"}>זוג</option>
+          <option value={"לילה"}>לילה</option>
+          <option value={"אדם"}>אדם</option>
+          <option value={"דירה"}>דירה</option>
+        </select>
+      </div>
+
+      <div className="divInputDetails">
+        <label className="labelInput">מחיר</label>
+        <input
+          className="inputDetails"
+          type="text"
           name="price"
           onChange={onchange}
-        />{" "}
-      </Box>
-      <Box>
-        <FormControl fullWidth>
-          <InputLabel id="demo-simple-select-label">תמחור לפי</InputLabel>
-          <Select
-            labelId="demo-simple-select-label"
-            id="demo-simple-select"
-            label="תמחור לפי"
-            name="priceMethod"
-            onChange={onchange}
-          >
-            <MenuItem value={"מיטה"}>מיטה</MenuItem>
-            <MenuItem value={"זוג"}>זוג</MenuItem>
-            <MenuItem value={"לילה"}>לילה</MenuItem>
-            <MenuItem value={"אדם"}>אדם</MenuItem>
-            <MenuItem value={"דירה"}>דירה</MenuItem>
-          </Select>
-        </FormControl>{" "}
-      </Box>
+        />
+      </div>
     </div>
   );
 }

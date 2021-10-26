@@ -1,58 +1,106 @@
 import "./‏specialApartment.css";
 import axios from "axios";
 import { useState, useEffect } from "react";
-import Box from "@mui/material/Box";
-import TextField from "@mui/material/TextField";
-import InputLabel from "@mui/material/InputLabel";
-import MenuItem from "@mui/material/MenuItem";
-import FormControl from "@mui/material/FormControl";
-import Select from "@mui/material/Select";
-import {
-  parsePhoneNumber,
-  AsYouType,
-  findPhoneNumbersInText,
-} from "libphonenumber-js";
 
-function SpecialApartment({ id, setApartment, apartment }) {
-  const onchange = (e) => {
-    setApartment({
-      ...apartment,
-      uidFirebase: id,
-      show: true,
-      [e.target.name]: e.target.value,
-    });
-  };
+function SpecialApartment({ id, setApartment, apartment, onchange }) {
+  const [special, setSpecial] = useState([]);
 
-  localStorage.setItem(
-    `addApartment`,
-    JSON.stringify([
-      // ...(JSON.parse(localStorage.getItem(`favorite`)) || []),
-      apartment,
-    ])
-  );
-
-  console.log(apartment);
+  const specials = [
+    "פינות ישיבה בחצר",
+    "מזגן",
+    "ג'קוזי",
+    "מטבחון",
+    "מכונת אספרסו",
+    "מינימרקט",
+    "בריכה פרטית",
+    "ארוחת בוקר",
+    "מגבות",
+    "ערסל",
+    "נוף",
+    "חצר",
+    "מקום לברביקיו",
+    "אינטרנט אלחוטי",
+    "פינת קפה ותה",
+    "קומקום חשמלי",
+    "מקרר",
+    "מיקרוגל",
+    "כיריים חשמליות",
+    "נדנדה",
+    "מנגל",
+    "חנייה פרטית",
+    "ריהוט גן",
+    "פלטת שבת",
+    "מיחם לשבת",
+    "בית כנסת קרוב",
+  ];
 
   return (
-    <div className="addApartment">
-      <input
-        placeholder="תיאור קצר"
-        type="text"
-        name="short"
-        onChange={onchange}
-      />
-      <input
-        placeholder="תיאור ארוך"
-        type="text"
-        name="long"
-        onChange={onchange}
-      />
-      <input
-        placeholder="יתרונות"
-        type="text"
-        name="special"
-        onChange={onchange}
-      />
+    <div className="div-all-input">
+      <div className="div-textarea-Details">
+        <label className="labelInput">תיאור קצר</label>
+        <div
+          onInput={(e) => {
+            setApartment({
+              ...apartment,
+              short: e.currentTarget.textContent,
+            });
+          }}
+          id="short"
+          className="textarea"
+          contentEditable
+          placeholder="כתבו תיאור קצר על מקום האירוח (עד 100 תווים)"
+        />
+      </div>
+
+      <div className="div-textarea-Details">
+        <label className="labelInput">תיאור ארוך</label>
+        <div
+          onInput={(e) => {
+            setApartment({
+              ...apartment,
+              long: e.currentTarget.textContent,
+            });
+          }}
+          id="long"
+          className="textarea"
+          contentEditable
+          placeholder="ספרו בהרחבה על מקום האירוח"
+        />
+      </div>
+
+      <div className="div-textarea-Details">
+        <label className="labelInput">המיוחדים שלנו</label>
+        <div className="special">
+          {specials.map((specials) => (
+            <div>
+              <input
+                type="checkbox"
+                value={specials}
+                onChange={(event) => {
+                  let test = special.find((e) => e === event.target.value);
+                  if (!test) {
+                    special.push(event.target.value);
+                    setApartment({
+                      ...apartment,
+                      special: special,
+                    });
+                  } else {
+                    let filter = special.filter(
+                      (e) => e !== event.target.value
+                    );
+                    setSpecial(filter);
+                    setApartment({
+                      ...apartment,
+                      special: filter,
+                    });
+                  }
+                }}
+              />
+              <label for="vehicle1">{specials}</label>
+            </div>
+          ))}
+        </div>
+      </div>
     </div>
   );
 }

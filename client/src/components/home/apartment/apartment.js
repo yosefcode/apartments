@@ -9,20 +9,48 @@ import FavoriteIcon from "../../favorite/addToFavorite/addToFavorite";
 
 function Apartment() {
   let [list, setList] = useState([]);
+  let [errorFilter, setErrorfilter] = useState(false);
   const { filter, setListIDForFavorite } = useContext(AppContext);
 
+  // const set = { area: ["ירושלים"], city: [], rooms: [5] };
+
+  // for (let i = set.length - 1; i > 0; i++) {
+  //   console.log(Object.keys(i));
+  // }
+
+  // const check = JSON.parse(JSON.stringify(set), (key, value) =>
+  //   value === null || value === [] ? undefined : value
+  // );
+
+  // console.log(check);
+  // // console.log(set);
+  // var newArray = Object.keys(set).forEach(
+  //   (k) => !set[k] && set[k] !== undefined && delete set[k]
+  // );
+
+  // // .forEach(
+  // //   (k) => set[k] == null && delete set[k]
+  // // );
+  // // set.length > 0
+  // //   ?
+  // // set.filter(Boolean);
+  // // : "";
+  // console.log(newArray);
   useEffect(() => {
     axios.post(`/api/list/filter/`, filter).then((res) => {
       const getFilter = () => {
         setList(res.data);
+        // setErrorfilter(false);
       };
       res.data < 1 ? getData() : getFilter();
     });
+    console.log(filter);
   }, [filter]);
 
   const getData = () => {
     axios.get("/api/list/").then((res) => {
       setList(res.data);
+      // setErrorfilter(true);
     });
   };
 
@@ -40,7 +68,9 @@ function Apartment() {
   return (
     <div className="allApartments">
       <div>
-        {" "}
+        {/* {errorFilter && (
+          <p>לא נמצאו דירות מתאימות לחיפוש שביצעת. שנה את טווח החיפוש</p>
+        )} */}
         {list.map((list) => (
           <div className="boxApartmentHome" key={list._id}>
             <div dir="ltr" className="carouselApartment">

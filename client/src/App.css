@@ -7,7 +7,19 @@
 }
 .top {
   position: fixed;
-  bottom: 3vw;
+  bottom: 2vw;
   right: 3vw;
   z-index: 1;
+  width: 3.5vw;
+  height: 3.5vw;
+  color: rgb(177, 177, 177);
+  border: 0.1vw solid rgb(177, 177, 177);
+  transform: rotate(-90deg);
+  border-radius: 50vw;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  -webkit-box-shadow: 0 0 1vw rgb(124, 124, 124);
+  box-shadow: 0 0 1vw rgb(124, 124, 124);
+  cursor: pointer;
 }

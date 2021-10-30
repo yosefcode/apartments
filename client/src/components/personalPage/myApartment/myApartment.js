@@ -6,10 +6,10 @@ import MuiAccordion from "@mui/material/Accordion";
 import MuiAccordionSummary from "@mui/material/AccordionSummary";
 import MuiAccordionDetails from "@mui/material/AccordionDetails";
 import Typography from "@mui/material/Typography";
-import AddApartment from "../addApartment/addApartment";
 import Calendar from "../calendar/calendar";
 import RmoveApartment from "./removeApartment/removeApartment";
 import HoldApartment from "./holdApartment/holdApartment";
+import InfoApartment from "./infoApartment/infoApartment";
 import axios from "axios";
 
 function MyApartments({ id, setValue }) {
@@ -94,16 +94,7 @@ function MyApartments({ id, setValue }) {
               </AccordionSummary>
               <AccordionDetails>
                 <Typography>
-                  <h3>
-                    {list.area}, {list.city}.
-                  </h3>
-                  <h4>
-                    {list.rooms} חדרים, עד {list.beds} מיטות.
-                  </h4>
-                  <h4>
-                    החל מ{list.price} ש"ח ל{list.priceMethod}.
-                  </h4>
-                  {/* <Calendar /> */}
+                  <InfoApartment list={list} />
                   <div className="btnsbottom">
                     <button className="btn">ערוך מודעה</button>
                     <RmoveApartment

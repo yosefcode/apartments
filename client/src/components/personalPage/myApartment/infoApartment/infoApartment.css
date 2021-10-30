@@ -1,0 +1,23 @@
+.info-apartment {
+  width: 100%;
+  /* height: 20vw; */
+  font-weight: 700;
+  position: relative;
+  margin-bottom: 4vw;
+  line-height: 2vw;
+  font-size: 1vw;
+}
+.info-apartment .special {
+  column-count: 4;
+  width: 100%;
+  display: inline-block;
+}
+
+.info-apartment li {
+  list-style: none;
+}
+.info-apartment .img {
+  width: 13vw;
+  height: 8vw;
+  margin: 1vw;
+}

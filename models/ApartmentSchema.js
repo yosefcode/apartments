@@ -81,7 +81,7 @@ const product1 = new Apartment({
 const product2 = new Apartment({
   nameApartment: "סייסטה ברמות",
   name: "משה",
-  uidFirebase: "hijObkCnIHZ9aPh7WO4Q8ifDZzA2",
+  uidFirebase: "EiJS8GDjuiZ44AxTIxa25nJTNvx1",
   show: true,
 
   firstImage:
@@ -329,7 +329,7 @@ const product5 = new Apartment({
 const product6 = new Apartment({
   nameApartment: "צימרים אחוזת דבש",
   name: "חיים",
-  uidFirebase: "YaqdPHVnETfnLoHBWKB0rocoRPU2",
+  uidFirebase: "EiJS8GDjuiZ44AxTIxa25nJTNvx1",
   show: true,
 
   firstImage: "https://dira4u.co.il/storage/2020/10/1-2.jpeg",
@@ -696,7 +696,7 @@ const product11 = new Apartment({
 const product12 = new Apartment({
   nameApartment: "צימר האפרסק",
   name: "מיכל",
-  uidFirebase: "IrIjt7LCTVONyGLL9bkPQ1PwyLm2",
+  uidFirebase: "EiJS8GDjuiZ44AxTIxa25nJTNvx1",
   show: true,
   firstImage:
     "https://ainevo.co.il/wp-content/uploads/elementor/thumbs/dira1_c-Medium-1024x728-ogie6jc9med5opsjdt3wp20l2tftccacq9otq5pymg.jpg",
@@ -977,7 +977,7 @@ const product16 = new Apartment({
 const product17 = new Apartment({
   nameApartment: "אחוזה בגליל",
   name: "נועם",
-  uidFirebase: "IrIjt7LCTVONyGLL9bkPQ1PwyLm2",
+  uidFirebase: "EiJS8GDjuiZ44AxTIxa25nJTNvx1",
   show: true,
   firstImage:
     "http://www.yokra-estate.co.il/images/com_jea/images/489/GARDEN.jpg",

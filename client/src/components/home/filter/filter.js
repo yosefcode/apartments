@@ -11,7 +11,7 @@ import ListItemText from "@material-ui/core/ListItemText";
 import Select from "@material-ui/core/Select";
 import Checkbox from "@material-ui/core/Checkbox";
 import { Button } from "@material-ui/core";
-import { AppContext } from "../../variable-Context";
+import { AppContext } from "../../../variable-Context";
 
 const useStyles = makeStyles((theme) => ({
   formControl: {
@@ -54,6 +54,8 @@ function Filter() {
     axios.get("/api/list/").then((res) => {
       const list = res.data;
       const listFilter = [];
+      // if (filter.city && filter.city.length < 1) {
+      // }
       delete filter.city;
 
       for (var i = 0; i < list.length; ++i) {
@@ -96,25 +98,45 @@ function Filter() {
 
   const handleChange = (event) => {
     setPersonName(event.target.value);
-    setFilter({
-      ...filter,
-      [event.target.name]: event.target.value,
-    });
+    if (event.target.value.length > 0) {
+      setFilter({
+        ...filter,
+        [event.target.name]: event.target.value,
+      });
+    } else
+      delete filter.city &&
+        setFilter({
+          ...filter,
+        });
   };
 
   const onChangeAmountOfBeds = (event) => {
     setamountOfBeds(event.target.value);
-    setFilter({
-      ...filter,
-      [event.target.name]: event.target.value,
-    });
+    if (event.target.value.length > 0) {
+      setFilter({
+        ...filter,
+        [event.target.name]: event.target.value,
+      });
+    } else
+      delete filter.rooms &&
+        setFilter({
+          ...filter,
+        });
   };
+  // console.log(filter);
+  // console.log(amountOfBeds.length);
   const onChangeArea = (event) => {
     setarea1(event.target.value);
-    setFilter({
-      ...filter,
-      [event.target.name]: event.target.value,
-    });
+    if (event.target.value.length > 0) {
+      setFilter({
+        ...filter,
+        [event.target.name]: event.target.value,
+      });
+    } else
+      delete filter.area &&
+        setFilter({
+          ...filter,
+        });
   };
 
   const area = [

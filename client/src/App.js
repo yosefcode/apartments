@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from "react";
 import "./App.css";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
-import Filter from "../src/components/filter/filter";
 import Home from "./components/home/home";
 import Kesher from "./components/kesher/kesher";
 import Bar from "./components/bar/bar";
@@ -12,6 +11,7 @@ import Login from "./components/login/login";
 import { AppContext } from "./variable-Context";
 import axios from "axios";
 import { initializeApp } from "firebase/app";
+import DoubleArrowIcon from "@mui/icons-material/DoubleArrow";
 
 function App() {
   const topFunction = () => {
@@ -21,6 +21,7 @@ function App() {
   const [filter, setFilter] = useState({});
   let [list, setList] = useState([]);
   let [listIDForFavorite, setListIDForFavorite] = useState([]);
+  let [scrollTop, setScrollTop] = useState(true);
 
   // useEffect(() => {
   //   axios.post(`/api/list/filter/`, filter).then((res) => {
@@ -77,14 +78,25 @@ function App() {
     <div className="App" dir="rtl">
       <AppContext.Provider value={globalVariable}>
         <Router>
-          <div className="top">
-            <button onClick={topFunction}>top</button>
-          </div>
+          {/* {window.addEventListener("scroll", function () {
+            if (window.scrollY > 110) {
+              setScrollTop(true);
+            } else {
+              setScrollTop(false);
+            }
+          })} */}
+          {scrollTop && (
+            <div className="top">
+              <DoubleArrowIcon
+                onClick={topFunction}
+                style={{ fontSize: "3vw" }}
+              />
+            </div>
+          )}
           <Bar />
           <Switch>
             <Route exact path="/">
               <Home />
-              <Filter />
             </Route>
 
             <Route path="/message/">

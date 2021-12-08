@@ -2,39 +2,51 @@ import React, { useState } from "react";
 import "./holdApartment.css";
 import axios from "axios";
 
-const HoldApartment = ({ id, show, setStatus, status }) => {
-  const [modal, setModal] = useState(false);
-
+const HoldApartment = ({
+  id,
+  show,
+  setStatus,
+  status,
+  modalHold,
+  setModalHold,
+  setModalRemove,
+}) => {
   const holdApartment = () => {
     axios.put("/api/holdApartment/" + id, { show: show }).then();
-    setModal(false);
+    setModalHold(false);
     setStatus(status === true ? false : true);
   };
   return (
-    <div>
+    <div className="holdApartment">
       <button
         className="btn"
         onClick={() => {
-          show === true ? setModal(true) : holdApartment();
+          if (show === true) {
+            setModalHold(true);
+            setModalRemove(false);
+          } else holdApartment();
+          setModalRemove(false);
         }}
       >
         {show === true ? "הקפא מודעה" : "הפעל מודעה"}
       </button>
 
-      {modal && (
+      {modalHold && (
         <div className="divModel">
           האם אתה בטוח כי ברצונך להקפיא את המודעה?
-          <button className="btnModal" onClick={holdApartment}>
-            {show === true ? "הקפא מודעה" : "הפעל מודעה"}
-          </button>
-          <button
-            className="btnModal"
-            onClick={() => {
-              setModal(false);
-            }}
-          >
-            ביטול
-          </button>
+          <div className="btnsModal">
+            <button className="btnModal" onClick={holdApartment}>
+              {show === true ? "הקפא מודעה" : "הפעל מודעה"}
+            </button>
+            <button
+              className="btnModal"
+              onClick={() => {
+                setModalHold(false);
+              }}
+            >
+              ביטול
+            </button>
+          </div>
         </div>
       )}
     </div>

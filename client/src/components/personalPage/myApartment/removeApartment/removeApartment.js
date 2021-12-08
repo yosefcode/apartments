@@ -2,40 +2,48 @@ import React, { useState, useEffect } from "react";
 import "./removeApartment.css";
 import axios from "axios";
 
-const RmoveApartment = ({ id, setStatus, status }) => {
-  const [modal, setModal] = useState(false);
-
+const RmoveApartment = ({
+  id,
+  setStatus,
+  status,
+  modalRemove,
+  setModalHold,
+  setModalRemove,
+}) => {
   const rmoveApartment = () => {
     axios.delete("/api/deleteApartment/" + id).then();
-    setModal(false);
+    setModalRemove(false);
     setStatus(status === true ? false : true);
   };
 
   return (
-    <div>
+    <div className="removeApartment">
       <button
         className="btn"
         onClick={() => {
-          setModal(true);
+          setModalRemove(true);
+          setModalHold(false);
         }}
       >
         מחק מודעה
       </button>
 
-      {modal && (
+      {modalRemove && (
         <div className="divModel">
-          האם אתה בטוח כי ברצונך למחוק את המודעה?
-          <button className="btnModal" onClick={rmoveApartment}>
-            מחק מודעה
-          </button>
-          <button
-            className="btnModal"
-            onClick={() => {
-              setModal(false);
-            }}
-          >
-            ביטול
-          </button>
+          האם אתה בטוח כי ברצונך למחוק את המודעה?{" "}
+          <div className="btnsModal">
+            <button className="btnModal" onClick={rmoveApartment}>
+              מחק מודעה
+            </button>
+            <button
+              className="btnModal"
+              onClick={() => {
+                setModalRemove(false);
+              }}
+            >
+              ביטול
+            </button>
+          </div>
         </div>
       )}
     </div>

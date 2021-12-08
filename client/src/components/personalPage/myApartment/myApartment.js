@@ -58,6 +58,8 @@ function MyApartments({ id, setValue }) {
 
   const [status, setStatus] = useState(true);
   const [myApartments, setMyApartments] = useState([]);
+  const [modalHold, setModalHold] = useState(false);
+  const [modalRemove, setModalRemove] = useState(false);
 
   useEffect(() => {
     axios.post("/api/myApartments/" + id).then((res) => {
@@ -85,7 +87,9 @@ function MyApartments({ id, setValue }) {
                       <h3>{list.city}.</h3>
                     </div>
                     <div>
-                      <h3>
+                      <h3
+                        style={{ color: list.show === true ? "green" : "red" }}
+                      >
                         {list.show === true ? "מודעה פעילה" : "מודעה לא פעילה"}
                       </h3>
                     </div>
@@ -101,12 +105,18 @@ function MyApartments({ id, setValue }) {
                       id={list._id}
                       setStatus={setStatus}
                       status={status}
+                      setModalHold={setModalHold}
+                      modalRemove={modalRemove}
+                      setModalRemove={setModalRemove}
                     />
                     <HoldApartment
                       id={list._id}
                       show={list.show}
                       setStatus={setStatus}
                       status={status}
+                      modalHold={modalHold}
+                      setModalHold={setModalHold}
+                      setModalRemove={setModalRemove}
                     />
                   </div>
                 </Typography>

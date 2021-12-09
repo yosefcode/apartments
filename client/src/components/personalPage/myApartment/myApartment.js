@@ -10,6 +10,7 @@ import Calendar from "../calendar/calendar";
 import RmoveApartment from "./removeApartment/removeApartment";
 import HoldApartment from "./holdApartment/holdApartment";
 import InfoApartment from "./infoApartment/infoApartment";
+import EditApartment from "./editApartment/editApartment";
 import axios from "axios";
 
 function MyApartments({ id, setValue }) {
@@ -60,6 +61,7 @@ function MyApartments({ id, setValue }) {
   const [myApartments, setMyApartments] = useState([]);
   const [modalHold, setModalHold] = useState(false);
   const [modalRemove, setModalRemove] = useState(false);
+  const [modalEdit, setModalEdit] = useState(false);
 
   useEffect(() => {
     axios.post("/api/myApartments/" + id).then((res) => {
@@ -69,6 +71,7 @@ function MyApartments({ id, setValue }) {
 
   return (
     <div className="myApartment">
+      <a href="sms:0504120717&body=hi">Send an SMS</a>
       {myApartments.length > 0 ? (
         myApartments.map((list) => (
           <div>
@@ -100,7 +103,17 @@ function MyApartments({ id, setValue }) {
                 <Typography>
                   <InfoApartment list={list} />
                   <div className="btnsbottom">
-                    <button className="btn">ערוך מודעה</button>
+                    <EditApartment
+                      list={list}
+                      id={list._id}
+                      setStatus={setStatus}
+                      status={status}
+                      setModalHold={setModalHold}
+                      modalRemove={modalRemove}
+                      setModalRemove={setModalRemove}
+                      modalEdit={modalEdit}
+                      setModalEdit={setModalEdit}
+                    />
                     <RmoveApartment
                       id={list._id}
                       setStatus={setStatus}

@@ -71,7 +71,8 @@ function MyApartments({ id, setValue }) {
 
   return (
     <div className="myApartment">
-      <a href="sms:0504120717&body=hi">Send an SMS</a>
+      <a href="sms:+972584111111">Send an SMS</a>
+      <a href="sms:0584111111">Send an SMS 058</a>
       {myApartments.length > 0 ? (
         myApartments.map((list) => (
           <div>

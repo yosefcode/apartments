@@ -51,17 +51,19 @@ function MyApartments({ id, setValue }) {
     borderTop: "1px solid rgba(0, 0, 0, .125)",
   }));
 
-  const [expanded, setExpanded] = React.useState("panel1");
-
-  const handleChange = (panel) => (event, newExpanded) => {
-    setExpanded(newExpanded ? panel : false);
-  };
-
+  const [expanded, setExpanded] = useState("panel1");
   const [status, setStatus] = useState(true);
   const [myApartments, setMyApartments] = useState([]);
   const [modalHold, setModalHold] = useState(false);
   const [modalRemove, setModalRemove] = useState(false);
   const [modalEdit, setModalEdit] = useState(false);
+
+  const handleChange = (panel) => (event, newExpanded) => {
+    setExpanded(newExpanded ? panel : false);
+    setModalEdit(false);
+    setModalHold(false);
+    setModalRemove(false);
+  };
 
   useEffect(() => {
     axios.post("/api/myApartments/" + id).then((res) => {
@@ -71,8 +73,6 @@ function MyApartments({ id, setValue }) {
 
   return (
     <div className="myApartment">
-      <a href="sms:+972584111111">Send an SMS</a>
-      <a href="sms:0584111111">Send an SMS 058</a>
       {myApartments.length > 0 ? (
         myApartments.map((list) => (
           <div>
@@ -102,9 +102,30 @@ function MyApartments({ id, setValue }) {
               </AccordionSummary>
               <AccordionDetails>
                 <Typography>
-                  <InfoApartment list={list} />
+                  <InfoApartment
+                    list={list}
+                    modalEdit={modalEdit}
+                    setModalEdit={setModalEdit}
+                  />
                   <div className="btnsbottom">
-                    <EditApartment
+                    <button
+                      className="btn"
+                      onClick={() => {
+                        if (modalEdit) {
+                          setModalHold(false);
+                          setModalRemove(false);
+                          setModalEdit(false);
+                        } else {
+                          setModalHold(false);
+                          setModalRemove(false);
+                          setModalEdit(true);
+                        }
+                      }}
+                    >
+                      {modalEdit ? "בטל עריכה" : "ערוך מודעה"}
+                    </button>
+
+                    {/* <EditApartment
                       list={list}
                       id={list._id}
                       setStatus={setStatus}
@@ -114,7 +135,7 @@ function MyApartments({ id, setValue }) {
                       setModalRemove={setModalRemove}
                       modalEdit={modalEdit}
                       setModalEdit={setModalEdit}
-                    />
+                    /> */}
                     <RmoveApartment
                       id={list._id}
                       setStatus={setStatus}

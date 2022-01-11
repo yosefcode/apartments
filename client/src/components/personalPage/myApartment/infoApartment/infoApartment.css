@@ -5,19 +5,21 @@
   position: relative;
   margin-bottom: 4vw;
   line-height: 2vw;
-  font-size: 1vw;
+  font-size: 1.5rem;
 }
 .info-apartment .special {
   column-count: 4;
   width: 100%;
   display: inline-block;
+  font-size: 1.4rem;
 }
 
 .info-apartment li {
   list-style: none;
 }
-.info-apartment .img {
-  width: 13vw;
-  height: 8vw;
+.info-apartment .div_img_carousel {
+  width: 60%;
+  height: 25vw;
   margin: 1vw;
+  float: left;
 }

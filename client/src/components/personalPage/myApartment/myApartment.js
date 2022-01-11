@@ -87,15 +87,15 @@ function MyApartments({ id, setValue }) {
                 <Typography>
                   <div className="boxheader">
                     <div>
-                      <h2>{list.nameApartment},</h2>
-                      <h3>{list.city}.</h3>
+                      <h1>{list.nameApartment}, </h1>
+                      <h2> {list.city}.</h2>
                     </div>
                     <div>
-                      <h3
+                      <h2
                         style={{ color: list.show === true ? "green" : "red" }}
                       >
                         {list.show === true ? "מודעה פעילה" : "מודעה לא פעילה"}
-                      </h3>
+                      </h2>
                     </div>
                   </div>
                 </Typography>

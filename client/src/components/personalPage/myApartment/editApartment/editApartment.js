@@ -4,6 +4,11 @@ import axios from "axios";
 import CheckBoxIcon from "@mui/icons-material/CheckBox";
 import HighlightOffIcon from "@mui/icons-material/HighlightOff";
 import CancelIcon from "@mui/icons-material/Cancel";
+import {
+  parsePhoneNumber,
+  AsYouType,
+  findPhoneNumbersInText,
+} from "libphonenumber-js";
 
 const EditApartment = ({
   id,
@@ -16,15 +21,25 @@ const EditApartment = ({
   setModalEdit,
   list,
 }) => {
-  const editApartment = () => {
-    axios.put("/api/holdApartment/" + id, { show: show }).then();
-    setModalHold(false);
-    setModalRemove(false);
-    setStatus(status === true ? false : true);
+  // const newApartment = {};
+  const [newApartment, setNewApartment] = useState([]);
+
+  const onchange = (e) => {
+    setNewApartment({ ...newApartment, [e.target.name]: e.target.value });
   };
+  // console.log(newApartment);
+
+  const editApartment = () => {
+    axios.put("/api/editApartment/" + list._id, newApartment).then();
+    // setModalHold(false);
+    // setModalRemove(false);
+    // setStatus(status === true ? false : true);
+  };
+
   return (
     <div className="editApartment">
       <div className="div-all-input">
+        <button onClick={editApartment}>ddddd</button>
         <div className="header_edit">פרטים</div>{" "}
         <div className="divInputDetails">
           <label className="labelInput">שם מקום האירוח</label>
@@ -121,12 +136,12 @@ const EditApartment = ({
         <div className="div-textarea-Details">
           <label className="labelInput">תיאור קצר</label>
           <div
-            // onInput={(e) => {
-            //   setApartment({
-            //     ...apartment,
-            //     short: e.currentTarget.textContent,
-            //   });
-            // }}
+            onInput={(e) => {
+              setNewApartment({
+                ...newApartment,
+                short: e.currentTarget.textContent,
+              });
+            }}
             id="short"
             className="textarea"
             contentEditable
@@ -138,12 +153,12 @@ const EditApartment = ({
         <div className="div-textarea-Details">
           <label className="labelInput">תיאור ארוך</label>
           <div
-            // onInput={(e) => {
-            //   setApartment({
-            //     ...apartment,
-            //     long: e.currentTarget.textContent,
-            //   });
-            // }}
+            onInput={(e) => {
+              setNewApartment({
+                ...newApartment,
+                long: e.currentTarget.textContent,
+              });
+            }}
             id="long"
             className="textarea"
             contentEditable
@@ -203,7 +218,7 @@ const EditApartment = ({
         <div className="div-img">
           {list.images.map((img) => (
             <div>
-              <CancelIcon className="delete_img" />
+              <CancelIcon className="delete_img" style={{ fontSize: "3rem" }} />
               <img src={img} alt="" className="img"></img>
             </div>
           ))}
@@ -236,15 +251,15 @@ const EditApartment = ({
             className="inputDetails"
             type="text"
             name="phone"
-            // onChange={(e) => {
-            //   setApartment({
-            //     ...apartment,
-            //     [e.target.name]:
-            //       e.target.value.length > 7
-            //         ? parsePhoneNumber(e.target.value, "IL").formatNational()
-            //         : "",
-            //   });
-            // }}
+            onChange={(e) => {
+              setNewApartment({
+                ...newApartment,
+                [e.target.name]:
+                  e.target.value.length > 7
+                    ? parsePhoneNumber(e.target.value, "IL").formatNational()
+                    : "",
+              });
+            }}
           />
         </div>
       </div>

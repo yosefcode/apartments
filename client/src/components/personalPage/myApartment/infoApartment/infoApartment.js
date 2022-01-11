@@ -3,6 +3,8 @@ import "./infoApartment.css";
 import axios from "axios";
 import CheckBoxIcon from "@mui/icons-material/CheckBox";
 import EditApartment from "../editApartment/editApartment";
+import Carousel from "react-gallery-carousel";
+import "react-gallery-carousel/dist/index.css";
 
 const InfoApartment = ({ list, modalEdit }) => {
   const [modal, setModal] = useState(false);
@@ -13,12 +15,27 @@ const InfoApartment = ({ list, modalEdit }) => {
         <EditApartment list={list} />
       ) : (
         <div>
-          {list.area}, {list.city}.<br />
-          {list.rooms} חדרים, עד {list.beds} מיטות.
-          <br /> החל מ{list.price} ש"ח ל{list.priceMethod}.<br />
-          <br />
-          {list.long}
-          <br />
+          <div>
+            <div dir="ltr" className="div_img_carousel">
+              {/* {apartmentShow.map((list) => ( */}
+              <Carousel
+                isLoop={true}
+                isAutoPlaying={false}
+                autoPlayInterval={10000}
+                transitionDurationMin={1000}
+                hasMediaButton={false}
+                hasSizeButton="bottomRight"
+                images={list.images.map((image) => ({ src: image }))}
+                // style={{ height: 500, width: 800, margin: 50 }}
+              />
+            </div>
+            <h3>
+              {list.rooms} חדרים, עד {list.beds} מיטות.
+              <br /> החל מ{list.price} ש"ח ל{list.priceMethod}.<br />
+            </h3>
+            <br />
+            {list.long}
+          </div>
           <div className="special">
             {list.special.map((special) => (
               <li>
@@ -32,11 +49,6 @@ const InfoApartment = ({ list, modalEdit }) => {
                 />{" "}
                 {special}
               </li>
-            ))}
-          </div>
-          <div className="div-img">
-            {list.images.map((img) => (
-              <img src={img} alt="" className="img" />
             ))}
           </div>
         </div>

@@ -10,6 +10,7 @@ const sendMessage = require("./funcOftheServer/sendMessega");
 const myApartments = require("./funcOftheServer/myApartments");
 const apartmentShow = require("./funcOftheServer/apartmentShow");
 const addApartment = require("./funcOftheServer/addApartment");
+const editApartment = require("./funcOftheServer/editApartments");
 
 app.use(cors());
 app.use(express.json());
@@ -44,6 +45,8 @@ app.post("/api/messages/:id", messages.messageFromUID);
 app.post("/api/myApartments/:id", myApartments.myApartments);
 app.delete(`/api/deleteApartment/:id`, myApartments.deleteApartment);
 app.put(`/api/holdApartment/:id`, myApartments.holdApartment);
+
+app.put(`/api/editApartment/:id`, editApartment.editApartment);
 
 app.post("/api/apartmentShow/:id", apartmentShow.apartmentShow);
 

@@ -39,7 +39,7 @@ const EditApartment = ({
   return (
     <div className="editApartment">
       <div className="div-all-input">
-        <button onClick={editApartment}>ddddd</button>
+        <button onClick={editApartment}>edit Apartment</button>
         <div className="header_edit">פרטים</div>{" "}
         <div className="divInputDetails">
           <label className="labelInput">שם מקום האירוח</label>
@@ -263,49 +263,6 @@ const EditApartment = ({
           />
         </div>
       </div>
-      {/* {modalEdit && (
-        <div className="divModel">
-          {" "}
-          <button
-            className="btn"
-            onClick={() => {
-              setModalHold(false);
-              setModalRemove(false);
-              setModalEdit(false);
-            }}
-          >
-            xxxxx{" "}
-          </button>
-          <div className="edit-info-apartment">
-            {list.area}, {list.city}.<br />
-            {list.rooms} חדרים, עד {list.beds} מיטות.
-            <br /> החל מ{list.price} ש"ח ל{list.priceMethod}.<br />
-            <br />
-            {list.long}
-            <br />
-            <div className="special">
-              {list.special.map((special) => (
-                <li>
-                  <CheckBoxIcon
-                    style={{
-                      fontSize: "1.2vw",
-                      position: "relative",
-                      top: "0.4vw",
-                      color: "green",
-                    }}
-                  />{" "}
-                  {special}
-                </li>
-              ))}
-            </div>
-            <div className="div-img">
-              {list.images.map((img) => (
-                <img src={img} alt="" className="img" />
-              ))}
-            </div>
-          </div>
-        </div>
-      )} */}
     </div>
   );
 };

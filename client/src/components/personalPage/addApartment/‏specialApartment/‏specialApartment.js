@@ -71,8 +71,8 @@ function SpecialApartment({ id, setApartment, apartment, onchange }) {
       <div className="div-textarea-Details">
         <label className="labelInput">המיוחדים שלנו</label>
         <div className="special">
-          {specials.map((specials) => (
-            <div>
+          {specials.map((specials, index) => (
+            <div key={index}>
               <input
                 type="checkbox"
                 value={specials}

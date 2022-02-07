@@ -3,10 +3,13 @@ import axios from "axios";
 import { useState, useEffect } from "react";
 import DetailsApartment from "./detailsApartment/detailsApartment";
 import Contact from "./contact/contact";
+import Images from "./images/images";
 import SpecialApartment from "./‏specialApartment/‏specialApartment";
 
 function AddApartment({ id }) {
   const [apartment, setApartment] = useState([]);
+  const [valueCity, setValueCity] = useState("");
+  const [valueStreet, setValueStreet] = useState("");
 
   const addApartment = () => {
     axios.post("/api/addApartment/", apartment).then((res) => {});
@@ -20,6 +23,13 @@ function AddApartment({ id }) {
       [e.target.name]: e.target.value,
     });
   };
+  useEffect(() => {
+    setApartment({
+      ...apartment,
+      city: valueCity,
+      street: valueStreet,
+    });
+  }, [valueCity, valueStreet]);
 
   localStorage.setItem(
     `addApartment`,
@@ -29,7 +39,7 @@ function AddApartment({ id }) {
     ])
   );
 
-  console.log(apartment);
+  // console.log(apartment);
 
   return (
     <div className="addApartment">
@@ -45,6 +55,10 @@ function AddApartment({ id }) {
               apartment={apartment}
               setApartment={setApartment}
               onchange={onchange}
+              setValueCity={setValueCity}
+              setValueStreet={setValueStreet}
+              valueStreet={valueStreet}
+              valueCity={valueCity}
             />{" "}
           </div>
         </div>
@@ -70,12 +84,12 @@ function AddApartment({ id }) {
             הוספת תמונות{" "}
           </label>
           <div class="tab-content">
-            {/* <DetailsApartment
+            <Images
               id={id}
               apartment={apartment}
               setApartment={setApartment}
               onchange={onchange}
-            />{" "} */}
+            />{" "}
           </div>
         </div>
 

@@ -14,6 +14,7 @@ exports.addApartment = async (req, res) => {
     short: req.body.short,
     long: req.body.long,
     special: req.body.special,
+    images: req.body.images,
     name: req.body.name,
     mail: req.body.mail,
     phone: req.body.phone,

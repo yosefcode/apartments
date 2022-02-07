@@ -35,7 +35,7 @@ function Apartment() {
   // //   ?
   // // set.filter(Boolean);
   // // : "";
-  // console.log(newArray);
+  // console.log(list);
   useEffect(() => {
     axios.post(`/api/list/filter/`, filter).then((res) => {
       const getFilter = () => {
@@ -44,7 +44,7 @@ function Apartment() {
       };
       res.data < 1 ? getData() : getFilter();
     });
-    console.log(filter);
+    // console.log(filter);
   }, [filter]);
 
   const getData = () => {

@@ -36,6 +36,7 @@ const ITEM_PADDING_TOP = 20;
 const MenuProps = {
   PaperProps: {
     style: {
+      fontSize: "1.5rem",
       maxHeight: ITEM_HEIGHT * 4.5 + ITEM_PADDING_TOP,
       width: 250,
     },
@@ -151,7 +152,9 @@ function Filter() {
     <div className="filter">
       <div>
         <FormControl className={classes.formControl}>
-          <InputLabel id="demo-mutiple">בחר איזור בארץ</InputLabel>
+          <InputLabel id="demo-mutiple-checkbox-label">
+            בחר איזור בארץ
+          </InputLabel>
           <Select
             labelId="demo-mutiple"
             id="demo-mutiple-checkbox"

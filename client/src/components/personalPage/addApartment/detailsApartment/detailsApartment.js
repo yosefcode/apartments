@@ -1,9 +1,6 @@
 import "./detailsApartment.css";
 import axios from "axios";
 import { useState, useEffect } from "react";
-import { parseString } from "xml2js";
-// var parseString = require("xml2js").parseString;
-import SelectSearch, { fuzzySearch } from "react-select-search";
 
 function DetailsApartment({
   id,
@@ -17,9 +14,13 @@ function DetailsApartment({
 }) {
   const [listCity, setListCity] = useState([]);
   const [listStreet, setListStreet] = useState([]);
-  const [aad, setaa] = useState([]);
+  const [listCityFilter, setListCityFilter] = useState([]);
+  const [listCityOptions, setListCityOptions] = useState(false);
+  const [listStreetFilter, setListStreetFilter] = useState([]);
+  const [listStreetOptions, setListStreetOptions] = useState(false);
+  const [idCity, setidCity] = useState([]);
 
-  console.log(apartment);
+  // console.log(apartment);
 
   useEffect(() => {
     axios
@@ -27,9 +28,6 @@ function DetailsApartment({
         "https://data.gov.il/api/3/action/datastore_search?resource_id=d4901968-dad3-4845-a9b0-a57d027f11ab&limit=5000"
       )
       .then((response) => {
-        // for (let index = 0; index < 100; index++) {
-        //   console.log(response.data.result.records[index].שם_ישוב);
-        // }
         setListCity(response.data.result.records);
       });
   }, []);
@@ -37,24 +35,15 @@ function DetailsApartment({
   useEffect(() => {
     axios
       .get(
-        `https://data.gov.il/api/3/action/datastore_search?resource_id=a7296d1a-f8c9-4b70-96c2-6ebb4352f8e3&q=${aad?.bb}&limit=50000`
+        `https://data.gov.il/api/3/action/datastore_search?resource_id=a7296d1a-f8c9-4b70-96c2-6ebb4352f8e3&q=${idCity.id}&q=${idCity.name}&limit=50000`
       )
       .then((response) => {
-        // for (let index = 0; index < 100; index++) {
-        //   console.log(response.data.result.records[index].שם_ישוב);
-        // }
         setListStreet(response.data.result.records);
-        // setListCity(response);
       });
-  }, [aad]);
-  // console.log(listStreet);
-  // console.log(listCity);
-  // console.log(aad);
+  }, [listCityFilter]);
 
-  const aa = (a) =>
-    a
-      .split("  ")
-      .join("")
+  const split = (item) =>
+    item
       .split(")שבט(")
       .join("")
       .split(")יישוב(")
@@ -64,58 +53,64 @@ function DetailsApartment({
       .split("(")
       .join("")
       .split("-")
-      .join(" - ");
+      .join(" - ")
+      .split("  ")
+      .join("");
 
-  let resultstreet = listStreet.map(
-    (a) => ({
-      aa: aa(a.שם_רחוב + " " + a.סמל_רחוב + " " + a.שם_ישוב),
-      bb: a.סמל_רחוב,
-    })
-    //     aa:
-    //       a.שם_רחוב.split("  ").join("") +
-    //       " " +
-    //       a.סמל_רחוב +
-    //       " " +
-    //       a.שם_ישוב,
-    //   }}
+  let pushListCityFilter = [];
 
-    // ?
-    // : null
-    // .split(")שבט(")
-    // .join("")
-    // .split(")יישוב(")
-    // .join("")
-    // .split(")")
-    // .join(" - ")
-    // .split("(")
-    // .join("")
-    // .split("-")
-    // .join(" - ")
-  );
-
-  let matchingStrings = [];
-
-  let result = listCity.map((a) => ({
-    name: aa(a.שם_ישוב),
-    value: aa(a.שם_ישוב),
-    bb: a.סמל_ישוב,
+  let arryListCity = listCity.map((list) => ({
+    name: list.שם_ישוב,
+    id: list.סמל_ישוב,
   }));
 
   useEffect(() => {
     if (valueCity.length > 1) {
-      result.forEach((list) => {
+      arryListCity.forEach((list) => {
         if (
           list.name.toLocaleLowerCase().search(valueCity.toLocaleLowerCase()) >
           -1
         ) {
-          matchingStrings.push(list);
+          pushListCityFilter.push(list);
+          setListCityFilter(pushListCityFilter);
+        } else if (pushListCityFilter.length < 1) {
+          setListCityFilter([{ name: "שם לא קיים" }]);
         }
       });
-      setaa(matchingStrings);
     } else {
-      setaa([]);
+      setListCityOptions(false);
+      setListCityFilter([]);
     }
   }, [valueCity]);
+
+  let pushListStreetFilter = [];
+
+  let arryListStreet = listStreet.map((list) => ({
+    name: split(list.שם_ישוב),
+    id: list.סמל_ישוב,
+  }));
+
+  useEffect(() => {
+    if (valueStreet.length > 1) {
+      console.log(valueStreet);
+
+      arryListStreet.forEach((list) => {
+        if (
+          list.name
+            .toLocaleLowerCase()
+            .search(valueStreet.toLocaleLowerCase()) > -1
+        ) {
+          pushListStreetFilter.push(list);
+          setListStreetFilter(pushListStreetFilter);
+        } else if (pushListStreetFilter.length < 1) {
+          setListStreetFilter([{ name: "שם לא קיים" }]);
+        }
+      });
+    } else {
+      setListStreetOptions(false);
+      setListStreetFilter([]);
+    }
+  }, [valueStreet]);
 
   return (
     <div className="div-all-input">
@@ -154,44 +149,61 @@ function DetailsApartment({
           // defaultValue={valueCity}
           onChange={(e) => {
             setValueCity(e.target.value);
+            setListCityOptions(true);
+            setValueStreet("");
+            setListStreetFilter([]);
+            setidCity("000000000000");
           }}
         />
-        {aad.map((a) => (
-          <div
-            style={{ textAlign: "center", fontSize: "1.8em", color: "black" }}
-            onClick={() => {
-              setaa([a]);
-              setValueCity(a.name);
-              console.log(a.name);
-            }}
-          >
-            {a.name}
+        {listCityOptions && (
+          <div className="div_list_city">
+            {listCityFilter.map((item, index) => (
+              <div
+                className="div_list_city_item"
+                key={index}
+                onClick={() => {
+                  console.log(item);
+                  setListCityOptions(false);
+                  // setListCityFilter([item]);
+                  setValueCity(split(item.name));
+                  setidCity(item);
+                }}
+              >
+                {split(item.name)}
+              </div>
+            ))}
           </div>
-        ))}
+        )}
       </div>
 
       <div className="divInputDetails">
         <label className="labelInput">בחר רחוב</label>
         <input
           className="inputDetails"
-          value={valueCity}
-          // defaultValue={valueCity}
+          value={valueStreet}
+          // defaultValue={valueStreet}
           onChange={(e) => {
-            setValueCity(e.target.value);
+            setValueStreet(e.target.value);
+            setListStreetOptions(true);
           }}
         />
-        {aad.map((a) => (
-          <div
-            style={{ textAlign: "center", fontSize: "1.8em", color: "black" }}
-            onClick={() => {
-              setaa([a]);
-              setValueCity(a.name);
-              console.log(a.name);
-            }}
-          >
-            {a.name}
+        {listStreetOptions && (
+          <div className="div_list_city">
+            {listStreetFilter.map((item, index) => (
+              <div
+                className="div_list_city_item"
+                key={index}
+                onClick={() => {
+                  setListStreetOptions(false);
+                  // setListCityFilter([item]);
+                  setValueStreet(item.name);
+                }}
+              >
+                {item.name}
+              </div>
+            ))}
           </div>
-        ))}
+        )}
       </div>
 
       <div className="divInputDetails">

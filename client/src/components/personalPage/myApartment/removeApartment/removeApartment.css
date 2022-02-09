@@ -6,7 +6,7 @@
   position: absolute;
   top: 0;
   left: 30%;
-  font-size: 1.1vw;
+  font-size: 1.6rem;
   line-height: 1.8vw;
   text-align: center;
 }
@@ -24,7 +24,7 @@
   width: 10vw;
   height: 2vw;
   border-radius: 2vw;
-  font-size: 1.2vw;
+  font-size: 1.7rem;
   font-weight: 700;
   background-color: rgb(4, 0, 61);
   color: white;

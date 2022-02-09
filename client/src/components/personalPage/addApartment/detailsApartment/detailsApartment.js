@@ -86,14 +86,12 @@ function DetailsApartment({
   let pushListStreetFilter = [];
 
   let arryListStreet = listStreet.map((list) => ({
-    name: split(list.שם_ישוב),
+    name: split(list.שם_רחוב),
     id: list.סמל_ישוב,
   }));
 
   useEffect(() => {
-    if (valueStreet.length > 1) {
-      console.log(valueStreet);
-
+    if (valueStreet.length > 1 && idCity.id) {
       arryListStreet.forEach((list) => {
         if (
           list.name
@@ -103,9 +101,11 @@ function DetailsApartment({
           pushListStreetFilter.push(list);
           setListStreetFilter(pushListStreetFilter);
         } else if (pushListStreetFilter.length < 1) {
-          setListStreetFilter([{ name: "שם לא קיים" }]);
+          setListStreetFilter([{ name: "רחוב לא קיים" }]);
         }
       });
+    } else if (valueStreet.length > 0 && !idCity.id) {
+      setListStreetFilter([{ name: "ישוב לא נבחר" }]);
     } else {
       setListStreetOptions(false);
       setListStreetFilter([]);
@@ -153,6 +153,7 @@ function DetailsApartment({
             setValueStreet("");
             setListStreetFilter([]);
             setidCity("000000000000");
+            setListStreetOptions(false);
           }}
         />
         {listCityOptions && (
@@ -162,7 +163,6 @@ function DetailsApartment({
                 className="div_list_city_item"
                 key={index}
                 onClick={() => {
-                  console.log(item);
                   setListCityOptions(false);
                   // setListCityFilter([item]);
                   setValueCity(split(item.name));

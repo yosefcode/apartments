@@ -4,8 +4,24 @@
   margin: 4vw auto;
 }
 
+@media only screen and (max-width: 1350px) {
+  .personalPage {
+    width: 75%;
+  }
+}
+@media only screen and (max-width: 1200px) {
+  .personalPage {
+    width: 85%;
+  }
+}
+@media only screen and (max-width: 1000px) {
+  .personalPage {
+    width: 95%;
+  }
+}
+
 .personalPage [id^="simple-tab-"] {
-  font-size: 1.3vw !important;
+  font-size: 1.8rem !important;
   font-weight: 700 !important;
   color: rgb(28, 2, 99) !important;
   background-color: rgb(255, 255, 255) !important;
@@ -17,7 +33,7 @@
 }
 
 .personalPage .Mui-selected {
-  font-size: 1.3vw !important;
+  font-size: 1.8rem !important;
   font-weight: 700 !important;
   color: rgb(255, 255, 255) !important;
   background-color: rgb(28, 2, 99) !important;

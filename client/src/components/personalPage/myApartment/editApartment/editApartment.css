@@ -30,7 +30,7 @@
   padding: 0.5vw 0.7vw;
   line-height: 0.5vw;
   font-weight: 700;
-  font-size: 1vw;
+  font-size: 1.5rem;
 }
 
 .editApartment .inputDetails {
@@ -38,7 +38,7 @@
   border-radius: 4px;
   border: 1px solid rgb(196, 196, 196);
   width: 12vw;
-  font-size: 1vw;
+  font-size: 1.5rem;
   font-weight: 600;
   padding: 0 1vw;
 }
@@ -55,7 +55,7 @@
   border: 1px solid rgb(196, 196, 196);
   border-radius: 4px;
   height: 12vw;
-  font-size: 1vw;
+  font-size: 1.5rem;
   font-weight: 600;
   padding: 1vw 1vw;
   overflow: auto;
@@ -68,7 +68,7 @@
   width: 60vw;
   border-radius: 4px;
   /* height: 18vw; */
-  font-size: 1vw;
+  font-size: 1.5rem;
   font-weight: 600;
   padding: 2vw 2vw;
   overflow: auto;

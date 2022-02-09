@@ -8,11 +8,11 @@
   position: absolute;
 }
 .iconShowFavorite {
-  font-size: 3vw !important;
+  font-size: 4.5rem !important;
   color: red;
 }
 .iconShowFavorite1 {
-  font-size: 3vw !important;
+  font-size: 4.5rem !important;
   color: rgb(255, 255, 255);
 }
 .amountFavorite {
@@ -22,7 +22,7 @@
   width: 4vw;
   height: 4vw;
   color: white;
-  font-size: 1.2vw;
+  font-size: 1.7rem;
   position: absolute;
   top: 0;
   left: 0;
@@ -61,17 +61,17 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  font-size: 1.4vw;
+  font-size: 1.9rem;
 }
 .iconClose {
   cursor: pointer;
-  font-size: 2vw !important;
+  font-size: 3rem !important;
   position: absolute;
   right: 1vw;
 }
 .iconDelete {
   cursor: pointer;
-  font-size: 2vw !important;
+  font-size: 3rem !important;
   position: absolute;
   right: 0.4vw;
   top: 0.4vw;
@@ -90,14 +90,14 @@
   height: 8vw;
 }
 .infoApartmentFavorite {
-  font-size: 1vw;
+  font-size: 1.5rem;
   font-weight: 700;
   line-height: 1.5vw;
   text-align: center;
   color: rgb(28, 2, 99);
 }
 .infoError {
-  font-size: 1.1vw;
+  font-size: 1.6rem;
   font-weight: 700;
   line-height: 2vw;
   text-align: center;
@@ -109,6 +109,6 @@
   justify-content: center;
 }
 .iconError {
-  font-size: 1.5vw !important;
+  font-size: 2.1rem !important;
   color: red !important;
 }

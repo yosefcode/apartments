@@ -94,31 +94,33 @@ function App() {
             </div>
           )}
           <Bar />
-          <Switch>
-            <Route exact path="/">
-              <Home />
-            </Route>
+          <div className="container">
+            <Switch>
+              <Route exact path="/">
+                <Home />
+              </Route>
 
-            <Route path="/message/">
-              <Kesher />
-            </Route>
+              <Route path="/message/">
+                <Kesher />
+              </Route>
 
-            <Route exact path="/login/">
-              <Login />
-            </Route>
+              <Route exact path="/login/">
+                <Login />
+              </Route>
 
-            <Route path="/login/:id">
-              <PersonalPage />
-            </Route>
+              <Route path="/login/:id">
+                <PersonalPage />
+              </Route>
 
-            <Route path="/myfavorite/">
-              <MyFavoritePage />
-            </Route>
+              <Route path="/myfavorite/">
+                <MyFavoritePage />
+              </Route>
 
-            <Route exact path="/:id">
-              <ApartmentShow />
-            </Route>
-          </Switch>
+              <Route exact path="/:id">
+                <ApartmentShow />
+              </Route>
+            </Switch>
+          </div>
         </Router>
       </AppContext.Provider>
     </div>

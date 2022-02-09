@@ -9,7 +9,7 @@
   height: 8vh;
   background-color: rgb(6, 0, 61);
   color: white;
-  font-size: 2vw;
+  font-size: 3rem;
   font-weight: bold;
   display: flex;
   align-items: center;
@@ -54,7 +54,7 @@
   background-color: #fff !important;
   line-height: 1vw;
   height: 2vw;
-  font-size: 1.1vw;
+  font-size: 1.6rem;
 }
 
 .login button {
@@ -62,13 +62,13 @@
   border: 1px solid rgb(150, 150, 150);
   background-color: white;
   border-radius: 2vw;
-  font-size: 1.2vw;
+  font-size: 1.7rem;
   cursor: pointer;
   margin-top: 0.5vw;
   font-weight: 700;
 }
 .login p {
-  font-size: 1.5vw;
+  font-size: 2.1rem;
   font-weight: 700;
   margin-top: 0;
 }

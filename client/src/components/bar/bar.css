@@ -22,7 +22,7 @@
 .bar .divConnect {
   display: flex;
   align-items: center;
-  font-size: 1vw;
+  font-size: 1.5rem;
   font-weight: 700;
   cursor: pointer;
 }

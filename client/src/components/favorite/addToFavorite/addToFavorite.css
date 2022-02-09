@@ -1,10 +1,10 @@
 .favoriteIcon {
-  font-size: 2vw !important;
+  font-size: 3rem !important;
   color: red !important;
   cursor: pointer;
 }
 
 .favoriteIcon:hover {
-  font-size: 3vw !important;
+  font-size: 4.5rem !important;
   color: red !important;
 }

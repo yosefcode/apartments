@@ -114,7 +114,9 @@ function AddApartment({ id }) {
             אישור וסיום{" "}
           </label>
           <div class="tab-content">
-            <button onClick={addApartment}>addApartment</button>
+            <button onClick={addApartment} className="btn_send">
+              הוסף דירה
+            </button>
           </div>
         </div>
       </div>

@@ -35,7 +35,7 @@ function AddImages({ id, setApartment, apartment, onchange }) {
       <div className="div_btn_add_img">
         {" "}
         <label for="files">
-          <div className="btn_add_img">+</div>
+          <div className="btn_add_img">הוסף תמונה +</div>
         </label>
         <input
           type="file"

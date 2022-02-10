@@ -1,28 +1,26 @@
 .addApartment .textarea {
   border: 1px solid rgb(196, 196, 196);
   border-radius: 4px;
-  height: 12vw;
+  height: 14rem;
   font-size: 1.5rem;
   font-weight: 600;
-  padding: 1vw 1vw;
+  padding: 1.2rem;
   overflow: auto;
   background-color: rgb(255, 255, 255);
   scroll-padding: 50px;
   color: black;
+  line-height: 2.5rem;
 }
 .addApartment .special {
   border: 1px solid rgb(196, 196, 196);
-  width: 60vw;
   border-radius: 4px;
-  /* height: 18vw; */
-  font-size: 1.5rem;
+  font-size: 1.8rem;
   font-weight: 600;
-  padding: 2vw 2vw;
+  padding: 3rem;
   overflow: auto;
   background-color: rgb(255, 255, 255);
   scroll-padding: 50px;
   color: black;
-  /* display: flex; */
   column-count: 4;
 }
 
@@ -35,18 +33,43 @@
 .addApartment .div-textarea-Details {
   position: relative;
   height: auto;
-  margin: 2vw 0;
+  margin: 2.3rem 1%;
+
   /* background-color: red; */
 }
 .addApartment #short {
-  width: 15vw;
+  width: 33%;
 }
 .addApartment #long {
-  width: 42vw;
+  width: 60%;
+}
+.addApartment #special {
+  width: 98%;
 }
 
 .addApartment [placeholder]:empty:before {
   content: attr(placeholder);
   color: rgb(133, 133, 133);
   background-color: transparent;
+}
+
+@media only screen and (max-width: 900px) {
+  .addApartment .special {
+    column-count: 3;
+  }
+}
+@media only screen and (max-width: 600px) {
+  .addApartment .special {
+    column-count: 1;
+  }
+  .addApartment #short {
+    width: 98%;
+    height: 10rem !important;
+  }
+  .addApartment #short .textarea {
+    height: 10rem !important;
+  }
+  .addApartment #long {
+    width: 98%;
+  }
 }

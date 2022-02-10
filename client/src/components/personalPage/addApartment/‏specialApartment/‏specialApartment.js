@@ -36,7 +36,7 @@ function SpecialApartment({ id, setApartment, apartment, onchange }) {
 
   return (
     <div className="div-all-input">
-      <div className="div-textarea-Details">
+      <div className="div-textarea-Details" id="short">
         <label className="labelInput">תיאור קצר</label>
         <div
           onInput={(e) => {
@@ -45,14 +45,13 @@ function SpecialApartment({ id, setApartment, apartment, onchange }) {
               short: e.currentTarget.textContent,
             });
           }}
-          id="short"
           className="textarea"
           contentEditable
           placeholder="כתבו תיאור קצר על מקום האירוח (עד 100 תווים)"
         />
       </div>
 
-      <div className="div-textarea-Details">
+      <div className="div-textarea-Details" id="long">
         <label className="labelInput">תיאור ארוך</label>
         <div
           onInput={(e) => {
@@ -61,18 +60,17 @@ function SpecialApartment({ id, setApartment, apartment, onchange }) {
               long: e.currentTarget.textContent,
             });
           }}
-          id="long"
           className="textarea"
           contentEditable
           placeholder="ספרו בהרחבה על מקום האירוח"
         />
       </div>
 
-      <div className="div-textarea-Details">
+      <div className="div-textarea-Details" id="special">
         <label className="labelInput">המיוחדים שלנו</label>
         <div className="special">
           {specials.map((specials, index) => (
-            <div key={index}>
+            <div key={index} style={{ marginBottom: "15px" }}>
               <input
                 type="checkbox"
                 value={specials}

@@ -50,3 +50,41 @@
 .personalPage .MuiBox-root {
   padding: 0 0 1vw !important;
 }
+
+@media only screen and (max-width: 600px) {
+  .personalPage [id^="simple-tab-"] {
+    font-size: 1.6rem !important;
+    font-weight: 700 !important;
+    color: rgb(28, 2, 99) !important;
+    background-color: rgb(255, 255, 255) !important;
+    border-top-left-radius: 4vw !important;
+    border-top-right-radius: 4vw !important;
+    border: solid rgba(28, 2, 99, 0.336) !important;
+    border-width: 0.1vw 0.1vw 0vw 0.1vw !important;
+    width: 25% !important;
+    min-width: 10px !important;
+    padding: 8% 10% !important;
+    display: flex !important;
+    align-items: center;
+    align-content: center;
+    height: 5rem;
+  }
+  .personalPage .Mui-selected {
+    font-size: 1.6rem !important;
+    font-weight: 700 !important;
+    color: rgb(255, 255, 255) !important;
+    background-color: rgb(28, 2, 99) !important;
+    border-top-left-radius: 4vw !important;
+    border-top-right-radius: 4vw !important;
+  }
+
+  .personalPage .MuiTabs-flexContainer {
+    border-bottom: 0.2vw solid rgb(28, 2, 99) !important;
+  }
+  .personalPage .MuiTabs-indicator {
+    height: 0 !important;
+  }
+  .personalPage .MuiBox-root {
+    padding: 0 0 1vw !important;
+  }
+}

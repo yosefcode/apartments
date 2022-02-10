@@ -1,16 +1,17 @@
 .bar {
   height: 8vw;
-  width: 100%;
+  width: 80%;
   position: relative;
   top: 0;
+  padding: 0 10%;
   display: flex;
-  justify-content: space-around;
+  justify-content: space-between;
   align-items: center;
   border-bottom: 0.1vw solid rgb(207, 207, 207);
 }
 .bar .divBar {
   height: 7vw;
-  width: 14;
+  /* width: 14; */
   display: flex;
   justify-content: center;
   align-items: center;
@@ -22,13 +23,67 @@
 .bar .divConnect {
   display: flex;
   align-items: center;
-  font-size: 1.5rem;
+  font-size: 1.3rem;
   font-weight: 700;
   cursor: pointer;
+  flex-direction: column;
 }
-.bar .allConnect {
-  width: 14vw;
+.bar .divConnect_modal {
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  font-weight: 700;
+  cursor: pointer;
+  font-size: 1.7rem;
+  /* flex-direction: column; */
+}
+.bar .div_modal {
+  width: 100%;
+  position: fixed;
+  top: 0;
+  right: 0;
+  height: 100vh;
+  z-index: 1000;
+}
+.bar .allConnect {
+  position: absolute;
+  top: 7vw;
+  left: 8%;
+  padding: 10px 20px;
+  border: 2px solid black;
+  border-radius: 20px;
+  background-color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+@media only screen and (max-width: 600px) {
+  .bar {
+    height: 70px;
+    width: 86%;
+    position: relative;
+    top: 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 0.1vw solid rgb(207, 207, 207);
+    padding: 0 7%;
+  }
+  .bar .imgLogo {
+    height: 50px;
+    width: 100px;
+  }
+  .bar .divBar {
+    height: 60px;
+    /* width: 14; */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .bar .allConnect {
+    position: absolute;
+    top: 70px;
+    left: 5%;
+  }
 }

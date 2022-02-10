@@ -147,7 +147,24 @@ $clouds: #000000;
   }
 }
 
-@media only screen and (max-width: 1350px) {
+@media only screen and (max-width: 1000px) {
+  .addApartment .divInputDetails {
+    position: relative;
+    width: 30%;
+    height: 5rem;
+    margin: 2.3rem 1%;
+  }
+}
+@media only screen and (max-width: 750px) {
+  .addApartment .divInputDetails {
+    position: relative;
+    width: 40%;
+    height: 5rem;
+    margin: 2.3rem 1%;
+  }
+}
+
+@media only screen and (max-width: 600px) {
   .addApartment .div-all-input {
     width: 100%;
     display: flex;

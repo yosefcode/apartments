@@ -12,9 +12,9 @@ function Info({ apartmentShow }) {
   };
 
   const changeClassName = () => {
-    if (document.documentElement.scrollTop > 100) {
+    if (document.documentElement.scrollTop > 190) {
       setBgcolorHeader("header bgcolorHeader");
-      setShowFavorite("");
+      setShowFavorite("yesShowFavorite");
     } else {
       setBgcolorHeader("header");
       setShowFavorite("noneShowFavorite");
@@ -24,11 +24,13 @@ function Info({ apartmentShow }) {
   return apartmentShow.map((list) => (
     <div className={bgcolorHeader}>
       <div className="header1">
-        <div className="nameHeader">
-          {list.nameApartment}.
-          <span className="addressHeader">
-            {list.area}, {list.city}.
-          </span>
+        <div className="header_mobile">
+          <div className="nameHeader">
+            {list.nameApartment}.
+            <span className="addressHeader">
+              {list.area}, {list.city}.
+            </span>
+          </div>
         </div>
 
         <div className="phoneHeader">{list.phone}</div>

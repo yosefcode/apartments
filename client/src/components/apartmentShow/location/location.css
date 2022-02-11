@@ -1,7 +1,6 @@
 .apartmentShow .divMaps {
   position: relative;
-  width: 60%;
-  right: 18vw;
+  width: 100%;
   height: auto;
 }
 

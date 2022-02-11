@@ -16,7 +16,7 @@ function SliderImage({ apartmentShow }) {
           hasSizeButton="bottomRight"
           // hasThumbnails="bottomRight"
           images={list.images.map((image) => ({ src: image }))}
-          // style={{ height: 500, width: 800, margin: 50 }}
+          style={{ height: 500, width: "100%" }}
         />
       ))}
     </div>

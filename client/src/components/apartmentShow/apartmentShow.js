@@ -28,37 +28,42 @@ function ApartmentShow() {
   }, [id]);
 
   return (
-    <div className="apartmentShow">
+    <div>
       <div className="filterArea">
         <FilterArea />
       </div>
-
-      <div className="divHeader">
-        <Header apartmentShow={apartmentShow} />
-        <Contact apartmentShow={apartmentShow} executeScroll={executeScroll} />
-      </div>
-
-      <div className="divCarousel">
-        <SliderImage apartmentShow={apartmentShow} />
-      </div>
-
-      <div className="divCommponent">
-        <Info apartmentShow={apartmentShow} />
-      </div>
-
-      <div ref={myRef} className="divCommponent">
-        <div className="divCommponent-SendMessage-Calendar">
-          <SendMessage apartmentShow={apartmentShow} />
-          <Calendar apartmentShow={apartmentShow} />
+      <div className="apartmentShow">
+        <div className="divHeader">
+          <Header apartmentShow={apartmentShow} />
+          <Contact
+            apartmentShow={apartmentShow}
+            executeScroll={executeScroll}
+          />
         </div>
-      </div>
+        <div className="container_apartmentShow">
+          <div className="divCarousel">
+            <SliderImage apartmentShow={apartmentShow} />
+          </div>
 
-      <div className="divCommponent">
-        <Location apartmentShow={apartmentShow} />
-      </div>
+          <div className="divCommponent">
+            <Info apartmentShow={apartmentShow} />
+          </div>
 
-      <div className="divCommponent">
-        <MoreApartment apartmentShow={apartmentShow} />
+          <div ref={myRef} className="divCommponent">
+            <div className="divCommponent-SendMessage-Calendar">
+              <SendMessage apartmentShow={apartmentShow} />
+              <Calendar apartmentShow={apartmentShow} />
+            </div>
+          </div>
+
+          <div className="divCommponent">
+            <Location apartmentShow={apartmentShow} />
+          </div>
+
+          <div className="divCommponent">
+            <MoreApartment apartmentShow={apartmentShow} />
+          </div>
+        </div>
       </div>
     </div>
   );

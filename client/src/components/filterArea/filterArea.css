@@ -1,27 +1,50 @@
 .filterArea {
   position: relative;
   width: 100%;
+  background-color: rgb(28, 2, 99);
+  border-bottom: rgb(222, 241, 255) 0.3vw solid;
+}
+
+.div_btn_filterArea {
+  width: 85%;
+  height: 100%;
+  display: flex;
+  /* justify-content: space-between; */
 }
 
 .btnarea {
-  width: initial;
-  height: 4vw;
+  width: 20%;
   background-color: transparent;
   color: white;
   cursor: pointer;
-  border: none;
   font-size: 1.7rem;
   font-weight: 700;
+  align-items: center;
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  padding: 5px 10px;
 }
-.btnarea::after {
-  content: " | ";
-  margin: 0 18px;
+
+.btnarea + .btnarea {
+  content: "  ";
+  border-right: 1px solid white;
+  margin: 10px auto;
 }
 .divShowFavorite {
-  width: 18%;
+  width: 15%;
+  height: 100%;
   position: absolute;
   top: 0;
   left: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
-@media only screen and (max-width: 1300px) {
+@media only screen and (max-width: 600px) {
+  .btnarea {
+    font-size: 1.2rem;
+    font-weight: 500;
+    line-height: 1.2;
+  }
 }

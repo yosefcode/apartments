@@ -7,7 +7,7 @@ import Filter from "./filter/filter";
 function Home() {
   return (
     <div className="home">
-      <div className="filterArea">
+      <div className="div_filterArea">
         <FilterArea />
         <Filter />
       </div>

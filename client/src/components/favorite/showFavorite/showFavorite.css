@@ -1,28 +1,25 @@
 .showFavorite {
-  width: 4vw;
-  height: 4vw;
+  /* width: 4vw; */
+  height: 100%;
+  position: relative;
   display: flex;
-  justify-content: center;
-  align-items: center;
-  left: 3vw;
-  position: absolute;
 }
 .iconShowFavorite {
-  font-size: 4.5rem !important;
+  font-size: 5rem !important;
   color: red;
 }
 .iconShowFavorite1 {
-  font-size: 4.5rem !important;
+  font-size: 5rem !important;
   color: rgb(255, 255, 255);
 }
 .amountFavorite {
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 4vw;
-  height: 4vw;
+  width: 5rem;
+  height: 5rem;
   color: white;
-  font-size: 1.7rem;
+  font-size: 1.9rem;
   position: absolute;
   top: 0;
   left: 0;
@@ -111,4 +108,19 @@
 .iconError {
   font-size: 2.1rem !important;
   color: red !important;
+}
+
+@media only screen and (max-width: 600px) {
+  .iconShowFavorite {
+    font-size: 4rem !important;
+  }
+  .iconShowFavorite1 {
+    font-size: 4rem !important;
+  }
+  .amountFavorite {
+    width: 4rem;
+    height: 4rem;
+    font-size: 1.4rem;
+    font-weight: 700;
+  }
 }

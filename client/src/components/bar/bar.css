@@ -1,29 +1,29 @@
 .bar {
-  height: 8vw;
-  width: 80%;
+  height: 120px;
+  width: 70%;
   position: relative;
   top: 0;
-  padding: 0 10%;
+  padding: 0 15%;
   display: flex;
   justify-content: space-between;
   align-items: center;
   border-bottom: 0.1vw solid rgb(207, 207, 207);
 }
 .bar .divBar {
-  height: 7vw;
+  height: 120px;
   /* width: 14; */
   display: flex;
   justify-content: center;
   align-items: center;
 }
 .bar .imgLogo {
-  height: 7vw;
-  width: 14vw;
+  height: 100px;
+  width: 200px;
 }
 .bar .divConnect {
   display: flex;
   align-items: center;
-  font-size: 1.3rem;
+  font-size: 2rem;
   font-weight: 700;
   cursor: pointer;
   flex-direction: column;
@@ -46,8 +46,8 @@
 }
 .bar .allConnect {
   position: absolute;
-  top: 7vw;
-  left: 8%;
+  top: 110px;
+  left: 15%;
   padding: 10px 20px;
   border: 2px solid black;
   border-radius: 20px;
@@ -60,7 +60,7 @@
 
 @media only screen and (max-width: 600px) {
   .bar {
-    height: 70px;
+    height: 90px;
     width: 86%;
     position: relative;
     top: 0;
@@ -71,8 +71,8 @@
     padding: 0 7%;
   }
   .bar .imgLogo {
-    height: 50px;
-    width: 100px;
+    height: 70px;
+    width: 140px;
   }
   .bar .divBar {
     height: 60px;
@@ -85,5 +85,8 @@
     position: absolute;
     top: 70px;
     left: 5%;
+  }
+  .bar .divConnect {
+    font-size: 1.5rem;
   }
 }

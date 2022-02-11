@@ -18,18 +18,18 @@ function FilterArea() {
 
   return (
     <div className="filterArea">
-      <div>
+      <div className="div_btn_filterArea">
         {listArea.map((area) => (
-          <Link to={"/"}>
-            <button
-              className="btnarea"
-              onClick={() => {
-                setFilter({ area: [area.filter] });
-              }}
-            >
-              דירות {area.area}{" "}
-            </button>
-          </Link>
+          // <Link to={"/"}>
+          <div
+            className="btnarea"
+            onClick={() => {
+              setFilter({ area: [area.filter] });
+            }}
+          >
+            דירות {area.area}{" "}
+          </div>
+          // </Link>
         ))}
       </div>
       <div className="divShowFavorite">

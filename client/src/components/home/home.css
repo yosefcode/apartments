@@ -8,20 +8,9 @@
   right: 20%;
 }
 
-.home .filterArea {
-  height: 4vw;
-  width: 100%;
-  margin: 0px auto 0px;
-  background-color: rgb(28, 2, 99);
+.home .div_filterArea {
   position: sticky;
   top: 0;
-  border-bottom: rgb(222, 241, 255) 0.3vw solid;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  color: white;
-  font-size: 2rem;
-  font-weight: 700;
   z-index: 100;
 }
 

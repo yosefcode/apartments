@@ -70,10 +70,10 @@ const Location = ({ apartmentShow }) => {
             icon={
               <RoomIcon
                 style={{
-                  fontSize: "3vw",
+                  fontSize: "4rem",
                   position: "relative",
-                  bottom: "3vw",
-                  left: "1.5vw",
+                  bottom: "40px",
+                  left: "15px",
                   color: "red",
                 }}
               />

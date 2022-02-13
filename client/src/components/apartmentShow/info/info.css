@@ -5,57 +5,27 @@
   margin-top: 50px;
 }
 
-/* .information .headerInfo {
-  width: 12vw;
-  height: 2.5vw;
-  background-color: rgb(16, 0, 61);
-  border-radius: 1vw 1vw 0vw 0vw;
-  font-size: 1.9rem;
-  font-weight: 700;
-  position: relative;
-  right: 0.6vw;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.information .headerInfo:after {
-  border-radius: 1.5vw 1.5vw 0vw 0vw;
-  content: "";
-  position: absolute;
-  top: -0.8vw;
-  left: -0.8vw;
-  right: -0.8vw;
-  bottom: -0.3vw;
-  z-index: -1;
-  background: rgb(16, 0, 61);
-}
-
-.information .headerInfo1 {
-  border: rgb(214, 174, 255) 0.2vw solid;
-  color: rgb(214, 174, 255);
-} */
-
 .information .allInfo {
-  display: grid;
-  grid-template-columns: 50% 50%;
-  width: 100%;
+  width: calc(100% - 44px);
   position: relative;
   border: rgb(16, 0, 61) 2px solid;
   border-top: rgb(16, 0, 61) 5px solid;
   color: rgb(24, 0, 90);
   font-weight: 700;
   /* height: auto; */
+  padding: 20px;
 }
+
 .information .info {
-  padding: 2vw;
-  font-size: 1.7rem;
+  display: grid;
+  grid-template-columns: 40% 55%;
+  font-size: 2rem;
 }
 .information .special {
-  column-count: 2;
+  column-count: 4;
   font-weight: 700;
-  padding: 1.5vw;
-  font-size: 1.7rem;
+  padding: 30px 0;
+  font-size: 2rem;
 }
 
 .information ul {
@@ -66,4 +36,31 @@
 
 .information li {
   list-style: none;
+  line-height: 3.2rem;
+}
+
+@media only screen and (max-width: 1100px) {
+  .information .special {
+    column-count: 3;
+    font-weight: 700;
+    padding: 30px 0;
+    font-size: 2rem;
+  }
+}
+
+@media only screen and (max-width: 600px) {
+  .information .info {
+    display: block;
+    font-size: 1.5rem;
+  }
+  .information .special {
+    column-count: 2;
+    font-weight: 700;
+    padding: 30px 0;
+    font-size: 1.7rem;
+  }
+  .information li {
+    list-style: none;
+    line-height: 3.2rem;
+  }
 }

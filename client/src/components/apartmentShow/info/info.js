@@ -10,17 +10,21 @@ function Info({ apartmentShow }) {
       </div>
       <div className="allInfo">
         <div className="info">
-          <h2>{list.nameApartment}.</h2>
-          <h3>
-            {list.area}, {list.city}.
-          </h3>
-          <h4>
-            {list.rooms} חדרים, עד {list.beds} מיטות.
-          </h4>
-          <h4>
-            החל מ{list.price} ש"ח ל{list.priceMethod}.
-          </h4>
-          <h5>{list.long}</h5>
+          <div>
+            <h2>{list.nameApartment}.</h2>
+            <h3>
+              {list.area}, {list.city}.
+            </h3>
+            <h4>
+              {list.rooms} חדרים, עד {list.beds} מיטות.
+            </h4>
+            <h4>
+              החל מ-{list.price} ש"ח ל{list.priceMethod}.
+            </h4>
+          </div>
+          <div>
+            <h5>{list.long}</h5>
+          </div>
         </div>
         <div className="special">
           <h5>
@@ -28,9 +32,9 @@ function Info({ apartmentShow }) {
               <li>
                 <CheckBoxIcon
                   style={{
-                    fontSize: "1.4vw",
+                    fontSize: "1.7rem",
                     position: "relative",
-                    top: "0.4vw",
+                    top: "5px",
                     color: "green",
                   }}
                 />{" "}

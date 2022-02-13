@@ -7,7 +7,9 @@ const calendar = ({ apartmentShow }) => {
   return apartmentShow.map((list) => (
     <div className="calendar">
       {" "}
-      <div className="headerCalendar headerCalendar1">תאריכים פנויים</div>
+      <div className="header_div_apartmentShow header_div_apartmentShow1">
+        תאריכים פנויים
+      </div>
       <div className="aaa">
         <Calendar />
       </div>

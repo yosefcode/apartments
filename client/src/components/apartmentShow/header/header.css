@@ -69,9 +69,17 @@
   }
 } */
 @media only screen and (max-width: 600px) {
+  .header {
+    width: 100%;
+    padding: 0px;
+    margin-top: 20px;
+  }
+  .bgcolorHeader {
+    padding: 20px 0px;
+  }
   .header1 {
-    width: 80%;
-    margin-right: 20px;
+    width: calc(90%);
+    margin: 0px auto;
   }
   .header_mobile {
     display: flex;
@@ -92,6 +100,16 @@
     align-items: center; */
   }
   .phoneHeader {
-    font-size: 2rem;
+    font-size: 1.7rem;
+  }
+  .phone_icon {
+    background-color: green;
+    border-radius: 50%;
+    margin-inline-end: 60px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 40px;
+    height: 40px;
   }
 }

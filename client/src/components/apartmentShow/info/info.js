@@ -5,7 +5,9 @@ import CheckBoxIcon from "@mui/icons-material/CheckBox";
 function Info({ apartmentShow }) {
   return apartmentShow.map((list) => (
     <div className="information">
-      <div className="headerInfo headerInfo1">מידע</div>
+      <div className="header_div_apartmentShow header_div_apartmentShow1">
+        מידע
+      </div>
       <div className="allInfo">
         <div className="info">
           <h2>{list.nameApartment}.</h2>

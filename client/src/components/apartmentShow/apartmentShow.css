@@ -36,6 +36,38 @@
   margin-top: 50px;
 }
 
+.apartmentShow .header_div_apartmentShow {
+  width: fit-content;
+  /* height: 2.5vw; */
+  background-color: rgb(16, 0, 61);
+  border-radius: 10px 10px 0px 0px;
+  font-size: 2rem;
+  font-weight: 700;
+  position: relative;
+  right: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 3px 25px;
+}
+
+.apartmentShow .header_div_apartmentShow:after {
+  border-radius: 15px 15px 0px 0px;
+  content: "";
+  position: absolute;
+  top: -10px;
+  left: -10px;
+  right: -10px;
+  bottom: -3px;
+  z-index: -1;
+  background: rgb(16, 0, 61);
+}
+
+.apartmentShow .header_div_apartmentShow1 {
+  border: rgb(214, 174, 255) 2px solid;
+  color: rgb(214, 174, 255);
+}
+
 @media only screen and (max-width: 1100px) {
   .apartmentShow .container_apartmentShow {
     width: 75%;
@@ -49,5 +81,37 @@
 @media only screen and (max-width: 600px) {
   .apartmentShow .container_apartmentShow {
     width: 95%;
+  }
+  .apartmentShow .header_div_apartmentShow {
+    width: fit-content;
+    /* height: 2.5vw; */
+    background-color: rgb(16, 0, 61);
+    border-radius: 10px 10px 0px 0px;
+    font-size: 1.5rem;
+    font-weight: 700;
+    position: relative;
+    right: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 8px 25px;
+  }
+
+  .apartmentShow .header_div_apartmentShow:after {
+    border-radius: 15px 15px 0px 0px;
+    content: "";
+    position: absolute;
+    top: -10px;
+    left: -10px;
+    right: -10px;
+    bottom: -3px;
+    z-index: -1;
+    background: rgb(16, 0, 61);
+  }
+  .apartmentShow .divCommponent-SendMessage-Calendar {
+    width: 100%;
+    position: relative;
+    display: block;
+    margin-top: 50px;
   }
 }

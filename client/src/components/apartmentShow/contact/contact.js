@@ -14,7 +14,7 @@ function Contact({ apartmentShow, executeScroll }) {
     <div className="contact" key={apartment._id}>
       <Call
         style={{
-          fontSize: "3vw @media only screen and (max-width: 999px)",
+          fontSize: "5rem",
           color: "blue",
         }}
         className="phone"
@@ -25,7 +25,7 @@ function Contact({ apartmentShow, executeScroll }) {
 
       <WhatsApp
         style={{
-          fontSize: "3vw @media only screen and (max-width: 999px)",
+          fontSize: "5rem",
           color: "green",
         }}
         className="what"
@@ -38,7 +38,7 @@ function Contact({ apartmentShow, executeScroll }) {
 
       <Message
         className="message"
-        style={{ fontSize: "3vw @media only screen and (max-width: 999px)" }}
+        style={{ fontSize: "5rem" }}
         onClick={executeScroll}
       />
 
@@ -50,7 +50,7 @@ function Contact({ apartmentShow, executeScroll }) {
         <AlternateEmail
           className="message"
           style={{
-            fontSize: "3vw @media only screen and (max-width: 999px)",
+            fontSize: "5rem",
             color: "red",
           }}
         />
@@ -60,7 +60,7 @@ function Contact({ apartmentShow, executeScroll }) {
         <Language
           className="message"
           style={{
-            fontSize: "3vw @media only screen and (max-width: 999px)",
+            fontSize: "5rem",
             color: "black",
           }}
           onClick={() => {

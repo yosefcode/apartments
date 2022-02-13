@@ -49,7 +49,9 @@ const MoreApartment = ({ apartmentShow }) => {
 
   return (
     <div className="divMore">
-      <div className="headerMore headerMore1"> דירות באיזור ה{area}</div>
+      <div className="header_div_apartmentShow header_div_apartmentShow1">
+        דירות באיזור ה{area}
+      </div>
       <div className="more">
         <div className="divAllBoxApartment">
           {" "}

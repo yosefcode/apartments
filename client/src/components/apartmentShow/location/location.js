@@ -53,7 +53,9 @@ const Location = ({ apartmentShow }) => {
 
   return (
     <div className="divMaps">
-      <div className="headerMap headerMap1">מפת האיזור</div>
+      <div className="header_div_apartmentShow header_div_apartmentShow1">
+        מפת האיזור
+      </div>
       <div className="map">
         <GoogleMapReact
           bootstrapURLKeys={{

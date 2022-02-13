@@ -5,43 +5,30 @@
   height: auto;
 }
 
-.calendar .headerCalendar {
-  width: 12vw;
-  height: 2.5vw;
-  background-color: rgb(16, 0, 61);
-  border-radius: 1vw 1vw 0vw 0vw;
-  font-size: 1.9rem;
-  font-weight: 700;
+.calendar .aaa {
+  width: calc(100% - 34px);
   position: relative;
-  right: 0.6vw;
+  border: rgb(16, 0, 61) 2px solid;
+  border-top: rgb(16, 0, 61) 5px solid;
+  color: rgb(24, 0, 90);
+  font-weight: 700;
+  height: 400px;
+  max-height: 400px;
+  padding: 15px;
   display: flex;
   align-items: center;
   justify-content: center;
 }
+@media only screen and (max-width: 600px) {
+  .apartmentShow .calendar {
+    position: relative;
+    width: 100%;
+    margin: 50px 0 0 0;
+    height: auto;
+  }
 
-.calendar .headerCalendar:after {
-  border-radius: 1.5vw 1.5vw 0vw 0vw;
-  content: "";
-  position: absolute;
-  top: -0.8vw;
-  left: -0.8vw;
-  right: -0.8vw;
-  bottom: -0.3vw;
-  z-index: -1;
-  background: rgb(16, 0, 61);
-}
-
-.calendar .headerCalendar1 {
-  border: rgb(214, 174, 255) 0.2vw solid;
-  color: rgb(214, 174, 255);
-}
-
-.calendar .aaa {
-  width: calc(100% - 0.4vw);
-  position: relative;
-  border: rgb(16, 0, 61) 0.2vw solid;
-  border-top: rgb(16, 0, 61) 0.5vw solid;
-  color: rgb(24, 0, 90);
-  font-weight: 700;
-  height: 26vw;
+  .calendar .aaa {
+    width: calc(100% - 34px);
+    height: auto;
+  }
 }

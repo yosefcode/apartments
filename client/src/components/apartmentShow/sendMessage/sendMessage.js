@@ -67,7 +67,7 @@ function SendMessage({ apartmentShow }) {
   return apartmentShow.map((list) => (
     <div className="sendMessage">
       {" "}
-      <div className="headerSendMessage headerSendMessage1">
+      <div className="header_div_apartmentShow header_div_apartmentShow1">
         שלח הודעה לבעל הדירה
       </div>
       <div className="allSendMessage">
@@ -95,7 +95,7 @@ function SendMessage({ apartmentShow }) {
         ></div>
 
         <button
-          className="btnmessage btnmessage1"
+          className="btnmessage btnmessage1 header_div_apartmentShow header_div_apartmentShow1"
           onClick={() => {
             sendMessage();
           }}

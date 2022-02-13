@@ -1,35 +1,55 @@
 .contact {
   display: flex;
-  justify-content: space-between;
+  /* justify-content: space-between; */
   align-items: center;
   flex-direction: column;
-  height: 25vw;
+  height: 50vh;
   width: 5vw;
-  top: 7vw;
+  top: 100px;
   position: absolute;
   right: 10vw;
 }
 
 .contact .what {
-  width: 2.7vw;
-  height: 2.7vw;
+  /* width: 12.7vw;
+  height: 12.7vw; */
   cursor: pointer;
+  margin-bottom: 20px;
 }
 
 .contact .mail {
   cursor: pointer;
-  width: 2.2vw;
-  height: 2vw;
+  /* width: 2.2vw;
+  height: 2vw; */
   margin-top: 0.3vw;
+  margin-bottom: 20px;
 }
 .contact .message {
   cursor: pointer;
-  width: 2.4vw;
-  height: 2.4vw;
+  /* width: 12.4vw;
+  height: 12.4vw; */
+  margin-bottom: 20px;
 }
 .contact .phone {
   cursor: pointer;
-  width: 2.2vw;
-  height: 2.2vw;
+  /* width: 2.2vw;
+  height: 2.2vw; */
   border-radius: 30px;
+  margin-bottom: 20px;
+}
+@media only screen and (max-width: 1100px) {
+  .contact {
+    right: 4%;
+  }
+}
+@media only screen and (max-width: 800px) {
+  .contact {
+    right: 1%;
+  }
+}
+
+@media only screen and (max-width: 600px) {
+  .contact {
+    display: none;
+  }
 }

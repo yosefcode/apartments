@@ -4,6 +4,7 @@
   min-height: 99.5vh;
   margin: 0 auto;
   border-bottom: rgb(28, 2, 99) 0.5vh solid;
+  padding-bottom: 80px;
 }
 .top {
   position: fixed;

@@ -39,7 +39,7 @@
   background-color: rgb(28, 2, 99);
   color: white !important;
   padding: 20px 0;
-  /* box-shadow: 0 0 1vw rgb(214, 174, 255); */
+  box-shadow: 0 0 10px rgb(173, 173, 173);
 
   border-bottom: rgb(214, 174, 255) 0.4vw solid;
 }

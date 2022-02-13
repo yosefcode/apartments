@@ -58,7 +58,10 @@ const MoreApartment = ({ apartmentShow }) => {
           {apartment.map((apartment) => (
             <div className="boxApartment" key={apartment._id}>
               <div className="addToFavorite">
-                <AddToFavorite apartmentForFavorite={apartment} />
+                <AddToFavorite
+                  apartmentForFavorite={apartment}
+                  style={{ width: "10%" }}
+                />
               </div>
               <Link className="link" to={"/" + apartment._id} target="_blank">
                 <div>

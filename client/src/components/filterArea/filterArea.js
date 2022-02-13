@@ -20,16 +20,16 @@ function FilterArea() {
     <div className="filterArea">
       <div className="div_btn_filterArea">
         {listArea.map((area) => (
-          // <Link to={"/"}>
-          <div
-            className="btnarea"
-            onClick={() => {
-              setFilter({ area: [area.filter] });
-            }}
-          >
-            דירות {area.area}{" "}
-          </div>
-          // </Link>
+          <Link to={"/"} className="btnarea">
+            <div
+              style={{ lineHeight: "130%" }}
+              onClick={() => {
+                setFilter({ area: area.filter });
+              }}
+            >
+              דירות {area.area}{" "}
+            </div>
+          </Link>
         ))}
       </div>
       <div className="divShowFavorite">

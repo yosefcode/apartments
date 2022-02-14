@@ -93,7 +93,7 @@ export default function ConnectWithUser() {
                 <VisibilityIcon
                   className="iconhiden"
                   style={{
-                    fontSize: "1.7vw ",
+                    fontSize: "2.5rem",
                     color: "black",
                   }}
                   onClick={() => {
@@ -104,7 +104,7 @@ export default function ConnectWithUser() {
                 <VisibilityOffIcon
                   className="iconhiden"
                   style={{
-                    fontSize: "1.7vw ",
+                    fontSize: "2.5rem",
                     color: "black",
                   }}
                   onClick={() => {

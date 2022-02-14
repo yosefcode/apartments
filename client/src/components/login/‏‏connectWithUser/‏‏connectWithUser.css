@@ -14,7 +14,7 @@
   /* text-align: center; */
 }
 .‏‏connectWithUser .divErr {
-  height: 2vw;
+  height: 20px;
   color: red;
   line-height: 1vw;
   font-size: 1.5rem;
@@ -23,8 +23,8 @@
 
 .‏‏connectWithUser .iconhiden {
   position: absolute;
-  top: 0.4vw;
-  left: 31%;
+  bottom: 15px;
+  left: 10px;
   cursor: pointer;
 }
 /* input:-webkit-autofill,

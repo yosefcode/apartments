@@ -49,26 +49,44 @@
 
 .login input {
   border: none;
-  width: 70%;
+  width: 100%;
   border-bottom: 1px solid rgb(150, 150, 150);
   background-color: #fff !important;
-  line-height: 1vw;
-  height: 2vw;
+  height: 20px;
   font-size: 1.6rem;
+  margin: 10px auto;
 }
 
 .login button {
   width: 70%;
   border: 1px solid rgb(150, 150, 150);
   background-color: white;
-  border-radius: 2vw;
+  border-radius: 15px;
   font-size: 1.7rem;
   cursor: pointer;
-  margin-top: 0.5vw;
+  margin: 10px 15%;
+  height: 30px;
+
   font-weight: 700;
 }
 .login p {
   font-size: 2.1rem;
   font-weight: 700;
   margin-top: 0;
+}
+
+@media only screen and (max-width: 600px) {
+  .login .login-register {
+    position: relative;
+    width: 90%;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+  }
+  .login .divContainer::before {
+    content: none;
+  }
+  .login .divContainer {
+    margin: 20px auto 0;
+  }
 }

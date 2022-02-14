@@ -1,45 +1,53 @@
 .connectWithGoogle {
   width: 100%;
 }
-
+.header_connectWithGoogle {
+  width: 100%;
+  font-size: 1.8rem;
+  font-weight: bold;
+  text-align: center;
+}
 .connectWithGoogle .google-btn {
-  width: 15vw;
-  height: 3vw;
+  width: 80%;
+  margin: 20px 10%;
+  height: 40px;
   background-color: #4285f4;
-  border-radius: 0.2vw;
+  border-radius: 4px;
   box-shadow: 0 0.3vw 0.4vw 0 rgba(0, 0, 0, 0.25);
   cursor: pointer;
-  margin-right: 4vw;
   position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
 }
 
 .connectWithGoogle .google-icon-wrapper {
   position: absolute;
-  top: 0.15vw;
-  left: 0.15vw;
-  width: 2.75vw;
-  height: 2.75vw;
-  border-radius: 0.2vw;
+  top: 3px;
+  left: 3px;
+  width: 34px;
+  height: 34px;
+  border-radius: 3px;
   background-color: #fff;
 }
 
 .connectWithGoogle .google-icon {
   position: absolute;
-  top: 0.4vw;
-  left: 0.3vw;
-  width: 2vw;
-  height: 2vw;
+  top: 3px;
+  left: 3px;
+  width: 28px;
+  height: 28px;
 }
 
 .connectWithGoogle .btn-text {
-  height: 3vw;
+  width: calc(100% - 40px);
+  margin-inline-start: 0;
+  color: #fff;
+  font-size: 1.5rem;
+  font-family: "Roboto";
   display: flex;
   align-items: center;
-  justify-content: flex-start;
-  margin-right: 0.4vw;
-  color: #fff;
-  font-size: 1.7rem;
-  font-family: "Roboto";
+  justify-content: center;
 }
 
 .connectWithGoogle .google-btn:hover {
@@ -50,3 +58,10 @@
 }
 
 @import url(https://fonts.googleapis.com/css?family=Roboto:500);
+
+@media only screen and (max-width: 600px) {
+  .header_connectWithGoogle {
+    width: 100%;
+    font-size: 1.5rem;
+  }
+}

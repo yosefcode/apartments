@@ -126,7 +126,7 @@ export default function Register() {
           <VisibilityIcon
             className="iconhiden"
             style={{
-              fontSize: "1.7vw ",
+              fontSize: "2.5rem",
               color: "black",
             }}
             onClick={() => {
@@ -137,7 +137,7 @@ export default function Register() {
           <VisibilityOffIcon
             className="iconhiden"
             style={{
-              fontSize: "1.7vw ",
+              fontSize: "2.5rem",
               color: "black",
             }}
             onClick={() => {
@@ -161,7 +161,7 @@ export default function Register() {
           <VisibilityIcon
             className="iconhiden"
             style={{
-              fontSize: "1.7vw ",
+              fontSize: "2.5rem",
               color: "black",
             }}
             onClick={() => {
@@ -172,7 +172,7 @@ export default function Register() {
           <VisibilityOffIcon
             className="iconhiden"
             style={{
-              fontSize: "1.7vw ",
+              fontSize: "2.5rem",
               color: "black",
             }}
             onClick={() => {

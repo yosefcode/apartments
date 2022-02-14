@@ -80,7 +80,7 @@
 }
 @media only screen and (max-width: 600px) {
   .apartmentShow .container_apartmentShow {
-    width: 95%;
+    width: 90%;
   }
   .apartmentShow .header_div_apartmentShow {
     width: fit-content;

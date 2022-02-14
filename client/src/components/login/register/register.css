@@ -19,7 +19,7 @@
 }
 .register .iconhiden {
   position: absolute;
-  top: 0.4vw;
-  left: 31%;
+  bottom: 15px;
+  left: 10px;
   cursor: pointer;
 }

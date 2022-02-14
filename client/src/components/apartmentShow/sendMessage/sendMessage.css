@@ -27,7 +27,7 @@
   text-align: center;
   padding: 5px 15px;
   background-color: rgb(255, 255, 255);
-  margin-top: 20px;
+  margin-top: 30px;
   font-size: 1.5rem;
 }
 .sendMessage #message {
@@ -40,7 +40,8 @@
   padding: 15px 15px;
   background-color: rgb(255, 255, 255);
   font-size: 1.5rem;
-  margin-top: 20px;
+  margin-top: 30px;
+  line-height: 150%;
 }
 
 .sendMessage ::-webkit-scrollbar {
@@ -58,8 +59,8 @@
 }
 
 .sendMessage .btnmessage {
-  margin: 20px auto;
-  width: 80%;
+  margin: 30px auto;
+  width: 70%;
   border-radius: 10px;
   font-size: 2.1rem;
   cursor: pointer;
@@ -87,6 +88,7 @@
   content: attr(placeholder);
   color: gray;
   background-color: transparent;
+  line-height: 150%;
 }
 
 .sendMessage .modal {
@@ -133,6 +135,13 @@
     justify-content: space-around;
     height: auto;
   }
+  .sendMessage input {
+    width: 70%;
+  }
+  .sendMessage #message {
+    width: 70%;
+  }
+
   /* .sendMessage input {
     width: 80%;
     height: 30px;

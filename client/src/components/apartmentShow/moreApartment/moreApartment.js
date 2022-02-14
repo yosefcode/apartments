@@ -1,33 +1,3 @@
-// import "./moreApartment.css";
-// import React, { useState, useEffect, useContext } from "react";
-// import Apartment from "../../apartment/apartment";
-// import { AppContext } from "../../../variable-Context";
-
-// const MoreApartment = ({ apartmentShow }) => {
-//   const { filter, setFilter } = useContext(AppContext);
-
-//   const area = { area: apartmentShow.map((area) => area.area) };
-
-//   // eslint-disable-next-line react-hooks/exhaustive-deps
-//   useEffect(() => {
-//     setFilter({ area: ["צפון"] });
-//   }, []);
-//   console.log("a", filter);
-//   console.log("b", area);
-
-//   return (
-//     <div className="divMore">
-//       <div className="headerMore headerMore1">דירות באיזור</div>
-//       <div className="more">
-//         {" "}
-//         <Apartment />{" "}
-//       </div>
-//     </div>
-//   );
-// };
-
-// export default MoreApartment;
-
 import "./moreApartment.css";
 import React, { useState, useEffect, useContext } from "react";
 import axios from "axios";

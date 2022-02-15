@@ -91,17 +91,17 @@
     left: 1vw;
   }
   .allApartments .nameApartment {
-    margin: 3vh 3vw 0;
+    margin: 1vh 3vw 0;
     font-size: 2.5rem;
     color: rgb(187, 0, 0);
   }
   .allApartments .location {
-    margin: 3vh 3vw 0;
+    margin: 1vh 3vw 0;
     font-size: 1.7rem;
     color: rgb(28, 2, 99);
   }
   .allApartments .beds {
-    margin: 3vh 3vw 0;
+    margin: 1vh 3vw 0;
     font-size: 1.9rem;
     color: rgb(28, 2, 99);
   }

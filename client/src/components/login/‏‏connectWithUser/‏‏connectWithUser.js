@@ -120,16 +120,18 @@ export default function ConnectWithUser() {
           <div>
             <button onClick={login}>אישור</button>
             <br />
-            שכחת סיסמא?{" "}
-            <span
-              className="divReset"
-              onClick={() => {
-                setConnectAndReset(false);
-                setErrorMessage("");
-              }}
-            >
-              לחץ כאן
-            </span>
+            <div className="divReset">
+              שכחת סיסמא?{" "}
+              <span
+                className="underline"
+                onClick={() => {
+                  setConnectAndReset(false);
+                  setErrorMessage("");
+                }}
+              >
+                לחץ כאן
+              </span>
+            </div>
           </div>
         </div>
       ) : (

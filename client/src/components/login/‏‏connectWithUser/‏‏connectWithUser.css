@@ -4,15 +4,6 @@
 .‏‏connectWithUser .diviconhiden {
   position: relative;
 }
-.‏‏connectWithUser .divReset {
-  margin-top: 1.2vw;
-  cursor: pointer;
-  width: 50%;
-  font-weight: 700;
-  /* font-size: 1.7rem; */
-  text-decoration: underline;
-  /* text-align: center; */
-}
 .‏‏connectWithUser .divErr {
   height: 20px;
   color: red;

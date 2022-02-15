@@ -10,7 +10,7 @@ export default function Login() {
   return (
     <div className="login">
       <div className="headerLogin">כניסה - איזור אישי</div>
-      {document.documentElement.clientWidth > 600 ? (
+      <div className="large_screen">
         <div className="login-register">
           <div className="divContainer">
             <ConnectWithGoogle />
@@ -22,41 +22,48 @@ export default function Login() {
             <Register />
           </div>
         </div>
-      ) : (
+      </div>
+
+      <div className="small_screen">
         <div className="login-register">
           <div className="divContainer">
             <ConnectWithGoogle />
           </div>
-
+          <hr className="hr" />
           {!register ? (
             <div className="divContainer">
               <ConnectWithUser />
-              לא רשום?
-              <span
-                className="divReset"
-                onClick={() => {
-                  setRegister(!register);
-                }}
-              >
-                לחץ כאן להרשמה
-              </span>
+              <div className="divReset">
+                לא רשום?{" "}
+                <span
+                  className="underline"
+                  onClick={() => {
+                    setRegister(!register);
+                  }}
+                >
+                  לחץ כאן להרשמה
+                </span>
+              </div>
             </div>
           ) : (
             <div className="divContainer">
               <Register />
-              רשום כבר?
-              <span
-                className="divReset"
-                onClick={() => {
-                  setRegister(!register);
-                }}
-              >
-                לחץ כאן לכניסה
-              </span>
+              <div className="divReset">
+                {" "}
+                רשום כבר?{" "}
+                <span
+                  className="underline"
+                  onClick={() => {
+                    setRegister(!register);
+                  }}
+                >
+                  לחץ כאן לכניסה
+                </span>
+              </div>
             </div>
           )}
         </div>
-      )}
+      </div>
     </div>
   );
 }

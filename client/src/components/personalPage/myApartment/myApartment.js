@@ -11,13 +11,14 @@ import RmoveApartment from "./removeApartment/removeApartment";
 import HoldApartment from "./holdApartment/holdApartment";
 import InfoApartment from "./infoApartment/infoApartment";
 import EditApartment from "./editApartment/editApartment";
+import { SpinningCircles } from "react-loading-icons";
 import axios from "axios";
 
 function MyApartments({ id, setValue }) {
   const Accordion = styled((props) => (
     <MuiAccordion disableGutters elevation={0} square {...props} />
   ))(({ theme }) => ({
-    margin: "1vw",
+    margin: "10px",
     border: `1px solid ${theme.palette.divider}`,
     "&:not(:last-child)": {
       borderBottom: 0,
@@ -29,7 +30,9 @@ function MyApartments({ id, setValue }) {
 
   const AccordionSummary = styled((props) => (
     <MuiAccordionSummary
-      expandIcon={<ExpandMoreIcon sx={{ fontSize: "1.9vw" }} />}
+      expandIcon={
+        <ExpandMoreIcon sx={{ fontSize: "2rem", marginInlineStart: "-10px" }} />
+      }
       {...props}
     />
   ))(({ theme }) => ({
@@ -65,15 +68,30 @@ function MyApartments({ id, setValue }) {
     setModalRemove(false);
   };
 
+  const [isLoading, setIsLoading] = useState(true);
+
   useEffect(() => {
     axios.post("/api/myApartments/" + id).then((res) => {
       setMyApartments(res.data);
+      setIsLoading(false);
     });
   }, [status]);
 
   return (
     <div className="myApartment">
-      {myApartments.length > 0 ? (
+      {isLoading ? (
+        <div className="loading">
+          <SpinningCircles
+            height="4em"
+            width="4em"
+            fill="rgb(28, 2, 99)"
+            stroke="rgb(28, 2, 99)"
+            strokeOpacity={1}
+            fillOpacity={1}
+            speed={1}
+          />
+        </div>
+      ) : myApartments.length > 0 ? (
         myApartments.map((list) => (
           <div>
             <Accordion
@@ -86,16 +104,15 @@ function MyApartments({ id, setValue }) {
               >
                 <Typography>
                   <div className="boxheader">
-                    <div>
+                    <div className="nameApartment">
                       <h1>{list.nameApartment}, </h1>
-                      <h2> {list.city}.</h2>
+                      <h2 style={{ marginInlineStart: 10 }}> {list.city}.</h2>
                     </div>
-                    <div>
-                      <h2
-                        style={{ color: list.show === true ? "green" : "red" }}
-                      >
-                        {list.show === true ? "מודעה פעילה" : "מודעה לא פעילה"}
-                      </h2>
+                    <div
+                      className="show"
+                      style={{ color: list.show === true ? "green" : "red" }}
+                    >
+                      {list.show === true ? "מודעה פעילה" : "מודעה לא פעילה"}
                     </div>
                   </div>
                 </Typography>
@@ -160,10 +177,16 @@ function MyApartments({ id, setValue }) {
           </div>
         ))
       ) : (
-        <div>
-          {" "}
-          אין לך עדיין דירות זה הזמן להוסיף את דירתך{" "}
-          <button onClick={() => setValue(3)}>הוסף דירתך</button>
+        <div className="loading">
+          אין לך עדיין מודעות זה הזמן להוסיף את דירתך{" "}
+          <span
+            className="underline"
+            onClick={() => {
+              setValue(3);
+            }}
+          >
+            לחץ כאן להוספת דירה
+          </span>
         </div>
       )}
     </div>

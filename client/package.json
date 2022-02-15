@@ -22,6 +22,7 @@
     "react-dom": "^17.0.2",
     "react-gallery-carousel": "^0.2.4",
     "react-geocode": "^0.2.3",
+    "react-loading-icons": "^1.0.8",
     "react-router-dom": "^5.2.0",
     "react-scripts": "4.0.1",
     "sass": "^1.43.4",

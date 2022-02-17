@@ -7,6 +7,8 @@ import { SpinningCircles } from "react-loading-icons";
 function MyMessages({ id }) {
   let [list, setList] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
+  const [sort, setSort] = useState(false);
+  const [sorta, setSorta] = useState([]);
 
   useEffect(() => {
     axios.post("/api/messages/" + id).then((res) => {
@@ -15,8 +17,14 @@ function MyMessages({ id }) {
     });
   }, []);
 
+  const sortDate = () => {
+    setSort(!sort);
+  };
+
   return (
     <div className="myMessages">
+      {/* <button onClick={sortDate}>sortDate</button> */}
+
       {isLoading ? (
         <div className="loading">
           <SpinningCircles
@@ -40,19 +48,53 @@ function MyMessages({ id }) {
                 <th style={{ width: "15%" }}>{"פרטי חזרה לפונה"}</th>
                 <th style={{ width: "45%" }}>{"תוכן ההודעה"}</th>
               </tr>
-              {list.map((list) => (
-                <tr key={list._id}>
-                  <td>{new Date(list.date).toLocaleString()}</td>
-                  <td>{list.nameApartment}</td>
-                  <td>{list.nameUser}</td>
-                  <td>{list.mailUser}</td>
-                  <td>{list.message}</td>
-                </tr>
-              ))}
+              {list
+                .sort((a, b) =>
+                  sort
+                    ? new Date(b.date) > new Date(a.date)
+                      ? -1
+                      : 1
+                    : new Date(a.date) < new Date(b.date)
+                    ? 1
+                    : -1
+                )
+                .map((list) => (
+                  <tr key={list._id}>
+                    <td>{new Date(list.date).toLocaleString()}</td>
+                    <td>{list.nameApartment}</td>
+                    <td>{list.nameUser}</td>
+                    <td>{list.mailUser}</td>
+                    <td>{list.message}</td>
+                  </tr>
+                ))}
             </table>
           </div>
 
           <div className="divTable myMessage_smallScreen">
+            <div className="sort" onClick={sortDate}>
+              {!sort ? "הצג מהישן לחדש" : "הצג מהחדש לישן"}
+            </div>
+
+            {list.map((list, index) => (
+              <div key={list._id} style={{ marginTop: "20px" }}>
+                הודעה מס' {index + 1}
+                <div className="message">
+                  זמן הפניה: <span>{new Date(list.date).toLocaleString()}</span>
+                  <br />
+                  בעניין: <span>{list.nameApartment}</span>
+                  <br />
+                  שם פונה: <span>{list.nameUser}</span>
+                  <br />
+                  פרטי חזרה לפונה: <span>{list.mailUser}</span>
+                  <br />
+                  תוכן ההודעה: <br />
+                  <p>{list.message}</p>
+                  <br />
+                </div>
+              </div>
+            ))}
+          </div>
+          {/* <div className="divTable myMessage_smallScreen">
             {list.map((list, index) => (
               <div key={list._id} style={{ marginTop: "20px" }}>
                 הודעה מס' {index + 1}
@@ -86,7 +128,7 @@ function MyMessages({ id }) {
                 </table>
               </div>
             ))}
-          </div>
+          </div> */}
         </div>
       ) : (
         <div className="loading">אין לך הודעות</div>

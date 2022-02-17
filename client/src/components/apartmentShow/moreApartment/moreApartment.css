@@ -61,6 +61,7 @@
 .divMore .nameApartment {
   font-size: 2rem;
   color: rgb(187, 0, 0);
+  height: auto;
 }
 .divMore .location {
   font-size: 1.5rem;

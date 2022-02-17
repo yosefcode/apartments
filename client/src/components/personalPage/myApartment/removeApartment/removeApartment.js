@@ -29,20 +29,32 @@ const RmoveApartment = ({
       </button>
 
       {modalRemove && (
-        <div className="divModel">
-          האם אתה בטוח כי ברצונך למחוק את המודעה?{" "}
-          <div className="btnsModal">
-            <button className="btnModal" onClick={rmoveApartment}>
-              מחק מודעה
-            </button>
-            <button
-              className="btnModal"
-              onClick={() => {
-                setModalRemove(false);
-              }}
-            >
-              ביטול
-            </button>
+        <div
+          className="model"
+          onClick={() => {
+            setModalRemove(false);
+          }}
+        >
+          <div
+            className="divModel"
+            onClick={(e) => {
+              e.stopPropagation();
+            }}
+          >
+            האם אתה בטוח כי ברצונך למחוק את המודעה?{" "}
+            <div className="btnsModal">
+              <button className="btnModal" onClick={rmoveApartment}>
+                מחק מודעה
+              </button>
+              <button
+                className="btnModal"
+                onClick={() => {
+                  setModalRemove(false);
+                }}
+              >
+                ביטול
+              </button>
+            </div>
           </div>
         </div>
       )}

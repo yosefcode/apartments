@@ -29,21 +29,26 @@ const InfoApartment = ({ list, modalEdit }) => {
                 // style={{ height: 500, width: 800, margin: 50 }}
               />
             </div>
-            <h3>
-              {list.rooms} חדרים, עד {list.beds} מיטות.
-              <br /> החל מ{list.price} ש"ח ל{list.priceMethod}.<br />
-            </h3>
-            <br />
-            {list.long}
+
+            <div>
+              <br />
+              <h4>
+                {list.rooms} חדרים, עד {list.beds} מיטות.
+              </h4>
+              <h4>
+                החל מ-{list.price} ש"ח ל{list.priceMethod}.
+              </h4>
+              <h5>{list.long}</h5>
+            </div>
           </div>
           <div className="special">
             {list.special.map((special) => (
               <li>
                 <CheckBoxIcon
                   style={{
-                    fontSize: "1.2vw",
+                    fontSize: "1.5rem",
                     position: "relative",
-                    top: "0.4vw",
+                    top: "4px",
                     color: "green",
                   }}
                 />{" "}

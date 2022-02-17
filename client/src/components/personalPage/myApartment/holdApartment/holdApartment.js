@@ -32,20 +32,32 @@ const HoldApartment = ({
       </button>
 
       {modalHold && (
-        <div className="divModel">
-          האם אתה בטוח כי ברצונך להקפיא את המודעה?
-          <div className="btnsModal">
-            <button className="btnModal" onClick={holdApartment}>
-              {show === true ? "הקפא מודעה" : "הפעל מודעה"}
-            </button>
-            <button
-              className="btnModal"
-              onClick={() => {
-                setModalHold(false);
-              }}
-            >
-              ביטול
-            </button>
+        <div
+          className="model"
+          onClick={() => {
+            setModalHold(false);
+          }}
+        >
+          <div
+            className="divModel"
+            onClick={(e) => {
+              e.stopPropagation();
+            }}
+          >
+            האם אתה בטוח כי ברצונך להקפיא את המודעה?
+            <div className="btnsModal">
+              <button className="btnModal" onClick={holdApartment}>
+                {show === true ? "הקפא מודעה" : "הפעל מודעה"}
+              </button>
+              <button
+                className="btnModal"
+                onClick={() => {
+                  setModalHold(false);
+                }}
+              >
+                ביטול
+              </button>
+            </div>
           </div>
         </div>
       )}

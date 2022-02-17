@@ -106,7 +106,7 @@ function MyApartments({ id, setValue }) {
                   <div className="boxheader">
                     <div className="nameApartment">
                       <h1>{list.nameApartment}, </h1>
-                      <h2 style={{ marginInlineStart: 10 }}> {list.city}.</h2>
+                      <h2> {list.city}.</h2>
                     </div>
                     <div
                       className="show"
@@ -125,22 +125,24 @@ function MyApartments({ id, setValue }) {
                     setModalEdit={setModalEdit}
                   />
                   <div className="btnsbottom">
-                    <button
-                      className="btn"
-                      onClick={() => {
-                        if (modalEdit) {
-                          setModalHold(false);
-                          setModalRemove(false);
-                          setModalEdit(false);
-                        } else {
-                          setModalHold(false);
-                          setModalRemove(false);
-                          setModalEdit(true);
-                        }
-                      }}
-                    >
-                      {modalEdit ? "בטל עריכה" : "ערוך מודעה"}
-                    </button>
+                    <div className="div_btn">
+                      <button
+                        className="btn"
+                        onClick={() => {
+                          if (modalEdit) {
+                            setModalHold(false);
+                            setModalRemove(false);
+                            setModalEdit(false);
+                          } else {
+                            setModalHold(false);
+                            setModalRemove(false);
+                            setModalEdit(true);
+                          }
+                        }}
+                      >
+                        {modalEdit ? "בטל עריכה" : "ערוך מודעה"}
+                      </button>{" "}
+                    </div>
 
                     {/* <EditApartment
                       list={list}
@@ -153,23 +155,27 @@ function MyApartments({ id, setValue }) {
                       modalEdit={modalEdit}
                       setModalEdit={setModalEdit}
                     /> */}
-                    <RmoveApartment
-                      id={list._id}
-                      setStatus={setStatus}
-                      status={status}
-                      setModalHold={setModalHold}
-                      modalRemove={modalRemove}
-                      setModalRemove={setModalRemove}
-                    />
-                    <HoldApartment
-                      id={list._id}
-                      show={list.show}
-                      setStatus={setStatus}
-                      status={status}
-                      modalHold={modalHold}
-                      setModalHold={setModalHold}
-                      setModalRemove={setModalRemove}
-                    />
+                    <div className="div_btn">
+                      <RmoveApartment
+                        id={list._id}
+                        setStatus={setStatus}
+                        status={status}
+                        setModalHold={setModalHold}
+                        modalRemove={modalRemove}
+                        setModalRemove={setModalRemove}
+                      />{" "}
+                    </div>
+                    <div className="div_btn">
+                      <HoldApartment
+                        id={list._id}
+                        show={list.show}
+                        setStatus={setStatus}
+                        status={status}
+                        modalHold={modalHold}
+                        setModalHold={setModalHold}
+                        setModalRemove={setModalRemove}
+                      />
+                    </div>
                   </div>
                 </Typography>
               </AccordionDetails>

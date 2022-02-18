@@ -61,7 +61,13 @@ function MyMessages({ id }) {
                 .map((list) => (
                   <tr key={list._id}>
                     <td>{new Date(list.date).toLocaleString()}</td>
-                    <td>{list.nameApartment}</td>
+                    <td
+                      onClick={() => {
+                        setSorta(list.message);
+                      }}
+                    >
+                      {list.nameApartment}
+                    </td>
                     <td>{list.nameUser}</td>
                     <td>{list.mailUser}</td>
                     <td>{list.message}</td>
@@ -69,6 +75,7 @@ function MyMessages({ id }) {
                 ))}
             </table>
           </div>
+          <div>ccccc{sorta}</div>
 
           <div className="divTable myMessage_smallScreen">
             <div className="sort" onClick={sortDate}>

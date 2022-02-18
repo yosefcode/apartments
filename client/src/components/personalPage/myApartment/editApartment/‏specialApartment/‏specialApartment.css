@@ -1,0 +1,76 @@
+.editApartment .textarea {
+  border: 1px solid rgb(196, 196, 196);
+  border-radius: 4px;
+  height: 14rem;
+  font-size: 1.5rem;
+  font-weight: 600;
+  padding: 1.2rem;
+  overflow: auto;
+  background-color: rgb(255, 255, 255);
+  scroll-padding: 50px;
+  color: black;
+  line-height: 2.5rem;
+}
+.editApartment .special {
+  border: 1px solid rgb(196, 196, 196);
+  border-radius: 4px;
+  font-size: 1.8rem;
+  font-weight: 600;
+  padding: 3rem;
+  overflow: auto;
+  background-color: rgb(255, 255, 255);
+  scroll-padding: 50px;
+  color: black;
+  column-count: 4;
+  width: calc(100% - 6rem);
+}
+
+.editApartment .textarea:hover {
+  border: 1px solid rgb(0, 0, 0);
+}
+.editApartment .textarea:focus {
+  border: 2px solid rgb(6, 0, 97);
+}
+.editApartment .div-textarea-Details {
+  position: relative;
+  height: auto;
+  margin: 2.3rem 1%;
+
+  /* background-color: red; */
+}
+.editApartment #short {
+  width: 33%;
+}
+.editApartment #long {
+  width: 60%;
+}
+.editApartment #special {
+  width: 98%;
+}
+
+.editApartment [placeholder]:empty:before {
+  content: attr(placeholder);
+  color: rgb(133, 133, 133);
+  background-color: transparent;
+}
+
+@media only screen and (max-width: 900px) {
+  .editApartment .special {
+    column-count: 3;
+  }
+}
+@media only screen and (max-width: 600px) {
+  .editApartment .special {
+    column-count: 1;
+  }
+  .editApartment #short {
+    width: 98%;
+    height: 10rem !important;
+  }
+  .editApartment #short .textarea {
+    height: 10rem !important;
+  }
+  .editApartment #long {
+    width: 98%;
+  }
+}

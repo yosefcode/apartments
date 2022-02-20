@@ -6,6 +6,9 @@ import { AppContext } from "../../../variable-Context";
 import Carousel from "react-gallery-carousel";
 import "react-gallery-carousel/dist/index.css";
 import FavoriteIcon from "../../favorite/addToFavorite/addToFavorite";
+import shabat from "./shabat.png";
+import Holiday from "./Holiday.png";
+import calander from "./calander.png";
 
 function Apartment() {
   let [list, setList] = useState([]);
@@ -90,15 +93,32 @@ function Apartment() {
               <FavoriteIcon apartmentForFavorite={list} />
             </div>
             <Link className="link" to={"/" + list._id} target="_blank">
-              {/* <div>
-                  <img className="imgaa" src={list.firstImage} alt=""></img>
-                </div> */}
-              <div>
+              <div style={{ height: "100%" }}>
                 <div className="nameApartment">{list.nameApartment}</div>
                 <div className="location">
                   {list.city}, {list.area}.
                 </div>
                 <div className="beds"> עד {list.beds} מיטות</div>
+                <div className="div_time_rent">
+                  {" "}
+                  <div>
+                    <img
+                      className="icon_time_rent"
+                      src={shabat}
+                      alt=""
+                      style={{ marginInlineStart: 0 }}
+                    ></img>{" "}
+                    שבתות
+                  </div>
+                  <div>
+                    <img className="icon_time_rent" src={Holiday} alt=""></img>{" "}
+                    בין הזמנים
+                  </div>
+                  <div>
+                    <img className="icon_time_rent" src={calander} alt=""></img>{" "}
+                    כל השנה
+                  </div>
+                </div>
                 <div className="phone">
                   {list.name} - {list.phone}
                 </div>

@@ -3,14 +3,11 @@ import axios from "axios";
 import { useState, useEffect } from "react";
 
 function DetailsApartment({
-  id,
-  setApartment,
-  apartment,
-  onchange,
   setValueCity,
   setValueStreet,
   valueStreet,
   valueCity,
+  formik,
 }) {
   const [listCity, setListCity] = useState([]);
   const [listStreet, setListStreet] = useState([]);
@@ -121,8 +118,11 @@ function DetailsApartment({
           placeholder="לדוגמא: דירה ברמה"
           type="text"
           name="nameApartment"
-          onChange={onchange}
+          onChange={formik.handleChange}
         />
+        <div className="div_err_addApartment">
+          {formik.errors.nameApartment}
+        </div>
       </div>
 
       <div className="divInputDetails">
@@ -131,7 +131,7 @@ function DetailsApartment({
           className="inputDetails"
           id="width-select"
           name="area"
-          onChange={onchange}
+          onChange={formik.handleChange}
         >
           <option value={""} disabled selected></option>
           <option value={"ירושלים"}>איזור ירושלים</option>
@@ -139,6 +139,7 @@ function DetailsApartment({
           <option value={"מרכז"}>איזור המרכז</option>
           <option value={"צפון"}>איזור הצפון</option>
         </select>
+        <div className="div_err_addApartment">{formik.errors.area}</div>
       </div>
 
       <div className="divInputDetails">
@@ -174,6 +175,7 @@ function DetailsApartment({
             ))}
           </div>
         )}
+        <div className="div_err_addApartment">{formik.errors.city}</div>
       </div>
 
       <div className="divInputDetails">
@@ -204,6 +206,7 @@ function DetailsApartment({
             ))}
           </div>
         )}
+        {/* <div className="div_err_addApartment">{formik.errors.area}</div> */}
       </div>
 
       <div className="divInputDetails">
@@ -212,8 +215,9 @@ function DetailsApartment({
           className="inputDetails"
           type="text"
           name="rooms"
-          onChange={onchange}
+          onChange={formik.handleChange}
         />
+        <div className="div_err_addApartment">{formik.errors.rooms}</div>
       </div>
 
       <div className="divInputDetails">
@@ -222,8 +226,9 @@ function DetailsApartment({
           className="inputDetails"
           type="text"
           name="beds"
-          onChange={onchange}
+          onChange={formik.handleChange}
         />
+        <div className="div_err_addApartment">{formik.errors.beds}</div>
       </div>
 
       <div className="divInputDetails">
@@ -232,7 +237,7 @@ function DetailsApartment({
           className="inputDetails"
           id="width-select"
           name="priceMethod"
-          onChange={onchange}
+          onChange={formik.handleChange}
         >
           <option value={""} disabled selected></option>
           <option value={"מיטה"}>מיטה</option>
@@ -241,6 +246,7 @@ function DetailsApartment({
           <option value={"אדם"}>אדם</option>
           <option value={"דירה"}>דירה</option>
         </select>
+        <div className="div_err_addApartment">{formik.errors.priceMethod}</div>
       </div>
 
       <div className="divInputDetails">
@@ -249,8 +255,9 @@ function DetailsApartment({
           className="inputDetails"
           type="text"
           name="price"
-          onChange={onchange}
+          onChange={formik.handleChange}
         />
+        <div className="div_err_addApartment">{formik.errors.price}</div>
       </div>
     </div>
   );

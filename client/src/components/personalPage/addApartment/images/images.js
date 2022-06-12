@@ -2,7 +2,7 @@ import "./images.css";
 import CancelIcon from "@mui/icons-material/Cancel";
 import { useState, useEffect } from "react";
 
-function AddImages({ id, setApartment, apartment, onchange }) {
+function AddImages({ id, setApartment, apartment }) {
   const [urlImages, setUrlImages] = useState([]);
 
   useEffect(() => {
@@ -11,7 +11,6 @@ function AddImages({ id, setApartment, apartment, onchange }) {
       images: urlImages,
     });
   }, [urlImages]);
-  // console.log(apartment);
 
   const uploadImage = (e) => {
     const data = new FormData();

@@ -162,6 +162,12 @@ $clouds: #000000;
   padding: 1.5rem 3rem;
   margin: 2.5rem auto;
 }
+.div_err_addApartment{
+  color: #db0000;
+  font-size: 1.5rem;
+  font-weight: 400;
+  height: 1.5rem;
+}
 
 @media only screen and (max-width: 1000px) {
   .addApartment .divInputDetails {

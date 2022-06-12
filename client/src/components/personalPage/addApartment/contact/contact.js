@@ -3,9 +3,10 @@ import {
   parsePhoneNumber,
   AsYouType,
   findPhoneNumbersInText,
+  parsePhoneNumberFromString,
 } from "libphonenumber-js";
 
-function Contact({ id, setApartment, apartment, onchange }) {
+function Contact({ setApartment, apartment, formik }) {
   return (
     <div className="div-all-input">
       <div className="divInputDetails">
@@ -14,8 +15,9 @@ function Contact({ id, setApartment, apartment, onchange }) {
           className="inputDetails"
           type="text"
           name="name"
-          onChange={onchange}
+          onChange={formik.handleChange}
         />{" "}
+        <div className="div_err_addApartment">{formik.errors.name}</div>
       </div>
 
       <div className="divInputDetails">
@@ -24,8 +26,9 @@ function Contact({ id, setApartment, apartment, onchange }) {
           className="inputDetails"
           type="text"
           name="mail"
-          onChange={onchange}
+          onChange={formik.handleChange}
         />{" "}
+        <div className="div_err_addApartment">{formik.errors.mail}</div>
       </div>
 
       <div className="divInputDetails">
@@ -44,6 +47,7 @@ function Contact({ id, setApartment, apartment, onchange }) {
             });
           }}
         />
+        <div className="div_err_addApartment">{formik.errors.phone}</div>
       </div>
     </div>
   );

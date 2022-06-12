@@ -14,10 +14,12 @@ exports.addApartment = async (req, res) => {
     short: req.body.short,
     long: req.body.long,
     special: req.body.special,
+    times: req.body.times,
     images: req.body.images,
     name: req.body.name,
     mail: req.body.mail,
     phone: req.body.phone,
+    street: req.body.street,
   });
   try {
     await newApartment.save();

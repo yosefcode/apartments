@@ -13,6 +13,7 @@ import calander from "./calander.png";
 function Apartment() {
   let [list, setList] = useState([]);
   let [errorFilter, setErrorfilter] = useState(false);
+  let [showTimes, setShowTimes] = useState(false);
   const { filter, setListIDForFavorite } = useContext(AppContext);
 
   // const set = { area: ["ירושלים"], city: [], rooms: [5] };
@@ -56,7 +57,7 @@ function Apartment() {
       // setErrorfilter(true);
     });
   };
-
+  // console.log(list);
   // function shuffleArray(array) {
   //   for (let i = array.length - 1; i > 0; i--) {
   //     const j = Math.floor(Math.random() * (i + 1));
@@ -73,62 +74,113 @@ function Apartment() {
       <div>
         {/* {errorFilter && (
           <p>לא נמצאו דירות מתאימות לחיפוש שביצעת. שנה את טווח החיפוש</p>
-        )} */}
-        {list.map((list) => (
-          <div className="boxApartmentHome" key={list._id}>
-            <div dir="ltr" className="carouselApartment">
-              <Carousel
-                isLoop={true}
-                isAutoPlaying={false}
-                // autoPlayInterval={5000}
-                transitionDurationMin={1000}
-                // hasIndexBoard={false}
-                hasMediaButton={false}
-                hasSizeButton={false}
-                hasThumbnails={false}
-                images={list.images.map((image) => ({ src: image }))}
-              />
-            </div>
-            <div className="divFavoriteIcon">
-              <FavoriteIcon apartmentForFavorite={list} />
-            </div>
-            <Link className="link" to={"/" + list._id} target="_blank">
-              <div style={{ height: "100%" }}>
-                <div className="nameApartment">{list.nameApartment}</div>
-                <div className="location">
-                  {list.city}, {list.area}.
+        )}  */}
+        {list.map(
+          (list) =>
+            list.show === true && (
+              <div className="boxApartmentHome" key={list._id}>
+                <div dir="ltr" className="carouselApartment">
+                  <Carousel
+                    isLoop={true}
+                    isAutoPlaying={false}
+                    // autoPlayInterval={5000}
+                    transitionDurationMin={1000}
+                    // hasIndexBoard={false}
+                    hasMediaButton={false}
+                    hasSizeButton={false}
+                    hasThumbnails={false}
+                    images={list.images.map((image) => ({ src: image }))}
+                  />
                 </div>
-                <div className="beds"> עד {list.beds} מיטות</div>
-                <div className="div_time_rent">
-                  {" "}
-                  <div>
-                    <img
-                      className="icon_time_rent"
-                      src={shabat}
-                      alt=""
-                      style={{ marginInlineStart: 0 }}
-                    ></img>{" "}
-                    שבתות
+                <div className="divFavoriteIcon">
+                  <FavoriteIcon apartmentForFavorite={list} />
+                </div>
+                <Link className="link" to={"/" + list._id} target="_blank">
+                  <div style={{ height: "100%" }}>
+                    <div className="nameApartment">{list.nameApartment}</div>
+                    <div className="location">
+                      {list.city}, {list.area}.
+                    </div>
+                    <div className="beds"> עד {list.beds} מיטות</div>
+                    <div className="div_time_rent">
+                      {list.times.length < 1 || !list.times ? (
+                        <div>
+                          <img
+                            className="icon_time_rent"
+                            src={calander}
+                            alt=""
+                          ></img>{" "}
+                          כל השנה
+                        </div>
+                      ) : null}
+
+                      {list.times.map((time) =>
+                        // time !== "4" ? console.log("yes") : console.log("no");
+                        time === "4" ? (
+                          <div>
+                            <img
+                              className="icon_time_rent"
+                              src={calander}
+                              alt=""
+                            ></img>{" "}
+                            כל השנה
+                          </div>
+                        ) : (
+                          // () => {
+                          //   setShowTimes(true);
+                          null
+                          // console.log(showTimes)
+                          // }
+                        )
+                      )}
+
+                      {list.times.map((time) => (
+                        <div>
+                          {time !== "4" && time === "1" ? (
+                            <div>
+                              <img
+                                className="icon_time_rent"
+                                src={shabat}
+                                alt=""
+                                style={{ marginInlineStart: 0 }}
+                              ></img>{" "}
+                              שבתות / סופ"ש
+                            </div>
+                          ) : time === "2" ? (
+                            <div>
+                              <img
+                                className="icon_time_rent"
+                                src={shabat}
+                                alt=""
+                                style={{ marginInlineStart: 0 }}
+                              ></img>{" "}
+                              חגים
+                            </div>
+                          ) : time === "3" ? (
+                            <div>
+                              <img
+                                className="icon_time_rent"
+                                src={Holiday}
+                                alt=""
+                              ></img>{" "}
+                              בין הזמנים
+                            </div>
+                          ) : null}
+                        </div>
+                      ))}
+
+                      <div className="phone">
+                        {list.name} - {list.phone}
+                      </div>
+                      <div className="price">
+                        החל מ- {list.price} ש"ח ל{list.priceMethod}
+                      </div>
+                    </div>
                   </div>
-                  <div>
-                    <img className="icon_time_rent" src={Holiday} alt=""></img>{" "}
-                    בין הזמנים
-                  </div>
-                  <div>
-                    <img className="icon_time_rent" src={calander} alt=""></img>{" "}
-                    כל השנה
-                  </div>
-                </div>
-                <div className="phone">
-                  {list.name} - {list.phone}
-                </div>
-                <div className="price">
-                  החל מ- {list.price} ש"ח ל{list.priceMethod}
-                </div>
+                </Link>
               </div>
-            </Link>
-          </div>
-        ))}{" "}
+            )
+        )}{" "}
       </div>
     </div>
   );

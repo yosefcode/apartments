@@ -1,40 +1,47 @@
 import "./images.css";
 import CancelIcon from "@mui/icons-material/Cancel";
 import { useState, useEffect } from "react";
+import Resizer from "react-image-file-resizer";
 
-function AddImages({ id, setApartment, apartment }) {
-  const [urlImages, setUrlImages] = useState([]);
+function AddImages({ id, setApartment, apartment, base64, setBase64, formik }) {
+  const [modal, setModal] = useState(false);
+  const [IMG_modal, setIMG_modal] = useState();
 
   useEffect(() => {
     setApartment({
       ...apartment,
-      images: urlImages,
+      images: base64,
     });
-  }, [urlImages]);
+  }, [base64]);
 
-  const uploadImage = (e) => {
-    const data = new FormData();
-    data.append("file", e.target.files[0]);
-    data.append("upload_preset", "imagesApartments");
-    data.append("folder", "imagesApartments/" + id);
-    fetch("https://api.cloudinary.com/v1_1/dnlwa7r5c/image/upload/", {
-      method: "post",
-      body: data,
-    })
-      .then((resp) => resp.json())
-      .then((data) => {
-        setUrlImages([...urlImages, data.url]);
-      })
-      .catch((err) => console.log(err));
+  const resizeFile = (file) =>
+    new Promise((resolve) => {
+      Resizer.imageFileResizer(
+        file,
+        600,
+        600,
+        "JPEG",
+        100,
+        0,
+        (uri) => {
+          resolve(uri);
+        },
+        "base64"
+      );
+    });
+
+  const uploadImage = async (e) => {
+    const file = e.target.files[0];
+    const image = await resizeFile(file);
+    setBase64([...base64, image]);
   };
-  // console.log(urlImages);
 
   return (
     <div>
       <div className="div_btn_add_img">
         {" "}
         <label for="files">
-          <div className="btn_add_img">הוסף תמונה +</div>
+          <div className="btn_add_img">+</div>
         </label>
         <input
           type="file"
@@ -43,22 +50,58 @@ function AddImages({ id, setApartment, apartment }) {
           style={{ visibility: "hidden" }}
         ></input>
       </div>
+
       <div className="div_add_img">
-        {urlImages.map((img, index) => (
+        {base64.map((img, index) => (
           <div className="img_add" key={index}>
             <CancelIcon
               className="delete_img"
               style={{ fontSize: "3rem" }}
               onClick={() => {
-                let filter = urlImages.filter((e) => e !== img);
-                setUrlImages(filter);
+                let filter = base64.filter((e) => e !== img);
+                setBase64(filter);
               }}
             />
 
-            <img src={img} alt="" className="img" />
+            <img
+              src={img}
+              alt=""
+              className="img"
+              onClick={() => {
+                setModal(true);
+                setIMG_modal(img);
+              }}
+            />
           </div>
         ))}
       </div>
+      <div className="div_err_addApartment">{formik.errors.images}</div>
+
+      {modal && (
+        <div
+          className="modalIMG"
+          onClick={() => {
+            setModal(false);
+          }}
+        >
+          <CancelIcon
+            className="close_modal"
+            style={{ fontSize: "3rem" }}
+            onClick={() => {
+              setModal(false);
+            }}
+          />
+
+          <div
+            className="img_modal"
+            onClick={(e) => {
+              e.stopPropagation();
+            }}
+          >
+            <img src={IMG_modal} alt="" className="img" />
+          </div>
+        </div>
+      )}
     </div>
   );
 }

@@ -8,6 +8,7 @@ function DetailsApartment({
   valueStreet,
   valueCity,
   formik,
+  onchange,
 }) {
   const [listCity, setListCity] = useState([]);
   const [listStreet, setListStreet] = useState([]);
@@ -118,7 +119,7 @@ function DetailsApartment({
           placeholder="לדוגמא: דירה ברמה"
           type="text"
           name="nameApartment"
-          onChange={formik.handleChange}
+          onChange={onchange}
         />
         <div className="div_err_addApartment">
           {formik.errors.nameApartment}
@@ -131,7 +132,7 @@ function DetailsApartment({
           className="inputDetails"
           id="width-select"
           name="area"
-          onChange={formik.handleChange}
+          onChange={onchange}
         >
           <option value={""} disabled selected></option>
           <option value={"ירושלים"}>איזור ירושלים</option>
@@ -215,7 +216,7 @@ function DetailsApartment({
           className="inputDetails"
           type="text"
           name="rooms"
-          onChange={formik.handleChange}
+          onChange={onchange}
         />
         <div className="div_err_addApartment">{formik.errors.rooms}</div>
       </div>
@@ -226,7 +227,7 @@ function DetailsApartment({
           className="inputDetails"
           type="text"
           name="beds"
-          onChange={formik.handleChange}
+          onChange={onchange}
         />
         <div className="div_err_addApartment">{formik.errors.beds}</div>
       </div>
@@ -237,7 +238,7 @@ function DetailsApartment({
           className="inputDetails"
           id="width-select"
           name="priceMethod"
-          onChange={formik.handleChange}
+          onChange={onchange}
         >
           <option value={""} disabled selected></option>
           <option value={"מיטה"}>מיטה</option>
@@ -255,7 +256,7 @@ function DetailsApartment({
           className="inputDetails"
           type="text"
           name="price"
-          onChange={formik.handleChange}
+          onChange={onchange}
         />
         <div className="div_err_addApartment">{formik.errors.price}</div>
       </div>

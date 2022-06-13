@@ -1,12 +1,7 @@
 import "./contact.css";
-import {
-  parsePhoneNumber,
-  AsYouType,
-  findPhoneNumbersInText,
-  parsePhoneNumberFromString,
-} from "libphonenumber-js";
+import { parsePhoneNumber } from "libphonenumber-js";
 
-function Contact({ setApartment, apartment, formik }) {
+function Contact({ setApartment, apartment, formik, onchange }) {
   return (
     <div className="div-all-input">
       <div className="divInputDetails">
@@ -15,7 +10,7 @@ function Contact({ setApartment, apartment, formik }) {
           className="inputDetails"
           type="text"
           name="name"
-          onChange={formik.handleChange}
+          onChange={onchange}
         />{" "}
         <div className="div_err_addApartment">{formik.errors.name}</div>
       </div>
@@ -26,7 +21,7 @@ function Contact({ setApartment, apartment, formik }) {
           className="inputDetails"
           type="text"
           name="mail"
-          onChange={formik.handleChange}
+          onChange={onchange}
         />{" "}
         <div className="div_err_addApartment">{formik.errors.mail}</div>
       </div>
@@ -41,9 +36,9 @@ function Contact({ setApartment, apartment, formik }) {
             setApartment({
               ...apartment,
               [e.target.name]:
-                e.target.value.length > 7
+                e.target.value.length > 1
                   ? parsePhoneNumber(e.target.value, "IL").formatNational()
-                  : "",
+                  : "0",
             });
           }}
         />

@@ -12,23 +12,34 @@ const HoldApartment = ({
   setModalRemove,
 }) => {
   const holdApartment = () => {
-    axios.put("/api/holdApartment/" + id, { show: show }).then();
+    axios
+      .put(
+        "/api/holdApartment/" + id,
+        show === "1" ? { show: "2" } : { show: "1" }
+      )
+      .then();
     setModalHold(false);
-    setStatus(status === true ? false : true);
+    // setStatus(status === "1" ? "2" : "1");
   };
+
   return (
     <div className="holdApartment">
       <button
         className="btn"
+        disabled={show === "0" ? true : false}
         onClick={() => {
-          if (show === true) {
+          if (show === "1") {
             setModalHold(true);
             setModalRemove(false);
           } else holdApartment();
           setModalRemove(false);
         }}
       >
-        {show === true ? "הקפא מודעה" : "הפעל מודעה"}
+        {show === "0"
+          ? "ממתין לאישור"
+          : show === "1"
+          ? "הקפא מודעה"
+          : "הפעל מודעה"}
       </button>
 
       {modalHold && (
@@ -47,7 +58,7 @@ const HoldApartment = ({
             האם אתה בטוח כי ברצונך להקפיא את המודעה?
             <div className="btnsModal">
               <button className="btnModal" onClick={holdApartment}>
-                {show === true ? "הקפא מודעה" : "הפעל מודעה"}
+                הקפא מודעה
               </button>
               <button
                 className="btnModal"

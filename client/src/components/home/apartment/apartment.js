@@ -77,7 +77,7 @@ function Apartment() {
         )}  */}
         {list.map(
           (list) =>
-            list.show === true && (
+            list.show === "1" && (
               <div className="boxApartmentHome" key={list._id}>
                 <div dir="ltr" className="carouselApartment">
                   <Carousel
@@ -125,13 +125,11 @@ function Apartment() {
                             ></img>{" "}
                             כל השנה
                           </div>
-                        ) : (
-                          // () => {
-                          //   setShowTimes(true);
-                          null
-                          // console.log(showTimes)
-                          // }
-                        )
+                        ) : // () => {
+                        //   setShowTimes(true);
+                        null
+                        // console.log(showTimes)
+                        // }
                       )}
 
                       {list.times.map((time) => (

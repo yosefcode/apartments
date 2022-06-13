@@ -28,7 +28,7 @@ exports.holdApartment = async (req, res) => {
   const apartmentShowId = req.params.id;
   try {
     await models.apartmentSchema.findOneAndUpdate({ _id: apartmentShowId }, [
-      { $set: { show: { $eq: [false, "$show"] } } },
+      { $set: { show: req.body.show } },
     ]);
     res.status(200).send(console.log("change"));
   } catch (err) {

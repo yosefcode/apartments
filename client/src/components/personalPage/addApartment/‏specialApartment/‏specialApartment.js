@@ -1,9 +1,7 @@
 import "./‏specialApartment.css";
-import axios from "axios";
 import { useState, useEffect } from "react";
-// import { Field, Form, Formik, FormikProps } from "formik";
 
-function SpecialApartment({ setApartment, apartment, formik }) {
+function SpecialApartment({ setApartment, apartment, formik, onchange }) {
   const [special, setSpecial] = useState([]);
   const [time, setTime] = useState([]);
 
@@ -141,8 +139,8 @@ function SpecialApartment({ setApartment, apartment, formik }) {
             </div>
           ))}
         </div>
+        <div className="div_err_addApartment">{formik.errors.times}</div>
       </div>
-      <div className="div_err_addApartment">{formik.errors.times}</div>
     </div>
   );
 }

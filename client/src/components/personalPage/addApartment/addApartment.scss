@@ -12,7 +12,7 @@
 .addApartment .divInputDetails {
   position: relative;
   width: 23%;
-  height: 5rem;
+  // height: 5rem;
   margin: 2.3rem 1%;
 }
 
@@ -151,8 +151,8 @@ $clouds: #000000;
 .btn_send {
   border-radius: 10px;
   font-weight: 700;
-  border: solid 1px rgb(0, 0, 0);
-  background-color: rgb(0, 0, 0);
+  border: solid 1px rgb(28, 2, 99);
+  background-color: rgb(28, 2, 99);
   font-size: 2.5rem;
   color: rgb(255, 255, 255);
   cursor: pointer;
@@ -161,19 +161,50 @@ $clouds: #000000;
   align-items: center;
   padding: 1.5rem 3rem;
   margin: 2.5rem auto;
+  &:hover {
+    background: rgb(28, 2, 99, 20%);
+    color: rgb(28, 2, 99);
+  }
+
 }
 .div_err_addApartment{
   color: #db0000;
   font-size: 1.5rem;
   font-weight: 400;
-  height: 1.5rem;
+  height: 1rem;
 }
+
+.addApartment .msgmodal {
+  margin-top: 12vh;
+  padding: 3vw 6vw;
+  font-size: 2rem;
+  font-weight: 700;
+  line-height: 3rem;
+  position: relative;
+  text-align: center;
+}
+
+.addApartment .timer-wrapper {
+  position: absolute;
+  top: -4rem;
+  width: calc(100% - 12vw);
+  cursor: pointer;
+
+}
+
+.addApartment .timer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
 
 @media only screen and (max-width: 1000px) {
   .addApartment .divInputDetails {
     position: relative;
     width: 30%;
-    height: 5rem;
+    // height: 5rem;
     margin: 2.3rem 1%;
   }
 }
@@ -181,7 +212,7 @@ $clouds: #000000;
   .addApartment .divInputDetails {
     position: relative;
     width: 40%;
-    height: 5rem;
+    // height: 5rem;
     margin: 2.3rem 1%;
   }
 }
@@ -200,7 +231,7 @@ $clouds: #000000;
   .addApartment .divInputDetails {
     position: relative;
     width: 80%;
-    height: 5rem;
+    // height: 5rem;
     margin: 2.3rem auto;
   }
   .addApartment .labelInput {

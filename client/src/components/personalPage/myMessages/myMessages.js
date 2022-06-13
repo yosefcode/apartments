@@ -23,7 +23,7 @@ function MyMessages({ id }) {
 
   return (
     <div className="myMessages">
-      {/* <button onClick={sortDate}>sortDate</button> */}
+      <button onClick={sortDate}>sortDate</button>
 
       {isLoading ? (
         <div className="loading">
@@ -75,7 +75,6 @@ function MyMessages({ id }) {
                 ))}
             </table>
           </div>
-          <div>ccccc{sorta}</div>
 
           <div className="divTable myMessage_smallScreen">
             <div className="sort" onClick={sortDate}>

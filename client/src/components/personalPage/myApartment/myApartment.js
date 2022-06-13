@@ -55,7 +55,7 @@ function MyApartments({ id, setValue }) {
   }));
 
   const [expanded, setExpanded] = useState("panel1");
-  const [status, setStatus] = useState(true);
+  const [status, setStatus] = useState("");
   const [myApartments, setMyApartments] = useState([]);
   const [modalHold, setModalHold] = useState(false);
   const [modalRemove, setModalRemove] = useState(false);
@@ -110,9 +110,13 @@ function MyApartments({ id, setValue }) {
                     </div>
                     <div
                       className="show"
-                      style={{ color: list.show === true ? "green" : "red" }}
+                      style={{ color: list.show === "1" ? "green" : "red" }}
                     >
-                      {list.show === true ? "מודעה פעילה" : "מודעה לא פעילה"}
+                      {list.show === "0"
+                        ? "ממתין לאישור"
+                        : list.show === "1"
+                        ? "מודעה פעילה"
+                        : "מודעה לא פעילה"}
                     </div>
                   </div>
                 </Typography>

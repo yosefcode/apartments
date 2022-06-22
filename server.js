@@ -7,7 +7,7 @@ const { connectToDb, models } = require("./models");
 const messages = require("./funcOftheServer/messages");
 const listApartments = require("./funcOftheServer/listApartments");
 const sendMessage = require("./funcOftheServer/sendMessega");
-const myApartments = require("./funcOftheServer/myApartments");
+const listApartmentsForDeleteHold = require("./funcOftheServer/listApartmentsForDeleteHold");
 const apartmentShow = require("./funcOftheServer/apartmentShow");
 const addApartment = require("./funcOftheServer/addApartment");
 const editApartment = require("./funcOftheServer/editApartments");
@@ -43,9 +43,19 @@ app.get("/api/list/", listApartments.list);
 app.get("/api/messages/", messages.allMessage);
 app.post("/api/messages/:id", messages.messageFromUID);
 
-app.post("/api/myApartments/:id", myApartments.myApartments);
-app.delete(`/api/deleteApartment/:id`, myApartments.deleteApartment);
-app.put(`/api/holdApartment/:id`, myApartments.holdApartment);
+app.post(
+  "/api/allApartmentsForEditDelete/",
+  listApartmentsForDeleteHold.listApartmentsForEditDelete
+);
+app.post(
+  "/api/myApartments/:id",
+  listApartmentsForDeleteHold.listApartmentsForEditDelete
+);
+app.delete(
+  `/api/deleteApartment/:id`,
+  listApartmentsForDeleteHold.deleteApartment
+);
+app.put(`/api/holdApartment/:id`, listApartmentsForDeleteHold.holdApartment);
 
 app.put(`/api/editApartment/:id`, editApartment.editApartment);
 

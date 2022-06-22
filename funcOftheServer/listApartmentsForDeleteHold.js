@@ -1,10 +1,12 @@
 const { models } = require("../models");
 
-exports.myApartments = async (req, res) => {
-  const myApartmentsId = req.params.id;
-  const myApartments = await models.apartmentSchema.find({
-    uidFirebase: myApartmentsId,
-  });
+exports.listApartmentsForEditDelete = async (req, res) => {
+  const myApartmentsId = req.params?.id;
+  const myApartments = myApartmentsId
+    ? await models.apartmentSchema.find({
+        uidFirebase: myApartmentsId,
+      })
+    : await models.apartmentSchema.find();
   try {
     res.send(myApartments);
   } catch (err) {

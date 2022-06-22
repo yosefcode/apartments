@@ -1,0 +1,216 @@
+.myApartment {
+    position: relative;
+    width: 100%;
+  }
+  .myApartment .header_myapartment {
+    position: absolute;
+    width: 100%;
+    left: 0;
+    top: 0;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-weight: 700;
+  }
+  .myApartment .nameApartment h1,
+  .myApartment .nameApartment h2 {
+    margin-block-end: 0 !important;
+    margin-inline-start: 10px !important;
+  }
+  .myApartment .nameApartment {
+    width: 80%;
+    height: 100%;
+    align-items: center;
+    display: flex;
+    font-size: 1.2rem;
+  }
+  .myApartment .show {
+    width: 20%;
+    height: 100%;
+    text-align: center;
+    align-items: center;
+    display: flex;
+    justify-content: center;
+    font-size: 1.6rem;
+  }
+  
+  .myApartment .btnsbottom {
+    width: 100%;
+    height: 50px;
+    background-color: rgb(212, 212, 212);
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+  }
+  
+  .myApartment .div_btn {
+    width: 30%;
+    max-width: 200px;
+    height: 35px;
+  }
+  .myApartment .btn {
+    width: 100%;
+    height: 35px;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.7rem;
+    font-weight: 700;
+    background-color: rgb(4, 0, 61);
+    color: white;
+  }
+  .myApartment .loading {
+    width: 100%;
+    margin-top: 50px;
+    text-align: center;
+    font-size: 2rem;
+  }
+  .myApartment .underline {
+    cursor: pointer;
+    font-weight: 700;
+    text-decoration: underline;
+  }
+  .myApartment .btnsModal {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    width: 100%;
+    padding-top: 20px;
+  }
+  
+  .myApartment .btnModal {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 10px;
+    height: 35px;
+    border-radius: 10px;
+    font-size: 1.7rem;
+    font-weight: 700;
+    background-color: rgb(4, 0, 61);
+    color: white;
+  }
+  .info-apartment {
+    width: 100%;
+    /* height: 20vw; */
+    font-weight: 700;
+    position: relative;
+    margin-bottom: 70px;
+    font-size: 2rem;
+  }
+  .info-apartment .special {
+    column-count: 4;
+    width: 100%;
+    display: inline-block;
+    font-size: 1.5rem;
+  }
+  
+  .info-apartment li {
+    list-style: none;
+    line-height: 200%;
+  }
+  .info-apartment .div_img_carousel {
+    width: 60%;
+    height: 450px;
+    position: relative;
+    float: left;
+    margin-inline-end: 30px;
+    margin-bottom: 20px;
+  }
+  
+  
+  @media only screen and (max-width: 600px) {
+    .myApartment .show {
+      width: 15%;
+      height: 100%;
+      text-align: center;
+      align-items: center;
+      display: flex;
+      justify-content: center;
+      font-size: 1.2rem;
+      line-height: 120%;
+    }
+    .myApartment .nameApartment {
+      width: 80%;
+      height: 100%;
+      align-items: flex-start;
+      display: flex;
+      font-size: 0.8rem;
+      flex-direction: column;
+    }
+    .myApartment .btn {
+      font-size: 1.4rem;
+    }
+  }
+  
+@media only screen and (max-width: 1300px) {
+  .info-apartment .div_img_carousel {
+    height: 400px;
+  }
+}
+@media only screen and (max-width: 900px) {
+  .info-apartment .div_img_carousel {
+    height: 350px;
+  }
+}
+@media only screen and (max-width: 830px) {
+  .info-apartment .div_img_carousel {
+    height: 300px;
+  }
+}
+@media only screen and (max-width: 700px) {
+  .info-apartment .div_img_carousel {
+    width: 100%;
+
+    height: 400px;
+  }
+}
+@media only screen and (max-width: 600px) {
+  .info-apartment .div_img_carousel {
+    height: 350px;
+  }
+  .info-apartment {
+    font-size: 1.4rem;
+  }
+}
+@media only screen and (max-width: 500px) {
+  .info-apartment .div_img_carousel {
+    height: 280px;
+  }
+}
+@media only screen and (max-width: 430px) {
+  .info-apartment .div_img_carousel {
+    height: 250px;
+  }
+}
+@media only screen and (max-width: 400px) {
+  .info-apartment .div_img_carousel {
+    height: 220px;
+  }
+}
+
+@media only screen and (max-width: 1100px) {
+  .info-apartment .special {
+    column-count: 3;
+    font-weight: 700;
+    font-size: 1.7rem;
+  }
+}
+
+@media only screen and (max-width: 600px) {
+  .info-apartment .special {
+    column-count: 2;
+    font-size: 1.3rem;
+  }
+  .info-apartment li {
+    list-style: none;
+    line-height: 200%;
+  }
+}
+
+  

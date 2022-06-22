@@ -12,7 +12,7 @@ import { SpinningCircles } from "react-loading-icons";
 import CancelIcon from "@mui/icons-material/Cancel";
 import { CountdownCircleTimer } from "react-countdown-circle-timer";
 
-function AddApartment({ id }) {
+function AddApartment({ id, apiUserForFirebade }) {
   const [valueCity, setValueCity] = useState("");
   const [valueStreet, setValueStreet] = useState("");
   const [isLoading, setIsLoading] = useState(false);
@@ -237,6 +237,7 @@ function AddApartment({ id }) {
                   setApartment={setApartment}
                   formik={formik}
                   onchange={onchange}
+                  apiUserForFirebade={apiUserForFirebade}
                 />{" "}
               </div>
             </div>
@@ -250,7 +251,6 @@ function AddApartment({ id }) {
           </div>
           <div class="tab-content">
             <button type="submit" className="btn_send">
-              {/* <button onClick={addApartment} className="btn_send"> */}
               פרסם דירה
             </button>
           </div>

@@ -19,7 +19,7 @@ const HoldApartment = ({
       )
       .then();
     setModalHold(false);
-    // setStatus(status === "1" ? "2" : "1");
+    setStatus(status === "1" ? "2" : "1");
   };
 
   return (

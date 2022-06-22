@@ -1,25 +1,19 @@
 import "./personalPage.css";
 import React, { useState, useEffect, useRef } from "react";
-import { useParams } from "react-router-dom";
+import { useParams, useLocation, useHistory } from "react-router-dom";
 import axios from "axios";
 import MyApartments from "./myApartment/myApartment";
 import AddApartment from "./addApartment/addApartment";
 import MyMessages from "./myMessages/myMessages";
+import MyDetails from "./myDetails/myDetails";
 import PropTypes from "prop-types";
 import Tabs from "@mui/material/Tabs";
 import Tab from "@mui/material/Tab";
 import Typography from "@mui/material/Typography";
 import Box from "@mui/material/Box";
 
-function ApartmentShow() {
+function PersonalPage({ apiUserForFirebade }) {
   const { id } = useParams();
-
-  // const [myApartments, setMyApartments] = useState([]);
-  // useEffect(() => {
-  //   axios.post("/api/myApartments/" + id).then((res) => {
-  //     setMyApartments(res.data);
-  //   });
-  // }, []);
 
   function TabPanel(props) {
     const { children, value, index, ...other } = props;
@@ -76,7 +70,7 @@ function ApartmentShow() {
           </Tabs>
         </Box>
         <TabPanel value={value} index={0}>
-          {id}{" "}
+          <MyDetails id={id} apiUserForFirebade={apiUserForFirebade} />
         </TabPanel>
         <TabPanel value={value} index={1}>
           <MyApartments id={id} setValue={setValue} />
@@ -85,11 +79,11 @@ function ApartmentShow() {
           <MyMessages id={id} />
         </TabPanel>
         <TabPanel value={value} index={3}>
-          <AddApartment id={id} />
+          <AddApartment id={id} apiUserForFirebade={apiUserForFirebade} />
         </TabPanel>
       </Box>
     </div>
   );
 }
 
-export default ApartmentShow;
+export default PersonalPage;

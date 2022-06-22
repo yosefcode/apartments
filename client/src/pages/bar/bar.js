@@ -5,23 +5,10 @@ import { getAuth, onAuthStateChanged, signOut } from "firebase/auth";
 import { Link } from "react-router-dom";
 import PowerSettingsNewIcon from "@mui/icons-material/PowerSettingsNew";
 import AccountCircleIcon from "@mui/icons-material/AccountCircle";
-const Bar = () => {
+
+const Bar = ({ apiUserForFirebade, userConnect, setUserConnect }) => {
   const auth = getAuth();
-
-  const [uidUser, setUidUser] = useState("");
-  const [userConnect, setUserConnect] = useState();
-  const [nameUser, setNameUser] = useState("");
   const [modal, setModal] = useState(false);
-
-  useEffect(() => {
-    onAuthStateChanged(auth, (user) => {
-      if (user) {
-        setUidUser(user.uid);
-        setNameUser(user.displayName);
-        setUserConnect(true);
-      }
-    });
-  }, [auth, uidUser, userConnect]);
 
   const exit = () => {
     signOut(auth)
@@ -40,6 +27,9 @@ const Bar = () => {
       </div>
 
       <div className="divBar">
+        <a href="/manager">
+          <button>כניסת מנהל</button>
+        </a>
         {userConnect === true ? (
           <div className="divConnect" onClick={() => setModal(true)}>
             <AccountCircleIcon
@@ -49,7 +39,7 @@ const Bar = () => {
                 color: "black",
               }}
             />{" "}
-            היי, {nameUser}{" "}
+            היי, {apiUserForFirebade.displayName}{" "}
           </div>
         ) : (
           <Link className="link" to={"/login/"}>
@@ -70,7 +60,7 @@ const Bar = () => {
       {modal && (
         <div className="div_modal" onClick={() => setModal(false)}>
           <div className="allConnect">
-            <Link className="link" to={"/login/" + uidUser}>
+            <Link className="link" to={"/login/" + apiUserForFirebade.uid}>
               <div className="divConnect_modal">
                 <PowerSettingsNewIcon
                   className="iconEnter"

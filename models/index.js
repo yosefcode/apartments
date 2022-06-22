@@ -1,6 +1,7 @@
 const mongoose = require("mongoose");
 const apartmentSchema = require("./ApartmentSchema");
-const messagesSchema = require("./messages");
+const messagesSchema = require("./messagesSchema");
+const usersSchema = require("./usersSchema");
 
 // שליחה לDB מקומי
 // function connectToDb() {
@@ -13,17 +14,13 @@ const messagesSchema = require("./messages");
 
 // שליחה לDB אטלס
 function connectToDb() {
-  return mongoose.connect(
-    // "mongodb+srv://dbshop:GKSiW8g4jXqkxKt@cluster0.zq2sn.mongodb.net/dbshop?retryWrites=true&w=majority"
-    process.env.DB_URL,
-    {
-      useNewUrlParser: true,
-      useCreateIndex: true,
-      useUnifiedTopology: true,
-    }
-  );
+  return mongoose.connect(process.env.DB_URL, {
+    useNewUrlParser: true,
+    useCreateIndex: true,
+    useUnifiedTopology: true,
+  });
 }
 
-const models = { messagesSchema, apartmentSchema };
+const models = { messagesSchema, apartmentSchema, usersSchema };
 
 module.exports = { connectToDb, models };

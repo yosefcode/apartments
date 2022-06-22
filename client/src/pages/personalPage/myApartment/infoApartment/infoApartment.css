@@ -1,0 +1,116 @@
+.info-apartment {
+  width: 100%;
+  /* height: 20vw; */
+  font-weight: 700;
+  position: relative;
+  margin-bottom: 70px;
+  font-size: 2rem;
+}
+.info-apartment .special {
+  column-count: 4;
+  width: 100%;
+  display: inline-block;
+  font-size: 1.5rem;
+}
+
+.info-apartment li {
+  list-style: none;
+  line-height: 200%;
+}
+/* .information .special {
+  column-count: 4;
+  font-weight: 700;
+  padding: 30px 0;
+  font-size: 2rem;
+}
+
+.information ul {
+  color: rgb(216, 0, 0);
+  display: list-item;
+  list-style-position: inside;
+}
+
+.information li {
+  list-style: none;
+  line-height: 3.2rem;
+} */
+
+/* .info-apartment .div_img_div_img_carousel {
+  width: 60%;
+  height: 25vw;
+  margin: 1vw;
+  float: left;
+} */
+.info-apartment .div_img_carousel {
+  width: 60%;
+  height: 450px;
+  position: relative;
+  float: left;
+  margin-inline-end: 30px;
+  margin-bottom: 20px;
+}
+
+@media only screen and (max-width: 1300px) {
+  .info-apartment .div_img_carousel {
+    height: 400px;
+  }
+}
+@media only screen and (max-width: 900px) {
+  .info-apartment .div_img_carousel {
+    height: 350px;
+  }
+}
+@media only screen and (max-width: 830px) {
+  .info-apartment .div_img_carousel {
+    height: 300px;
+  }
+}
+@media only screen and (max-width: 700px) {
+  .info-apartment .div_img_carousel {
+    width: 100%;
+
+    height: 400px;
+  }
+}
+@media only screen and (max-width: 600px) {
+  .info-apartment .div_img_carousel {
+    height: 350px;
+  }
+  .info-apartment {
+    font-size: 1.4rem;
+  }
+}
+@media only screen and (max-width: 500px) {
+  .info-apartment .div_img_carousel {
+    height: 280px;
+  }
+}
+@media only screen and (max-width: 430px) {
+  .info-apartment .div_img_carousel {
+    height: 250px;
+  }
+}
+@media only screen and (max-width: 400px) {
+  .info-apartment .div_img_carousel {
+    height: 220px;
+  }
+}
+
+@media only screen and (max-width: 1100px) {
+  .info-apartment .special {
+    column-count: 3;
+    font-weight: 700;
+    font-size: 1.7rem;
+  }
+}
+
+@media only screen and (max-width: 600px) {
+  .info-apartment .special {
+    column-count: 2;
+    font-size: 1.3rem;
+  }
+  .info-apartment li {
+    list-style: none;
+    line-height: 200%;
+  }
+}

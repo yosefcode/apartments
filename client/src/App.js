@@ -1,19 +1,35 @@
 import React, { useState, useEffect } from "react";
 import "./App.css";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
-import Home from "./components/home/home";
-import Kesher from "./components/kesher/kesher";
-import Bar from "./components/bar/bar";
-import ApartmentShow from "./components/apartmentShow/apartmentShow";
-import MyFavoritePage from "./components/favorite/myFavorite-page/myFavorite-page";
-import PersonalPage from "./components/personalPage/personalPage";
-import Login from "./components/login/login";
+import Home from "./pages/home/home";
+import Kesher from "./pages/kesher/kesher";
+import Bar from "./pages/bar/bar";
+import ApartmentShow from "./pages/apartmentShow/apartmentShow";
+import MyFavoritePage from "./pages/favorite/myFavorite-page/myFavorite-page";
+import PersonalPage from "./pages/personalPage/personalPage";
+import Login from "./pages/login/login";
+import Manager from "./pages/manager/manager";
 import { AppContext } from "./variable-Context";
 import axios from "axios";
 import { initializeApp } from "firebase/app";
 import DoubleArrowIcon from "@mui/icons-material/DoubleArrow";
+import { getAuth, onAuthStateChanged, signOut } from "firebase/auth";
 
 function App() {
+  const firebaseConfig = {
+    apiKey: "AIzaSyAm6XyXktf-Yp4FcKAIVwqOop5dTtpPKeo",
+    authDomain: "loginapartment-9d83c.firebaseapp.com",
+    databaseURL: "https://loginapartment-9d83c-default-rtdb.firebaseio.com",
+    projectId: "loginapartment-9d83c",
+    storageBucket: "loginapartment-9d83c.appspot.com",
+    messagingSenderId: "581621671195",
+    appId: "1:581621671195:web:c9460ca056d94d63d49fbe",
+    measurementId: "G-9T05LHHKK5",
+  };
+
+  initializeApp(firebaseConfig);
+
+  const auth = getAuth();
   const topFunction = () => {
     window.scrollTo(0, 0);
   };
@@ -21,7 +37,18 @@ function App() {
   const [filter, setFilter] = useState({});
   let [list, setList] = useState([]);
   let [listIDForFavorite, setListIDForFavorite] = useState([]);
+  const [apiUserForFirebade, setApiUserForFirebade] = useState("");
+  const [userConnect, setUserConnect] = useState();
   let [scrollTop, setScrollTop] = useState(true);
+
+  useEffect(() => {
+    onAuthStateChanged(auth, (userForFirebase) => {
+      if (userForFirebase) {
+        setApiUserForFirebade(userForFirebase);
+        setUserConnect(true);
+      }
+    });
+  }, [auth, apiUserForFirebade, userConnect]);
 
   // useEffect(() => {
   //   axios.post(`/api/list/filter/`, filter).then((res) => {
@@ -61,19 +88,6 @@ function App() {
     setListIDForFavorite: (value) => setListIDForFavorite(value),
   };
 
-  const firebaseConfig = {
-    apiKey: "AIzaSyAm6XyXktf-Yp4FcKAIVwqOop5dTtpPKeo",
-    authDomain: "loginapartment-9d83c.firebaseapp.com",
-    databaseURL: "https://loginapartment-9d83c-default-rtdb.firebaseio.com",
-    projectId: "loginapartment-9d83c",
-    storageBucket: "loginapartment-9d83c.appspot.com",
-    messagingSenderId: "581621671195",
-    appId: "1:581621671195:web:c9460ca056d94d63d49fbe",
-    measurementId: "G-9T05LHHKK5",
-  };
-
-  initializeApp(firebaseConfig);
-
   return (
     <div className="App" dir="rtl">
       <AppContext.Provider value={globalVariable}>
@@ -93,7 +107,11 @@ function App() {
               />
             </div>
           )}
-          <Bar />
+          <Bar
+            apiUserForFirebade={apiUserForFirebade}
+            userConnect={userConnect}
+            setUserConnect={setUserConnect}
+          />
           <div className="container">
             <Switch>
               <Route exact path="/">
@@ -109,11 +127,15 @@ function App() {
               </Route>
 
               <Route path="/login/:id">
-                <PersonalPage />
+                <PersonalPage apiUserForFirebade={apiUserForFirebade} />
               </Route>
 
               <Route path="/myfavorite/">
                 <MyFavoritePage />
+              </Route>
+
+              <Route path="/manager">
+                <Manager />
               </Route>
 
               <Route exact path="/:id">

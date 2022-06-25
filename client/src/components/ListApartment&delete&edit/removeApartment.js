@@ -1,12 +1,12 @@
-import React, { useState, useEffect } from "react";
-import axios from "axios";
+import React, { useState } from "react";
 import Modal from "../Modal";
+import { DeleteToServer } from "../getData";
 
 const RmoveApartment = ({ id, render, setRender }) => {
   const [isOpenModal, setIsOpenModal] = useState(false);
 
   const rmoveApartment = () => {
-    axios.delete("/api/deleteApartment/" + id).then();
+    DeleteToServer("/api/deleteApartment/" + id).then();
     setRender(!render);
   };
 

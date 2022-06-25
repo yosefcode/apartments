@@ -5,6 +5,13 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  
+  --blue: rgb(28, 2, 99);
+  --blue-lite: rgba(28, 2, 99, 0.5);
+  --white: rgb(255, 255, 255);
+  --yelow: #c3c08b;
+  --orange: #c88977;
+  --purple: rgb(214, 174, 255);
 }
 html {
   font-size: 62.5%;

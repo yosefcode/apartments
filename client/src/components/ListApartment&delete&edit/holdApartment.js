@@ -1,16 +1,18 @@
-import React, { useState } from "react";
-import axios from "axios";
+import React, { useState, useContext } from "react";
 import Modal from "../Modal";
+import { PutToServer } from "../getData";
+import { AppContext } from "../../variable-Context";
 
 const HoldApartment = ({ id, show, render, setRender }) => {
+  const { isManager } = useContext(AppContext);
+
   const [isOpenModal, setIsOpenModal] = useState(false);
+
   const holdApartment = () => {
-    axios
-      .put(
-        "/api/holdApartment/" + id,
-        show === "1" ? { show: "2" } : { show: "1" }
-      )
-      .then();
+    PutToServer(
+      `/api/holdApartment/${id}`,
+      show === "1" ? { show: "2" } : { show: "1" }
+    );
     setRender(!render);
   };
 
@@ -18,11 +20,9 @@ const HoldApartment = ({ id, show, render, setRender }) => {
     <div>
       <button
         className="btn"
-        disabled={show === "0" ? true : false}
+        disabled={isManager ? false : show === "0" ? true : false}
         onClick={() => {
-          if (show === "1") {
-            setIsOpenModal(true);
-          } else holdApartment();
+          show === "1" || show === "0" ? setIsOpenModal(true) : holdApartment();
         }}
       >
         {show === "0"
@@ -38,10 +38,12 @@ const HoldApartment = ({ id, show, render, setRender }) => {
           setIsOpenModal={setIsOpenModal}
           content={
             <div>
-              האם אתה בטוח כי ברצונך להקפיא את המודעה?
+              {show === "0"
+                ? "מאשר את המודעה?"
+                : "האם אתה בטוח שברצונך להקפיא את המודעה?"}
               <div className="btnsModal">
                 <button className="btnModal" onClick={holdApartment}>
-                  הקפא מודעה
+                  {show === "0" ? "אישור" : "הקפא מודעה"}
                 </button>
                 <button
                   className="btnModal"

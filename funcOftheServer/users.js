@@ -22,3 +22,12 @@ exports.addUser = async (req, res) => {
     res.status(500).send(err);
   }
 };
+
+exports.listUsers = async (req, res) => {
+  const listUsers = await models.usersSchema.find();
+  try {
+    res.send(listUsers);
+  } catch (err) {
+    res.status(500).send(err);
+  }
+};

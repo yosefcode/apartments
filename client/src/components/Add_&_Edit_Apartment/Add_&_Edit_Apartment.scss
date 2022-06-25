@@ -1,0 +1,130 @@
+.addApartment .div-all-input {
+  width: calc(100% - 2rem);
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  position: relative;
+  margin: 0 auto;
+}
+$midnight: #ebe9e9;
+$clouds: #000000;
+
+.addApartment .tab {
+  width: calc(100% - 2px);
+  color: rgb(0, 0, 0);
+  margin: 1px auto;
+  overflow: hidden;
+  &-label {
+    width: 94%;
+    font-size: 1.8rem;
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    padding: 0.5rem 3%;
+    background: $midnight;
+    font-weight: 700;
+    margin-top: 1vw;
+    border-radius: 0.2vw;}
+      
+  &-content {
+    padding: 30px 0 0 0;
+    color: $midnight;
+    background: white;
+    transition: all 0.35s;
+  }
+
+}
+
+
+.btn_send {
+  border-radius: 10px;
+  font-weight: 700;
+  border: solid 1px rgb(28, 2, 99);
+  background-color: rgb(28, 2, 99);
+  font-size: 2.5rem;
+  color: rgb(255, 255, 255);
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 1.5rem 3rem;
+  margin: 2.5rem auto;
+  &:hover {
+    background: rgb(28, 2, 99, 20%);
+    color: rgb(28, 2, 99);
+  }
+
+}
+// .div_err_addApartment{
+//   color: #db0000;
+//   font-size: 1.5rem;
+//   font-weight: 400;
+//   height: 1rem;
+// }
+
+
+
+// @media only screen and (max-width: 1000px) {
+//   .addApartment .divInputDetails {
+//     position: relative;
+//     width: 30%;
+//     // height: 5rem;
+//     margin: 2.3rem 1%;
+//   }
+// }
+// @media only screen and (max-width: 750px) {
+//   .addApartment .divInputDetails {
+//     position: relative;
+//     width: 40%;
+//     // height: 5rem;
+//     margin: 2.3rem 1%;
+//   }
+// }
+
+// @media only screen and (max-width: 600px) {
+//   .addApartment .div-all-input {
+//     width: 100%;
+//     display: flex;
+//     flex-direction: column;
+//     flex-wrap: wrap;
+//     justify-content: space-around;
+//     align-items: center;
+//     position: relative;
+//   }
+
+//   .addApartment .divInputDetails {
+//     position: relative;
+//     width: 80%;
+//     // height: 5rem;
+//     margin: 2.3rem auto;
+//   }
+//   .addApartment .labelInput {
+//     border: rgb(196, 196, 196) 0.1vw solid;
+//     border-radius: 10vw;
+//     background-color: rgb(255, 255, 255);
+//     margin-right: 5vw;
+//     // height: 1rem;
+//     top: -1rem;
+//     position: absolute;
+//     color: rgb(85, 85, 85);
+//     padding: 0.5rem 1.5rem;
+//     line-height: 0;
+//     font-weight: 700;
+//     font-size: 1.5rem;
+//     display: flex;
+//     justify-content: center;
+//     align-items: center;
+//   }
+
+//   .addApartment .inputDetails {
+//     height: 5rem;
+//     border-radius: 4px;
+//     border: 1px solid rgb(196, 196, 196);
+//     width: calc(100% - 2rem);
+//     font-size: 1.5rem;
+//     font-weight: 600;
+//     padding: 0.5rem 1rem;
+//   }
+// }

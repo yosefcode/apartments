@@ -1,4 +1,4 @@
-import "./addApartment.scss";
+import "./Add_&_Edit_Apartment.scss";
 import axios from "axios";
 import { useState, useEffect } from "react";
 import DetailsApartment from "./detailsApartment/detailsApartment";
@@ -112,7 +112,8 @@ function AddApartment({ id, apiUserForFirebase }) {
       //   }),
     }),
     onSubmit: (values) => {
-      addApartment();
+      console.log(values);
+      // addApartment();
     },
   });
 
@@ -179,7 +180,7 @@ function AddApartment({ id, apiUserForFirebase }) {
         <form onSubmit={formik.handleSubmit}>
           <div class="tabs">
             <div class="tab">
-              <input type="checkbox" id="chck1" className="input-checkbox" />
+              {/* <input type="checkbox" id="chck1" className="input-checkbox" /> */}
               <label class="tab-label" for="chck1">
                 פרטי הדירה{" "}
               </label>
@@ -194,9 +195,9 @@ function AddApartment({ id, apiUserForFirebase }) {
                 />{" "}
               </div>
             </div>
-            
+
             <div class="tab">
-              <input type="checkbox" id="chck2" className="input-checkbox" />
+              {/* <input type="checkbox" id="chck2" className="input-checkbox" /> */}
               <label class="tab-label" for="chck2">
                 תיאור{" "}
               </label>
@@ -211,7 +212,7 @@ function AddApartment({ id, apiUserForFirebase }) {
             </div>
 
             <div class="tab">
-              <input type="checkbox" id="chck3" className="input-checkbox" />
+              {/* <input type="checkbox" id="chck3" className="input-checkbox" /> */}
               <label class="tab-label" for="chck3">
                 הוספת תמונות{" "}
               </label>
@@ -228,7 +229,7 @@ function AddApartment({ id, apiUserForFirebase }) {
             </div>
 
             <div class="tab">
-              <input type="checkbox" id="chck4" className="input-checkbox" />
+              {/* <input type="checkbox" id="chck4" className="input-checkbox" /> */}
               <label class="tab-label" for="chck4">
                 פרטי איש קשר{" "}
               </label>

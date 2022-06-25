@@ -6,7 +6,7 @@ import { Link } from "react-router-dom";
 import PowerSettingsNewIcon from "@mui/icons-material/PowerSettingsNew";
 import AccountCircleIcon from "@mui/icons-material/AccountCircle";
 
-const Bar = ({ apiUserForFirebade, userConnect, setUserConnect }) => {
+const Bar = ({ apiUserForFirebase, userConnect, setUserConnect }) => {
   const auth = getAuth();
   const [modal, setModal] = useState(false);
 
@@ -39,7 +39,7 @@ const Bar = ({ apiUserForFirebade, userConnect, setUserConnect }) => {
                 color: "black",
               }}
             />{" "}
-            היי, {apiUserForFirebade.displayName}{" "}
+            היי, {apiUserForFirebase.displayName}{" "}
           </div>
         ) : (
           <Link className="link" to={"/login/"}>
@@ -60,7 +60,7 @@ const Bar = ({ apiUserForFirebade, userConnect, setUserConnect }) => {
       {modal && (
         <div className="div_modal" onClick={() => setModal(false)}>
           <div className="allConnect">
-            <Link className="link" to={"/login/" + apiUserForFirebade.uid}>
+            <Link className="link" to={"/login/" + apiUserForFirebase.uid}>
               <div className="divConnect_modal">
                 <PowerSettingsNewIcon
                   className="iconEnter"

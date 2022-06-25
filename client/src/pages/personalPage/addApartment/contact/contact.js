@@ -6,14 +6,14 @@ function Contact({
   apartment,
   formik,
   onchange,
-  apiUserForFirebade,
+  apiUserForFirebase,
 }) {
   return (
     <div className="div-all-input">
       <div className="divInputDetails">
         <label className="labelInput">שם איש הקשר</label>
         <input
-          defaultValue={apiUserForFirebade?.displayName}
+          defaultValue={apiUserForFirebase?.displayName}
           className="inputDetails"
           type="text"
           name="name"
@@ -25,7 +25,7 @@ function Contact({
       <div className="divInputDetails">
         <label className="labelInput">מייל</label>
         <input
-          defaultValue={apiUserForFirebade?.email}
+          defaultValue={apiUserForFirebase?.email}
           className="inputDetails"
           type="text"
           name="mail"

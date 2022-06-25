@@ -1,4 +1,3 @@
-import "./Accordion.css";
 import React, { useState } from "react";
 import { styled } from "@mui/material/styles";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
@@ -53,12 +52,12 @@ function Accordion({ boxheader, box }) {
   };
 
   return (
-    <div className="myApartment">
+    <div>
       <div>
         <Accordion expanded={expanded === 1} onChange={handleChange(1)}>
           <AccordionSummary aria-controls="panel1d-content" id="panel1d-header">
             <Typography>
-              <div className="boxheader">{boxheader} </div>
+              <div style={style.boxheader}>{boxheader} </div>
             </Typography>
           </AccordionSummary>
           <AccordionDetails>
@@ -73,3 +72,13 @@ function Accordion({ boxheader, box }) {
 }
 
 export default Accordion;
+
+const style = {
+  boxheader: {
+    width: "92%",
+    position: "absolute",
+    top: 0,
+    left: "2%",
+    height: "100%",
+  },
+};

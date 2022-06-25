@@ -7,7 +7,7 @@ function Contact({
   detailsUser,
   formik,
   onchange,
-  apiUserForFirebade,
+  apiUserForFirebase,
 }) {
   const onChangeChekbox = (e) => {
     setDetailsUser({
@@ -23,7 +23,7 @@ function Contact({
           <div className="divInputDetails">
             <label className="labelInput">שם</label>
             <input
-              defaultValue={apiUserForFirebade?.displayName}
+              defaultValue={apiUserForFirebase?.displayName}
               className="inputDetails"
               type="text"
               name="nameUser"
@@ -35,7 +35,7 @@ function Contact({
           <div className="divInputDetails">
             <label className="labelInput">מייל</label>
             <input
-              defaultValue={apiUserForFirebade?.email}
+              defaultValue={apiUserForFirebase?.email}
               className="inputDetails"
               type="text"
               name="mailUser"

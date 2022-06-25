@@ -9,14 +9,14 @@ import { SpinningCircles } from "react-loading-icons";
 import CancelIcon from "@mui/icons-material/Cancel";
 import { CountdownCircleTimer } from "react-countdown-circle-timer";
 
-function DetailsUser({ id, apiUserForFirebade }) {
+function DetailsUser({ id, apiUserForFirebase }) {
   const [isLoading, setIsLoading] = useState(false);
   const [msgmodal, setMsgmodal] = useState(false);
   const [textMsgmodal, setTextMsgmodal] = useState(false);
   const [privacyPolicy, setPrivacyPolicy] = useState(false);
   const [detailsUser, setDetailsUser] = useState({
-    nameUser: apiUserForFirebade?.displayName,
-    mailUser: apiUserForFirebade?.email,
+    nameUser: apiUserForFirebase?.displayName,
+    mailUser: apiUserForFirebase?.email,
     phoneUser: "",
     isAgree: false,
   });
@@ -95,7 +95,7 @@ function DetailsUser({ id, apiUserForFirebade }) {
               setDetailsUser={setDetailsUser}
               formik={formik}
               onchange={onchange}
-              apiUserForFirebade={apiUserForFirebade}
+              apiUserForFirebase={apiUserForFirebase}
             />{" "}
           </div>
 

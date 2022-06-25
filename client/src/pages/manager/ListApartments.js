@@ -1,5 +1,4 @@
-import { useEffect, useState } from "react";
-import ListApartments from "../../../components/ListApartment&delete&edit/ListApartment&delete&edit";
+import ListApartments from "../../components/ListApartment&delete&edit/ListApartment&delete&edit";
 
 const ListApartment = () => {
   return (

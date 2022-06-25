@@ -1,7 +1,8 @@
 import "./manager.css";
-import { useEffect, useState } from "react";
 import Tabs from "../../components/tabs/tabs";
-import ListApartments from "./ListApartments/ListApartments";
+import ListApartments from "./ListApartments";
+import Users from "./users";
+import Messages from "./messages";
 
 const Manager = () => {
   return (
@@ -12,8 +13,8 @@ const Manager = () => {
         label2="הודעות"
         // label3="עדכון פרטים"
         Tab1={<ListApartments />}
-        Tab2="tab2"
-        Tab3="tab3"
+        Tab2={<Users />}
+        Tab3={<Messages />}
         Tab4="tab4"
       />
     </div>

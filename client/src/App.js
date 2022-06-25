@@ -2,7 +2,6 @@ import React, { useState, useEffect } from "react";
 import "./App.css";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import Home from "./pages/home/home";
-import Kesher from "./pages/kesher/kesher";
 import Bar from "./pages/bar/bar";
 import ApartmentShow from "./pages/apartmentShow/apartmentShow";
 import MyFavoritePage from "./pages/favorite/myFavorite-page/myFavorite-page";
@@ -35,20 +34,21 @@ function App() {
   };
 
   const [filter, setFilter] = useState({});
-  let [list, setList] = useState([]);
-  let [listIDForFavorite, setListIDForFavorite] = useState([]);
-  const [apiUserForFirebade, setApiUserForFirebade] = useState("");
+  const [list, setList] = useState([]);
+  const [listIDForFavorite, setListIDForFavorite] = useState([]);
+  const [apiUserForFirebase, setapiUserForFirebase] = useState("");
   const [userConnect, setUserConnect] = useState();
-  let [scrollTop, setScrollTop] = useState(true);
+  const [scrollTop, setScrollTop] = useState(true);
+  const [isManager, setIsManager] = useState(true);
 
   useEffect(() => {
     onAuthStateChanged(auth, (userForFirebase) => {
       if (userForFirebase) {
-        setApiUserForFirebade(userForFirebase);
+        setapiUserForFirebase(userForFirebase);
         setUserConnect(true);
       }
     });
-  }, [auth, apiUserForFirebade, userConnect]);
+  }, [auth, apiUserForFirebase, userConnect]);
 
   // useEffect(() => {
   //   axios.post(`/api/list/filter/`, filter).then((res) => {
@@ -86,6 +86,8 @@ function App() {
     setList: (value) => setList(value),
     listIDForFavorite: listIDForFavorite,
     setListIDForFavorite: (value) => setListIDForFavorite(value),
+    isManager: isManager,
+    setIsManager: (value) => setIsManager(value),
   };
 
   return (
@@ -108,7 +110,7 @@ function App() {
             </div>
           )}
           <Bar
-            apiUserForFirebade={apiUserForFirebade}
+            apiUserForFirebase={apiUserForFirebase}
             userConnect={userConnect}
             setUserConnect={setUserConnect}
           />
@@ -118,16 +120,12 @@ function App() {
                 <Home />
               </Route>
 
-              <Route path="/message/">
-                <Kesher />
-              </Route>
-
               <Route exact path="/login/">
                 <Login />
               </Route>
 
               <Route path="/login/:id">
-                <PersonalPage apiUserForFirebade={apiUserForFirebade} />
+                <PersonalPage apiUserForFirebase={apiUserForFirebase} />
               </Route>
 
               <Route path="/myfavorite/">

@@ -1,0 +1,30 @@
+
+ .special {
+  font-size: 1.8rem;
+  font-weight: 600;
+  padding: 2rem;
+  column-count: 4;
+}
+
+
+
+@media only screen and (max-width: 900px) {
+  .addApartment .special {
+    column-count: 3;
+  }
+}
+@media only screen and (max-width: 600px) {
+  .addApartment .special {
+    column-count: 1;
+  }
+  .addApartment #short {
+    width: 98%;
+    height: 10rem !important;
+  }
+  .addApartment #short .textarea {
+    height: 10rem !important;
+  }
+  .addApartment #long {
+    width: 98%;
+  }
+}

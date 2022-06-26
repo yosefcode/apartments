@@ -29,7 +29,17 @@
     font-size: 1.5rem;
     font-weight: 600;
     padding: 0.5rem 1rem;
+    background-color: rgb(255, 255, 255);
+    color: var(--black);
   }
+
+  #textarea {
+    padding: 1.2rem;
+    overflow: auto;
+    scroll-padding: 50px;
+    line-height: 2.5rem;
+  }
+
    .input:hover {
     border: var(--blue) 0.1vw solid;
   }
@@ -48,3 +58,10 @@
     font-weight: 400;
     height: 1rem;  
   }
+
+  [placeholder]:empty:before {
+    content: attr(placeholder);
+    color: rgb(133, 133, 133);
+    background-color: transparent;
+  }
+

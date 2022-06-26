@@ -11,6 +11,7 @@ export const Input = (props) => {
     width,
     content,
     value,
+    defaultValue,
   } = props;
 
   return (
@@ -23,6 +24,7 @@ export const Input = (props) => {
         name={name}
         onChange={onChange}
         value={value}
+        defaultValue={defaultValue}
       />
       {content}
       <div className="div_err_input">{formikErr}</div>
@@ -31,7 +33,8 @@ export const Input = (props) => {
 };
 
 export const Select = (props) => {
-  const { label, name, onChange, options, formikErr, width } = props;
+  const { label, name, onChange, options, formikErr, width, defaultValue } =
+    props;
 
   return (
     <div className="div_input" style={{ width: width }}>
@@ -42,12 +45,45 @@ export const Select = (props) => {
         id="width-select"
         name={name}
         onChange={onChange}
+        defaultValue={defaultValue}
       >
         <option value={""} disabled selected></option>
         {options.map((item) => (
           <option value={item.value}>{item.title}</option>
         ))}
       </select>
+      <div className="div_err_input">{formikErr}</div>
+    </div>
+  );
+};
+
+export const TextArea = (props) => {
+  const {
+    label,
+    onInput,
+    placeholder,
+    formikErr,
+    width,
+    defaultValue,
+    height,
+    content,
+  } = props;
+
+  return (
+    <div className="div_input" style={{ width: width }}>
+      <label className="label_input">{label}</label>
+
+      <div
+        className="input"
+        id="textarea"
+        style={{ height: height }}
+        onInput={onInput}
+        // defaultValue={defaultValue}
+        contentEditable
+        placeholder={placeholder}
+      >
+        {content}
+      </div>
       <div className="div_err_input">{formikErr}</div>
     </div>
   );

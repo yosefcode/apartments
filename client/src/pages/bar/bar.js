@@ -1,12 +1,15 @@
 import "./bar.css";
 import logo from "./logo.png";
-import { useEffect, useState } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import { getAuth, onAuthStateChanged, signOut } from "firebase/auth";
 import { Link } from "react-router-dom";
 import PowerSettingsNewIcon from "@mui/icons-material/PowerSettingsNew";
 import AccountCircleIcon from "@mui/icons-material/AccountCircle";
+import { AppContext } from "../../variable-Context";
 
-const Bar = ({ apiUserForFirebase, userConnect, setUserConnect }) => {
+const Bar = ({ apiUserForFirebase }) => {
+  const { userConnect, setUserConnect } = useContext(AppContext);
+
   const auth = getAuth();
   const [modal, setModal] = useState(false);
 
@@ -14,7 +17,7 @@ const Bar = ({ apiUserForFirebase, userConnect, setUserConnect }) => {
     signOut(auth)
       .then(() => {})
       .catch((error) => {});
-    setUserConnect(false);
+    setUserConnect([]);
     window.location.href = "/login/";
   };
 
@@ -30,7 +33,7 @@ const Bar = ({ apiUserForFirebase, userConnect, setUserConnect }) => {
         <a href="/manager">
           <button>כניסת מנהל</button>
         </a>
-        {userConnect === true ? (
+        {userConnect ? (
           <div className="divConnect" onClick={() => setModal(true)}>
             <AccountCircleIcon
               style={{
@@ -39,7 +42,7 @@ const Bar = ({ apiUserForFirebase, userConnect, setUserConnect }) => {
                 color: "black",
               }}
             />{" "}
-            היי, {apiUserForFirebase.displayName}{" "}
+            היי, {userConnect.nameUser}{" "}
           </div>
         ) : (
           <Link className="link" to={"/login/"}>

@@ -3,9 +3,48 @@ import CancelIcon from "@mui/icons-material/Cancel";
 import { useState, useEffect } from "react";
 import Resizer from "react-image-file-resizer";
 
-function AddImages({ id, setApartment, apartment, base64, setBase64, formik }) {
+function AddImages({
+  id,
+  setApartment,
+  apartment,
+  base64,
+  setBase64,
+  formik,
+  imgForEdit,
+  setImgForEdit,
+}) {
   const [modal, setModal] = useState(false);
   const [IMG_modal, setIMG_modal] = useState();
+
+  const imgView = (images, state, setState) => {
+    return images?.map((img, index) => (
+      <div className="img_add" key={index}>
+        <CancelIcon
+          className="delete_img"
+          style={{
+            fontSize: "3rem",
+            color: "white",
+            backgroundColor: "red",
+            borderRadius: "50%",
+          }}
+          onClick={() => {
+            let filter = state.filter((e) => e !== img);
+            setState(filter);
+          }}
+        />
+
+        <img
+          src={img}
+          alt=""
+          className="img"
+          onClick={() => {
+            setModal(true);
+            setIMG_modal(img);
+          }}
+        />
+      </div>
+    ));
+  };
 
   useEffect(() => {
     setApartment({
@@ -52,28 +91,8 @@ function AddImages({ id, setApartment, apartment, base64, setBase64, formik }) {
       </div>
 
       <div className="div_add_img">
-        {base64.map((img, index) => (
-          <div className="img_add" key={index}>
-            <CancelIcon
-              className="delete_img"
-              style={{ fontSize: "3rem" }}
-              onClick={() => {
-                let filter = base64.filter((e) => e !== img);
-                setBase64(filter);
-              }}
-            />
-
-            <img
-              src={img}
-              alt=""
-              className="img"
-              onClick={() => {
-                setModal(true);
-                setIMG_modal(img);
-              }}
-            />
-          </div>
-        ))}
+        {imgView(imgForEdit, imgForEdit, setImgForEdit)}
+        {imgView(base64, base64, setBase64)}
       </div>
       <div className="div_err_addApartment">{formik.errors.images}</div>
 
@@ -86,7 +105,12 @@ function AddImages({ id, setApartment, apartment, base64, setBase64, formik }) {
         >
           <CancelIcon
             className="close_modal"
-            style={{ fontSize: "3rem" }}
+            style={{
+              fontSize: "3rem",
+              color: "white",
+              backgroundColor: "red",
+              borderRadius: "50%",
+            }}
             onClick={() => {
               setModal(false);
             }}

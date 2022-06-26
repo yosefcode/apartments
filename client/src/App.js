@@ -9,7 +9,7 @@ import PersonalPage from "./pages/personalPage/personalPage";
 import Login from "./pages/login/login";
 import Manager from "./pages/manager/manager";
 import { AppContext } from "./variable-Context";
-import axios from "axios";
+import { PostToServer } from "./components/getData";
 import { initializeApp } from "firebase/app";
 import DoubleArrowIcon from "@mui/icons-material/DoubleArrow";
 import { getAuth, onAuthStateChanged, signOut } from "firebase/auth";
@@ -37,7 +37,7 @@ function App() {
   const [list, setList] = useState([]);
   const [listIDForFavorite, setListIDForFavorite] = useState([]);
   const [apiUserForFirebase, setapiUserForFirebase] = useState("");
-  const [userConnect, setUserConnect] = useState();
+  const [userConnect, setUserConnect] = useState([]);
   const [scrollTop, setScrollTop] = useState(true);
   const [isManager, setIsManager] = useState(true);
 
@@ -45,10 +45,14 @@ function App() {
     onAuthStateChanged(auth, (userForFirebase) => {
       if (userForFirebase) {
         setapiUserForFirebase(userForFirebase);
-        setUserConnect(true);
+        PostToServer(
+          `/api/userConnected/${userForFirebase.uid}`,
+          setUserConnect
+        );
       }
     });
-  }, [auth, apiUserForFirebase, userConnect]);
+  }, [auth, apiUserForFirebase]);
+  console.log(userConnect[0]);
 
   // useEffect(() => {
   //   axios.post(`/api/list/filter/`, filter).then((res) => {
@@ -88,6 +92,8 @@ function App() {
     setListIDForFavorite: (value) => setListIDForFavorite(value),
     isManager: isManager,
     setIsManager: (value) => setIsManager(value),
+    userConnect: userConnect[0],
+    setUserConnect: (value) => setUserConnect(value),
   };
 
   return (
@@ -109,11 +115,7 @@ function App() {
               />
             </div>
           )}
-          <Bar
-            apiUserForFirebase={apiUserForFirebase}
-            userConnect={userConnect}
-            setUserConnect={setUserConnect}
-          />
+          <Bar apiUserForFirebase={apiUserForFirebase} />
           <div className="container">
             <Switch>
               <Route exact path="/">

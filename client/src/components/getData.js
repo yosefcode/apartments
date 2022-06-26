@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import axios from "axios";
 import SpinningCircles from "./loadingSpinning";
 
-const PostToServer = ({ url, data, content, render }) => {
+const PostToServerLoading = ({ url, data, content, render }) => {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
@@ -22,9 +22,9 @@ const PostToServer = ({ url, data, content, render }) => {
   );
 };
 
-export default PostToServer;
+export default PostToServerLoading;
 
-export const GetData = ({ url, data, content, render }) => {
+export const GetDataLoading = ({ url, data, content, render }) => {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
@@ -41,6 +41,28 @@ export const GetData = ({ url, data, content, render }) => {
 
   return (
     <div className="myApartment">{loading ? <SpinningCircles /> : content}</div>
+  );
+};
+
+export const GetData = async (url, data) => {
+  axios.get(url).then(
+    (res) => {
+      data(res.data);
+    },
+    (err) => {
+      console.log(err);
+    }
+  );
+};
+
+export const PostToServer = async (url, data) => {
+  axios.post(url).then(
+    (res) => {
+      data(res.data);
+    },
+    (err) => {
+      console.log(err);
+    }
   );
 };
 

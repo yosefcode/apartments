@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import Table from "../../components/table/table";
-import { GetData } from "../../components/getData";
+import { GetDataLoading } from "../../components/getData";
 import CancelIcon from "@mui/icons-material/Cancel";
 import CheckCircleIcon from "@mui/icons-material/CheckCircle";
 
@@ -41,7 +41,7 @@ function Users() {
 
   return (
     <div>
-      <GetData
+      <GetDataLoading
         url="/api/listUsers/"
         data={setUsers}
         content={

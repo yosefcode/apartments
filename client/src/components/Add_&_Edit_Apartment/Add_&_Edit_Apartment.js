@@ -1,24 +1,31 @@
 import "./Add_&_Edit_Apartment.scss";
 import axios from "axios";
-import { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import DetailsApartment from "./detailsApartment/detailsApartment";
 import Contact from "./contact/contact";
 import Images from "./images/images";
-import SpecialApartment from "./‏specialApartment/‏specialApartment";
+import SpecialApartment from "./Description/Description";
 import * as Yup from "yup";
 import { useFormik } from "formik";
 import { parsePhoneNumberFromString } from "libphonenumber-js";
 import { SpinningCircles } from "react-loading-icons";
 import CancelIcon from "@mui/icons-material/Cancel";
 import { CountdownCircleTimer } from "react-countdown-circle-timer";
+import { AppContext } from "../../variable-Context";
+import LoadingSpinning from "../loadingSpinning";
 
-function AddApartment({ id, apiUserForFirebase }) {
+function AddApartment({ id, itemForEdit, setIsOpenModal }) {
+  const { userConnect } = useContext(AppContext);
   const [valueCity, setValueCity] = useState("");
   const [valueStreet, setValueStreet] = useState("");
   const [isLoading, setIsLoading] = useState(false);
   const [base64, setBase64] = useState([]);
   const [msgmodal, setMsgmodal] = useState(false);
   const [textMsgmodal, setTextMsgmodal] = useState(false);
+  const [imgForEdit, setImgForEdit] = useState(itemForEdit?.images);
+
+  console.log(imgForEdit);
+  console.log(base64);
 
   const renderTime = ({ remainingTime }) => {
     if (remainingTime === 0) {
@@ -39,21 +46,23 @@ function AddApartment({ id, apiUserForFirebase }) {
   };
 
   const [apartment, setApartment] = useState({
-    nameApartment: "",
-    area: "",
-    city: "",
-    rooms: "",
-    beds: "",
-    priceMethod: "",
-    price: "",
-    short: "",
-    long: "",
-    special: [],
-    times: [],
-    images: [],
-    name: "",
-    mail: "",
-    phone: "",
+    uidFirebase: id,
+    show: 0,
+    nameApartment: itemForEdit ? itemForEdit.nameApartment : "",
+    area: itemForEdit ? itemForEdit.area : "",
+    city: itemForEdit ? itemForEdit.city : "",
+    rooms: itemForEdit ? itemForEdit.rooms : "",
+    beds: itemForEdit ? itemForEdit.beds : "",
+    priceMethod: itemForEdit ? itemForEdit.priceMethod : "",
+    price: itemForEdit ? itemForEdit.price : "",
+    short: itemForEdit ? itemForEdit.short : "",
+    long: itemForEdit ? itemForEdit.long : "",
+    special: itemForEdit ? itemForEdit.special : [],
+    times: itemForEdit ? itemForEdit.times : [],
+    images: itemForEdit ? itemForEdit.images : [],
+    name: itemForEdit ? itemForEdit.name : userConnect?.nameUser,
+    mail: itemForEdit ? itemForEdit.mail : userConnect?.mailUser,
+    phone: itemForEdit ? itemForEdit.phone : userConnect?.phoneUser,
   });
   // console.log(apartment);
 
@@ -113,7 +122,7 @@ function AddApartment({ id, apiUserForFirebase }) {
     }),
     onSubmit: (values) => {
       console.log(values);
-      // addApartment();
+      addApartment();
     },
   });
 
@@ -143,25 +152,27 @@ function AddApartment({ id, apiUserForFirebase }) {
     } catch (err) {
       console.log(err);
     }
-    axios
-      .post("/api/addApartment/", { ...apartment, images: urlImages })
-      .then((res) => {
-        if (res.status !== 200 || !res.data.uidFirebase) {
-          setMsgmodal(true);
-          setIsLoading(false);
-        } else {
-          setTextMsgmodal(true);
-          setMsgmodal(true);
-          setIsLoading(false);
-        }
-      });
+    // axios
+    //   .post("/api/addApartment/", { ...apartment, images: urlImages })
+    //   .then((res) => {
+    //     if (res.status !== 200 || !res.data.uidFirebase) {
+    //       setMsgmodal(true);
+    //       setIsLoading(false);
+    //     } else {
+    //       setBase64([]);
+    //       setTextMsgmodal(true);
+    //       setMsgmodal(true);
+    //       setIsLoading(false);
+    //     }
+    //   });
+    console.log({ ...apartment, images: [...urlImages, ...imgForEdit] });
   };
 
   const onchange = (e) => {
     setApartment({
       ...apartment,
-      uidFirebase: id,
-      show: 0,
+      // uidFirebase: id,
+      // show: 0,
       [e.target.name]: e.target.value,
     });
   };
@@ -180,7 +191,6 @@ function AddApartment({ id, apiUserForFirebase }) {
         <form onSubmit={formik.handleSubmit}>
           <div class="tabs">
             <div class="tab">
-              {/* <input type="checkbox" id="chck1" className="input-checkbox" /> */}
               <label class="tab-label" for="chck1">
                 פרטי הדירה{" "}
               </label>
@@ -192,12 +202,12 @@ function AddApartment({ id, apiUserForFirebase }) {
                   valueCity={valueCity}
                   formik={formik}
                   onchange={onchange}
+                  itemForEdit={itemForEdit}
                 />{" "}
               </div>
             </div>
 
             <div class="tab">
-              {/* <input type="checkbox" id="chck2" className="input-checkbox" /> */}
               <label class="tab-label" for="chck2">
                 תיאור{" "}
               </label>
@@ -207,12 +217,12 @@ function AddApartment({ id, apiUserForFirebase }) {
                   setApartment={setApartment}
                   formik={formik}
                   onchange={onchange}
+                  itemForEdit={itemForEdit}
                 />{" "}
               </div>
             </div>
 
             <div class="tab">
-              {/* <input type="checkbox" id="chck3" className="input-checkbox" /> */}
               <label class="tab-label" for="chck3">
                 הוספת תמונות{" "}
               </label>
@@ -224,12 +234,14 @@ function AddApartment({ id, apiUserForFirebase }) {
                   base64={base64}
                   setBase64={setBase64}
                   formik={formik}
+                  itemForEdit={itemForEdit}
+                  imgForEdit={imgForEdit}
+                  setImgForEdit={setImgForEdit}
                 />{" "}
               </div>
             </div>
 
             <div class="tab">
-              {/* <input type="checkbox" id="chck4" className="input-checkbox" /> */}
               <label class="tab-label" for="chck4">
                 פרטי איש קשר{" "}
               </label>
@@ -239,36 +251,27 @@ function AddApartment({ id, apiUserForFirebase }) {
                   setApartment={setApartment}
                   formik={formik}
                   onchange={onchange}
-                  apiUserForFirebase={apiUserForFirebase}
+                  itemForEdit={itemForEdit}
                 />{" "}
               </div>
             </div>
-
-            {/* <div class="tab">
-            <input type="checkbox" id="chck5" className="input-checkbox" />
-            <label class="tab-label" for="chck5">
-              אישור וסיום{" "}
-            </label>
-          </div> */}
           </div>
           <div class="tab-content">
             <button type="submit" className="btn_send">
-              פרסם דירה
+              {itemForEdit ? "שמור שינויים" : "פרסם דירה"}
             </button>
+            {itemForEdit ? (
+              <button
+                className="btn_send"
+                onClick={() => setIsOpenModal(false)}
+              >
+                ביטול
+              </button>
+            ) : null}
           </div>
         </form>
       ) : isLoading ? (
-        <div className="loading">
-          <SpinningCircles
-            height="4em"
-            width="4em"
-            fill="rgb(28, 2, 99)"
-            stroke="rgb(28, 2, 99)"
-            strokeOpacity={1}
-            fillOpacity={1}
-            speed={1}
-          />
-        </div>
+        <LoadingSpinning />
       ) : msgmodal ? (
         <div className="msgmodal">
           <div className="timer-wrapper">

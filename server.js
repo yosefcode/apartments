@@ -67,3 +67,4 @@ app.post("/api/addApartment/", addApartment.addApartment);
 
 app.post("/api/addUser/", users.addUser);
 app.get("/api/listUsers/", users.listUsers);
+app.post("/api/userConnected/:id", users.userConnected);

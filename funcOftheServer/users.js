@@ -31,3 +31,15 @@ exports.listUsers = async (req, res) => {
     res.status(500).send(err);
   }
 };
+
+exports.userConnected = async (req, res) => {
+  const userId = req.params.id;
+  const userConnected = await models.usersSchema.find({
+    uidFirebase: userId,
+  });
+  try {
+    res.send(userConnected);
+  } catch (err) {
+    res.status(500).send(err);
+  }
+};

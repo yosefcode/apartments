@@ -10,6 +10,7 @@ function DetailsApartment({
   valueCity,
   formik,
   onchange,
+  itemForEdit,
 }) {
   const [listCity, setListCity] = useState([]);
   const [listStreet, setListStreet] = useState([]);
@@ -135,6 +136,7 @@ function DetailsApartment({
         onChange={onchange}
         formikErr={formik.errors.nameApartment}
         width={"23%"}
+        defaultValue={itemForEdit ? itemForEdit.nameApartment : ""}
       />
 
       <Select
@@ -144,6 +146,7 @@ function DetailsApartment({
         formikErr={formik.errors.area}
         options={area}
         width={"23%"}
+        defaultValue={itemForEdit ? itemForEdit.area : ""}
       />
 
       <Input
@@ -159,6 +162,7 @@ function DetailsApartment({
         formikErr={formik.errors.city}
         width={"23%"}
         value={valueCity}
+        defaultValue={itemForEdit ? itemForEdit.city : ""}
         content={
           listCityOptions && (
             <div className="div_list_city">
@@ -215,6 +219,7 @@ function DetailsApartment({
         label={"מס' חדרים"}
         name={"rooms"}
         onChange={onchange}
+        defaultValue={itemForEdit ? itemForEdit.rooms : ""}
         formikErr={formik.errors.rooms}
         width={"23%"}
       />
@@ -223,6 +228,7 @@ function DetailsApartment({
         label={"מס' מיטות"}
         name={"beds"}
         onChange={onchange}
+        defaultValue={itemForEdit ? itemForEdit.beds : ""}
         formikErr={formik.errors.beds}
         width={"23%"}
       />
@@ -231,6 +237,7 @@ function DetailsApartment({
         label={"תמחור לפי"}
         name={"priceMethod"}
         onChange={onchange}
+        defaultValue={itemForEdit ? itemForEdit.priceMethod : ""}
         formikErr={formik.errors.priceMethod}
         options={priceMethod}
         width={"23%"}
@@ -240,6 +247,7 @@ function DetailsApartment({
         label={"מחיר"}
         name={"price"}
         onChange={onchange}
+        defaultValue={itemForEdit ? itemForEdit.price : ""}
         formikErr={formik.errors.price}
         width={"23%"}
       />

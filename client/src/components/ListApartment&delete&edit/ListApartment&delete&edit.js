@@ -1,21 +1,23 @@
 import "./ListApartment&delete&edit.css";
 import Accordion from "../Accordion";
-import react, { useState } from "react";
-import PostToServer from "../getData";
+import React, { useState, useContext } from "react";
+import PostToServerLoading from "../getData";
 import RmoveApartment from "./removeApartment";
 import HoldApartment from "./holdApartment";
 import InfoApartment from "./infoApartment";
+import EditApartment from "./editApartment";
 
-const itemApartment = ({ url }) => {
-  const [apartments, setApartments] = react.useState([]);
-  const [render, setRender] = react.useState(false);
-  const [modalEdit, setModalEdit] = react.useState(false);
+const ItemApartment = ({ url }) => {
+  const [apartments, setApartments] = useState([]);
+  const [render, setRender] = useState(false);
+  const [isOpenModal, setIsOpenModal] = useState(false);
+  const [itemForEdit, setItemForEdit] = useState({});
 
   // console.log(apartments);
 
-  return (
+  return !isOpenModal ? (
     <div className="myApartment">
-      <PostToServer
+      <PostToServerLoading
         render={render}
         url={url}
         data={setApartments}
@@ -53,26 +55,19 @@ const itemApartment = ({ url }) => {
               }
               box={
                 <div>
-                  <InfoApartment
-                    item={item}
-                    modalEdit={modalEdit}
-                    setModalEdit={setModalEdit}
-                  />
+                  <InfoApartment item={item} />
 
                   <div className="btnsbottom">
                     <div className="div_btn">
                       <button
                         className="btn"
                         onClick={() => {
-                          if (modalEdit) {
-                            setModalEdit(false);
-                          } else {
-                            setModalEdit(true);
-                          }
+                          setItemForEdit(item);
+                          setIsOpenModal(true);
                         }}
                       >
-                        {modalEdit ? "בטל עריכה" : "ערוך מודעה"}
-                      </button>{" "}
+                        ערוך מודעה
+                      </button>
                     </div>
 
                     {/* <EditApartment
@@ -110,6 +105,8 @@ const itemApartment = ({ url }) => {
           ))}
       />
     </div>
+  ) : (
+    <EditApartment itemForEdit={itemForEdit} setIsOpenModal={setIsOpenModal} />
   );
 };
-export default itemApartment;
+export default ItemApartment;

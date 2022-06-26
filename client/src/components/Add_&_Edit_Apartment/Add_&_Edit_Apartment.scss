@@ -57,12 +57,32 @@ $clouds: #000000;
   }
 
 }
-// .div_err_addApartment{
-//   color: #db0000;
-//   font-size: 1.5rem;
-//   font-weight: 400;
-//   height: 1rem;
-// }
+
+ .msgmodal {
+  margin-top: 12vh;
+  padding: 3vw 6vw;
+  font-size: 2rem;
+  font-weight: 700;
+  line-height: 3rem;
+  position: relative;
+  text-align: center;
+  color: var(--blue);
+}
+
+ .timer-wrapper {
+  position: absolute;
+  top: -4rem;
+  width: calc(100% - 12vw);
+  cursor: pointer;
+}
+
+ .timer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
 
 
 

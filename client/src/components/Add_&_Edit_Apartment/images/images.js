@@ -102,25 +102,24 @@ function AddImages({
             setModal(false);
           }}
         >
-          <CancelIcon
-            className="close_modal"
-            style={{
-              fontSize: "3rem",
-              color: "white",
-              backgroundColor: "red",
-              borderRadius: "50%",
-            }}
-            onClick={() => {
-              setModal(false);
-            }}
-          />
-
           <div
             className="img_modal"
             onClick={(e) => {
               e.stopPropagation();
             }}
           >
+            <CancelIcon
+              className="close_modal"
+              style={{
+                fontSize: "3rem",
+                color: "white",
+                backgroundColor: "red",
+                borderRadius: "50%",
+              }}
+              onClick={() => {
+                setModal(false);
+              }}
+            />
             <img src={IMG_modal} alt="" className="img" />
           </div>
         </div>

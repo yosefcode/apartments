@@ -1,4 +1,4 @@
-import "./Input.css";
+import "./Input_select_button.css";
 
 export const Input = (props) => {
   const {
@@ -32,20 +32,67 @@ export const Input = (props) => {
   );
 };
 
+export const Button = (props) => {
+  const { title, padding, onClick, borderRadius, type } = props;
+
+  return (
+    <button
+      className="btn_component"
+      style={{ padding: padding, borderRadius: borderRadius }}
+      onClick={onClick}
+      type={type}
+    >
+      {title}
+    </button>
+  );
+};
+
+export const Checkbox = (props) => {
+  const { name, onChange, label, checked } = props;
+
+  return (
+    <div className="checkbox">
+      <input
+        type="checkbox"
+        name={name}
+        onChange={onChange}
+        checked={checked}
+      />
+      <label>{label}</label>
+    </div>
+  );
+};
+
 export const Select = (props) => {
-  const { label, name, onChange, options, formikErr, width, defaultValue } =
-    props;
+  const {
+    label,
+    name,
+    onChange,
+    options,
+    formikErr,
+    width,
+    defaultValue,
+    disabledSelect,
+    value,
+  } = props;
 
   return (
     <div className="div_input" style={{ width: width }}>
-      <label className="label_input">{label}</label>
+      <label
+        className="label_input"
+        id={disabledSelect ? "disabledSelect" : ""}
+      >
+        {label}
+      </label>
 
       <select
+        disabled={disabledSelect}
         className="input"
         id="width-select"
         name={name}
         onChange={onChange}
         defaultValue={defaultValue}
+        value={value}
       >
         <option value={""} disabled selected></option>
         {options.map((item) => (
@@ -58,16 +105,8 @@ export const Select = (props) => {
 };
 
 export const TextArea = (props) => {
-  const {
-    label,
-    onInput,
-    placeholder,
-    formikErr,
-    width,
-    defaultValue,
-    height,
-    content,
-  } = props;
+  const { label, onInput, placeholder, formikErr, width, height, content } =
+    props;
 
   return (
     <div className="div_input" style={{ width: width }}>
@@ -78,7 +117,6 @@ export const TextArea = (props) => {
         id="textarea"
         style={{ height: height }}
         onInput={onInput}
-        // defaultValue={defaultValue}
         contentEditable
         placeholder={placeholder}
       >

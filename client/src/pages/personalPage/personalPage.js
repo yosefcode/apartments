@@ -1,7 +1,7 @@
 import Tabs from "../../components/tabs/tabs";
 import MyApartments from "./myApartment";
 import MyMessages from "./myMessages";
-import MyDetails from "./myDetails/myDetails";
+import MyDetails from "../../components/myDetails/myDetails";
 import AddApartment from "../../components/Add_&_Edit_Apartment/Add_&_Edit_Apartment";
 
 function PersonalPage() {

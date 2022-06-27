@@ -1,6 +1,6 @@
 import "./contact.css";
 import { parsePhoneNumber } from "libphonenumber-js";
-import { Input } from "../../Input/Input";
+import { Input } from "../../Input_select_button/Input_select_button";
 import React, { useContext } from "react";
 import { AppContext } from "../../../variable-Context";
 

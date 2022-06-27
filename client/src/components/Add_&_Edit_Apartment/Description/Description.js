@@ -1,6 +1,6 @@
 import "./Description.css";
 import { useState, useEffect } from "react";
-import { TextArea } from "../../Input/Input";
+import { TextArea } from "../../Input_select_button/Input_select_button";
 
 function SpecialApartment({ setApartment, apartment, formik, itemForEdit }) {
   const [special, setSpecial] = useState(

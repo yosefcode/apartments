@@ -19,6 +19,10 @@
     display: flex;
     justify-content: center;
     align-items: baseline;
+    z-index: 10;
+  }
+  #disabledSelect{
+    color: var(--blue-lite);
   }
 
    .input {
@@ -65,3 +69,42 @@
     background-color: transparent;
   }
 
+  .btn_component{
+    font-weight: 700;
+    border: var(--blue) 0.1vw solid;
+    font-size: 2rem;
+    color: var(--white);
+    padding: 0.5rem 1rem;
+    background-color: var(--blue);
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 2rem auto;
+  }
+
+  .btn_component:hover {
+    background: rgb(28, 2, 99, 20%);
+    color: var(--blue);
+  }
+
+  .checkbox{
+    position: relative;
+        width: 100%;
+        margin: 1.5rem 0;
+        display: flex;
+        flex-direction: row;
+        align-items: center
+    }
+
+    .checkbox label{
+      color: rgb(85, 85, 85);
+      font-weight: 700;
+      font-size: 1.6rem;
+    margin-right: 1rem;
+      display: flex;
+      flex-direction: row;
+      align-items: flex-end
+  
+  }

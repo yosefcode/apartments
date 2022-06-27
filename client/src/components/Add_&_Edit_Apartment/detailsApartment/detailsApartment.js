@@ -1,7 +1,7 @@
 import "./detailsApartment.css";
 import axios from "axios";
 import { useState, useEffect } from "react";
-import { Input, Select } from "../../Input/Input";
+import { Input, Select } from "../../Input_select_button/Input_select_button";
 
 function DetailsApartment({
   setValueCity,

@@ -11,7 +11,7 @@ body {
   --white: rgb(255, 255, 255);
   --black: rgb(0, 0, 0);
   --yelow: #c3c08b;
-  --orange: #c88977;
+  --orange: rgb(255, 204, 174);
   --purple: rgb(214, 174, 255);
 }
 html {

@@ -13,6 +13,7 @@ import LoadingSpinning from "../loadingSpinning";
 import axios from "axios";
 import { PutToServer } from "../getData";
 import { parsePhoneNumberFromString } from "libphonenumber-js";
+import { Button } from "../Input_select_button/Input_select_button";
 
 function AddApartment({ itemForEdit, setIsOpenModal }) {
   const { userConnect, uidFirebase } = useContext(AppContext);
@@ -256,7 +257,7 @@ function AddApartment({ itemForEdit, setIsOpenModal }) {
 
             <div class="tab">
               <label class="tab-label" for="chck4">
-                פרטי איש קשר{" "}
+                פרטי יצירת קשר{" "}
               </label>
               <div class="tab-content">
                 <Contact
@@ -269,17 +270,20 @@ function AddApartment({ itemForEdit, setIsOpenModal }) {
               </div>
             </div>
           </div>
-          <div class="tab-content">
-            <button type="submit" className="btn_send">
-              {itemForEdit ? "שמור שינויים" : "פרסם דירה"}
-            </button>
+          <div class="div_btns">
+            <Button
+              title={itemForEdit ? "שמור שינויים" : "פרסם דירה"}
+              padding={"0.5rem 1.5rem"}
+              borderRadius={"10px"}
+              type={"submit"}
+            />
             {itemForEdit ? (
-              <button
-                className="btn_send"
+              <Button
+                title={"בטל שינויים"}
+                padding={"0.5rem 1.5rem"}
+                borderRadius={"10px"}
                 onClick={() => setIsOpenModal(false)}
-              >
-                ביטול
-              </button>
+              />
             ) : null}
           </div>
         </form>

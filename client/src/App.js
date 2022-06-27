@@ -36,23 +36,23 @@ function App() {
   const [filter, setFilter] = useState({});
   const [list, setList] = useState([]);
   const [listIDForFavorite, setListIDForFavorite] = useState([]);
-  const [apiUserForFirebase, setapiUserForFirebase] = useState("");
+  const [uidFirebase, setUidFirebase] = useState("");
   const [userConnect, setUserConnect] = useState([]);
   const [scrollTop, setScrollTop] = useState(true);
   const [isManager, setIsManager] = useState(true);
+  console.log(uidFirebase);
 
   useEffect(() => {
     onAuthStateChanged(auth, (userForFirebase) => {
       if (userForFirebase) {
-        setapiUserForFirebase(userForFirebase);
+        setUidFirebase(userForFirebase.uid);
         PostToServer(
           `/api/userConnected/${userForFirebase.uid}`,
           setUserConnect
         );
       }
     });
-  }, [auth, apiUserForFirebase]);
-  console.log(userConnect[0]);
+  }, [auth, uidFirebase]);
 
   // useEffect(() => {
   //   axios.post(`/api/list/filter/`, filter).then((res) => {
@@ -94,6 +94,7 @@ function App() {
     setIsManager: (value) => setIsManager(value),
     userConnect: userConnect[0],
     setUserConnect: (value) => setUserConnect(value),
+    uidFirebase: uidFirebase,
   };
 
   return (
@@ -115,7 +116,7 @@ function App() {
               />
             </div>
           )}
-          <Bar apiUserForFirebase={apiUserForFirebase} />
+          <Bar />
           <div className="container">
             <Switch>
               <Route exact path="/">
@@ -127,7 +128,7 @@ function App() {
               </Route>
 
               <Route path="/login/:id">
-                <PersonalPage apiUserForFirebase={apiUserForFirebase} />
+                <PersonalPage />
               </Route>
 
               <Route path="/myfavorite/">

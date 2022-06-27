@@ -1,9 +1,11 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import Table from "../../components/table/table";
 import PostToServerLoading from "../../components/getData";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
+import { AppContext } from "../../variable-Context";
 
-function MyMessages({ id }) {
+function MyMessages() {
+  const { uidFirebase } = useContext(AppContext);
   const [messages, setMessages] = useState([]);
   const [sortDate, setSortDate] = useState(false);
 
@@ -30,7 +32,7 @@ function MyMessages({ id }) {
   return (
     <div>
       <PostToServerLoading
-        url={"/api/messages/" + id}
+        url={`/api/messages/${uidFirebase}`}
         data={setMessages}
         content={
           messages.length > 0 ? (

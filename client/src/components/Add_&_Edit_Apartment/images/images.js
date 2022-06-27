@@ -4,7 +4,6 @@ import { useState, useEffect } from "react";
 import Resizer from "react-image-file-resizer";
 
 function AddImages({
-  id,
   setApartment,
   apartment,
   base64,

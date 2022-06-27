@@ -70,21 +70,9 @@ const ItemApartment = ({ url }) => {
                       </button>
                     </div>
 
-                    {/* <EditApartment
-                item={item}
-                id={item._id}
-                setStatus={setStatus}
-                status={status}
-                setModalHold={setModalHold}
-                modalRemove={modalRemove}
-                setModalRemove={setModalRemove}
-                modalEdit={modalEdit}
-                setModalEdit={setModalEdit}
-              /> */}
-
                     <div className="div_btn">
                       <RmoveApartment
-                        id={item._id}
+                        idForApartment={item._id}
                         render={render}
                         setRender={setRender}
                       />{" "}
@@ -92,7 +80,7 @@ const ItemApartment = ({ url }) => {
 
                     <div className="div_btn">
                       <HoldApartment
-                        id={item._id}
+                        idForApartment={item._id}
                         show={item.show}
                         render={render}
                         setRender={setRender}

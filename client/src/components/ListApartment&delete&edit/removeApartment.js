@@ -2,11 +2,11 @@ import React, { useState } from "react";
 import Modal from "../Modal";
 import { DeleteToServer } from "../getData";
 
-const RmoveApartment = ({ id, render, setRender }) => {
+const RmoveApartment = ({ idForApartment, render, setRender }) => {
   const [isOpenModal, setIsOpenModal] = useState(false);
 
   const rmoveApartment = () => {
-    DeleteToServer("/api/deleteApartment/" + id).then();
+    DeleteToServer(`/api/deleteApartment/${idForApartment}`);
     setRender(!render);
   };
 

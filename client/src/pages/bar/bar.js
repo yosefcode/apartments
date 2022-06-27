@@ -7,8 +7,8 @@ import PowerSettingsNewIcon from "@mui/icons-material/PowerSettingsNew";
 import AccountCircleIcon from "@mui/icons-material/AccountCircle";
 import { AppContext } from "../../variable-Context";
 
-const Bar = ({ apiUserForFirebase }) => {
-  const { userConnect, setUserConnect } = useContext(AppContext);
+const Bar = () => {
+  const { userConnect, setUserConnect, uidFirebase } = useContext(AppContext);
 
   const auth = getAuth();
   const [modal, setModal] = useState(false);
@@ -63,7 +63,7 @@ const Bar = ({ apiUserForFirebase }) => {
       {modal && (
         <div className="div_modal" onClick={() => setModal(false)}>
           <div className="allConnect">
-            <Link className="link" to={"/login/" + apiUserForFirebase.uid}>
+            <Link className="link" to={`/login/${uidFirebase}`}>
               <div className="divConnect_modal">
                 <PowerSettingsNewIcon
                   className="iconEnter"

@@ -2,9 +2,11 @@ import "./Description.css";
 import { useState, useEffect } from "react";
 import { TextArea } from "../../Input/Input";
 
-function SpecialApartment({ setApartment, apartment, formik }) {
-  const [special, setSpecial] = useState([]);
-  const [time, setTime] = useState([]);
+function SpecialApartment({ setApartment, apartment, formik, itemForEdit }) {
+  const [special, setSpecial] = useState(
+    itemForEdit ? itemForEdit?.special : []
+  );
+  const [time, setTime] = useState(itemForEdit ? itemForEdit?.times : []);
 
   const specials = [
     "פינות ישיבה בחצר",
@@ -36,10 +38,10 @@ function SpecialApartment({ setApartment, apartment, formik }) {
   ];
 
   const times = [
-    { time: `שבתות / סופ"ש`, value: 1 },
-    { time: "חגים", value: 2 },
-    { time: "בין הזמנים", value: 3 },
-    { time: `כל השנה`, value: 4 },
+    { time: `שבתות / סופ"ש`, value: "1" },
+    { time: "חגים", value: "2" },
+    { time: "בין הזמנים", value: "3" },
+    { time: `כל השנה`, value: "4" },
   ];
   return (
     <div className="div-all-input">
@@ -55,6 +57,7 @@ function SpecialApartment({ setApartment, apartment, formik }) {
         formikErr={formik.errors.short}
         width={"33%"}
         height={"14rem"}
+        content={itemForEdit ? itemForEdit.short : ""}
       />
 
       <TextArea
@@ -69,6 +72,7 @@ function SpecialApartment({ setApartment, apartment, formik }) {
         formikErr={formik.errors.long}
         width={"60%"}
         height={"14rem"}
+        content={itemForEdit ? itemForEdit.long : ""}
       />
 
       <TextArea
@@ -83,6 +87,9 @@ function SpecialApartment({ setApartment, apartment, formik }) {
                 <input
                   type="checkbox"
                   value={specials}
+                  checked={special
+                    ?.map((special) => special)
+                    .includes(specials)}
                   onChange={(event) => {
                     let test = special.find((e) => e === event.target.value);
                     if (!test) {
@@ -122,6 +129,7 @@ function SpecialApartment({ setApartment, apartment, formik }) {
                 <input
                   type="checkbox"
                   value={times.value}
+                  checked={time?.map((time) => time).includes(times.value)}
                   onChange={(event) => {
                     let test = time.find((e) => e === event.target.value);
                     if (!test) {

@@ -1,4 +1,3 @@
-import "./manager.css";
 import Tabs from "../../components/tabs/tabs";
 import ListApartments from "./ListApartments";
 import Users from "./users";

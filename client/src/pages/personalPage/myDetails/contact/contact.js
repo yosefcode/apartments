@@ -2,13 +2,7 @@ import "./contact.css";
 import { parsePhoneNumber } from "libphonenumber-js";
 import { useState, useEffect } from "react";
 
-function Contact({
-  setDetailsUser,
-  detailsUser,
-  formik,
-  onchange,
-  apiUserForFirebase,
-}) {
+function Contact({ setDetailsUser, detailsUser, formik, onchange }) {
   const onChangeChekbox = (e) => {
     setDetailsUser({
       ...detailsUser,
@@ -23,7 +17,7 @@ function Contact({
           <div className="divInputDetails">
             <label className="labelInput">שם</label>
             <input
-              defaultValue={apiUserForFirebase?.displayName}
+              // defaultValue={apiUserForFirebase?.displayName}
               className="inputDetails"
               type="text"
               name="nameUser"
@@ -35,7 +29,7 @@ function Contact({
           <div className="divInputDetails">
             <label className="labelInput">מייל</label>
             <input
-              defaultValue={apiUserForFirebase?.email}
+              // defaultValue={apiUserForFirebase?.email}
               className="inputDetails"
               type="text"
               name="mailUser"

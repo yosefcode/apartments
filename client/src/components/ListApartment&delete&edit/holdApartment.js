@@ -3,14 +3,14 @@ import Modal from "../Modal";
 import { PutToServer } from "../getData";
 import { AppContext } from "../../variable-Context";
 
-const HoldApartment = ({ id, show, render, setRender }) => {
+const HoldApartment = ({ idForApartment, show, render, setRender }) => {
   const { isManager } = useContext(AppContext);
 
   const [isOpenModal, setIsOpenModal] = useState(false);
 
   const holdApartment = () => {
     PutToServer(
-      `/api/holdApartment/${id}`,
+      `/api/holdApartment/${idForApartment}`,
       show === "1" ? { show: "2" } : { show: "1" }
     );
     setRender(!render);

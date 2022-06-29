@@ -5,13 +5,7 @@ import {
   Checkbox,
 } from "../Input_select_button/Input_select_button";
 
-function Contact({
-  setDetailsUser,
-  detailsUser,
-  formik,
-  onchange,
-  userConnect,
-}) {
+function Content({ setDetailsUser, detailsUser, formik, onchange }) {
   const onChangeChekbox = (e, a, b) => {
     setDetailsUser({
       ...detailsUser,
@@ -37,7 +31,7 @@ function Contact({
           onChange={onchange}
           formikErr={formik.errors.nameUser}
           width={"70%"}
-          defaultValue={userConnect ? userConnect.nameUser : ""}
+          defaultValue={detailsUser?.nameUser}
         />
 
         <Input
@@ -46,7 +40,7 @@ function Contact({
           onChange={onchange}
           formikErr={formik.errors.mailUser}
           width={"70%"}
-          defaultValue={userConnect ? userConnect.mailUser : ""}
+          defaultValue={detailsUser?.mailUser}
         />
 
         <Input
@@ -63,21 +57,21 @@ function Contact({
           }}
           formikErr={formik.errors.phoneUser}
           width={"70%"}
-          defaultValue={userConnect ? userConnect.phoneUser : ""}
+          defaultValue={detailsUser?.phoneUser}
         />
       </div>
 
       <div className="div_all_checkbox">
-        <Checkbox
+        {/* <Checkbox
           name={"receivingMessages"}
           onChange={onChangeChekbox}
           label={"מקבל הודעות בטלפון:"}
           checked={detailsUser?.receivingMessages}
-        />
+        /> */}
         <Checkbox
           name={"receivingWTS"}
           onChange={onChangeChekbox}
-          label={"מקבל הודעות וצאפ:"}
+          label={"מאפשר לפנות לקבלת מידע בווצאפ"}
           checked={detailsUser?.receivingWTS}
         />
         <Checkbox
@@ -85,11 +79,12 @@ function Contact({
           onChange={(e) => {
             onChangeChekbox(e, "areaSearchApartment", "");
           }}
-          label={" מעוניין לקבל הצעות על כאלה שמחפשים דירה "}
+          label={"מעוניין לקבל פניות של מחפשי דירה"}
           checked={detailsUser?.msgSearchApartment}
         />
         <Select
           label={"בחר איזור בארץ"}
+          disabledSelect={!detailsUser?.msgSearchApartment}
           name={"areaSearchApartment"}
           onChange={onchange}
           formikErr={formik.errors.areaSearchApartment}
@@ -116,11 +111,9 @@ function Contact({
           width={"90%"}
           value={detailsUser ? detailsUser?.areaSaleApartment : ""}
         />
-
-        {/* {detailsUser.msgSearchApartment && ( */}
       </div>
     </div>
   );
 }
 
-export default Contact;
+export default Content;

@@ -42,7 +42,7 @@ function Users() {
   return (
     <div>
       <GetDataLoading
-        url="/api/listUsers/"
+        route="/api/listUsers/"
         data={setUsers}
         content={
           <Table

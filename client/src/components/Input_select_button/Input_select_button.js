@@ -48,17 +48,20 @@ export const Button = (props) => {
 };
 
 export const Checkbox = (props) => {
-  const { name, onChange, label, checked } = props;
+  const { name, onChange, label, checked, formikErr } = props;
 
   return (
-    <div className="checkbox">
-      <input
-        type="checkbox"
-        name={name}
-        onChange={onChange}
-        checked={checked}
-      />
-      <label>{label}</label>
+    <div>
+      <div className="checkbox">
+        <input
+          type="checkbox"
+          name={name}
+          onChange={onChange}
+          checked={checked}
+        />
+        <label>{label}</label>
+      </div>
+      <div className="div_err_input">{formikErr}</div>
     </div>
   );
 };

@@ -30,7 +30,7 @@ connectToDb().then(async () => {
   });
 });
 
-app.get("/login/:id", (req, res) => {
+app.get("/user/:id", (req, res) => {
   res.sendFile(path.join(__dirname, "client/build", "index.html"));
 });
 app.get("/:id", (req, res) => {
@@ -68,3 +68,4 @@ app.post("/api/addApartment/", addApartment.addApartment);
 app.post("/api/addUser/", users.addUser);
 app.get("/api/listUsers/", users.listUsers);
 app.post("/api/userConnected/:id", users.userConnected);
+app.put("/api/editUser/:id", users.editUser);

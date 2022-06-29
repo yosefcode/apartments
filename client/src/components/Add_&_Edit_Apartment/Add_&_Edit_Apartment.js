@@ -16,7 +16,7 @@ import { parsePhoneNumberFromString } from "libphonenumber-js";
 import { Button } from "../Input_select_button/Input_select_button";
 
 function AddApartment({ itemForEdit, setIsOpenModal }) {
-  const { userConnect, uidFirebase } = useContext(AppContext);
+  const { detailsUsers, uidFirebase } = useContext(AppContext);
   const [valueCity, setValueCity] = useState("");
   const [valueStreet, setValueStreet] = useState("");
   const [isLoading, setIsLoading] = useState(false);
@@ -65,9 +65,9 @@ function AddApartment({ itemForEdit, setIsOpenModal }) {
     special: itemForEdit ? itemForEdit.special : [],
     times: itemForEdit ? itemForEdit.times : [],
     images: itemForEdit ? itemForEdit.images : [],
-    name: itemForEdit ? itemForEdit.name : userConnect?.nameUser,
-    mail: itemForEdit ? itemForEdit.mail : userConnect?.mailUser,
-    phone: itemForEdit ? itemForEdit.phone : userConnect?.phoneUser,
+    name: itemForEdit ? itemForEdit.name : detailsUsers?.nameUser,
+    mail: itemForEdit ? itemForEdit.mail : detailsUsers?.mailUser,
+    phone: itemForEdit ? itemForEdit.phone : detailsUsers?.phoneUser,
   });
   // console.log(apartment);
 

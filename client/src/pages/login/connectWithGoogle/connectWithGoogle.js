@@ -7,7 +7,7 @@ import {
   signInWithRedirect,
 } from "firebase/auth";
 
-const ConnectWithGoogle = () => {
+const ConnectWithGoogle = ({ setConnectUserForFirebase }) => {
   const provider = new GoogleAuthProvider();
 
   const auth = getAuth();
@@ -20,7 +20,9 @@ const ConnectWithGoogle = () => {
         const token = credential.accessToken;
         const user = result.user;
         // console.log(result);
-        window.location.href = "/login/" + user.uid;
+        setConnectUserForFirebase(true);
+
+        // window.location.href = "/user/" + user.uid;
       })
       .catch((error) => {
         const errorCode = error.code;

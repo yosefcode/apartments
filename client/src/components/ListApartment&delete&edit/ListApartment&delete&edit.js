@@ -1,7 +1,7 @@
 import "./ListApartment&delete&edit.css";
 import Accordion from "../Accordion";
 import React, { useState, useContext } from "react";
-import PostToServerLoading from "../getData";
+import { PostToServerLoading } from "../getData";
 import RmoveApartment from "./removeApartment";
 import HoldApartment from "./holdApartment";
 import InfoApartment from "./infoApartment";
@@ -19,7 +19,7 @@ const ItemApartment = ({ url }) => {
     <div className="myApartment">
       <PostToServerLoading
         render={render}
-        url={url}
+        route={url}
         data={setApartments}
         content={apartments
           .sort((a, b) => (b.show > a.show ? -1 : 1))

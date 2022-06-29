@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useContext } from "react";
 import Table from "../../components/table/table";
-import PostToServerLoading from "../../components/getData";
+import { PostToServerLoading } from "../../components/getData";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import { AppContext } from "../../variable-Context";
 
@@ -32,7 +32,7 @@ function MyMessages() {
   return (
     <div>
       <PostToServerLoading
-        url={`/api/messages/${uidFirebase}`}
+        route={`/api/messages/${uidFirebase}`}
         data={setMessages}
         content={
           messages.length > 0 ? (

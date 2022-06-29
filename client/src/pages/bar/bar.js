@@ -8,16 +8,26 @@ import AccountCircleIcon from "@mui/icons-material/AccountCircle";
 import { AppContext } from "../../variable-Context";
 
 const Bar = () => {
-  const { userConnect, setUserConnect, uidFirebase } = useContext(AppContext);
+  const {
+    registeredUser,
+    setRegisteredUser,
+    uidFirebase,
+    detailsUsers,
+    setDetailsUsers,
+    setUidFirebase,
+  } = useContext(AppContext);
 
   const auth = getAuth();
   const [modal, setModal] = useState(false);
 
   const exit = () => {
+    setDetailsUsers([]);
+    setUidFirebase("");
+    setRegisteredUser(false);
     signOut(auth)
       .then(() => {})
       .catch((error) => {});
-    setUserConnect([]);
+
     window.location.href = "/login/";
   };
 
@@ -33,7 +43,7 @@ const Bar = () => {
         <a href="/manager">
           <button>כניסת מנהל</button>
         </a>
-        {userConnect ? (
+        {registeredUser ? (
           <div className="divConnect" onClick={() => setModal(true)}>
             <AccountCircleIcon
               style={{
@@ -42,7 +52,7 @@ const Bar = () => {
                 color: "black",
               }}
             />{" "}
-            היי, {userConnect.nameUser}{" "}
+            היי, {detailsUsers?.nameUser}{" "}
           </div>
         ) : (
           <Link className="link" to={"/login/"}>
@@ -63,7 +73,7 @@ const Bar = () => {
       {modal && (
         <div className="div_modal" onClick={() => setModal(false)}>
           <div className="allConnect">
-            <Link className="link" to={`/login/${uidFirebase}`}>
+            <Link className="link" to={`/user/${uidFirebase}`}>
               <div className="divConnect_modal">
                 <PowerSettingsNewIcon
                   className="iconEnter"

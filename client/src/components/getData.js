@@ -2,36 +2,49 @@ import { useEffect, useState } from "react";
 import axios from "axios";
 import SpinningCircles from "./loadingSpinning";
 
-const PostToServerLoading = ({ url, data, content, render }) => {
+export const PostToServerLoading = ({
+  route,
+  data,
+  content,
+  render,
+  response,
+  obj,
+}) => {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     axios
-      .post(url)
+      .post(route, obj)
       .then((res) => {
-        data(res.data);
+        if (data) {
+          data(res.data);
+        }
+        if (response) {
+          response(res);
+        }
         setLoading(false);
       })
       .catch((err) => {
         console.log(err);
       });
-  }, [render]);
+  }, [render, route, obj]);
 
-  return (
-    <div className="myApartment">{loading ? <SpinningCircles /> : content}</div>
-  );
+  return <div>{loading ? <SpinningCircles /> : content}</div>;
 };
 
-export default PostToServerLoading;
-
-export const GetDataLoading = ({ url, data, content, render }) => {
+export const GetDataLoading = ({ route, data, content, render, response }) => {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     axios
-      .get(url)
+      .get(route)
       .then((res) => {
-        data(res.data);
+        if (data) {
+          data(res.data);
+        }
+        if (response) {
+          response(res);
+        }
         setLoading(false);
       })
       .catch((err) => {
@@ -39,9 +52,36 @@ export const GetDataLoading = ({ url, data, content, render }) => {
       });
   }, [render]);
 
-  return (
-    <div className="myApartment">{loading ? <SpinningCircles /> : content}</div>
-  );
+  return <div>{loading ? <SpinningCircles /> : content}</div>;
+};
+export const PutToServerLoading = ({
+  route,
+  data,
+  content,
+  render,
+  response,
+  obj,
+}) => {
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    axios
+      .put(route, obj)
+      .then((res) => {
+        if (data) {
+          data(res.data);
+        }
+        if (response) {
+          response(res);
+        }
+        setLoading(false);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  }, [render]);
+
+  return <div>{loading ? <SpinningCircles /> : content}</div>;
 };
 
 export const GetData = async (url, data) => {
@@ -55,10 +95,15 @@ export const GetData = async (url, data) => {
   );
 };
 
-export const PostToServer = async (url, data) => {
+export const PostToServer = async (url, data, response) => {
   axios.post(url).then(
     (res) => {
-      data(res.data);
+      if (data) {
+        data(res.data);
+      }
+      if (response) {
+        response(res);
+      }
     },
     (err) => {
       console.log(err);
@@ -87,28 +132,3 @@ export const DeleteToServer = async (route) => {
     }
   );
 };
-
-// export const PostToServer = async (route, valeu) => {
-//   let myPromise = new Promise((resolve, reject) => {
-//     axios.post(`${route}`, valeu).then(
-//       (res) => {
-//         resolve(res.data);
-//       },
-//       (error) => {
-//         reject(error);
-//       }
-//     );
-//   });
-//   return myPromise;
-// };
-
-// export const GetFromServer = async (route, data ) => {
-//   axios.get(route).then(
-//     (res) => {
-//       data(res.data);
-//     },
-//     (error) => {
-//       data(error);
-//     }
-//   );
-// };

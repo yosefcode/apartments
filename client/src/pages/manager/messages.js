@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import Table from "../../components/table/table";
-import PostToServerLoading from "../../components/getData";
+import { PostToServerLoading } from "../../components/getData";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 
 function Messages() {
@@ -39,7 +39,7 @@ function Messages() {
   return (
     <div>
       <PostToServerLoading
-        url="/api/messages/"
+        route="/api/messages/"
         data={setMessages}
         content={
           <Table

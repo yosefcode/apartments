@@ -8,6 +8,7 @@ import MyFavoritePage from "./pages/favorite/myFavorite-page/myFavorite-page";
 import PersonalPage from "./pages/personalPage/personalPage";
 import Login from "./pages/login/login";
 import Manager from "./pages/manager/manager";
+import RegisterUser from "./pages/registerUser/registerUser";
 import { AppContext } from "./variable-Context";
 import { PostToServer } from "./components/getData";
 import { initializeApp } from "firebase/app";
@@ -37,10 +38,12 @@ function App() {
   const [list, setList] = useState([]);
   const [listIDForFavorite, setListIDForFavorite] = useState([]);
   const [uidFirebase, setUidFirebase] = useState("");
-  const [userConnect, setUserConnect] = useState([]);
+  const [detailsUsers, setDetailsUsers] = useState([]);
+  const [registeredUser, setRegisteredUser] = useState();
   const [scrollTop, setScrollTop] = useState(true);
   const [isManager, setIsManager] = useState(true);
-  console.log(uidFirebase);
+
+  console.log("registeredUser", registeredUser);
 
   useEffect(() => {
     onAuthStateChanged(auth, (userForFirebase) => {
@@ -48,11 +51,16 @@ function App() {
         setUidFirebase(userForFirebase.uid);
         PostToServer(
           `/api/userConnected/${userForFirebase.uid}`,
-          setUserConnect
+          setDetailsUsers
         );
       }
     });
   }, [auth, uidFirebase]);
+
+  useEffect(() => {
+    setRegisteredUser(detailsUsers?.length > 0 ? true : false);
+    // aaa();
+  }, [detailsUsers]);
 
   // useEffect(() => {
   //   axios.post(`/api/list/filter/`, filter).then((res) => {
@@ -92,9 +100,12 @@ function App() {
     setListIDForFavorite: (value) => setListIDForFavorite(value),
     isManager: isManager,
     setIsManager: (value) => setIsManager(value),
-    userConnect: userConnect[0],
-    setUserConnect: (value) => setUserConnect(value),
+    registeredUser: registeredUser,
+    setRegisteredUser: (value) => setRegisteredUser(value),
+    detailsUsers: detailsUsers[0],
+    setDetailsUsers: (value) => setDetailsUsers(value),
     uidFirebase: uidFirebase,
+    setUidFirebase: (value) => setUidFirebase(value),
   };
 
   return (
@@ -127,7 +138,11 @@ function App() {
                 <Login />
               </Route>
 
-              <Route path="/login/:id">
+              <Route exact path="/register/">
+                <RegisterUser />
+              </Route>
+
+              <Route path="/user/:id">
                 <PersonalPage />
               </Route>
 

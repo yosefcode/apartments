@@ -1,54 +1,25 @@
 import "./myDetails.css";
-import axios from "axios";
 import React, { useState, useEffect, useContext } from "react";
 import Content from "./content";
 import * as Yup from "yup";
 import { useFormik } from "formik";
 import { parsePhoneNumberFromString } from "libphonenumber-js";
-import { SpinningCircles } from "react-loading-icons";
-import CancelIcon from "@mui/icons-material/Cancel";
-import { CountdownCircleTimer } from "react-countdown-circle-timer";
-
+import { Checkbox, Button } from "../Input_select_button/Input_select_button";
 import { AppContext } from "../../variable-Context";
+import ModalTimeOut from "../ModalTimeOut";
+import { PostToServerLoading, PutToServerLoading } from "../getData";
 
-function DetailsUser() {
-  const { userConnect, uidFirebase } = useContext(AppContext);
-  // console.log(userConnect);
-  const [isLoading, setIsLoading] = useState(false);
-  const [msgmodal, setMsgmodal] = useState(false);
-  const [textMsgmodal, setTextMsgmodal] = useState(false);
-  const [privacyPolicy, setPrivacyPolicy] = useState(false);
-  const [detailsUser, setDetailsUser] = useState({
-    uidFirebase: uidFirebase,
-    nameUser: userConnect ? userConnect?.nameUser : "",
-    mailUser: userConnect ? userConnect?.mailUser : "",
-    phoneUser: userConnect ? userConnect?.phoneUser : "",
-    isAgree: userConnect ? userConnect?.isAgree : false,
-    receivingMessages: userConnect ? userConnect?.receivingMessages : false,
-    receivingWTS: userConnect ? userConnect?.receivingWTS : false,
-    msgSearchApartment: userConnect ? userConnect?.msgSearchApartment : false,
-    msgSaleApartment: userConnect ? userConnect?.msgSaleApartment : false,
-    areaSearchApartment: userConnect ? userConnect?.areaSearchApartment : "",
-    areaSaleApartment: userConnect ? userConnect?.areaSaleApartment : "",
-  });
+function DetailsUser({ titleHeader }) {
+  const { registeredUser, uidFirebase, setRegisteredUser, setDetailsUsers } =
+    useContext(AppContext);
+  const [response, setResponse] = useState();
+  const [data, setData] = useState([]);
+  const [isOpenModalTimeOut, setIsOpenModalTimeOut] = useState(false);
+  const [detailsUser, setDetailsUser] = useState({});
 
-  const renderTime = ({ remainingTime }) => {
-    if (remainingTime === 0) {
-      setMsgmodal(false);
-    }
-
-    return (
-      <div className="timer">
-        <CancelIcon
-          style={{ fontSize: 28 }}
-          onClick={() => {
-            setMsgmodal(false);
-            setIsLoading(false);
-          }}
-        />
-      </div>
-    );
-  };
+  useEffect(() => {
+    setDetailsUser({ uidFirebase: uidFirebase, ...data[0] });
+  }, [data]);
 
   const formik = useFormik({
     initialValues: detailsUser,
@@ -63,6 +34,18 @@ function DetailsUser() {
             !!phone && parsePhoneNumberFromString(phone, "IL");
           return parsedNumber && parsedNumber.isValid() ? true : false;
         }),
+      areaSaleApartment:
+        detailsUser.msgSaleApartment === true
+          ? Yup.string()
+              .min(1, "מינימום 2 תווים")
+              .required("* בחרת לקבל הודעות, נא לבחור איזור")
+          : null,
+      areaSearchApartment:
+        detailsUser.msgSearchApartment === true
+          ? Yup.string()
+              .min(1, "מינימום 2 תווים")
+              .required("* בחרת לקבל הודעות, נא לבחור איזור")
+          : null,
       isAgree: Yup.boolean()
         .oneOf([true], "* חובה לאשר")
         .required("* חובה לאשר"),
@@ -73,19 +56,7 @@ function DetailsUser() {
   });
 
   const sendDetailsUser = async () => {
-    console.log(detailsUser);
-    // setIsLoading(true);
-    // axios.post("/api/addUser/", detailsUser).then((res) => {
-    //   console.log(res);
-    //   // if (res.status !== 200 || !res.data.uidFirebase) {
-    //   //   setMsgmodal(true);
-    //   //   setIsLoading(false);
-    //   // } else {
-    //   //   setTextMsgmodal(true);
-    //   //   setMsgmodal(true);
-    //   //   setIsLoading(false);
-    //   // }
-    // });
+    setIsOpenModalTimeOut(true);
   };
 
   const onchange = (e) => {
@@ -95,98 +66,95 @@ function DetailsUser() {
     });
   };
 
-  return (
-    <div className="my_details">
-      {!isLoading && !msgmodal ? (
-        <form onSubmit={formik.handleSubmit}>
-          <div class="tab-content">
-            <Content
-              detailsUser={detailsUser}
-              setDetailsUser={setDetailsUser}
-              formik={formik}
-              onchange={onchange}
-              userConnect={userConnect}
-            />{" "}
-          </div>
+  const GetData = registeredUser ? PutToServerLoading : PostToServerLoading;
 
-          {userConnect && (
-            <div className="div_checkbox" style={{ marginRight: "5rem" }}>
-              <input
-                type="checkbox"
-                name="isAgree"
-                onChange={(e) => {
-                  setDetailsUser({
-                    ...detailsUser,
-                    [e.target.name]: e.target.checked,
-                  });
-                }}
-              />
-              <label>
-                מאשר את{" "}
-                <div
-                  className="link_PrivacyPolicy"
-                  onClick={() => {
-                    setMsgmodal(true);
-                    setPrivacyPolicy(true);
-                  }}
-                >
-                  {" "}
-                  תקנון האתר
-                </div>{" "}
-              </label>
-              <div
-                className="div_err_addApartment"
-                style={{ marginRight: "5rem" }}
-              >
-                {formik.errors.isAgree}
-              </div>
+  return !isOpenModalTimeOut ? (
+    <PostToServerLoading
+      route={`/api/userConnected/${uidFirebase}`}
+      data={setData}
+      content={
+        <div className="my_details">
+          <div className="my_details_header">{titleHeader}</div>
+          <form onSubmit={formik.handleSubmit}>
+            <div>
+              <Content
+                detailsUser={detailsUser}
+                setDetailsUser={setDetailsUser}
+                formik={formik}
+                onchange={onchange}
+              />{" "}
             </div>
-          )}
 
-          <div class="tab-content">
-            <button type="submit" className="btn_send">
-              אישור{" "}
-            </button>
-          </div>
-        </form>
-      ) : privacyPolicy ? (
-        <div>תנאי האתר</div>
-      ) : isLoading ? (
-        <div className="loading">
-          <SpinningCircles
-            height="4em"
-            width="4em"
-            fill="rgb(28, 2, 99)"
-            stroke="rgb(28, 2, 99)"
-            strokeOpacity={1}
-            fillOpacity={1}
-            speed={1}
-          />
+            {!registeredUser && (
+              <div
+                style={{
+                  marginRight: "5rem",
+                }}
+              >
+                <Checkbox
+                  name={"isAgree"}
+                  onChange={(e) => {
+                    setDetailsUser({
+                      ...detailsUser,
+                      [e.target.name]: e.target.checked,
+                    });
+                  }}
+                  label={
+                    <div
+                      style={{
+                        display: "flex",
+                        flexDirection: "row",
+                      }}
+                    >
+                      מאשר את
+                      <div
+                        className="link_PrivacyPolicy"
+                        onClick={() => {
+                          console.log("ok");
+                        }}
+                      >
+                        {" "}
+                        תקנון האתר
+                      </div>
+                    </div>
+                  }
+                  checked={detailsUser?.isAgree}
+                  formikErr={formik.errors.isAgree}
+                />
+              </div>
+            )}
+
+            <Button
+              title={"שמור"}
+              padding={"0.5rem 1.5rem"}
+              borderRadius={"10px"}
+              type={"submit"}
+            />
+          </form>
         </div>
-      ) : msgmodal ? (
-        <div className="msgmodal">
-          <div className="timer-wrapper">
-            <CountdownCircleTimer
-              isPlaying
-              duration={10}
-              colors={[["#8a8a8a"]]}
-              onComplete={() => [true, 1000]}
-              size={32}
-              strokeWidth={6}
-            >
-              {renderTime}
-            </CountdownCircleTimer>
-          </div>
-          <div className="text-msgmodal">
-            {textMsgmodal ? (
+      }
+    />
+  ) : (
+    <GetData
+      route={
+        registeredUser ? `/api/editUser/${detailsUser._id}` : `/api/addUser`
+      }
+      obj={detailsUser}
+      response={setResponse}
+      content={
+        <ModalTimeOut
+          duration={3}
+          setIsOpenModalTimeOut={setIsOpenModalTimeOut}
+          textMsgModalTimeOut={
+            response?.status === 200 ? (
               <div>פרטי המשתמש נשמרו בהצלחה </div>
             ) : (
               <div>רישום משתמש נכשל </div>
-            )}
-          </div>
-        </div>
-      ) : null}
-    </div>
+            )
+          }
+        />
+      }
+    />
   );
 }
 

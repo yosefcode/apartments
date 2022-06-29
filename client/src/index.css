@@ -17,7 +17,22 @@ body {
 html {
   font-size: 62.5%;
 }
+  .container_responsive {
+    width: 65%;
+    margin: 0 auto;
+  }
 
+
+@media only screen and (max-width: 1350px) {
+  html {
+    font-size: 60%;
+  }
+  .container_responsive {
+    width: 75%;
+    margin: 0 auto;
+  }
+
+}
 @media only screen and (max-width: 1200px) {
   html {
     font-size: 60%;
@@ -26,6 +41,9 @@ html {
 @media only screen and (max-width: 1100px) {
   html {
     font-size: 58%;
+  }
+  .container_responsive {
+    width: 80%;
   }
 }
 
@@ -38,16 +56,26 @@ html {
   html {
     font-size: 52%;
   }
+  .container_responsive {
+    width: 90%;
+  }
 }
 @media only screen and (max-width: 800px) {
   html {
     font-size: 48%;
+  }
+  .container_responsive {
+    width: 95%;
   }
 }
 @media only screen and (max-width: 700px) {
   html {
     font-size: 45%;
   }
+  .container_responsive {
+    width: 100%;
+  }
+
 }
 @media only screen and (max-width: 600px) {
   html {

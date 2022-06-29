@@ -1,4 +1,4 @@
-import React, { useEffect, useState, useRef } from "react";
+import React, { useEffect, useState, useRef, useContext } from "react";
 import "./‏‏connectWithUser.css";
 import VisibilityOffIcon from "@mui/icons-material/VisibilityOff";
 import VisibilityIcon from "@mui/icons-material/Visibility";
@@ -9,7 +9,10 @@ import {
   sendPasswordResetEmail,
 } from "firebase/auth";
 
-export default function ConnectWithUser() {
+import { AppContext } from "../../../variable-Context";
+
+export default function ConnectWithUser({ setConnectUserForFirebase }) {
+  const { registeredUser, uidFirebase } = useContext(AppContext);
   const [typepassword, setTypepassword] = useState("password");
   const [connectAndReset, setConnectAndReset] = useState(true);
   const [errMessage, setErrorMessage] = useState();
@@ -31,7 +34,7 @@ export default function ConnectWithUser() {
       : setErrorMessage("שגיאה בהתחברות");
   };
 
-  const login = () => {
+  const login = async () => {
     !validator.isEmail(email.current)
       ? setErrorMessage("כתובת מייל לא תקינה")
       : password.current.length < 6
@@ -41,7 +44,11 @@ export default function ConnectWithUser() {
             setErrorMessage("התחברת בהצלחה");
             const user = userCredential.user;
             console.log(user);
-            window.location.href = "/login/" + user.uid;
+            setConnectUserForFirebase(true);
+
+            // registeredUser
+            //   ? (window.location.href = "/user/" + user.uid)
+            //   : (window.location.href = "/register/");
           })
           .catch((error) => {
             const errorCode = error.code;

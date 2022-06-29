@@ -23,7 +23,7 @@ export default function Register() {
 
   const auth = getAuth();
 
-  const login = () => {
+  const login = ({ setConnectUserForFirebase }) => {
     validator.isEmail(email.current) &&
     password.current === passwordAgain.current &&
     password.current.length > 5
@@ -34,7 +34,8 @@ export default function Register() {
             });
             const user = userCredential.user;
             // console.log(user);
-            window.location.href = "/login/" + user.uid;
+            setConnectUserForFirebase(true);
+            // window.location.href = "/user/" + user.uid;
           })
           .catch((error) => {
             const errorCode = error.code;

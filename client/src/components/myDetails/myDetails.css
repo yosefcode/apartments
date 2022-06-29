@@ -8,12 +8,6 @@
   margin: 3rem auto;
 }
 
-.my_details .divInputDetails {
-  position: relative;
-  width: 70%;
-   /* height: 5rem; */
-  margin: 4rem 1% 0rem;
-}
 .link_PrivacyPolicy{
   color: rgb(85, 85, 85);
   font-weight: 700;
@@ -26,56 +20,6 @@
   text-decoration: underline;
 }
 
-.my_details .labelInput {
-  border: rgb(196, 196, 196) 0.1vw solid;
-  border-radius: 10vw;
-  background-color: rgb(255, 255, 255);
-  margin-right: 1vw;
-  height: 1rem;
-  top: -1.7rem;
-  position: absolute;
-  color: rgb(85, 85, 85);
-  padding: 1rem 1.5rem;
-  line-height: 0.5vw;
-  font-weight: 700;
-  font-size: 1.5rem;
-  display: flex;
-  justify-content: center;
-  align-items: baseline;
-}
-
-.my_details .inputDetails {
-  height: 5rem;
-  border-radius: 4px;
-  border: 1px solid rgb(196, 196, 196);
-  width: calc(100% - 2rem);
-  font-size: 1.5rem;
-  font-weight: 600;
-  padding: 0.5rem 1rem;
-}
-.my_details .inputDetails:hover {
-  border: 1px solid rgb(0, 0, 0);
-}
-.my_details .inputDetails:focus {
-  border: 1px solid rgb(0, 0, 0);
-}
-
-
-.btn_send {
-  border-radius: 10px;
-  font-weight: 700;
-  border: solid 1px rgb(28, 2, 99);
-  background-color: rgb(28, 2, 99);
-  font-size: 2.5rem;
-  color: rgb(255, 255, 255);
-  cursor: pointer;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  padding: 1.5rem 3rem;
-  margin: 2.5rem auto;
-
-}
 .div_err_my_details{
   color: #db0000;
   font-size: 1.5rem;
@@ -83,30 +27,6 @@
   height: 1rem;
 }
 
-.my_details .msgmodal {
-  margin-top: 12vh;
-  padding: 3vw 6vw;
-  font-size: 2rem;
-  font-weight: 700;
-  line-height: 3rem;
-  position: relative;
-  text-align: center;
-}
-
-.my_details .timer-wrapper {
-  position: absolute;
-  top: -4rem;
-  width: calc(100% - 12vw);
-  cursor: pointer;
-
-}
-
-.my_details .timer {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-}
 .my_details .div_all_checkbox{
   display: flex;
   flex-direction: column;
@@ -120,13 +40,14 @@
   flex-direction: row;
         width: 100%;
 }
-.my_details .div-all-input{
-  display: flex;
-  flex-direction: column;
-        width: 50%;
+
+.my_details_header{
+  /* text-align: center; */
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: rgb(85, 85, 85);
+  margin: 5rem auto 0;
 }
-
-
 
 @media only screen and (max-width: 600px) {
   .my_details .details_container{
@@ -140,35 +61,6 @@
       margin: 0;
 
 }
-.my_details .div_checkbox{
-  position: relative;
-      width: 100%;
-      margin: 1.5rem 10% 1.5rem;
-  }
-  
-}
-
-
-
-
-@media only screen and (max-width: 1000px) {
-  .my_details .divInputDetails {
-    position: relative;
-    width: 80%;
-    /* // height: 5rem; */
-    margin: 2.3rem 1%;
-  }
-}
-@media only screen and (max-width: 750px) {
-  .my_details .divInputDetails {
-    position: relative;
-    width: 80%;
-    /* // height: 5rem; */
-    margin: 2.3rem 1%;
-  }
-}
-
-@media only screen and (max-width: 600px) {
   .my_details .div-all-input {
     width: 100%;
     display: flex;
@@ -179,43 +71,6 @@
     position: relative;
   }
 
-  .my_details .divInputDetails {
-    position: relative;
-    width: 80%;
-    /* // height: 5rem; */
-    margin: 2.3rem auto;
-  }
-  .my_details .labelInput {
-    border: rgb(196, 196, 196) 0.1vw solid;
-    border-radius: 10vw;
-    background-color: rgb(255, 255, 255);
-    margin-right: 5vw;
-    /* // height: 1rem; */
-    top: -1rem;
-    position: absolute;
-    color: rgb(85, 85, 85);
-    padding: 0.5rem 1.5rem;
-    line-height: 0;
-    font-weight: 700;
-    font-size: 1.5rem;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
-
-  .my_details .contact_container{
-    display: flex;
-    flex-direction: column;
+  
 }
 
-
-  .my_details .inputDetails {
-    height: 5rem;
-    border-radius: 4px;
-    border: 1px solid rgb(196, 196, 196);
-    width: calc(100% - 2rem);
-    font-size: 1.5rem;
-    font-weight: 600;
-    padding: 0.5rem 1rem;
-  }
-}

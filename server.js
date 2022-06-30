@@ -33,6 +33,9 @@ connectToDb().then(async () => {
 app.get("/user/:id", (req, res) => {
   res.sendFile(path.join(__dirname, "client/build", "index.html"));
 });
+app.get("/manager/:id", (req, res) => {
+  res.sendFile(path.join(__dirname, "client/build", "index.html"));
+});
 app.get("/:id", (req, res) => {
   res.sendFile(path.join(__dirname, "client/build", "index.html"));
 });

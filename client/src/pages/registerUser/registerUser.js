@@ -1,7 +1,6 @@
 import MyDetails from "../../components/myDetails/myDetails";
 import { AppContext } from "../../variable-Context";
 import React, { useContext, useEffect } from "react";
-import { BrowserRouter, Routes, Link } from "react-router-dom";
 
 function RegisterUser() {
   const { uidFirebase, registeredUser } = useContext(AppContext);

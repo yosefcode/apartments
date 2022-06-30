@@ -14,6 +14,7 @@ exports.addUser = async (req, res) => {
     areaSearchApartment: req.body.areaSearchApartment,
     msgSaleApartment: req.body.msgSaleApartment,
     areaSaleApartment: req.body.areaSaleApartment,
+    areaSaleApartment: req.body.areaSaleApartment,
   });
   try {
     await newUser.save();

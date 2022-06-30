@@ -6,6 +6,7 @@ import { Link } from "react-router-dom";
 import PowerSettingsNewIcon from "@mui/icons-material/PowerSettingsNew";
 import AccountCircleIcon from "@mui/icons-material/AccountCircle";
 import { AppContext } from "../../variable-Context";
+import { Button } from "../../components/Input_select_button/Input_select_button";
 
 const Bar = () => {
   const {
@@ -40,9 +41,15 @@ const Bar = () => {
       </div>
 
       <div className="divBar">
-        <a href="/manager">
-          <button>כניסת מנהל</button>
-        </a>
+        {detailsUsers?.manager === true ? (
+          <a href={`/manager/${process.env.REACT_APP_URL_MANAGER}`}>
+            <Button
+              title={"לדף הניהול"}
+              padding={"0.5rem 1.5rem"}
+              borderRadius={"10px"}
+            />
+          </a>
+        ) : null}
         {registeredUser ? (
           <div className="divConnect" onClick={() => setModal(true)}>
             <AccountCircleIcon

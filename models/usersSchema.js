@@ -12,6 +12,7 @@ const UsersSchema = new mongoose.Schema({
   msgSaleApartment: Boolean,
   areaSaleApartment: String,
   uidFirebase: String,
+  manager: { type: Boolean, default: false },
   date: { type: String, default: Date },
 });
 

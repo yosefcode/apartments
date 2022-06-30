@@ -59,7 +59,6 @@ function App() {
 
   useEffect(() => {
     setRegisteredUser(detailsUsers?.length > 0 ? true : false);
-    // aaa();
   }, [detailsUsers]);
 
   // useEffect(() => {
@@ -150,7 +149,10 @@ function App() {
                 <MyFavoritePage />
               </Route>
 
-              <Route path="/manager">
+              <Route
+                exact
+                path={`/manager/${process.env.REACT_APP_URL_MANAGER}`}
+              >
                 <Manager />
               </Route>
 

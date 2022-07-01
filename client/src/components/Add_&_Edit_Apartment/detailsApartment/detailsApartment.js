@@ -1,16 +1,20 @@
 import "./detailsApartment.css";
 import axios from "axios";
 import { useState, useEffect } from "react";
-import { Input, Select } from "../../Input_select_button/Input_select_button";
+import {
+  Input,
+  Select,
+  InputSelect,
+} from "../../Input_select_button/Input_select_button";
 
 function DetailsApartment({
-  setValueCity,
-  setValueStreet,
-  valueStreet,
-  valueCity,
   formik,
   onchange,
   itemForEdit,
+  chooseCity,
+  setChooseCity,
+  chooseStreet,
+  setChooseStreet,
 }) {
   const [listCity, setListCity] = useState([]);
   const [listStreet, setListStreet] = useState([]);
@@ -19,8 +23,10 @@ function DetailsApartment({
   const [listStreetFilter, setListStreetFilter] = useState([]);
   const [listStreetOptions, setListStreetOptions] = useState(false);
   const [idCity, setidCity] = useState([]);
+  const [valueCity, setValueCity] = useState("");
+  const [valueStreet, setValueStreet] = useState("");
 
-  // console.log(apartment);
+  // console.log(valueCity);
 
   useEffect(() => {
     axios
@@ -149,7 +155,7 @@ function DetailsApartment({
         defaultValue={itemForEdit ? itemForEdit.area : ""}
       />
 
-      <Input
+      <InputSelect
         label={"בחר עיר"}
         onChange={(e) => {
           setValueCity(e.target.value);
@@ -158,42 +164,52 @@ function DetailsApartment({
           setListStreetFilter([]);
           setidCity("000000000000");
           setListStreetOptions(false);
+          setChooseCity("");
         }}
         formikErr={formik.errors.city}
         width={"23%"}
-        value={valueCity}
-        defaultValue={itemForEdit ? itemForEdit.city : ""}
+        value={chooseCity ? chooseCity : valueCity}
+        onClick={() => {
+          setListCityOptions(!listCityOptions);
+        }}
         content={
           listCityOptions && (
             <div className="div_list_city">
-              {listCityFilter.map((item, index) => (
-                <div
-                  className="div_list_city_item"
-                  key={index}
-                  onClick={() => {
-                    setListCityOptions(false);
-                    // setListCityFilter([item]);
-                    setValueCity(split(item.name));
-                    setidCity(item);
-                  }}
-                >
-                  {split(item.name)}
-                </div>
-              ))}
+              {listCityFilter.length > 0
+                ? listCityFilter.map((item, index) => (
+                    <div
+                      className="div_list_city_item"
+                      key={index}
+                      onClick={() => {
+                        setListCityOptions(false);
+                        // setListCityFilter([item]);
+                        setChooseCity(split(item.name));
+                        setValueCity(split(item.name));
+                        setidCity(item);
+                      }}
+                    >
+                      {split(item.name)}
+                    </div>
+                  ))
+                : "יש להקליד לפחות 2 תווים"}
             </div>
           )
         }
       />
 
-      <Input
+      <InputSelect
         label={"בחר רחוב"}
         onChange={(e) => {
           setValueStreet(e.target.value);
           setListStreetOptions(true);
+          setChooseStreet("");
         }}
         formikErr={formik.errors.city}
         width={"23%"}
-        value={valueStreet}
+        value={chooseStreet ? chooseStreet : valueStreet}
+        onClick={() => {
+          setListStreetOptions(!listStreetOptions);
+        }}
         content={
           listStreetOptions && (
             <div className="div_list_city">
@@ -205,6 +221,7 @@ function DetailsApartment({
                     setListStreetOptions(false);
                     // setListCityFilter([item]);
                     setValueStreet(item.name);
+                    setChooseStreet(item.name);
                   }}
                 >
                   {item.name}

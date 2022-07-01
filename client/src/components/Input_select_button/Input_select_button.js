@@ -1,4 +1,5 @@
 import "./Input_select_button.css";
+import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 
 export const Input = (props) => {
   const {
@@ -102,6 +103,48 @@ export const Select = (props) => {
           <option value={item.value}>{item.title}</option>
         ))}
       </select>
+      <div className="div_err_input">{formikErr}</div>
+    </div>
+  );
+};
+export const InputSelect = (props) => {
+  const {
+    label,
+    name,
+    onChange,
+    placeholder,
+    formikErr,
+    width,
+    defaultValue,
+    disabledInput,
+    value,
+    content,
+    type,
+    onClick,
+  } = props;
+
+  return (
+    <div className="div_input" style={{ width: width }}>
+      <label className="label_input">{label}</label>
+      <input
+        className="input"
+        placeholder={placeholder}
+        type={type ? type : "text"}
+        name={name}
+        onChange={onChange}
+        value={value}
+        defaultValue={defaultValue}
+        onClick={onClick}
+      />
+      <div className="icon_arrow_down" onClick={onClick}>
+        <ExpandMoreIcon
+          sx={{
+            fontSize: "20px",
+            color: "black",
+          }}
+        />
+      </div>
+      {content}
       <div className="div_err_input">{formikErr}</div>
     </div>
   );

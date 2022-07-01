@@ -108,3 +108,13 @@
       align-items: flex-end
   
   }
+
+  .icon_arrow_down{
+    position: absolute;
+    height: 6rem;
+    top: 0;
+    left: 0;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+  }

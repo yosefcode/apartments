@@ -17,8 +17,12 @@ import { Button } from "../Input_select_button/Input_select_button";
 
 function AddApartment({ itemForEdit, setIsOpenModal }) {
   const { detailsUsers, uidFirebase } = useContext(AppContext);
-  const [valueCity, setValueCity] = useState("");
-  const [valueStreet, setValueStreet] = useState("");
+  const [chooseCity, setChooseCity] = useState(
+    itemForEdit?.city ? itemForEdit.city : ""
+  );
+  const [chooseStreet, setChooseStreet] = useState(
+    itemForEdit?.street ? itemForEdit.street : ""
+  );
   const [isLoading, setIsLoading] = useState(false);
   const [base64, setBase64] = useState([]);
   const [msgmodal, setMsgmodal] = useState(false);
@@ -69,7 +73,7 @@ function AddApartment({ itemForEdit, setIsOpenModal }) {
     mail: itemForEdit ? itemForEdit.mail : detailsUsers?.mailUser,
     phone: itemForEdit ? itemForEdit.phone : detailsUsers?.phoneUser,
   });
-  // console.log(apartment);
+  console.log(apartment);
 
   let urlImages = [];
 
@@ -195,10 +199,10 @@ function AddApartment({ itemForEdit, setIsOpenModal }) {
   useEffect(() => {
     setApartment({
       ...apartment,
-      city: valueCity,
-      street: valueStreet,
+      city: chooseCity,
+      street: chooseStreet,
     });
-  }, [valueCity, valueStreet]);
+  }, [chooseCity, chooseStreet]);
 
   return (
     <div className="addApartment">
@@ -211,10 +215,10 @@ function AddApartment({ itemForEdit, setIsOpenModal }) {
               </label>
               <div class="tab-content">
                 <DetailsApartment
-                  setValueCity={setValueCity}
-                  setValueStreet={setValueStreet}
-                  valueStreet={valueStreet}
-                  valueCity={valueCity}
+                  setChooseCity={setChooseCity}
+                  setChooseStreet={setChooseStreet}
+                  chooseStreet={chooseStreet}
+                  chooseCity={chooseCity}
                   formik={formik}
                   onchange={onchange}
                   itemForEdit={itemForEdit}

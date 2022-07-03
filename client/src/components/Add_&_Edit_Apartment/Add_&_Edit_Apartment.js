@@ -30,6 +30,8 @@ function AddApartment({ itemForEdit, setIsOpenModal }) {
   const [imgForEdit, setImgForEdit] = useState(
     itemForEdit ? itemForEdit?.images : []
   );
+  const [listCityOptions, setListCityOptions] = useState(false);
+  const [listStreetOptions, setListStreetOptions] = useState(false);
 
   // console.log(imgForEdit);
   // console.log(base64);
@@ -205,132 +207,144 @@ function AddApartment({ itemForEdit, setIsOpenModal }) {
   }, [chooseCity, chooseStreet]);
 
   return (
-    <div className="addApartment">
-      {!isLoading && !msgmodal ? (
-        <form onSubmit={formik.handleSubmit}>
-          <div class="tabs">
-            <div class="tab">
-              <label class="tab-label" for="chck1">
-                פרטי הדירה{" "}
-              </label>
-              <div class="tab-content">
-                <DetailsApartment
-                  setChooseCity={setChooseCity}
-                  setChooseStreet={setChooseStreet}
-                  chooseStreet={chooseStreet}
-                  chooseCity={chooseCity}
-                  formik={formik}
-                  onchange={onchange}
-                  itemForEdit={itemForEdit}
-                />{" "}
+    <div
+      style={{ width: "200%", margin: "0 -50% 0 0", padding: "0px 50%" }}
+      onClick={() => {
+        if (listCityOptions === true) setListCityOptions(false);
+        if (listStreetOptions === true) setListStreetOptions(false);
+      }}
+    >
+      <div className="addApartment" style={{ width: "50%" }}>
+        {!isLoading && !msgmodal ? (
+          <form onSubmit={formik.handleSubmit}>
+            <div class="tabs">
+              <div class="tab">
+                <label class="tab-label" for="chck1">
+                  פרטי הדירה{" "}
+                </label>
+                <div class="tab-content">
+                  <DetailsApartment
+                    setChooseCity={setChooseCity}
+                    setChooseStreet={setChooseStreet}
+                    chooseStreet={chooseStreet}
+                    chooseCity={chooseCity}
+                    formik={formik}
+                    onchange={onchange}
+                    itemForEdit={itemForEdit}
+                    listCityOptions={listCityOptions}
+                    setListCityOptions={setListCityOptions}
+                    listStreetOptions={listStreetOptions}
+                    setListStreetOptions={setListStreetOptions}
+                  />{" "}
+                </div>
               </div>
-            </div>
 
-            <div class="tab">
-              <label class="tab-label" for="chck2">
-                תיאור{" "}
-              </label>
-              <div class="tab-content">
-                <SpecialApartment
-                  apartment={apartment}
-                  setApartment={setApartment}
-                  formik={formik}
-                  onchange={onchange}
-                  itemForEdit={itemForEdit}
-                />{" "}
+              <div class="tab">
+                <label class="tab-label" for="chck2">
+                  תיאור{" "}
+                </label>
+                <div class="tab-content">
+                  <SpecialApartment
+                    apartment={apartment}
+                    setApartment={setApartment}
+                    formik={formik}
+                    onchange={onchange}
+                    itemForEdit={itemForEdit}
+                  />{" "}
+                </div>
               </div>
-            </div>
 
-            <div class="tab">
-              <label class="tab-label" for="chck3">
-                הוספת תמונות{" "}
-              </label>
-              <div class="tab-content">
-                <Images
-                  apartment={apartment}
-                  setApartment={setApartment}
-                  base64={base64}
-                  setBase64={setBase64}
-                  formik={formik}
-                  itemForEdit={itemForEdit}
-                  imgForEdit={imgForEdit}
-                  setImgForEdit={setImgForEdit}
-                />{" "}
+              <div class="tab">
+                <label class="tab-label" for="chck3">
+                  הוספת תמונות{" "}
+                </label>
+                <div class="tab-content">
+                  <Images
+                    apartment={apartment}
+                    setApartment={setApartment}
+                    base64={base64}
+                    setBase64={setBase64}
+                    formik={formik}
+                    itemForEdit={itemForEdit}
+                    imgForEdit={imgForEdit}
+                    setImgForEdit={setImgForEdit}
+                  />{" "}
+                </div>
               </div>
-            </div>
 
-            <div class="tab">
-              <label class="tab-label" for="chck4">
-                פרטי יצירת קשר{" "}
-              </label>
-              <div class="tab-content">
-                <Contact
-                  apartment={apartment}
-                  setApartment={setApartment}
-                  formik={formik}
-                  onchange={onchange}
-                  itemForEdit={itemForEdit}
-                />{" "}
+              <div class="tab">
+                <label class="tab-label" for="chck4">
+                  פרטי יצירת קשר{" "}
+                </label>
+                <div class="tab-content">
+                  <Contact
+                    apartment={apartment}
+                    setApartment={setApartment}
+                    formik={formik}
+                    onchange={onchange}
+                    itemForEdit={itemForEdit}
+                  />{" "}
+                </div>
               </div>
             </div>
-          </div>
-          <div class="div_btns">
-            <Button
-              title={itemForEdit ? "שמור שינויים" : "פרסם דירה"}
-              padding={"0.5rem 1.5rem"}
-              borderRadius={"10px"}
-              type={"submit"}
-            />
-            {itemForEdit ? (
+            <div class="div_btns">
               <Button
-                title={"בטל שינויים"}
+                title={itemForEdit ? "שמור שינויים" : "פרסם דירה"}
                 padding={"0.5rem 1.5rem"}
                 borderRadius={"10px"}
-                onClick={() => setIsOpenModal(false)}
+                type={"submit"}
               />
-            ) : null}
+              {itemForEdit ? (
+                <Button
+                  title={"בטל שינויים"}
+                  padding={"0.5rem 1.5rem"}
+                  borderRadius={"10px"}
+                  onClick={() => setIsOpenModal(false)}
+                />
+              ) : null}
+            </div>
+          </form>
+        ) : isLoading ? (
+          <LoadingSpinning />
+        ) : msgmodal ? (
+          <div className="msgmodal">
+            <div className="timer-wrapper">
+              <CountdownCircleTimer
+                isPlaying
+                duration={10}
+                colors={[["#8a8a8a"]]}
+                onComplete={() => [true, 1000]}
+                size={32}
+                strokeWidth={6}
+              >
+                {renderTime}
+              </CountdownCircleTimer>
+            </div>
+            <div className="text-msgmodal">
+              {textMsgmodal ? (
+                <div>
+                  {" "}
+                  פרטי המודעה נשלחו בהצלחה.
+                  <br />
+                  <br /> בדקות הקרובות צוות האתר יבחן את המודעה
+                  <br />
+                  ובאם המודעה תמצא מתאימה היא תפורסם באתר.
+                  <br />
+                  <br /> אנו שמחים שהצטרפתם אלינו ומקווים כי תפיקו תועלת מהאתר.
+                  <br />
+                </div>
+              ) : (
+                <div>
+                  עקב שגיאה המודעה לא נשלחה
+                  <br />
+                  <br />
+                  ניתן לפנות אלינו בטופס צור קשר{" "}
+                </div>
+              )}
+            </div>
           </div>
-        </form>
-      ) : isLoading ? (
-        <LoadingSpinning />
-      ) : msgmodal ? (
-        <div className="msgmodal">
-          <div className="timer-wrapper">
-            <CountdownCircleTimer
-              isPlaying
-              duration={10}
-              colors={[["#8a8a8a"]]}
-              onComplete={() => [true, 1000]}
-              size={32}
-              strokeWidth={6}
-            >
-              {renderTime}
-            </CountdownCircleTimer>
-          </div>
-          <div className="text-msgmodal">
-            {textMsgmodal ? (
-              <div>
-                {" "}
-                פרטי המודעה נשלחו בהצלחה.
-                <br />
-                <br /> בדקות הקרובות צוות האתר יבחן את המודעה
-                <br />
-                ובאם המודעה תמצא מתאימה היא תפורסם באתר.
-                <br />
-                <br /> אנו שמחים שהצטרפתם אלינו ומקווים כי תפיקו תועלת מהאתר.
-                <br />
-              </div>
-            ) : (
-              <div>
-                עקב שגיאה המודעה לא נשלחה
-                <br />
-                <br />
-                ניתן לפנות אלינו בטופס צור קשר{" "}
-              </div>
-            )}
-          </div>
-        </div>
-      ) : null}
+        ) : null}
+      </div>
     </div>
   );
 }

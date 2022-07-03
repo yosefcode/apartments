@@ -15,23 +15,23 @@ function DetailsApartment({
   setChooseCity,
   chooseStreet,
   setChooseStreet,
+  listCityOptions,
+  setListCityOptions,
+  listStreetOptions,
+  setListStreetOptions,
 }) {
   const [listCity, setListCity] = useState([]);
   const [listStreet, setListStreet] = useState([]);
   const [listCityFilter, setListCityFilter] = useState([]);
-  const [listCityOptions, setListCityOptions] = useState(false);
   const [listStreetFilter, setListStreetFilter] = useState([]);
-  const [listStreetOptions, setListStreetOptions] = useState(false);
   const [idCity, setidCity] = useState([]);
   const [valueCity, setValueCity] = useState("");
   const [valueStreet, setValueStreet] = useState("");
 
-  // console.log(valueCity);
-
   useEffect(() => {
     axios
       .get(
-        "https://data.gov.il/api/3/action/datastore_search?resource_id=d4901968-dad3-4845-a9b0-a57d027f11ab&limit=5000"
+        "https://data.gov.il/api/3/action/datastore_search?resource_id=d4901968-dad3-4845-a9b0-a57d027f11ab&limit=50000"
       )
       .then((response) => {
         setListCity(response.data.result.records);
@@ -41,12 +41,12 @@ function DetailsApartment({
   useEffect(() => {
     axios
       .get(
-        `https://data.gov.il/api/3/action/datastore_search?resource_id=a7296d1a-f8c9-4b70-96c2-6ebb4352f8e3&q=${idCity.id}&q=${idCity.name}&limit=50000`
+        `https://data.gov.il/api/3/action/datastore_search?resource_id=a7296d1a-f8c9-4b70-96c2-6ebb4352f8e3&q=${idCity?._id}&q=${idCity?.שם_ישוב}&limit=50000`
       )
       .then((response) => {
         setListStreet(response.data.result.records);
       });
-  }, [listCityFilter]);
+  }, [listCityFilter, idCity, chooseCity, valueStreet]);
 
   const split = (item) =>
     item
@@ -63,24 +63,37 @@ function DetailsApartment({
       .split("  ")
       .join("");
 
+  useEffect(() => {
+    if (chooseCity) {
+      let findChooseCity = listCity.find(
+        (item) => split(item.שם_ישוב) === chooseCity
+      );
+      setidCity({
+        שם_ישוב: findChooseCity?.שם_ישוב,
+        _id: findChooseCity?.סמל_ישוב,
+      });
+    }
+  }, [listCity]);
+
   let pushListCityFilter = [];
 
   let arryListCity = listCity.map((list) => ({
-    name: list.שם_ישוב,
-    id: list.סמל_ישוב,
+    שם_ישוב: list.שם_ישוב,
+    _id: list.סמל_ישוב,
   }));
 
   useEffect(() => {
     if (valueCity.length > 1) {
       arryListCity.forEach((list) => {
         if (
-          list.name.toLocaleLowerCase().search(valueCity.toLocaleLowerCase()) >
-          -1
+          list.שם_ישוב
+            .toLocaleLowerCase()
+            .search(valueCity.toLocaleLowerCase()) > -1
         ) {
           pushListCityFilter.push(list);
           setListCityFilter(pushListCityFilter);
         } else if (pushListCityFilter.length < 1) {
-          setListCityFilter([{ name: "שם לא קיים" }]);
+          setListCityFilter([{ שם_ישוב: "שם לא קיים" }]);
         }
       });
     } else {
@@ -92,26 +105,26 @@ function DetailsApartment({
   let pushListStreetFilter = [];
 
   let arryListStreet = listStreet.map((list) => ({
-    name: split(list.שם_רחוב),
-    id: list.סמל_ישוב,
+    שם_רחוב: split(list.שם_רחוב),
+    _id: list.סמל_ישוב,
   }));
 
   useEffect(() => {
-    if (valueStreet.length > 1 && idCity.id) {
+    if (valueStreet.length > 1 && idCity._id) {
       arryListStreet.forEach((list) => {
         if (
-          list.name
+          list.שם_רחוב
             .toLocaleLowerCase()
             .search(valueStreet.toLocaleLowerCase()) > -1
         ) {
           pushListStreetFilter.push(list);
           setListStreetFilter(pushListStreetFilter);
         } else if (pushListStreetFilter.length < 1) {
-          setListStreetFilter([{ name: "רחוב לא קיים" }]);
+          setListStreetFilter([{ שם_רחוב: "רחוב לא קיים" }]);
         }
       });
-    } else if (valueStreet.length > 0 && !idCity.id) {
-      setListStreetFilter([{ name: "ישוב לא נבחר" }]);
+    } else if (valueStreet.length > 0 && !idCity._id) {
+      setListStreetFilter([{ שם_רחוב: "ישוב לא נבחר" }]);
     } else {
       setListStreetOptions(false);
       setListStreetFilter([]);
@@ -165,6 +178,7 @@ function DetailsApartment({
           setidCity("000000000000");
           setListStreetOptions(false);
           setChooseCity("");
+          setChooseStreet("");
         }}
         formikErr={formik.errors.city}
         width={"23%"}
@@ -175,20 +189,23 @@ function DetailsApartment({
         content={
           listCityOptions && (
             <div className="div_list_city">
-              {listCityFilter.length > 0
+              {chooseCity
+                ? chooseCity
+                : listCityFilter.length > 0
                 ? listCityFilter.map((item, index) => (
                     <div
                       className="div_list_city_item"
                       key={index}
                       onClick={() => {
                         setListCityOptions(false);
-                        // setListCityFilter([item]);
-                        setChooseCity(split(item.name));
-                        setValueCity(split(item.name));
+                        setValueStreet("");
+                        setChooseCity(split(item.שם_ישוב));
+                        setValueCity(split(item.שם_ישוב));
                         setidCity(item);
+                        setChooseStreet("");
                       }}
                     >
-                      {split(item.name)}
+                      {split(item.שם_ישוב)}
                     </div>
                   ))
                 : "יש להקליד לפחות 2 תווים"}
@@ -204,7 +221,6 @@ function DetailsApartment({
           setListStreetOptions(true);
           setChooseStreet("");
         }}
-        formikErr={formik.errors.city}
         width={"23%"}
         value={chooseStreet ? chooseStreet : valueStreet}
         onClick={() => {
@@ -213,20 +229,26 @@ function DetailsApartment({
         content={
           listStreetOptions && (
             <div className="div_list_city">
-              {listStreetFilter.map((item, index) => (
-                <div
-                  className="div_list_city_item"
-                  key={index}
-                  onClick={() => {
-                    setListStreetOptions(false);
-                    // setListCityFilter([item]);
-                    setValueStreet(item.name);
-                    setChooseStreet(item.name);
-                  }}
-                >
-                  {item.name}
-                </div>
-              ))}
+              {!chooseCity
+                ? "ישוב לא נבחר"
+                : chooseStreet
+                ? chooseStreet
+                : listStreetFilter.length > 0
+                ? listStreetFilter.map((item, index) => (
+                    <div
+                      className="div_list_city_item"
+                      key={index}
+                      onClick={() => {
+                        setListStreetOptions(false);
+                        // setListCityFilter([item]);
+                        setValueStreet(item.שם_רחוב);
+                        setChooseStreet(item.שם_רחוב);
+                      }}
+                    >
+                      {item.שם_רחוב}
+                    </div>
+                  ))
+                : "יש להקליד לפחות 2 תווים"}
             </div>
           )
         }

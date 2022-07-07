@@ -6,7 +6,7 @@ import { useFormik } from "formik";
 import { parsePhoneNumberFromString } from "libphonenumber-js";
 import { Checkbox, Button } from "../Input_select_button/Input_select_button";
 import { AppContext } from "../../variable-Context";
-import ModalTimeOut from "../ModalTimeOut";
+import ModalTimeOut from "../ModalTimeOut/ModalTimeOut";
 import { PostToServerLoading, PutToServerLoading } from "../getData";
 
 function DetailsUser({ titleHeader }) {

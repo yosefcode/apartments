@@ -11,6 +11,7 @@ import Header from "./header/header";
 import MoreApartment from "./moreApartment/moreApartment";
 import FilterArea from "../filterArea/filterArea";
 import SendMessage from "./sendMessage/sendMessage";
+import ApartmentShowComponent from "../../components/ApartmentShowComponent/ApartmentShowComponent";
 
 function ApartmentShow() {
   const { id } = useParams();
@@ -24,11 +25,14 @@ function ApartmentShow() {
   useEffect(() => {
     axios.post("/api/apartmentShow/" + id).then((res) => {
       setApartmentShow(res.data);
+      // setApartmentShow(res.data[0]);
     });
   }, [id]);
+  console.log(apartmentShow);
 
   return (
     <div>
+      {/* <ApartmentShowComponent apartmentShow={apartmentShow} /> */}
       <div className="filterArea">
         <FilterArea />
       </div>

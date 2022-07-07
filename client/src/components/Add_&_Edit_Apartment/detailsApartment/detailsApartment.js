@@ -223,6 +223,7 @@ function DetailsApartment({
         }}
         width={"23%"}
         value={chooseStreet ? chooseStreet : valueStreet}
+        placeholder={"מומלץ, לא חובה"}
         onClick={() => {
           setListStreetOptions(!listStreetOptions);
         }}

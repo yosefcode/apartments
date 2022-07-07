@@ -1,7 +1,8 @@
 import CancelIcon from "@mui/icons-material/Cancel";
 import { CountdownCircleTimer } from "react-countdown-circle-timer";
 import React, { useState, useEffect, useContext } from "react";
-import { AppContext } from "../variable-Context";
+import { AppContext } from "../../variable-Context";
+import "./ModalTimeOut.css";
 
 const ModalTimeOut = ({
   textMsgModalTimeOut,
@@ -17,7 +18,7 @@ const ModalTimeOut = ({
     }
 
     return (
-      <div style={style.timer}>
+      <div className="timer">
         <CancelIcon
           style={{ fontSize: 28 }}
           onClick={() => {
@@ -29,8 +30,8 @@ const ModalTimeOut = ({
   };
 
   return (
-    <div style={style.modal}>
-      <div style={style.timerWrapper}>
+    <div className="modal">
+      <div className="timerWrapper">
         <CountdownCircleTimer
           isPlaying
           duration={duration}
@@ -42,39 +43,8 @@ const ModalTimeOut = ({
           {renderTime}
         </CountdownCircleTimer>
       </div>
-      <div style={style.modalTimeOut_content}>{textMsgModalTimeOut}</div>
+      <div className="modalTimeOut_content">{textMsgModalTimeOut}</div>
     </div>
   );
 };
 export default ModalTimeOut;
-
-const style = {
-  modal: {
-    width: "calc(100% - 12vw)",
-    position: "relative",
-    fontSize: "2rem",
-    textAlign: "center",
-    backgroundColor: "white",
-    fontWeight: 700,
-    padding: "3vw 6vw",
-    marginTop: "12vh",
-    lineHeight: "3rem",
-    color: "rgb(28, 2, 99)",
-  },
-  timer: {
-    display: "flex",
-    flexDirection: "column",
-    alignItems: "center",
-    justifyContent: "center",
-  },
-  timerWrapper: {
-    position: "absolute",
-    top: "-4rem",
-    width: "calc(100% - 12vw)",
-    cursor: "pointer",
-  },
-
-  modalTimeOut_content: {
-    textAlign: "center",
-  },
-};

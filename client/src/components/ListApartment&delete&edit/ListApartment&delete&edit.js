@@ -4,18 +4,17 @@ import React, { useState, useContext } from "react";
 import { PostToServerLoading } from "../getData";
 import RmoveApartment from "./removeApartment";
 import HoldApartment from "./holdApartment";
-import InfoApartment from "./infoApartment";
 import EditApartment from "./editApartment";
+import ApartmentShowComponent from "../ApartmentShowComponent/ApartmentShowComponent";
+import { Button } from "../Input_select_button/Input_select_button";
 
 const ItemApartment = ({ url }) => {
   const [apartments, setApartments] = useState([]);
   const [render, setRender] = useState(false);
-  const [isOpenModal, setIsOpenModal] = useState(false);
+  const [isOpenForEdit, setIsOpenForEdit] = useState(false);
   const [itemForEdit, setItemForEdit] = useState({});
 
-  // console.log(apartments);
-
-  return !isOpenModal ? (
+  return !isOpenForEdit ? (
     <div className="myApartment">
       <PostToServerLoading
         render={render}
@@ -55,37 +54,37 @@ const ItemApartment = ({ url }) => {
               }
               box={
                 <div>
-                  <InfoApartment item={item} />
+                  <div className="move_website_apartment">
+                    <a href={`/${item?._id}`} target="_blank" rel="noreferrer">
+                      למעבר לעמוד המודעה באתר
+                    </a>
+                  </div>
+
+                  <ApartmentShowComponent apartmentShow={item} />
 
                   <div className="btnsbottom">
-                    <div className="div_btn">
-                      <button
-                        className="btn"
-                        onClick={() => {
-                          setItemForEdit(item);
-                          setIsOpenModal(true);
-                        }}
-                      >
-                        ערוך מודעה
-                      </button>
-                    </div>
+                    <Button
+                      title={"ערוך מודעה"}
+                      padding={"0.5rem 5.5rem"}
+                      borderRadius={"10px"}
+                      onClick={() => {
+                        setItemForEdit(item);
+                        setIsOpenForEdit(true);
+                      }}
+                    />
 
-                    <div className="div_btn">
-                      <RmoveApartment
-                        idForApartment={item._id}
-                        render={render}
-                        setRender={setRender}
-                      />{" "}
-                    </div>
+                    <RmoveApartment
+                      idForApartment={item._id}
+                      render={render}
+                      setRender={setRender}
+                    />
 
-                    <div className="div_btn">
-                      <HoldApartment
-                        idForApartment={item._id}
-                        show={item.show}
-                        render={render}
-                        setRender={setRender}
-                      />
-                    </div>
+                    <HoldApartment
+                      idForApartment={item._id}
+                      show={item.show}
+                      render={render}
+                      setRender={setRender}
+                    />
                   </div>
                 </div>
               }
@@ -94,7 +93,10 @@ const ItemApartment = ({ url }) => {
       />
     </div>
   ) : (
-    <EditApartment itemForEdit={itemForEdit} setIsOpenModal={setIsOpenModal} />
+    <EditApartment
+      itemForEdit={itemForEdit}
+      setIsOpenForEdit={setIsOpenForEdit}
+    />
   );
 };
 export default ItemApartment;

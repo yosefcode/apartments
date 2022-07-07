@@ -41,9 +41,7 @@ function App() {
   const [detailsUsers, setDetailsUsers] = useState([]);
   const [registeredUser, setRegisteredUser] = useState();
   const [scrollTop, setScrollTop] = useState(true);
-  const [isManager, setIsManager] = useState(true);
-
-  console.log("registeredUser", registeredUser);
+  const [isManager, setIsManager] = useState(false);
 
   useEffect(() => {
     onAuthStateChanged(auth, (userForFirebase) => {
@@ -51,6 +49,7 @@ function App() {
         setUidFirebase(userForFirebase.uid);
         PostToServer(
           `/api/userConnected/${userForFirebase.uid}`,
+          {},
           setDetailsUsers
         );
       }
@@ -59,6 +58,7 @@ function App() {
 
   useEffect(() => {
     setRegisteredUser(detailsUsers?.length > 0 ? true : false);
+    setIsManager(detailsUsers?.length > 0 ? detailsUsers[0]?.manager : false);
   }, [detailsUsers]);
 
   // useEffect(() => {

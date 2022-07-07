@@ -1,0 +1,11 @@
+ .icon_time_rent {
+  margin: 0 40px -3px 5px;
+  width: 2.1rem;
+  color: var(--blue);
+}
+ .RentTime {
+  width: 100%;
+  font-size: 1.5rem;
+  display: flex;
+  flex-direction: row;
+}

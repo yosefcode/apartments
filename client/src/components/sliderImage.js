@@ -1,11 +1,9 @@
-import "./sliderImage.css";
 import Carousel from "react-gallery-carousel";
 import "react-gallery-carousel/dist/index.css";
 
 function SliderImage({ item }) {
   return (
     <div dir="ltr" className="carousel">
-      {/* {item.map((item) => ( */}
       <Carousel
         isLoop={true}
         isAutoPlaying={true}
@@ -16,9 +14,8 @@ function SliderImage({ item }) {
         hasSizeButton="bottomRight"
         // hasThumbnails="bottomRight"
         images={item.images.map((image) => ({ src: image }))}
-        // style={{ height: 500, width: "100%" }}
+        style={{ height: "50vw", width: "100%" }}
       />
-      {/* ))} */}
     </div>
   );
 }

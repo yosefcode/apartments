@@ -34,14 +34,15 @@ export const Input = (props) => {
 };
 
 export const Button = (props) => {
-  const { title, padding, onClick, borderRadius, type } = props;
+  const { title, padding, onClick, borderRadius, type, disabled } = props;
 
   return (
     <button
-      className="btn_component"
+      className={!disabled ? "btn_component" : "btn_component disabled"}
       style={{ padding: padding, borderRadius: borderRadius }}
       onClick={onClick}
       type={type}
+      disabled={disabled}
     >
       {title}
     </button>

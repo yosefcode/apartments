@@ -1,0 +1,129 @@
+.apartmentShowComponent .sendMessage {
+  position: relative;
+  width: 95%;
+  height: auto;
+  margin: 0 auto;
+}
+
+.apartmentShowComponent input {
+  width: 80%;
+  height: 30px;
+  border: rgb(16, 0, 100) 1px solid;
+  border-radius: 12px;
+  text-align: center;
+  padding: 5px 15px;
+  background-color: rgb(255, 255, 255);
+  margin: 15px 5%;
+  font-size: 1.5rem;
+}
+.apartmentShowComponent #message {
+  width: 80%;
+  height: 90px;
+  border: rgb(16, 0, 100) 1px solid;
+  border-radius: 12px;
+  text-align: center;
+  overflow: auto;
+  padding: 15px 15px;
+  background-color: rgb(255, 255, 255);
+  font-size: 1.5rem;
+  margin: 15px auto 30px;
+  line-height: 150%;
+}
+
+.apartmentShowComponent ::-webkit-scrollbar {
+  width: 6px;
+}
+
+.apartmentShowComponent ::-webkit-scrollbar-track {
+  box-shadow: inset 0 0 5px grey;
+  border-radius: 10px 0 0 10px;
+}
+
+.apartmentShowComponent ::-webkit-scrollbar-thumb {
+  background: rgb(2, 0, 129);
+  border-radius: 10px 0 0 10px;
+}
+
+
+.apartmentShowComponent [placeholder]:empty:before {
+  content: attr(placeholder);
+  color: gray;
+  background-color: transparent;
+  line-height: 150%;
+}
+
+.apartmentShowComponent .modal {
+  position: absolute;
+  background: white;
+  border-radius: 1vw;
+  filter: drop-shadow(0 0 0.6vw rgb(0, 0, 0));
+  width: 80%;
+  height: 80%;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  font-size: 1.7rem;
+  line-height: 3rem;
+  font-weight: 700;
+}
+
+.apartmentShowComponent .display-none {
+  display: none;
+}
+
+@media only screen and (max-width: 600px) {
+  .apartmentShowComponent .sendMessage {
+    position: relative;
+    width: 100%;
+    height: auto;
+  }
+
+  .apartmentShowComponent .allSendMessage {
+    width: calc(100% - 4px);
+    position: relative;
+    border: rgb(16, 0, 61) 2px solid;
+    border-top: rgb(16, 0, 61) 5px solid;
+    color: rgb(24, 0, 90);
+    font-weight: 700;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+    height: auto;
+  }
+  .apartmentShowComponent input {
+    width: 70%;
+  }
+  .apartmentShowComponent #message {
+    width: 70%;
+  }
+
+  /* .sendMessage input {
+    width: 80%;
+    height: 30px;
+    border: rgb(16, 0, 100) 1px solid;
+    border-radius: 12px;
+    text-align: center;
+    padding: 5px 15px;
+    background-color: rgb(255, 255, 255);
+    margin-top: 20px;
+    font-size: 1.5rem;
+  }
+  .sendMessage #message {
+    width: 80%;
+    height: 90px;
+    border: rgb(16, 0, 100) 0.2vw solid;
+    border-radius: 12px;
+    text-align: center;
+    overflow: auto;
+    padding: 15px 15px;
+    background-color: rgb(255, 255, 255);
+    font-size: 1.5rem;
+    margin-top: 20px;
+  } */
+}

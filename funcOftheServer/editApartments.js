@@ -17,6 +17,7 @@ exports.editApartment = async (req, res) => {
   if (req.body.long) updateValues.$set["long"] = req.body.long;
   if (req.body.special) updateValues.$set["special"] = req.body.special;
   if (req.body.times) updateValues.$set["times"] = req.body.times;
+  if (req.body.webSite) updateValues.$set["webSite"] = req.body.webSite;
   if (req.body.images) updateValues.$set["images"] = req.body.images;
   if (req.body.name) updateValues.$set["name"] = req.body.name;
   if (req.body.mail) updateValues.$set["mail"] = req.body.mail;

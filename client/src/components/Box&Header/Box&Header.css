@@ -1,0 +1,44 @@
+.Box_Header {
+  position: relative;
+  margin: 40px auto 20px;
+}
+.Box_Header .Box {
+  width: calc(100% - 44px);
+  position: relative;
+  border: var(--blue) 2px solid;
+  border-top: var(--blue) 5px solid;
+  color: rgb(24, 0, 90);
+  font-weight: 700;
+  padding: 20px;
+}
+
+.Box_Header .Header {
+  width: fit-content;
+  background-color: var(--blue);
+  border-radius: 10px 10px 0px 0px;
+  font-size: 2rem;
+  font-weight: 700;
+  position: relative;
+  right: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 3px 25px;
+  border: var(--purple) 2px solid;
+  color: var(--purple);
+
+}
+
+.Box_Header .Header:after {
+  border-radius: 15px 15px 0px 0px;
+  content: "";
+  position: absolute;
+  top: -10px;
+  left: -10px;
+  right: -10px;
+  bottom: -3px;
+  z-index: -1;
+  background:  var(--blue);
+}
+
+

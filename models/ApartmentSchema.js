@@ -17,6 +17,7 @@ const ApartmentSchema = new mongoose.Schema({
   mail: String,
   priceMethod: String,
   special: Array,
+  webSite: String,
   times: Array,
   uidFirebase: String,
   street: String,

@@ -10,9 +10,9 @@ const Location = ({ apartmentShow }) => {
   const [lat, setLat] = useState([]);
   const [lng, setLng] = useState([]);
 
-  const city = apartmentShow.map((name) => name.city);
+  const city = apartmentShow.map((name) => name.city + "," + name.street);
 
-  Geocode.setApiKey("AIzaSyDruzVgnPzX3hODNpHFohGBhvj-KO-nFQk");
+  Geocode.setApiKey(process.env.REACT_APP_GEOCODE_APIKEY);
 
   Geocode.setLanguage("he");
 
@@ -59,10 +59,10 @@ const Location = ({ apartmentShow }) => {
       <div className="map">
         <GoogleMapReact
           bootstrapURLKeys={{
-            key: "AIzaSyDruzVgnPzX3hODNpHFohGBhvj-KO-nFQk",
+            key: process.env.REACT_APP_GEOCODE_APIKEY,
           }}
           center={{ lat: lat, lng: lng }}
-          defaultZoom={12}
+          defaultZoom={15}
         >
           <AnyReactComponent
             lat={lat}

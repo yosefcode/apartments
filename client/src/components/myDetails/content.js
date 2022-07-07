@@ -21,6 +21,7 @@ function Content({ setDetailsUser, detailsUser, formik, onchange }) {
     { value: "דרום", title: "איזור המרכז" },
     { value: "צפון", title: "איזור הצפון" },
   ];
+  console.log(detailsUser);
 
   return (
     <div className="details_container">

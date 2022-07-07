@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import Modal from "../Modal";
 import { DeleteToServer } from "../getData";
+import { Button } from "../Input_select_button/Input_select_button";
 
 const RmoveApartment = ({ idForApartment, render, setRender }) => {
   const [isOpenModal, setIsOpenModal] = useState(false);
@@ -11,15 +12,15 @@ const RmoveApartment = ({ idForApartment, render, setRender }) => {
   };
 
   return (
-    <div>
-      <button
-        className="btn"
+    <div style={{ margin: "0 auto" }}>
+      <Button
+        title={"מחק מודעה"}
         onClick={() => {
           setIsOpenModal(true);
         }}
-      >
-        מחק מודעה
-      </button>
+        padding={"0.5rem 5.5rem"}
+        borderRadius={"10px"}
+      />
 
       {isOpenModal && (
         <Modal
@@ -29,17 +30,20 @@ const RmoveApartment = ({ idForApartment, render, setRender }) => {
             <div>
               האם אתה בטוח כי ברצונך למחוק את המודעה?{" "}
               <div className="btnsModal">
-                <button className="btnModal" onClick={rmoveApartment}>
-                  מחק מודעה
-                </button>
-                <button
-                  className="btnModal"
+                <Button
+                  title={"מחק מודעה"}
+                  onClick={rmoveApartment}
+                  padding={"0.3rem 1rem"}
+                  borderRadius={"10px"}
+                />
+                <Button
+                  title={"ביטול"}
                   onClick={() => {
                     setIsOpenModal(false);
                   }}
-                >
-                  ביטול
-                </button>
+                  padding={"0.3rem 1rem"}
+                  borderRadius={"10px"}
+                />
               </div>
             </div>
           }

@@ -1,7 +1,8 @@
 import "./images.css";
-import CancelIcon from "@mui/icons-material/Cancel";
-import { useState, useEffect } from "react";
+import { Cancel, CameraAlt, Delete } from "@mui/icons-material";
+import { useState, useRef, useEffect } from "react";
 import Resizer from "react-image-file-resizer";
+import { Button } from "../../Input_select_button/Input_select_button";
 
 function AddImages({
   setApartment,
@@ -14,17 +15,21 @@ function AddImages({
 }) {
   const [modal, setModal] = useState(false);
   const [IMG_modal, setIMG_modal] = useState();
+  const fileRef = useRef();
 
   const imgView = (images, state, setState) => {
     return images?.map((img, index) => (
       <div className="img_add" key={index}>
-        <CancelIcon
+        <Delete
           className="delete_img"
           style={{
-            fontSize: "3rem",
-            color: "white",
-            backgroundColor: "red",
+            fontSize: "2.5rem",
+            color: "red",
+            backgroundColor: "white",
             borderRadius: "50%",
+            padding: "0.5rem",
+            cursor: "pointer",
+            border: "2px solid red",
           }}
           onClick={() => {
             let filter = state.filter((e) => e !== img);
@@ -77,16 +82,20 @@ function AddImages({
   return (
     <div>
       <div className="div_btn_add_img">
-        {" "}
-        <label for="files">
-          <div className="btn_add_img">+</div>
-        </label>
-        <input
-          type="file"
-          id="files"
-          onChange={uploadImage}
-          style={{ visibility: "hidden" }}
-        ></input>
+        <Button
+          title={
+            <CameraAlt
+              style={{
+                fontSize: "3rem",
+              }}
+            />
+          }
+          padding={"0.5rem 1.5rem"}
+          borderRadius={"50%"}
+          type="button"
+          onClick={() => fileRef.current.click()}
+        />
+        <input type="file" ref={fileRef} onChange={uploadImage} hidden></input>
       </div>
 
       <div className="div_add_img">
@@ -108,7 +117,7 @@ function AddImages({
               e.stopPropagation();
             }}
           >
-            <CancelIcon
+            <Cancel
               className="close_modal"
               style={{
                 fontSize: "3rem",

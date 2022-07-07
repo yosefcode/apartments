@@ -95,8 +95,8 @@ export const GetData = async (url, data) => {
   );
 };
 
-export const PostToServer = async (url, data, response) => {
-  axios.post(url).then(
+export const PostToServer = async (url, obj, data, response) => {
+  axios.post(url, obj).then(
     (res) => {
       if (data) {
         data(res.data);
@@ -111,10 +111,13 @@ export const PostToServer = async (url, data, response) => {
   );
 };
 
-export const PutToServer = async (route, obj) => {
+export const PutToServer = async (route, obj, response) => {
   axios.put(route, obj).then(
     (res) => {
       console.log(res);
+      if (response) {
+        response(res);
+      }
     },
     (err) => {
       console.log(err);

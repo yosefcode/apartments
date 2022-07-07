@@ -42,7 +42,7 @@ const style = {
     padding: "20px",
     transform: "translate(-50%, -50%)",
     textAlign: "center",
-    fontSize: "1.5rem",
+    fontSize: "1.8rem",
     fontWeight: "bold",
     color: "black",
     cursor: "pointer",

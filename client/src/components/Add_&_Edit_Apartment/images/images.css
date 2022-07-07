@@ -30,7 +30,7 @@ color: rgb(28, 2, 99);}
 .div_add_img {
   width: 100%;
   display: flex;
-  /* justify-content: space-around; */
+  justify-content: space-between;
   align-items: center;
   flex-direction: row;
   flex-wrap: wrap;
@@ -38,9 +38,9 @@ color: rgb(28, 2, 99);}
 .img_add {
   border: solid 1rem rgb(197, 197, 197);
   /* border-radius: 2.5rem; */
-  /* width: 25%; */
-  height: 25rem;
-  margin: 3rem;
+  width: 25%;
+  height: 15rem;
+  margin: 3%;
   display: flex;
   justify-content: center;
   align-items: center;

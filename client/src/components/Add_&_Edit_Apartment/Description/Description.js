@@ -1,8 +1,14 @@
 import "./Description.css";
 import { useState, useEffect } from "react";
-import { TextArea } from "../../Input_select_button/Input_select_button";
+import { TextArea, Input } from "../../Input_select_button/Input_select_button";
 
-function SpecialApartment({ setApartment, apartment, formik, itemForEdit }) {
+function SpecialApartment({
+  setApartment,
+  apartment,
+  formik,
+  itemForEdit,
+  onchange,
+}) {
   const [special, setSpecial] = useState(
     itemForEdit ? itemForEdit?.special : []
   );
@@ -153,6 +159,14 @@ function SpecialApartment({ setApartment, apartment, formik, itemForEdit }) {
             ))}
           </div>
         }
+      />
+      <Input
+        label={"קישור לאתר"}
+        name={"webSite"}
+        onChange={onchange}
+        defaultValue={itemForEdit ? itemForEdit.webSite : ""}
+        placeholder={"ניתן לצרף קישור לאתר של האירוח, עמוד פייסבוק וכד'"}
+        width={"100%"}
       />
     </div>
   );

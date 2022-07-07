@@ -1,0 +1,50 @@
+  .modal {
+      width: 90%;
+      position: relative;
+        margin: 30px auto;
+      font-size: 1.7rem;
+        font-weight: 700;
+      text-align: center;
+      color: var(--blue);
+    }
+    
+    .timer {
+      display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+    }
+
+    .timerWrapper {
+      cursor: pointer;
+    }
+  
+    .modalTimeOut_content {
+      text-align: center;
+color: var(--white);
+background-color: var(--blue);
+border: var(--purple) 2px solid;
+padding: 4rem;
+border-radius: 20px;
+width: 70%;
+position: relative;
+margin: 40px auto;    
+min-height: 100px;
+display: flex;
+justify-content: center;
+align-items: center;
+}
+
+  .modalTimeOut_content:after {
+    border-radius: 15px ;
+    content: "";
+    position: absolute;
+    top: -10px;
+    left: -10px;
+    right: -10px;
+    bottom: -10px;
+    z-index: -1;
+    background-color:  var(--blue);
+  }
+  
+  

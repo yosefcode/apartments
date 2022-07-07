@@ -62,7 +62,7 @@ function Accordion({ boxheader, box }) {
           </AccordionSummary>
           <AccordionDetails>
             <Typography>
-              <div className="box">{box}</div>
+              <div style={style.box}>{box}</div>
             </Typography>
           </AccordionDetails>
         </Accordion>
@@ -80,5 +80,8 @@ const style = {
     top: 0,
     left: "2%",
     height: "100%",
+  },
+  box: {
+    zIndex: -5,
   },
 };

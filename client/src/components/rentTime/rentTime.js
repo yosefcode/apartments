@@ -1,9 +1,15 @@
 import "./rentTime.css";
-import shabat from "./shabat.png";
-import Holiday from "./Holiday.png";
-import calander from "./calander.png";
+import shabat from "../../assets/shabat.svg";
+import Holiday from "../../assets/Holiday.svg";
+import calander from "../../assets/calander.svg";
 
 function RentTime({ rentTime }) {
+  for (let index = 0; index < rentTime.length; index++) {
+    const element = rentTime[index];
+    if (element === "4") {
+      rentTime.splice(0, 4, "4");
+    }
+  }
   return (
     <div className="RentTime">
       {rentTime.map((time) =>
@@ -11,16 +17,16 @@ function RentTime({ rentTime }) {
           <div>
             <img className="icon_time_rent" src={calander} alt=""></img> כל השנה
           </div>
-        ) : time !== "4" && time === "1" ? (
+        ) : time === "1" ? (
           <div>
             <img className="icon_time_rent" src={shabat} alt=""></img> שבתות /
             סופ"ש
           </div>
-        ) : time !== "4" && time === "2" ? (
+        ) : time === "2" ? (
           <div>
             <img className="icon_time_rent" src={shabat} alt=""></img> חגים
           </div>
-        ) : time !== "4" && time === "3" ? (
+        ) : time === "3" ? (
           <div>
             <img className="icon_time_rent" src={Holiday} alt=""></img> בין
             הזמנים

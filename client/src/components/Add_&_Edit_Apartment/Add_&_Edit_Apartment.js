@@ -1,4 +1,4 @@
-import "./Add_&_Edit_Apartment.scss";
+import "./Add_&_Edit_Apartment.css";
 import React, { useState, useEffect, useContext } from "react";
 import DetailsApartment from "./detailsApartment/detailsApartment";
 import Contact from "./contact/contact";
@@ -13,6 +13,7 @@ import { parsePhoneNumberFromString } from "libphonenumber-js";
 import { Button } from "../Input_select_button/Input_select_button";
 import ModalTimeOut from "../ModalTimeOut/ModalTimeOut";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
+import Baner from "../baner";
 
 function AddApartment({ itemForEdit, setIsOpenForEdit }) {
   const [response, setResponse] = useState();
@@ -217,73 +218,61 @@ function AddApartment({ itemForEdit, setIsOpenForEdit }) {
           ) : null}
           <form onSubmit={formik.handleSubmit}>
             <div class="tabs">
-              <div class="tab">
-                <label class="tab-label" for="chck1">
-                  פרטי הדירה{" "}
-                </label>
-                <div class="tab-content">
-                  <DetailsApartment
-                    setChooseCity={setChooseCity}
-                    setChooseStreet={setChooseStreet}
-                    chooseStreet={chooseStreet}
-                    chooseCity={chooseCity}
-                    formik={formik}
-                    onchange={onchange}
-                    itemForEdit={itemForEdit}
-                    listCityOptions={listCityOptions}
-                    setListCityOptions={setListCityOptions}
-                    listStreetOptions={listStreetOptions}
-                    setListStreetOptions={setListStreetOptions}
-                  />{" "}
-                </div>
+              <Baner content={"פרטי הדירה"} />
+
+              <div class="content">
+                <DetailsApartment
+                  setChooseCity={setChooseCity}
+                  setChooseStreet={setChooseStreet}
+                  chooseStreet={chooseStreet}
+                  chooseCity={chooseCity}
+                  formik={formik}
+                  onchange={onchange}
+                  itemForEdit={itemForEdit}
+                  listCityOptions={listCityOptions}
+                  setListCityOptions={setListCityOptions}
+                  listStreetOptions={listStreetOptions}
+                  setListStreetOptions={setListStreetOptions}
+                />{" "}
               </div>
 
-              <div class="tab">
-                <label class="tab-label">תיאור</label>
-                <div class="tab-content">
-                  <SpecialApartment
-                    apartment={apartment}
-                    setApartment={setApartment}
-                    formik={formik}
-                    onchange={onchange}
-                    itemForEdit={itemForEdit}
-                  />
-                </div>
+              <Baner content={"תיאור"} />
+              <div class="content">
+                <SpecialApartment
+                  apartment={apartment}
+                  setApartment={setApartment}
+                  formik={formik}
+                  onchange={onchange}
+                  itemForEdit={itemForEdit}
+                />
               </div>
 
-              <div class="tab">
-                <label class="tab-label" for="chck3">
-                  הוספת תמונות{" "}
-                </label>
-                <div class="tab-content">
-                  <Images
-                    apartment={apartment}
-                    setApartment={setApartment}
-                    base64={base64}
-                    setBase64={setBase64}
-                    formik={formik}
-                    itemForEdit={itemForEdit}
-                    imgForEdit={imgForEdit}
-                    setImgForEdit={setImgForEdit}
-                  />{" "}
-                </div>
+              <Baner content={"הוספת תמונות"} />
+              <div class="content">
+                <Images
+                  apartment={apartment}
+                  setApartment={setApartment}
+                  base64={base64}
+                  setBase64={setBase64}
+                  formik={formik}
+                  itemForEdit={itemForEdit}
+                  imgForEdit={imgForEdit}
+                  setImgForEdit={setImgForEdit}
+                />{" "}
               </div>
 
-              <div class="tab">
-                <label class="tab-label" for="chck4">
-                  פרטי יצירת קשר{" "}
-                </label>
-                <div class="tab-content">
-                  <Contact
-                    apartment={apartment}
-                    setApartment={setApartment}
-                    formik={formik}
-                    onchange={onchange}
-                    itemForEdit={itemForEdit}
-                  />{" "}
-                </div>
+              <Baner content={"פרטי יצירת קשר"} />
+              <div class="content">
+                <Contact
+                  apartment={apartment}
+                  setApartment={setApartment}
+                  formik={formik}
+                  onchange={onchange}
+                  itemForEdit={itemForEdit}
+                />{" "}
               </div>
             </div>
+
             <div class="div_btns">
               <Button
                 title={itemForEdit ? "שמור שינויים" : "פרסם דירה"}

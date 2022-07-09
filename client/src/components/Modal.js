@@ -30,7 +30,7 @@ const style = {
     top: 0,
     right: 0,
     height: "100vh",
-    zIndex: 1000,
+    zIndex: 2000,
     backgroundColor: "rgba(0, 0, 0, 0.4)",
   },
   modal_content: {

@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useCallback } from "react";
 import "./App.css";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import Home from "./pages/home/home";
@@ -14,6 +14,7 @@ import { PostToServer } from "./components/getData";
 import { initializeApp } from "firebase/app";
 import DoubleArrowIcon from "@mui/icons-material/DoubleArrow";
 import { getAuth, onAuthStateChanged, signOut } from "firebase/auth";
+import Modal from "./components/Modal";
 
 function App() {
   const firebaseConfig = {
@@ -42,6 +43,8 @@ function App() {
   const [registeredUser, setRegisteredUser] = useState();
   const [scrollTop, setScrollTop] = useState(true);
   const [isManager, setIsManager] = useState(false);
+  const [isOpenModal, setIsOpenModal] = useState(false);
+  const [contentModal, setContentModal] = useState();
 
   useEffect(() => {
     onAuthStateChanged(auth, (userForFirebase) => {
@@ -105,6 +108,10 @@ function App() {
     setDetailsUsers: (value) => setDetailsUsers(value),
     uidFirebase: uidFirebase,
     setUidFirebase: (value) => setUidFirebase(value),
+    isOpenModal: isOpenModal,
+    setIsOpenModal: (value) => setIsOpenModal(value),
+    contentModal: contentModal,
+    setContentModal: (value) => setContentModal(value),
   };
 
   return (
@@ -118,6 +125,14 @@ function App() {
               setScrollTop(false);
             }
           })} */}
+          {isOpenModal && (
+            <Modal
+              isOpenModal={isOpenModal}
+              setIsOpenModal={setIsOpenModal}
+              content={contentModal}
+            />
+          )}
+
           {scrollTop && (
             <div className="top">
               <DoubleArrowIcon

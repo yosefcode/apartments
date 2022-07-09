@@ -7,21 +7,36 @@ import HoldApartment from "./holdApartment";
 import EditApartment from "./editApartment";
 import ApartmentShowComponent from "../ApartmentShowComponent/ApartmentShowComponent";
 import { Button } from "../Input_select_button/Input_select_button";
+import Baner from "../baner";
+import Modal from "../Modal";
+import { AppContext } from "../../variable-Context";
 
 const ItemApartment = ({ url }) => {
   const [apartments, setApartments] = useState([]);
   const [render, setRender] = useState(false);
   const [isOpenForEdit, setIsOpenForEdit] = useState(false);
   const [itemForEdit, setItemForEdit] = useState({});
+  const [isOpenModal, setIsOpenModal] = useState(false);
+  const [contentModal, setContentModal] = useState();
+
+  const { isManager } = useContext(AppContext);
 
   return !isOpenForEdit ? (
     <div className="myApartment">
+      {isOpenModal && (
+        <Modal
+          isOpenModal={isOpenModal}
+          setIsOpenModal={setIsOpenModal}
+          content={contentModal}
+        />
+      )}
+
       <PostToServerLoading
         render={render}
         route={url}
         data={setApartments}
         content={apartments
-          .sort((a, b) => (b.show > a.show ? -1 : 1))
+          .sort((a, b) => (isManager && b.show > a.show ? -1 : 1))
           .map((item, index) => (
             <Accordion
               key={index}
@@ -54,12 +69,11 @@ const ItemApartment = ({ url }) => {
               }
               box={
                 <div>
-                  <div className="move_website_apartment">
-                    <a href={`/${item?._id}`} target="_blank" rel="noreferrer">
-                      למעבר לעמוד המודעה באתר
-                    </a>
-                  </div>
-
+                  <a href={`/${item?._id}`} target="_blank" rel="noreferrer">
+                    <Baner
+                      content={` למעבר לעמוד המודעה באתר  >  >  >  >  >`}
+                    />
+                  </a>
                   <ApartmentShowComponent apartmentShow={item} />
 
                   <div className="btnsbottom">
@@ -77,6 +91,8 @@ const ItemApartment = ({ url }) => {
                       idForApartment={item._id}
                       render={render}
                       setRender={setRender}
+                      setIsOpenModal={setIsOpenModal}
+                      setContentModal={setContentModal}
                     />
 
                     <HoldApartment
@@ -84,6 +100,8 @@ const ItemApartment = ({ url }) => {
                       show={item.show}
                       render={render}
                       setRender={setRender}
+                      setIsOpenModal={setIsOpenModal}
+                      setContentModal={setContentModal}
                     />
                   </div>
                 </div>

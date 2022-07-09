@@ -18,7 +18,7 @@ function Info({ apartmentShow }) {
             החל מ-{apartmentShow.price} ש"ח ל{apartmentShow.priceMethod}.
           </h4>
         </div>
-        <div>
+        <div style={{ marginTop: "25px" }}>
           <h5>{apartmentShow.long}</h5>
         </div>
       </div>
@@ -40,12 +40,14 @@ function Info({ apartmentShow }) {
           ))}
         </h5>
       </div>
-      <div className="div_rentTime">
-        זמני ההשכרה:{" "}
-        <div>
-          <RentTime rentTime={apartmentShow.times} />
+      {apartmentShow?.times.length > 0 ? (
+        <div className="div_rentTime">
+          זמני ההשכרה:{" "}
+          <div>
+            <RentTime rentTime={apartmentShow.times} />
+          </div>
         </div>
-      </div>
+      ) : null}
       {apartmentShow?.webSite ? (
         <div className="move_website_apartment">
           <a href={apartmentShow.webSite} target="_blank" rel="noreferrer">

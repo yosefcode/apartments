@@ -1,6 +1,6 @@
 .Box_Header {
   position: relative;
-  margin: 40px auto 20px;
+  margin: 40px 0 20px;
 }
 .Box_Header .Box {
   width: calc(100% - 44px);

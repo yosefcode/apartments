@@ -3,30 +3,32 @@
   width: 95%;
   height: auto;
   margin: 0 auto;
+  height: 380px;
 }
 
 .apartmentShowComponent input {
   width: 80%;
   height: 30px;
-  border: rgb(16, 0, 100) 1px solid;
+  border: var(--blue) 1px solid;
   border-radius: 12px;
   text-align: center;
-  padding: 5px 15px;
+  padding: 5px 2.5%;
   background-color: rgb(255, 255, 255);
-  margin: 15px 5%;
+  margin: 15px 7%;
   font-size: 1.5rem;
 }
+
 .apartmentShowComponent #message {
   width: 80%;
   height: 90px;
-  border: rgb(16, 0, 100) 1px solid;
+  border: var(--blue) 1px solid;
   border-radius: 12px;
   text-align: center;
   overflow: auto;
-  padding: 15px 15px;
+  padding: 5px 2.5%;
   background-color: rgb(255, 255, 255);
   font-size: 1.5rem;
-  margin: 15px auto 30px;
+  margin: 15px 7% 30px;
   line-height: 150%;
 }
 

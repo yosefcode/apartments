@@ -8,34 +8,17 @@
   position: relative;
   margin: 0 auto;
 }
-$midnight: #ebe9e9;
-$clouds: #000000;
 
-.addApartment .tab {
+.addApartment .content {
   width: calc(100% - 2px);
-  color: rgb(0, 0, 0);
   margin: 1px auto;
   overflow: hidden;
-  &-label {
-    width: 94%;
-    font-size: 1.8rem;
-    display: flex;
-    justify-content: start;
-    align-items: center;
-    padding: 0.5rem 3%;
-    background: var(--blue);
-    font-weight: 700;
-    margin-top: 1vw;
-    border-radius: 0.2vw;}
-    color: var(--white);
       
-  &-content {
     padding: 30px 0 0 0;
-    color: $midnight;
-    transition: all 0.35s;
+    color: var(--blue);
   }
 
-}
+
 
 
 .div_btns {
@@ -49,7 +32,7 @@ $clouds: #000000;
 
 
 
-// @media only screen and (max-width: 1000px) {
+/* // @media only screen and (max-width: 1000px) {
 //   .addApartment .divInputDetails {
 //     position: relative;
 //     width: 30%;
@@ -110,4 +93,4 @@ $clouds: #000000;
 //     font-weight: 600;
 //     padding: 0.5rem 1rem;
 //   }
-// }
+// } */

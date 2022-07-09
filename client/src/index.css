@@ -24,6 +24,11 @@ html {
   a {
     text-decoration: none;
   }
+  a:-webkit-any-link {
+    color: inherit;
+    cursor: pointer;
+    text-decoration: none;
+}
 
 
 @media only screen and (max-width: 1350px) {

@@ -1,5 +1,12 @@
 .addApartment .div-all-input {
   width: calc(100% - 2rem);
+  display: grid;
+  align-items: center;
+  position: relative;
+  margin: 0 auto;
+}
+/* .addApartment .div-all-input {
+  width: calc(100% - 2rem);
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
@@ -7,7 +14,7 @@
   align-items: center;
   position: relative;
   margin: 0 auto;
-}
+} */
 
 .addApartment .content {
   width: calc(100% - 2px);

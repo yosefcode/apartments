@@ -1,3 +1,7 @@
+.div_details{
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+}
+
 .div_list_city {
   position: absolute;
   border: 1px solid rgb(131, 131, 131);
@@ -35,3 +39,22 @@
   background: #c2c2c2;
   border-radius: 10px;
 }
+
+ @media only screen and (max-width: 900px) {
+  .div_details{
+    grid-template-columns: 1fr 1fr 1fr ;
+  }
+  
+   }
+ @media only screen and (max-width: 750px) {
+  .div_details{
+    grid-template-columns: 1fr 1fr ;
+  }
+  
+   }
+ @media only screen and (max-width: 600px) {
+  .div_details{
+    grid-template-columns: 1fr ;
+  }
+  
+   }

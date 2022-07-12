@@ -1,7 +1,7 @@
 import "./ApartmentShowComponent.css";
 import React, { useState, useEffect, useRef } from "react";
 import Location from "./location";
-import Calendar from "./calendar";
+import CalendarComponent from "../CalendarComponent/CalendarComponent";
 import SliderImage from "../sliderImage";
 import Info from "./info";
 import Header from "./header/header";
@@ -26,14 +26,14 @@ function ApartmentShow({ apartmentShow }) {
       />
 
       <BoxHeader
-        width={"46%"}
+        width={"100%"}
         content={<SendMessage apartmentShow={apartmentShow} />}
         label={"שלח הודעה לבעל הדירה"}
       />
 
       <BoxHeader
-        width={"46%"}
-        content={<Calendar apartmentShow={apartmentShow} />}
+        width={"100%"}
+        content={<CalendarComponent dateBusy={apartmentShow?.dateBusy} />}
         label={"תאריכים פנויים"}
       />
 

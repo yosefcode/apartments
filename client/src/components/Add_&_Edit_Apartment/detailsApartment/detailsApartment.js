@@ -147,14 +147,14 @@ function DetailsApartment({
   ];
 
   return (
-    <div className="div-all-input">
+    <div className="div-all-input div_details">
       <Input
         label={"שם מקום האירוח"}
         placeholder={"לדוגמא: דירה ברמה"}
         name={"nameApartment"}
         onChange={onchange}
         formikErr={formik.errors.nameApartment}
-        width={"23%"}
+        width={"90%"}
         defaultValue={itemForEdit ? itemForEdit.nameApartment : ""}
       />
 
@@ -164,7 +164,7 @@ function DetailsApartment({
         onChange={onchange}
         formikErr={formik.errors.area}
         options={area}
-        width={"23%"}
+        width={"90%"}
         defaultValue={itemForEdit ? itemForEdit.area : ""}
       />
 
@@ -181,7 +181,7 @@ function DetailsApartment({
           setChooseStreet("");
         }}
         formikErr={formik.errors.city}
-        width={"23%"}
+        width={"90%"}
         value={chooseCity ? chooseCity : valueCity}
         onClick={() => {
           setListCityOptions(!listCityOptions);
@@ -221,7 +221,7 @@ function DetailsApartment({
           setListStreetOptions(true);
           setChooseStreet("");
         }}
-        width={"23%"}
+        width={"90%"}
         value={chooseStreet ? chooseStreet : valueStreet}
         placeholder={"מומלץ, לא חובה"}
         onClick={() => {
@@ -261,7 +261,7 @@ function DetailsApartment({
         onChange={onchange}
         defaultValue={itemForEdit ? itemForEdit.rooms : ""}
         formikErr={formik.errors.rooms}
-        width={"23%"}
+        width={"90%"}
       />
 
       <Input
@@ -270,7 +270,7 @@ function DetailsApartment({
         onChange={onchange}
         defaultValue={itemForEdit ? itemForEdit.beds : ""}
         formikErr={formik.errors.beds}
-        width={"23%"}
+        width={"90%"}
       />
 
       <Select
@@ -280,7 +280,7 @@ function DetailsApartment({
         defaultValue={itemForEdit ? itemForEdit.priceMethod : ""}
         formikErr={formik.errors.priceMethod}
         options={priceMethod}
-        width={"23%"}
+        width={"90%"}
       />
 
       <Input
@@ -289,7 +289,7 @@ function DetailsApartment({
         onChange={onchange}
         defaultValue={itemForEdit ? itemForEdit.price : ""}
         formikErr={formik.errors.price}
-        width={"23%"}
+        width={"90%"}
       />
     </div>
   );

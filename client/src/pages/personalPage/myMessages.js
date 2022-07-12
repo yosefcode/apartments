@@ -8,6 +8,7 @@ function MyMessages() {
   const { uidFirebase } = useContext(AppContext);
   const [messages, setMessages] = useState([]);
   const [sortDate, setSortDate] = useState(false);
+  console.log(messages);
 
   const sortDateFunc = () => {
     setSortDate(!sortDate);

@@ -7,10 +7,10 @@ body {
   -moz-osx-font-smoothing: grayscale;
   
   --blue: rgb(16, 0, 61);
-  --blue-lite: rgba(16, 0, 61, 0.5);
+  --blue-lite: rgba(16, 0, 61, .5);
   --white: rgb(255, 255, 255);
   --black: rgb(0, 0, 0);
-  --yelow: #c3c08b;
+  --yelow: #ff0000;
   --orange: rgb(255, 204, 174);
   --purple: rgb(214, 174, 255);
 }

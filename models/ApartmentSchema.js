@@ -21,6 +21,7 @@ const ApartmentSchema = new mongoose.Schema({
   times: Array,
   uidFirebase: String,
   street: String,
+  dateBusy: Array,
 });
 
 const Apartment = mongoose.model("Apartments", ApartmentSchema);

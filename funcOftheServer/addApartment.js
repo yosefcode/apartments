@@ -21,6 +21,7 @@ exports.addApartment = async (req, res) => {
     mail: req.body.mail,
     phone: req.body.phone,
     street: req.body.street,
+    dateBusy: req.body.dateBusy,
   });
   try {
     await newApartment.save();

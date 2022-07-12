@@ -14,6 +14,7 @@ import { Button } from "../Input_select_button/Input_select_button";
 import ModalTimeOut from "../ModalTimeOut/ModalTimeOut";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import Baner from "../baner";
+import Calendar from "./calendar";
 
 function AddApartment({ itemForEdit, setIsOpenForEdit }) {
   const [response, setResponse] = useState();
@@ -57,6 +58,7 @@ function AddApartment({ itemForEdit, setIsOpenForEdit }) {
     times: itemForEdit ? itemForEdit.times : [],
     webSite: itemForEdit ? itemForEdit.webSite : "",
     images: itemForEdit ? itemForEdit.images : [],
+    dateBusy: itemForEdit ? itemForEdit.dateBusy : [],
     name: itemForEdit ? itemForEdit.name : detailsUsers?.nameUser,
     mail: itemForEdit ? itemForEdit.mail : detailsUsers?.mailUser,
     phone: itemForEdit ? itemForEdit.phone : detailsUsers?.phoneUser,
@@ -118,7 +120,7 @@ function AddApartment({ itemForEdit, setIsOpenForEdit }) {
     //     }),
     // }),
     onSubmit: (values) => {
-      console.log(values);
+      // console.log(values);
       addApartment();
     },
   });
@@ -258,6 +260,15 @@ function AddApartment({ itemForEdit, setIsOpenForEdit }) {
                   itemForEdit={itemForEdit}
                   imgForEdit={imgForEdit}
                   setImgForEdit={setImgForEdit}
+                />{" "}
+              </div>
+
+              <Baner content={"תאריכים פנויים"} />
+              <div class="content">
+                <Calendar
+                  apartment={apartment}
+                  setApartment={setApartment}
+                  itemForEdit={itemForEdit}
                 />{" "}
               </div>
 

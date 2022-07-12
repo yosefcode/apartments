@@ -18,6 +18,7 @@ const ItemApartment = ({ url }) => {
   const [itemForEdit, setItemForEdit] = useState({});
   const [isOpenModal, setIsOpenModal] = useState(false);
   const [contentModal, setContentModal] = useState();
+  // console.log(apartments);
 
   const { isManager } = useContext(AppContext);
 

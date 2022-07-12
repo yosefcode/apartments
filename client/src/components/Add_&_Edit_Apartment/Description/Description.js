@@ -51,40 +51,41 @@ function SpecialApartment({
   ];
   return (
     <div className="div-all-input">
-      <TextArea
-        label={"תיאור קצר"}
-        onInput={(e) => {
-          setApartment({
-            ...apartment,
-            short: e.currentTarget.textContent,
-          });
-        }}
-        placeholder={"כתבו תיאור קצר על מקום האירוח (עד 100 תווים)"}
-        formikErr={formik.errors.short}
-        width={"33%"}
-        height={"14rem"}
-        content={itemForEdit ? itemForEdit.short : ""}
-      />
+      <div className="div-all-input div_description">
+        <TextArea
+          label={"תיאור קצר"}
+          onInput={(e) => {
+            setApartment({
+              ...apartment,
+              short: e.currentTarget.textContent,
+            });
+          }}
+          placeholder={"כתבו תיאור קצר על מקום האירוח (עד 100 תווים)"}
+          formikErr={formik.errors.short}
+          width={"92%"}
+          height={"14rem"}
+          content={itemForEdit ? itemForEdit.short : ""}
+        />
 
-      <TextArea
-        label={"תיאור ארוך"}
-        onInput={(e) => {
-          setApartment({
-            ...apartment,
-            long: e.currentTarget.textContent,
-          });
-        }}
-        placeholder={"ספרו בהרחבה על מקום האירוח"}
-        formikErr={formik.errors.long}
-        width={"60%"}
-        height={"14rem"}
-        content={itemForEdit ? itemForEdit.long : ""}
-      />
-
+        <TextArea
+          label={"תיאור ארוך"}
+          onInput={(e) => {
+            setApartment({
+              ...apartment,
+              long: e.currentTarget.textContent,
+            });
+          }}
+          placeholder={"ספרו בהרחבה על מקום האירוח"}
+          formikErr={formik.errors.long}
+          width={"92%"}
+          height={"14rem"}
+          content={itemForEdit ? itemForEdit.long : ""}
+        />
+      </div>
       <TextArea
         label={"המיוחדים שלנו"}
         formikErr={formik.errors.special}
-        width={"98%"}
+        width={"92%"}
         height={"auto"}
         content={
           <div className="special">
@@ -126,7 +127,7 @@ function SpecialApartment({
       <TextArea
         label={"תקופות השכרה"}
         formikErr={formik.errors.times}
-        width={"98%"}
+        width={"92%"}
         height={"auto"}
         content={
           <div className="special">
@@ -166,7 +167,7 @@ function SpecialApartment({
         onChange={onchange}
         defaultValue={itemForEdit ? itemForEdit.webSite : ""}
         placeholder={"ניתן לצרף קישור לאתר של האירוח, עמוד פייסבוק וכד'"}
-        width={"100%"}
+        width={"92%"}
       />
     </div>
   );

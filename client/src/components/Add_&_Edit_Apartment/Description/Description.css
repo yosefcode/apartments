@@ -1,4 +1,8 @@
 
+ .div_description{
+grid-template-columns: 35% 65%;
+ }
+ 
  .special {
   font-size: 1.8rem;
   font-weight: 600;
@@ -13,6 +17,15 @@
     column-count: 3;
   }
 }
+@media only screen and (max-width: 750px) {
+  .div_description{
+    grid-template-columns: 100%;
+     }
+     .addApartment .special {
+      column-count: 2;
+    }
+  
+    }
 @media only screen and (max-width: 600px) {
   .addApartment .special {
     column-count: 1;

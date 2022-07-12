@@ -8,14 +8,14 @@ function Contact({ setApartment, apartment, formik, onchange, itemForEdit }) {
   const { detailsUsers } = useContext(AppContext);
 
   return (
-    <div className="div-all-input">
+    <div className="div-all-input div_contact">
       <Input
         label={"שם איש הקשר"}
         name={"name"}
         defaultValue={itemForEdit ? itemForEdit.name : detailsUsers?.nameUser}
         onChange={onchange}
         formikErr={formik.errors.name}
-        width={"30%"}
+        width={"90%"}
       />
 
       <Input
@@ -24,7 +24,7 @@ function Contact({ setApartment, apartment, formik, onchange, itemForEdit }) {
         defaultValue={itemForEdit ? itemForEdit.mail : detailsUsers?.mailUser}
         onChange={onchange}
         formikErr={formik.errors.mail}
-        width={"30%"}
+        width={"90%"}
       />
 
       <Input
@@ -41,7 +41,7 @@ function Contact({ setApartment, apartment, formik, onchange, itemForEdit }) {
           });
         }}
         formikErr={formik.errors.phone}
-        width={"30%"}
+        width={"90%"}
       />
     </div>
   );

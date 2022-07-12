@@ -34,7 +34,6 @@ const Location = ({ apartmentShow }) => {
         const { lat, lng } = response.results[0].geometry.location;
         setLat(lat);
         setLng(lng);
-        console.log(lat, lng);
       },
       (error) => {
         console.error(error);
@@ -62,7 +61,7 @@ const Location = ({ apartmentShow }) => {
               fontSize: "4rem",
               position: "relative",
               bottom: "40px",
-              left: "15px",
+              left: "0px",
               color: "red",
             }}
           />

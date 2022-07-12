@@ -22,6 +22,7 @@ exports.editApartment = async (req, res) => {
   if (req.body.name) updateValues.$set["name"] = req.body.name;
   if (req.body.mail) updateValues.$set["mail"] = req.body.mail;
   if (req.body.phone) updateValues.$set["phone"] = req.body.phone;
+  if (req.body.dateBusy) updateValues.$set["dateBusy"] = req.body.dateBusy;
 
   try {
     await models.apartmentSchema.findByIdAndUpdate(apartmentId, updateValues);

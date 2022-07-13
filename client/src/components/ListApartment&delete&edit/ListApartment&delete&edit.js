@@ -12,6 +12,8 @@ import Modal from "../Modal";
 import { AppContext } from "../../variable-Context";
 
 const ItemApartment = ({ url }) => {
+  let mql = window.matchMedia("(max-width: 600px)");
+
   const [apartments, setApartments] = useState([]);
   const [render, setRender] = useState(false);
   const [isOpenForEdit, setIsOpenForEdit] = useState(false);
@@ -78,7 +80,7 @@ const ItemApartment = ({ url }) => {
                   <div className="btnsbottom">
                     <Button
                       title={"ערוך מודעה"}
-                      padding={"0.5rem 5.5rem"}
+                      padding={mql.matches ? "0.5rem" : "0.5rem 5.5rem"}
                       borderRadius={"10px"}
                       onClick={() => {
                         setItemForEdit(item);

@@ -41,4 +41,8 @@
   background:  var(--blue);
 }
 
-
+@media only screen and (max-width: 600px) {
+  .Box_Header .Header {
+    font-size: 1.4rem;
+  }
+ }

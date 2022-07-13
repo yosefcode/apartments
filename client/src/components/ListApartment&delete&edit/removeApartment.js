@@ -10,6 +10,8 @@ const RmoveApartment = ({
   setIsOpenModal,
   setContentModal,
 }) => {
+  let mql = window.matchMedia("(max-width: 600px)");
+
   const rmoveApartment = () => {
     DeleteToServer(`/api/deleteApartment/${idForApartment}`);
     setRender(!render);
@@ -46,7 +48,7 @@ const RmoveApartment = ({
       <Button
         title={"מחק מודעה"}
         onClick={OpenModal}
-        padding={"0.5rem 5.5rem"}
+        padding={mql.matches ? "0.5rem" : "0.5rem 5.5rem"}
         borderRadius={"10px"}
       />
     </div>

@@ -135,3 +135,15 @@
     align-items: center;
   }
 
+  @media only screen and (max-width: 600px) {
+    .btn_component{
+      font-size: 1.3rem;
+     }
+     .btn_component:after {
+      top: -8px;
+      left: -8px;
+      right: -8px;
+      bottom: -8px;
+    }
+    }
+  

@@ -10,7 +10,7 @@ function Accordion({ boxheader, box }) {
   const Accordion = styled((props) => (
     <MuiAccordion disableGutters elevation={0} square {...props} />
   ))(({ theme }) => ({
-    margin: "10px",
+    margin: "20px 0",
     border: `1px solid ${theme.palette.divider}`,
     "&:not(:last-child)": {
       borderBottom: 0,
@@ -40,7 +40,6 @@ function Accordion({ boxheader, box }) {
       marginLeft: theme.spacing(1),
     },
   }));
-
   const AccordionDetails = styled(MuiAccordionDetails)(({ theme }) => ({
     padding: theme.spacing(2),
     borderTop: "1px solid rgba(0, 0, 0, .125)",

@@ -4,6 +4,8 @@ import Geocode from "react-geocode";
 import RoomIcon from "@mui/icons-material/Room";
 
 const Location = ({ apartmentShow }) => {
+  let mql = window.matchMedia("(max-width: 600px)");
+
   const [lat, setLat] = useState([]);
   const [lng, setLng] = useState([]);
 
@@ -45,7 +47,7 @@ const Location = ({ apartmentShow }) => {
 
   return (
     <GoogleMapReact
-      style={{ height: "400px" }}
+      style={{ height: mql.matches ? "250px" : "400px" }}
       bootstrapURLKeys={{
         key: process.env.REACT_APP_GEOCODE_APIKEY,
       }}

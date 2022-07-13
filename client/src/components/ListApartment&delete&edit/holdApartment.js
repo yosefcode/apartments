@@ -13,6 +13,7 @@ const HoldApartment = ({
   setContentModal,
 }) => {
   const { isManager } = useContext(AppContext);
+  let mql = window.matchMedia("(max-width: 600px)");
 
   const holdApartment = () => {
     PutToServer(
@@ -64,7 +65,7 @@ const HoldApartment = ({
         onClick={() => {
           show === "1" || show === "0" ? OpenModal() : holdApartment();
         }}
-        padding={"0.5rem 5.5rem"}
+        padding={mql.matches ? "0.5rem" : "0.5rem 5.5rem"}
         borderRadius={"10px"}
       />
     </div>

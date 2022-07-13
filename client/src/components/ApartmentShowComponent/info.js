@@ -1,6 +1,6 @@
 import CheckBoxIcon from "@mui/icons-material/CheckBox";
 import RentTime from "../rentTime/rentTime";
-
+import Baner from "../baner";
 function Info({ apartmentShow }) {
   return (
     <div className="information">
@@ -51,7 +51,7 @@ function Info({ apartmentShow }) {
       {apartmentShow?.webSite ? (
         <div className="move_website_apartment">
           <a href={apartmentShow.webSite} target="_blank" rel="noreferrer">
-            מעבר לאתר המודעה
+            <Baner content={`לאתר מפרסם המודעה  >  >  >  >  >`} />
           </a>
         </div>
       ) : null}

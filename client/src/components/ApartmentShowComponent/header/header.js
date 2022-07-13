@@ -1,5 +1,4 @@
 import "./header.css";
-import { useState } from "react";
 import { Call } from "@mui/icons-material";
 
 function Info({ apartmentShow }) {

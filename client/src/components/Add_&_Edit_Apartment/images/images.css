@@ -37,7 +37,6 @@ color: rgb(28, 2, 99);}
 }
 .img_add {
   border: solid 1rem rgb(197, 197, 197);
-  /* border-radius: 2.5rem; */
   width: 25%;
   height: 15rem;
   margin: 3%;
@@ -96,8 +95,10 @@ color: rgb(28, 2, 99);}
      height: 2rem;
    }
   
-/* @media only screen and (max-width: 750px) {
+@media only screen and (max-width: 750px) {
   .img_add {
-    width: 45%;
+    width: 80%;
   }
-} */
+  .div_add_img {
+  justify-content: center}
+}

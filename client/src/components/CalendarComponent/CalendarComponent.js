@@ -7,11 +7,12 @@ import Hebcal from "hebcal";
 import gematriya from "gematriya";
 
 const CalendarComponent = ({ dateBusy, onChange }) => {
-  useEffect(() => {
-    for (let i = 0; i < dateBusy.length; i++) {
-      dateBusy[i] = new Date(dateBusy[i]);
-    }
-  }, [dateBusy]);
+  // useEffect(() => {
+  //   for (let i = 0; i < dateBusy.length; i++) {
+  //     dateBusy[i] = new Date(dateBusy[i]);
+  //   }
+  // }, [dateBusy]);
+  console.log(dateBusy);
 
   const DateTile = ({ date, view }) => {
     const hebDate = Hebcal.HDate(date);
@@ -23,7 +24,7 @@ const CalendarComponent = ({ dateBusy, onChange }) => {
             {" "}
             {gematriya(hebDate.getDate())}
             <br />
-            <div style={{ fontSize: "1.1rem" }}>
+            <div className="month_heb">
               {date.getDay() === 6 ? (
                 <span style={{ color: "red" }}> {hebDate.getSedra("h")}</span>
               ) : (
@@ -42,7 +43,7 @@ const CalendarComponent = ({ dateBusy, onChange }) => {
 
   function tileClassName({ date, view }) {
     if (view === "month") {
-      if (dateBusy?.find((dDate) => isSameDay(dDate, date))) {
+      if (dateBusy?.find((dDate) => isSameDay(new Date(dDate), date))) {
         return "busy";
       }
     }
@@ -50,12 +51,12 @@ const CalendarComponent = ({ dateBusy, onChange }) => {
 
   return (
     <div className="calendar">
-      <div>
-        <div className="calendar_title">
-          <div className="busy_title">תפוס</div>
-          <div className="dateTile" style={{ width: "5rem", height: "3rem" }}>
-            פנוי
-          </div>
+      <div className="calendar_title">
+        <div className="busy_title" id="size_div_title">
+          תפוס
+        </div>
+        <div className="dateTile" id="size_div_title">
+          פנוי
         </div>
       </div>
       <Calendar

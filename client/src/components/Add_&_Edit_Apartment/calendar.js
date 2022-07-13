@@ -20,7 +20,7 @@ const Calendar = ({ setApartment, apartment, itemForEdit }) => {
   }
 
   function onChange(nextValue) {
-    let test = dateBusy?.find((dDate) => isSameDay(dDate, nextValue));
+    let test = dateBusy?.find((dDate) => isSameDay(new Date(dDate), nextValue));
     if (!test) {
       setDateBusy((value) => [...value, nextValue]);
     } else {

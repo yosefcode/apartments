@@ -65,6 +65,7 @@ function SpecialApartment({
           width={"92%"}
           height={"14rem"}
           content={itemForEdit ? itemForEdit.short : ""}
+          contentEditable={true}
         />
 
         <TextArea
@@ -80,6 +81,7 @@ function SpecialApartment({
           width={"92%"}
           height={"14rem"}
           content={itemForEdit ? itemForEdit.long : ""}
+          contentEditable={true}
         />
       </div>
       <TextArea

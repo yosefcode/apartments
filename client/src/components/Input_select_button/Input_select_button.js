@@ -152,8 +152,16 @@ export const InputSelect = (props) => {
 };
 
 export const TextArea = (props) => {
-  const { label, onInput, placeholder, formikErr, width, height, content } =
-    props;
+  const {
+    label,
+    onInput,
+    placeholder,
+    formikErr,
+    width,
+    height,
+    content,
+    contentEditable,
+  } = props;
 
   return (
     <div className="div_input" style={{ width: width }}>
@@ -164,7 +172,7 @@ export const TextArea = (props) => {
         id="textarea"
         style={{ height: height }}
         onInput={onInput}
-        contentEditable
+        contentEditable={contentEditable}
         placeholder={placeholder}
       >
         {content}

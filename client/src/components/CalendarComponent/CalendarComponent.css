@@ -1,9 +1,4 @@
 
-.calendar{
-  position: relative;
-
-}
-
 .react-calendar__tile--now {
     background: var(--orange);
   }
@@ -14,7 +9,6 @@
   .react-calendar__year-view .react-calendar__tile abbr{
   display: block;
   }
-  
   .react-calendar__tile.react-calendar__month-view__days__day.react-calendar__month-view__days__day--neighboringMonth {
     opacity: 0.1;
   }
@@ -26,6 +20,7 @@
   .react-calendar__navigation {
     width: 50%;
   margin: 0 auto;
+  align-items: baseline
   
   }
   .react-calendar__navigation button{   
@@ -119,7 +114,7 @@
   }
    .busy .dateTile{
     background-image:
-      linear-gradient(to top left, transparent 50%, var(--purple) 0),
+      linear-gradient(to top left, transparent 50%, var(--purple-lite) 0),
       linear-gradient(to bottom right, transparent 0, var(--blue-lite) 50% );
       border: 2px solid var(--blue);
       width: 100%;
@@ -128,12 +123,19 @@
   }
    .busy_title{
     background-image:
-      linear-gradient(to top left, transparent 50%, var(--purple) 0),
+      linear-gradient(to top left, transparent 50%, var(--purple-lite) 0),
       linear-gradient(to bottom right, transparent 0, var(--blue-lite) 50% );
       border: 2px solid var(--blue);
-      width: 5rem;
-      height:  3rem;
   }
+
+  #size_div_title{
+    width:5rem !important;
+    height:3rem !important;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+}  
   
   .calendar_title{
     display: flex;
@@ -146,8 +148,69 @@
     font-size: 1.6rem;
     font-weight: 700;
     position: absolute;
-    top: 1rem;
-    left: 1rem;
+    top: 3rem;
+    left: 3rem;
   }
+  .month_heb{
+    font-size: 1.1rem;
+  }
+
   
+  @media only screen and (max-width: 600px) {
+    .react-calendar__navigation {
+      width: 80%;
+    }
+    .react-calendar__month-view__weekdays__weekday {
+      padding: 0em;
+      font-size: 1.2rem;
+    }
+    .date_cal{
+      font-size: 1.2rem;
+    }
+    .date_heb {
+      font-size: 1.1rem;
+    }
+    .month_heb{
+      font-size: 0.8rem;
+    }
+  
+    .react-calendar__tile {
+      height: 6rem;
+      padding: 2px;
+      }
+      .dateTile{
+        position: relative;
+        background-image:
+          linear-gradient(to top left, transparent 55%, var(--purple) 0),
+          linear-gradient(to bottom right, transparent 0, var(--blue) 45% );
+        background-repeat: no-repeat;
+        background-position: left, right;
+        width: 100%;
+        height:  100%;
+      }
+       .busy .dateTile{
+        background-image:
+          linear-gradient(to top left, transparent 55%, var(--purple-lite) 0),
+          linear-gradient(to bottom right, transparent 0, var(--blue-lite) 45% );
+          border: 2px solid var(--blue);
+          width: 100%;
+          height:  100%;
+        
+      }
+
+      .calendar_title{
+        position: relative;
+        top: 10px;
+        float: left;
+        left: 10px;
+        font-size: 1.2rem;
+        width: 9rem;
+        margin-bottom: 15px;
+      }
+    
+      #size_div_title{
+        width: 4rem !important;
+        height: 2.5rem !important;}
+        
+  }
   

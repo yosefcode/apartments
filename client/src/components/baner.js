@@ -1,7 +1,8 @@
 function Baner({ content, height }) {
+  let mql = window.matchMedia("(max-width: 600px)");
   const style = {
     width: "94%",
-    fontSize: "1.8rem",
+    fontSize: mql.matches ? "1.3rem" : "1.8rem",
     margin: "10px auto",
     color: "var(--purple)",
     fontWeight: "700",

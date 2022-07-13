@@ -71,9 +71,7 @@ const ItemApartment = ({ url }) => {
               box={
                 <div>
                   <a href={`/${item?._id}`} target="_blank" rel="noreferrer">
-                    <Baner
-                      content={` למעבר לעמוד המודעה באתר  >  >  >  >  >`}
-                    />
+                    <Baner content={`למעבר לעמוד המודעה באתר  >  >  >  >  >`} />
                   </a>
                   <ApartmentShowComponent apartmentShow={item} />
 

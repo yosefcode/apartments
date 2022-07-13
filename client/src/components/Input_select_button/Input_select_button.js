@@ -174,6 +174,7 @@ export const TextArea = (props) => {
         onInput={onInput}
         contentEditable={contentEditable}
         placeholder={placeholder}
+        suppressContentEditableWarning="true"
       >
         {content}
       </div>

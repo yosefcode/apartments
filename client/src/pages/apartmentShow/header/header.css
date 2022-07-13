@@ -72,7 +72,7 @@
   .header {
     width: 100%;
     padding: 0px;
-    margin-top: 20px;
+    /* margin-top: 20px; */
   }
   .bgcolorHeader {
     padding: 20px 0px;

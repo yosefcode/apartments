@@ -26,57 +26,27 @@ cursor: pointer;
   align-items: center;
   justify-content: flex-end;
 }
-.bgcolorHeader {
-  background-color: rgb(28, 2, 99);
-  color: white !important;
-  padding: 20px 0;
-  box-shadow: 0 0 10px rgb(173, 173, 173);
-  border-bottom: rgb(214, 174, 255) 0.4vw solid;
-}
 
-.noneShowFavorite {
-  display: none;
-}
-.yesShowFavorite {
-  width: 15%;
-  height: 100%;
-  position: absolute;
-  top: 0;
-  left: 0;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
 
 @media only screen and (max-width: 600px) {
   .header {
     width: 100%;
     padding: 0px;
-    margin-top: 20px;
-  }
-  .bgcolorHeader {
-    padding: 20px 0px;
-  }
-  .header1 {
-    width: calc(90%);
-    margin: 0px auto;
+    margin-bottom: 10px;
   }
   .header_mobile {
     display: flex;
   }
   .nameHeader {
-    font-size: 2rem;
+    font-size: 1.8rem;
     display: block;
-
-    /* display: flex;
-    align-items: center; */
   }
   .addressHeader {
-    font-size: 1.5rem;
+    font-size: 1.3rem;
     margin-right: 0;
     display: block;
   }
   .phoneHeader {
-    font-size: 1.7rem;
+    font-size: 1.4rem;
   }
 }

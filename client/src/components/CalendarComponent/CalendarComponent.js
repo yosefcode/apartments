@@ -7,13 +7,6 @@ import Hebcal from "hebcal";
 import gematriya from "gematriya";
 
 const CalendarComponent = ({ dateBusy, onChange }) => {
-  // useEffect(() => {
-  //   for (let i = 0; i < dateBusy.length; i++) {
-  //     dateBusy[i] = new Date(dateBusy[i]);
-  //   }
-  // }, [dateBusy]);
-  console.log(dateBusy);
-
   const DateTile = ({ date, view }) => {
     const hebDate = Hebcal.HDate(date);
     return (

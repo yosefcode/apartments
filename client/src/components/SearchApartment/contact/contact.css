@@ -1,0 +1,18 @@
+.div_contact{
+    grid-template-columns: 1fr 1fr 1fr ;
+}
+
+@media only screen and (max-width: 750px) {
+    .div_contact{
+      grid-template-columns:  1fr 1fr ;
+    }
+    
+     }
+  
+@media only screen and (max-width: 600px) {
+    .div_contact{
+      grid-template-columns: 1fr ;
+    }
+    
+     }
+  

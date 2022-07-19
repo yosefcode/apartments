@@ -75,7 +75,10 @@ const ItemApartment = ({ url }) => {
                   <a href={`/${item?._id}`} target="_blank" rel="noreferrer">
                     <Baner content={`למעבר לעמוד המודעה באתר  >  >  >  >  >`} />
                   </a>
-                  <ApartmentShowComponent apartmentShow={item} />
+                  <ApartmentShowComponent
+                    apartmentShow={item}
+                    sendMessage={false}
+                  />
 
                   <div className="btnsbottom">
                     <Button

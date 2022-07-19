@@ -1,14 +1,16 @@
+import "./myMessages.css";
 import React, { useState, useEffect, useContext } from "react";
-import Table from "../../components/table/table";
 import { PostToServerLoading } from "../../components/getData";
-import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import { AppContext } from "../../variable-Context";
+import Modal from "../../components/Modal";
+import { AlternateEmail, Call } from "@mui/icons-material";
 
 function MyMessages() {
   const { uidFirebase } = useContext(AppContext);
   const [messages, setMessages] = useState([]);
   const [sortDate, setSortDate] = useState(false);
-  console.log(messages);
+  const [contentMessage, setContentMessage] = useState([]);
+  const [isOpenModal, setIsOpenModal] = useState(false);
 
   const sortDateFunc = () => {
     setSortDate(!sortDate);
@@ -23,83 +25,113 @@ function MyMessages() {
     );
   };
 
-  const valueHeader = [
-    { title: "בעניין", width: "15%" },
-    { title: "שם פונה", width: "15%" },
-    { title: "פרטי חזרה לפונה", width: "15%" },
-    { title: "תוכן ההודעה", width: "45%" },
-  ];
+  const content_Message = (
+    <div className="div_content_message">
+      <div className="div_message">
+        {isNaN(contentMessage[0].mailUser) ? (
+          <a
+            href={`https://mail.google.com/mail/?view=cm&fs=1&to=${contentMessage[0].mailUser}`}
+            target="_blank"
+            rel="noreferrer"
+          >
+            <div className="back_user">
+              <AlternateEmail
+                className="message"
+                style={{
+                  fontSize: "2.6rem",
+                  color: "red",
+                  marginInlineEnd: "1.5rem",
+                }}
+              />
+              {contentMessage[0].mailUser}{" "}
+            </div>
+          </a>
+        ) : (
+          <div
+            className="back_user"
+            onClick={() => {
+              window.open(`tel:${contentMessage[0].mailUser}`);
+            }}
+          >
+            <Call
+              style={{
+                fontSize: "2rem",
+                color: "green",
+                marginInlineEnd: "1.5rem",
+              }}
+              className="phone"
+            />
+
+            {contentMessage[0].mailUser}
+          </div>
+        )}
+        {contentMessage[0].message}
+      </div>
+    </div>
+  );
+
+  function combiningStrings(str1, str2) {
+    let theAnd = "";
+    let i = 0;
+    for (i = 0; i < str1.length && str2.length; i++) {
+      theAnd += str1[i];
+      theAnd += str2[i];
+    }
+    // theAnd += str1.slice(i);
+    // theAnd += str2.slice(i);
+    console.log(theAnd);
+  }
+  let str1 = "acehklj";
+  let str2 = "bdf";
+  combiningStrings(str1, str2);
 
   return (
-    <div>
+    <div className="myMessages">
       <PostToServerLoading
         route={`/api/messages/${uidFirebase}`}
         data={setMessages}
         content={
           messages.length > 0 ? (
-            <Table
-              valueHeader={
-                <>
-                  <th style={{ width: "10%" }} onClick={sortDateFunc}>
-                    {"זמן הפנייה"}{" "}
-                    <ExpandMoreIcon
-                      sx={{
-                        fontSize: "2rem",
-                        marginInline: "10px",
-                        color: "white",
-                        transform: sortDate ? "rotate(180deg)" : "",
-                      }}
-                    />
-                  </th>
-                  {valueHeader.map((item, i) => (
-                    <th key={i} style={{ width: item.width }}>
-                      {item.title}
-                    </th>
-                  ))}
-                </>
-              }
-              valueBody={messages.map((list) => (
-                <tr key={list._id}>
-                  <td>{new Date(list.date).toLocaleString()}</td>
-                  <td>{list.nameApartment}</td>
-                  <td>{list.nameUser}</td>
-                  <td>{list.mailUser}</td>
-                  <td>{list.message}</td>
-                </tr>
+            <div className="large_screen_mymessage">
+              {messages.map((item, index) => (
+                <div
+                  key={index}
+                  className="details_messages_large"
+                  onClick={() => {
+                    setContentMessage([
+                      { message: item.message, mailUser: item.mailUser },
+                    ]);
+                    setIsOpenModal(true);
+                  }}
+                >
+                  הודעה מאת {item.nameUser}
+                  <br /> בעניין {item.nameApartment}
+                  <div className="date">
+                    {new Date(item.date).toLocaleString()}
+                  </div>
+                </div>
               ))}
-            />
+            </div>
           ) : (
             <div>אין הודעות</div>
           )
         }
       />
+      {isOpenModal && (
+        <div>
+          <div className="message_large_screen">{content_Message} </div>
+
+          <div className="modal_message">
+            <Modal
+              isOpenModal={isOpenModal}
+              setIsOpenModal={setIsOpenModal}
+              content={content_Message}
+            />
+          </div>
+        </div>
+      )}
     </div>
   );
 }
 
 export default MyMessages;
-
-// <div className="divTable myMessage_smallScreen">
-//   <div className="sort" onClick={sortDate}>
-//     {!sort ? "הצג מהישן לחדש" : "הצג מהחדש לישן"}
-//   </div>
-
-//   {list.map((list, index) => (
-//     <div key={list._id} style={{ marginTop: "20px" }}>
-//       הודעה מס' {index + 1}
-//       <div className="message">
-//         זמן הפניה: <span>{new Date(list.date).toLocaleString()}</span>
-//         <br />
-//         בעניין: <span>{list.nameApartment}</span>
-//         <br />
-//         שם פונה: <span>{list.nameUser}</span>
-//         <br />
-//         פרטי חזרה לפונה: <span>{list.mailUser}</span>
-//         <br />
-//         תוכן ההודעה: <br />
-//         <p>{list.message}</p>
-//         <br />
-//       </div>
-//     </div>
-//   ))}
-// </div>

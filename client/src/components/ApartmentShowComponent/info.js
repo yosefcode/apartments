@@ -51,7 +51,7 @@ function Info({ apartmentShow }) {
       {apartmentShow?.webSite ? (
         <div className="move_website_apartment">
           <a href={apartmentShow.webSite} target="_blank" rel="noreferrer">
-            <Baner content={`לאתר מפרסם המודעה  >  >  >  >  >`} />
+            <Baner content={`לאתר מקום האירוח  >  >  >  >  >`} />
           </a>
         </div>
       ) : null}

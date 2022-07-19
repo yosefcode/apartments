@@ -12,6 +12,7 @@ const apartmentShow = require("./funcOftheServer/apartmentShow");
 const addApartment = require("./funcOftheServer/addApartment");
 const editApartment = require("./funcOftheServer/editApartments");
 const users = require("./funcOftheServer/users");
+const searchApartment = require("./funcOftheServer/searchApartment");
 
 app.use(cors());
 app.use(express.json());
@@ -67,6 +68,8 @@ app.post("/api/apartmentShow/:id", apartmentShow.apartmentShow);
 app.post("/api/sendMessageForApartment/", sendMessage.sendMessage);
 
 app.post("/api/addApartment/", addApartment.addApartment);
+
+app.post("/api/searchApartment/", searchApartment.searchApartment);
 
 app.post("/api/addUser/", users.addUser);
 app.get("/api/listUsers/", users.listUsers);

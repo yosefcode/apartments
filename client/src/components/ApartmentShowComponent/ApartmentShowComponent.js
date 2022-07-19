@@ -8,7 +8,7 @@ import Header from "./header/header";
 import SendMessage from "./sendMessage/sendMessage";
 import BoxHeader from "../Box&Header/Box&Header";
 
-function ApartmentShow({ apartmentShow }) {
+function ApartmentShow({ apartmentShow, sendMessage }) {
   const myRef = useRef(null);
 
   const executeScroll = () => myRef.current.scrollIntoView({ block: "center" });
@@ -25,11 +25,13 @@ function ApartmentShow({ apartmentShow }) {
         label={"מידע"}
       />
 
-      <BoxHeader
-        width={"100%"}
-        content={<SendMessage apartmentShow={apartmentShow} />}
-        label={"שלח הודעה לבעל הדירה"}
-      />
+      {sendMessage && (
+        <BoxHeader
+          width={"100%"}
+          content={<SendMessage apartmentShow={apartmentShow} />}
+          label={"שלח הודעה לבעל הדירה"}
+        />
+      )}
 
       <BoxHeader
         width={"100%"}

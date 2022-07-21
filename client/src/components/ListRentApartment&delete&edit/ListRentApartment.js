@@ -1,4 +1,4 @@
-import "./ListApartment&delete&edit.css";
+import "./ListRentApartment.css";
 import Accordion from "../Accordion";
 import React, { useState, useContext } from "react";
 import { PostToServerLoading } from "../getData";

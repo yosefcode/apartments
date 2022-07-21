@@ -13,7 +13,7 @@ function SliderImage({ item }) {
         hasMediaButton={false}
         hasSizeButton="bottomRight"
         // hasThumbnails="bottomRight"
-        images={item.images.map((image) => ({ src: image }))}
+        images={item.images?.map((image) => ({ src: image }))}
         style={{ height: "50vw", width: "100%" }}
       />
     </div>

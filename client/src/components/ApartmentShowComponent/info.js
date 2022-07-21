@@ -24,7 +24,7 @@ function Info({ apartmentShow }) {
       </div>
       <div className="special">
         <h5>
-          {apartmentShow.special.map((special) => (
+          {apartmentShow.special?.map((special) => (
             <li>
               <CheckBoxIcon
                 style={{
@@ -40,7 +40,7 @@ function Info({ apartmentShow }) {
           ))}
         </h5>
       </div>
-      {apartmentShow?.times.length > 0 ? (
+      {apartmentShow?.times?.length > 0 ? (
         <div className="div_rentTime">
           זמני ההשכרה:{" "}
           <div>

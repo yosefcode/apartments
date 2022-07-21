@@ -1,9 +1,9 @@
-import ListApartments from "../../components/ListApartment&delete&edit/ListApartment&delete&edit";
+import ListRentApartment from "../../components/ListRentApartment&delete&edit/ListRentApartment";
 
 const ListApartment = () => {
   return (
     <div className="myApartment">
-      <ListApartments url={"/api/allApartmentsForEditDelete/"} />
+      <ListRentApartment url={"/api/allApartmentsForEditDelete/"} />
     </div>
   );
 };

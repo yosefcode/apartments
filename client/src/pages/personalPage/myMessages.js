@@ -28,9 +28,9 @@ function MyMessages() {
   const content_Message = (
     <div className="div_content_message">
       <div className="div_message">
-        {isNaN(contentMessage[0].mailUser) ? (
+        {isNaN(contentMessage[0]?.mailUser) ? (
           <a
-            href={`https://mail.google.com/mail/?view=cm&fs=1&to=${contentMessage[0].mailUser}`}
+            href={`https://mail.google.com/mail/?view=cm&fs=1&to=${contentMessage[0]?.mailUser}`}
             target="_blank"
             rel="noreferrer"
           >
@@ -43,14 +43,14 @@ function MyMessages() {
                   marginInlineEnd: "1.5rem",
                 }}
               />
-              {contentMessage[0].mailUser}{" "}
+              {contentMessage[0]?.mailUser}{" "}
             </div>
           </a>
         ) : (
           <div
             className="back_user"
             onClick={() => {
-              window.open(`tel:${contentMessage[0].mailUser}`);
+              window.open(`tel:${contentMessage[0]?.mailUser}`);
             }}
           >
             <Call
@@ -62,28 +62,13 @@ function MyMessages() {
               className="phone"
             />
 
-            {contentMessage[0].mailUser}
+            {contentMessage[0]?.mailUser}
           </div>
         )}
-        {contentMessage[0].message}
+        {contentMessage[0]?.message}
       </div>
     </div>
   );
-
-  function combiningStrings(str1, str2) {
-    let theAnd = "";
-    let i = 0;
-    for (i = 0; i < str1.length && str2.length; i++) {
-      theAnd += str1[i];
-      theAnd += str2[i];
-    }
-    // theAnd += str1.slice(i);
-    // theAnd += str2.slice(i);
-    console.log(theAnd);
-  }
-  let str1 = "acehklj";
-  let str2 = "bdf";
-  combiningStrings(str1, str2);
 
   return (
     <div className="myMessages">

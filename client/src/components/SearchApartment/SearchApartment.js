@@ -150,7 +150,7 @@ function SearchApartment({ itemForEdit, setIsOpenForEdit }) {
                 />{" "}
               </div>
 
-              <Baner content={"תאריכים פנויים"} />
+              <Baner content={"תאריכים מבוקשים"} />
               <div class="content">
                 <Calendar
                   apartment={apartment}

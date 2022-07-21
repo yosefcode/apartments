@@ -48,11 +48,10 @@
   
   .react-calendar{
   height: 100%;
-  width: 100%;
+  width: 100% !important;
   max-width: 100%;
   max-height: 100%;
-  border: none;
-  
+  border: none !important;
   }
   .react-calendar__month-view__weekdays__weekday {
     padding: 0.5em;

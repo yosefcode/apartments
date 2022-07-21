@@ -3,7 +3,8 @@ import React, { useState, useEffect, useRef } from "react";
 import { useParams } from "react-router-dom";
 import axios from "axios";
 import Location from "./location/location";
-import Calendar from "./calendar/calendar";
+import CalendarComponent from "../../components/CalendarComponent/CalendarComponent";
+import BoxHeader from "../../components/Box&Header/Box&Header";
 import SliderImage from "./sliderImage/sliderImage";
 import Info from "./info/info";
 import Contact from "./contact/contact";
@@ -32,7 +33,7 @@ function ApartmentShow() {
 
   return (
     <div>
-      {/* <ApartmentShowComponent apartmentShow={apartmentShow} /> */}
+      {/* <ApartmentShowComponent apartmentShow={apartmentShow[0]} /> */}
       <div className="filterArea">
         <FilterArea />
       </div>
@@ -56,7 +57,13 @@ function ApartmentShow() {
           <div ref={myRef} className="divCommponent">
             <div className="divCommponent-SendMessage-Calendar">
               <SendMessage apartmentShow={apartmentShow} />
-              <Calendar apartmentShow={apartmentShow} />
+              <BoxHeader
+                width={"100%"}
+                content={
+                  <CalendarComponent dateBusy={apartmentShow[0]?.dateBusy} />
+                }
+                label={"תאריכים פנויים"}
+              />
             </div>
           </div>
 

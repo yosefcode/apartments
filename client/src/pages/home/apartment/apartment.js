@@ -114,20 +114,21 @@ function Apartment() {
                         </div>
                       ) : null}
 
-                      {list.times.map((time) =>
-                        // time !== "4" ? console.log("yes") : console.log("no");
-                        time === "4" ? (
-                          <div>
-                            <img
-                              className="icon_time_rent"
-                              src={calander}
-                              alt=""
-                            ></img>{" "}
-                            כל השנה
-                          </div>
-                        ) : // () => {
-                        //   setShowTimes(true);
-                        null
+                      {list.times.map(
+                        (time) =>
+                          // time !== "4" ? console.log("yes") : console.log("no");
+                          time === "4" ? (
+                            <div>
+                              <img
+                                className="icon_time_rent"
+                                src={calander}
+                                alt=""
+                              ></img>{" "}
+                              כל השנה
+                            </div>
+                          ) : // () => {
+                          //   setShowTimes(true);
+                          null
                         // console.log(showTimes)
                         // }
                       )}
@@ -166,13 +167,13 @@ function Apartment() {
                           ) : null}
                         </div>
                       ))}
+                    </div>
 
-                      <div className="phone">
-                        {list.name} - {list.phone}
-                      </div>
-                      <div className="price">
-                        החל מ- {list.price} ש"ח ל{list.priceMethod}
-                      </div>
+                    <div className="phone">
+                      {list.name} - {list.phone}
+                    </div>
+                    <div className="price">
+                      החל מ- {list.price} ש"ח ל{list.priceMethod}
                     </div>
                   </div>
                 </Link>

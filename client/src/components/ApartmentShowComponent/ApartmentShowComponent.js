@@ -17,7 +17,7 @@ function ApartmentShow({ apartmentShow, sendMessage }) {
     <div className="apartmentShowComponent">
       <Header apartmentShow={apartmentShow} />
 
-      <SliderImage item={apartmentShow} />
+      {/* <SliderImage item={apartmentShow} /> */}
 
       <BoxHeader
         width={"100%"}

@@ -1,0 +1,103 @@
+import "./sendMessage.css";
+import axios from "axios";
+import { useState } from "react";
+import { Button } from "../../Input_select_button/Input_select_button";
+
+function SendMessage({ apartmentShow }) {
+  // const mail = ["michal0361@gmail.com"];
+  // const mail = [
+  //   "A0575172432@gmail.com",
+  //   "michal0361@gmail.com",
+  //   "yosef9987@walla.com",
+  // ];
+
+  const [message, setMessage] = useState({});
+
+  const onchange = (e) =>
+    setMessage({
+      ...message,
+      uidFirebase: apartmentShow.uidFirebase,
+      mailApartment: apartmentShow.mail,
+      nameApartment: apartmentShow.nameApartment,
+      [e.target.name]: e.target.value,
+    });
+
+  const [modal, setModal] = useState("display-none");
+  const [msgmodal, setMsgmodal] = useState();
+
+  const sendMessage = () => {
+    message.message && message.phoneMailUser ? yesmsg() : nomsg();
+  };
+
+  const nomsg = () => {
+    setMsgmodal(
+      !message.message && !message.phoneMailUser && !message.nameUser
+        ? "מה אני אשלח? לא מילאת כלום \ud83d\ude14"
+        : !message.message && !message.phoneMailUser
+        ? "שם זה נחמד, אבל איך נדע מה אתה מעוניין לדעת?"
+        : !message.phoneMailUser
+        ? "חסר פרטים ליצירת קשר איתך. איך נחזור אליך עם תשובה?"
+        : !message.message
+        ? "נשמח לדעת מה אתה רוצה לברר מבעלי הדירה"
+        : ""
+    );
+
+    setModal("modal");
+    setTimeout(function () {
+      setModal("display-none");
+    }, 4000);
+  };
+
+  const yesmsg = () => {
+    axios
+      .post("/api/sendMessageForApartment/", message)
+      .then((res) => console.log("res.data"));
+    setMsgmodal("ההודעה נשלחה בהצלחה  \ud83d\ude00");
+    setModal("modal");
+    setMessage({});
+    document.getElementById("message").innerHTML = "";
+    document.getElementById("inputName").value = "";
+    document.getElementById("inputPhone").value = "";
+    setTimeout(function () {
+      setModal("display-none");
+    }, 4000);
+  };
+
+  return (
+    <div className="sendMessage">
+      <input
+        type="text"
+        id="inputName"
+        placeholder="שם"
+        name="nameUser"
+        onChange={onchange}
+      />
+
+      <input
+        type="text"
+        id="inputPhone"
+        placeholder="טלפון / מייל"
+        onChange={onchange}
+        name="phoneMailUser"
+      ></input>
+
+      <div
+        onInput={(e) => (message.message = e.currentTarget.textContent)}
+        id="message"
+        contentEditable
+        placeholder="בעלי הדירה ישמחו לשמוע מכם ... &#x1F60A;"
+      ></div>
+
+      <Button
+        title={"שלח"}
+        padding={"0.5rem 5.5rem"}
+        borderRadius={"10px"}
+        onClick={sendMessage}
+      />
+
+      <div className={modal}>{msgmodal}</div>
+    </div>
+  );
+}
+
+export default SendMessage;

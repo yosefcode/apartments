@@ -75,11 +75,14 @@ app.post(
   "/api/mylistPostSearch/:id",
   listPostSearchForDeleteHold.listPostSearch
 );
-// app.delete(
-//   `/api/deleteApartment/:id`,
-//   listApartmentsForDeleteHold.deleteApartment
-// );
-// app.put(`/api/holdApartment/:id`, listApartmentsForDeleteHold.holdApartment);
+app.delete(
+  `/api/deleteSearchApartment/:id`,
+  listPostSearchForDeleteHold.deleteSearchApartment
+);
+app.put(
+  `/api/holdSearchApartment/:id`,
+  listPostSearchForDeleteHold.holdSearchApartment
+);
 
 app.post("/api/addUser/", users.addUser);
 app.get("/api/listUsers/", users.listUsers);

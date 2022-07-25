@@ -1,0 +1,52 @@
+.header {
+  color: rgb(255, 94, 0);
+  font-weight: 700;
+  width: 100%;
+  padding: 10px;
+  display: flex;
+  justify-content: space-between;
+}
+
+
+.nameHeader {
+  font-size: 3rem;
+  display: flex;
+  align-items: center;
+}
+.addressHeader {
+  font-size: 2.1rem;
+  margin-right: 1vw;
+  display: flex;
+  align-items: center;
+}
+.phoneHeader {
+  font-size: 3rem;
+cursor: pointer; 
+ display: flex;
+  align-items: center;
+  justify-content: flex-end;
+}
+
+
+@media only screen and (max-width: 600px) {
+  .header {
+    width: 100%;
+    padding: 0px;
+    margin-bottom: 10px;
+  }
+  .header_mobile {
+    display: flex;
+  }
+  .nameHeader {
+    font-size: 1.8rem;
+    display: block;
+  }
+  .addressHeader {
+    font-size: 1.3rem;
+    margin-right: 0;
+    display: block;
+  }
+  .phoneHeader {
+    font-size: 1.4rem;
+  }
+}

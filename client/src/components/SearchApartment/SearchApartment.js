@@ -1,6 +1,7 @@
 import "./SearchApartment.css";
 import React, { useState, useEffect, useContext } from "react";
 import DetailsSearchApartment from "./detailsSearchApartment/detailsSearchApartment";
+import DetailsChangeApartment from "./detailsChangeApartment/detailsChangeApartment";
 import Contact from "./contact/contact";
 import * as Yup from "yup";
 import { useFormik } from "formik";
@@ -17,12 +18,16 @@ import Calendar from "./calendar";
 function SearchApartment({ itemForEdit, setIsOpenForEdit }) {
   const [response, setResponse] = useState();
   const { detailsUsers, uidFirebase } = useContext(AppContext);
+  const [chooseCityChange, setChooseCityChange] = useState(
+    itemForEdit?.cityChange ? itemForEdit.cityChange : ""
+  );
   const [chooseCity, setChooseCity] = useState(
     itemForEdit?.city ? itemForEdit.city : []
   );
   const [isLoading, setIsLoading] = useState(false);
   const [msgmodal, setMsgmodal] = useState(false);
   const [listCityOptions, setListCityOptions] = useState(false);
+  const [listCityChangeOptions, setListCityChangeOptions] = useState(false);
 
   useEffect(() => {
     if (response !== undefined) {
@@ -34,12 +39,18 @@ function SearchApartment({ itemForEdit, setIsOpenForEdit }) {
   const [apartment, setApartment] = useState({
     uidFirebase: uidFirebase,
     show: 0,
+    model: itemForEdit ? itemForEdit.area : "",
     area: itemForEdit ? itemForEdit.area : "",
     city: itemForEdit ? itemForEdit.city : "",
     rooms: itemForEdit ? itemForEdit.rooms : "",
     beds: itemForEdit ? itemForEdit.beds : "",
     price: itemForEdit ? itemForEdit.price : "",
     long: itemForEdit ? itemForEdit.long : "",
+    areaChange: itemForEdit ? itemForEdit.areaChange : "",
+    cityChange: itemForEdit ? itemForEdit.cityChange : "",
+    roomsChange: itemForEdit ? itemForEdit.roomsChange : "",
+    bedsChange: itemForEdit ? itemForEdit.bedsChange : "",
+    longChange: itemForEdit ? itemForEdit.longChange : "",
     dateBusy: itemForEdit ? itemForEdit.dateBusy : [],
     name: itemForEdit ? itemForEdit.name : detailsUsers?.nameUser,
     mail: itemForEdit ? itemForEdit.mail : detailsUsers?.mailUser,
@@ -51,11 +62,37 @@ function SearchApartment({ itemForEdit, setIsOpenForEdit }) {
     initialValues: apartment,
     enableReinitialize: true,
     validationSchema: Yup.object({
+      model: Yup.string().min(1, "חובה לבחור").required("* שדה חובה"),
       area: Yup.string().min(2, "יש לבחור איזור").required("* שדה חובה"),
       beds: Yup.number()
         .min(1, "יש לציין מס' מיטות")
         .typeError("יש להקליד רק מספרים")
         .required("* שדה חובה"),
+      areaChange:
+        apartment.model === "2" || apartment.model === "3"
+          ? Yup.string().min(2, "יש לבחור איזור").required("* שדה חובה")
+          : null,
+      cityChange:
+        apartment.model === "2" || apartment.model === "3"
+          ? Yup.string().min(2, "יש לבחור איזור").required("* שדה חובה")
+          : null,
+
+      bedsChange:
+        apartment.model === "2" || apartment.model === "3"
+          ? Yup.number()
+              .min(1, "יש לציין מס' מיטות")
+              .typeError("יש להקליד רק מספרים")
+              .required("* שדה חובה")
+          : null,
+
+      roomsChange:
+        apartment.model === "2" || apartment.model === "3"
+          ? Yup.number()
+              .min(1, "יש לציין מס' חדרים")
+              .typeError("יש להקליד רק מספרים")
+              .required("* שדה חובה")
+          : null,
+
       name: Yup.string().min(2, "מינימום 2 תווים").required("* שדה חובה"),
       mail: Yup.string().email("לא תקין").required("* שדה חובה"),
       phone: Yup.string()
@@ -103,8 +140,9 @@ function SearchApartment({ itemForEdit, setIsOpenForEdit }) {
     setApartment({
       ...apartment,
       city: chooseCity,
+      cityChange: chooseCityChange,
     });
-  }, [chooseCity]);
+  }, [chooseCity, chooseCityChange]);
 
   return (
     <div
@@ -150,14 +188,32 @@ function SearchApartment({ itemForEdit, setIsOpenForEdit }) {
                 />{" "}
               </div>
 
-              <Baner content={"תאריכים מבוקשים"} />
-              <div class="content">
-                <Calendar
-                  apartment={apartment}
-                  setApartment={setApartment}
-                  itemForEdit={itemForEdit}
-                />{" "}
-              </div>
+              {apartment.model === "2" || apartment.model === "3" ? (
+                <div>
+                  <Baner content={"פרטי הדירה שלכם"} />
+                  <div class="content">
+                    <DetailsChangeApartment
+                      setChooseCityChange={setChooseCityChange}
+                      chooseCityChange={chooseCityChange}
+                      formik={formik}
+                      onchange={onchange}
+                      itemForEdit={itemForEdit}
+                      listCityChangeOptions={listCityChangeOptions}
+                      setListCityChangeOptions={setListCityChangeOptions}
+                      apartment={apartment}
+                      setApartment={setApartment}
+                    />{" "}
+                  </div>
+                  <Baner content={"תאריכים מבוקשים"} />
+                  <div class="content">
+                    <Calendar
+                      apartment={apartment}
+                      setApartment={setApartment}
+                      itemForEdit={itemForEdit}
+                    />{" "}
+                  </div>{" "}
+                </div>
+              ) : null}
 
               <Baner content={"פרטי יצירת קשר"} />
               <div class="content">

@@ -1,0 +1,59 @@
+.SearchApartmentShow {
+  position: relative;
+  z-index: 0;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  flex-direction: row;
+  justify-content: space-between;
+  flex-wrap: wrap;
+margin-bottom: 70px;
+}
+
+.SearchApartmentShow .div_all_city{
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  flex-direction: row;
+  flex-wrap: wrap;
+  
+}
+.SearchApartmentShow .div_city{
+  font-size: 1.3rem;  
+  width: fit-content;
+border:1px solid var(--blue);
+border-radius: 10px;
+padding: 3px 10px;
+margin: 5px;
+}
+.SearchApartmentShow .div_baner{
+  width: 100%;
+}
+
+
+.SearchApartmentShow .info {
+  display: grid;
+  grid-template-columns: 50% 50%;
+  width: 100%;
+  font-size: 1.8rem;
+ font-weight: 700; 
+}
+/* .SearchApartmentShow .info_content {
+display: grid;
+grid-template-columns: 50% 50%;
+} */
+
+.SearchApartmentShow .info_content_left {
+margin:10px 20px;
+
+}
+
+
+
+@media only screen and (max-width: 600px) {
+  .apartmentShowComponent .info {
+    display: block;
+    font-size: 1.5rem;
+  }
+}
+

@@ -1,4 +1,4 @@
-import "./detailsSearchApartment.css";
+import "./detailsChangeApartment.css";
 import axios from "axios";
 import { useState, useEffect } from "react";
 import {
@@ -8,14 +8,14 @@ import {
   TextArea,
 } from "../../Input_select_button/Input_select_button";
 
-function DetailsSearchApartment({
+function DetailsChangeApartment({
   formik,
   onchange,
   itemForEdit,
-  chooseCity,
-  setChooseCity,
-  listCityOptions,
-  setListCityOptions,
+  chooseCityChange,
+  setChooseCityChange,
+  listCityChangeOptions,
+  setListCityChangeOptions,
   setApartment,
   apartment,
 }) {
@@ -65,16 +65,10 @@ function DetailsSearchApartment({
         }
       });
     } else {
-      setListCityOptions(false);
+      setListCityChangeOptions(false);
       setListCityFilter([]);
     }
   }, [valueCity]);
-
-  const model = [
-    { value: "1", title: "השכרה" },
-    { value: "2", title: "החלפה" },
-    { value: "3", title: "השכרה / החלפה" },
-  ];
 
   const area = [
     { value: "איזור ירושלים", title: "איזור ירושלים" },
@@ -87,42 +81,30 @@ function DetailsSearchApartment({
     <div className="div-all-input">
       <div className="div-all-input div_details_listCity">
         <Select
-          label={"אני מעוניין ב..."}
-          name={"model"}
-          onChange={onchange}
-          formikErr={formik.errors.model}
-          options={model}
-          width={"90%"}
-          defaultValue={itemForEdit ? itemForEdit.model : ""}
-        />
-
-        <div />
-        <div />
-
-        <Select
           label={"בחר איזור בארץ"}
-          name={"area"}
+          name={"areaChange"}
           onChange={onchange}
-          formikErr={formik.errors.area}
+          formikErr={formik.errors.areaChange}
           options={area}
           width={"90%"}
-          defaultValue={itemForEdit ? itemForEdit.area : ""}
+          defaultValue={itemForEdit ? itemForEdit.areaChange : ""}
         />
 
         <InputSelect
           label={"בחר עיר"}
           onChange={(e) => {
             setValueCity(e.target.value);
-            setListCityOptions(true);
+            setListCityChangeOptions(true);
+            setChooseCityChange("");
           }}
-          formikErr={formik.errors.city}
+          formikErr={formik.errors.cityChange}
           width={"90%"}
           value={valueCity}
           onClick={() => {
-            setListCityOptions(!listCityOptions);
+            setListCityChangeOptions(!listCityChangeOptions);
           }}
           content={
-            listCityOptions && (
+            listCityChangeOptions && (
               <div className="div_list_city">
                 {listCityFilter.length > 0
                   ? listCityFilter.map((item, index) => (
@@ -130,9 +112,9 @@ function DetailsSearchApartment({
                         className="div_list_city_item"
                         key={index}
                         onClick={() => {
-                          setListCityOptions(false);
-                          setChooseCity([...chooseCity, split(item.שם_ישוב)]);
-                          setValueCity("");
+                          setListCityChangeOptions(false);
+                          setChooseCityChange(split(item.שם_ישוב));
+                          setValueCity(split(item.שם_ישוב));
                         }}
                       >
                         {split(item.שם_ישוב)}
@@ -143,69 +125,42 @@ function DetailsSearchApartment({
             )
           }
         />
-        <br className="br" />
-        <div className="div_choose_city">
-          {chooseCity.map((item, index) => {
-            return (
-              <div className="choose_city" key={index}>
-                <span>{item}</span>
-                <span
-                  className="span_delete_city"
-                  onClick={() => {
-                    setChooseCity(chooseCity.filter((e) => e !== item));
-                  }}
-                >
-                  X
-                </span>
-              </div>
-            );
-          })}
-        </div>
       </div>
 
       <br />
       <div className="div-all-input div_details">
         <Input
           label={"מס' חדרים"}
-          name={"rooms"}
+          name={"roomsChange"}
           onChange={onchange}
-          defaultValue={itemForEdit ? itemForEdit.rooms : ""}
-          formikErr={formik.errors.rooms}
+          defaultValue={itemForEdit ? itemForEdit.roomsChange : ""}
+          formikErr={formik.errors.roomsChange}
           width={"90%"}
         />
 
         <Input
           label={"מס' מיטות"}
-          name={"beds"}
+          name={"bedsChange"}
           onChange={onchange}
-          defaultValue={itemForEdit ? itemForEdit.beds : ""}
-          formikErr={formik.errors.beds}
-          width={"90%"}
-        />
-
-        <Input
-          label={"מחיר"}
-          name={"price"}
-          onChange={onchange}
-          defaultValue={itemForEdit ? itemForEdit.price : ""}
-          formikErr={formik.errors.price}
+          defaultValue={itemForEdit ? itemForEdit.bedsChange : ""}
+          formikErr={formik.errors.bedsChange}
           width={"90%"}
         />
       </div>
 
       <div className="div-all-input">
         <TextArea
-          label={"ספרו לנו מה אתם מחפשים"}
+          label={"ספרו לנו מה אתם מציעים בדירה שלכם"}
           onInput={(e) => {
             setApartment({
               ...apartment,
-              long: e.currentTarget.textContent,
+              longChange: e.currentTarget.textContent,
             });
           }}
           formikErr={formik.errors.long}
           width={"92%"}
           height={"14rem"}
-          content={itemForEdit ? itemForEdit.long : ""}
+          content={itemForEdit ? itemForEdit.longChange : ""}
           contentEditable={true}
         />
       </div>
@@ -213,4 +168,4 @@ function DetailsSearchApartment({
   );
 }
 
-export default DetailsSearchApartment;
+export default DetailsChangeApartment;

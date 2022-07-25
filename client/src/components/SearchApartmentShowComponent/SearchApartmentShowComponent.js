@@ -25,12 +25,6 @@ function SearchApartmentShow({ apartmentShow, sendMessage }) {
           label={"שלח הודעה לבעל הדירה"}
         />
       )}
-
-      <BoxHeader
-        width={"100%"}
-        content={<CalendarComponent dateBusy={apartmentShow?.dateBusy} />}
-        label={"תאריכים מבוקשים"}
-      />
     </div>
   );
 }

@@ -21,7 +21,7 @@ margin-bottom: 70px;
 .SearchApartmentShow .div_city{
   font-size: 1.3rem;  
   width: fit-content;
-border:1px solid var(--blue);
+border:1px solid var(--blue-lite);
 border-radius: 10px;
 padding: 3px 10px;
 margin: 5px;
@@ -30,6 +30,9 @@ margin: 5px;
   width: 100%;
 }
 
+.date_screenSM{
+  display: none;
+}
 
 .SearchApartmentShow .info {
   display: grid;
@@ -38,10 +41,33 @@ margin: 5px;
   font-size: 1.8rem;
  font-weight: 700; 
 }
-/* .SearchApartmentShow .info_content {
-display: grid;
-grid-template-columns: 50% 50%;
-} */
+.SearchApartmentShow .div_date {
+  width: 100%;
+  font-size: 1.8rem;
+ font-weight: 700; 
+}
+.SearchApartmentShow .div_all_date {
+  display: flex;
+  width: 100%;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+.SearchApartmentShow .date {
+  width: 70px;
+  height: 50px;
+  margin: 10px;
+}
+.SearchApartmentShow .div_long {
+border: 1px solid var(--blue-lite);
+border-radius: 10px;
+padding: 3px 10px;
+margin: 10px auto;
+width: 300px;
+max-width: 85%;
+min-height: 90px;
+font-size: 1.4rem;
+}
+
 
 .SearchApartmentShow .info_content_left {
 margin:10px 20px;
@@ -51,9 +77,22 @@ margin:10px 20px;
 
 
 @media only screen and (max-width: 600px) {
-  .apartmentShowComponent .info {
+  .SearchApartmentShow .info {
     display: block;
     font-size: 1.5rem;
+    width: 100%;
+    margin: 0 auto;
   }
+  .date_screenSM{
+    display: block;
+  }
+  .SearchApartmentShow .div_date {
+font-size: 1.5rem;
+  }
+
+  .SearchApartmentShow .date_screenLG {
+    display: none;
+  }
+  
 }
 

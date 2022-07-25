@@ -1,6 +1,6 @@
 
 .react-calendar__tile--now {
-    background: var(--orange);
+    background: var(--purple) !important;
   }
   
   .react-calendar__tile abbr{
@@ -80,7 +80,7 @@
     
     align-items: flex-end;
   padding: 3px 6px;
-  color: var(--yelow);
+  color: var(--red);
   font-size: 1.4rem;
   font-weight: 700;
   position: absolute;

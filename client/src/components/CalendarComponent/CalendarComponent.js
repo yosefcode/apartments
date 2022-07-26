@@ -8,7 +8,7 @@ import gematriya from "gematriya";
 
 const CalendarComponent = ({ dateBusy, onChange }) => {
   const DateTile = ({ date, view }) => {
-    const hebDate = Hebcal.HDate(date);
+    const hebDate = Hebcal.HDate(date).setCity("Jerusalem");
     return (
       view === "month" && (
         <div className="dateTile">

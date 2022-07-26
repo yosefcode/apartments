@@ -38,80 +38,101 @@ const ItemApartment = ({ url }) => {
         render={render}
         route={url}
         data={setApartments}
-        content={apartments
-          .sort((a, b) => (isManager && b.show > a.show ? -1 : 1))
-          .map((item, index) => (
-            <Accordion
-              key={index}
-              index={index}
-              boxheader={
-                <div className="header_myapartment">
-                  <div className="nameApartment">
-                    <h1>{item.nameApartment}, </h1>
-                    <h2> {item.city}.</h2>
-                  </div>
+        content={
+          apartments.length > 0 ? (
+            apartments
+              .sort((a, b) => (isManager && b.show > a.show ? -1 : 1))
+              .map((item, index) => (
+                <Accordion
+                  key={index}
+                  index={index}
+                  boxheader={
+                    <div className="header_myapartment">
+                      <div className="nameApartment">
+                        <h1>{item.nameApartment}, </h1>
+                        <h2> {item.city}.</h2>
+                      </div>
 
-                  <div
-                    className="show"
-                    style={{
-                      color:
-                        item.show === "0"
-                          ? "blue"
+                      <div
+                        className="show"
+                        style={{
+                          color:
+                            item.show === "0"
+                              ? "blue"
+                              : item.show === "1"
+                              ? "green"
+                              : "red",
+                        }}
+                      >
+                        {item.show === "0"
+                          ? "ממתין לאישור"
                           : item.show === "1"
-                          ? "green"
-                          : "red",
-                    }}
-                  >
-                    {item.show === "0"
-                      ? "ממתין לאישור"
-                      : item.show === "1"
-                      ? "מודעה פעילה"
-                      : "מודעה לא פעילה"}
-                  </div>
-                </div>
-              }
-              box={
-                <div>
-                  <a href={`/${item?._id}`} target="_blank" rel="noreferrer">
-                    <Baner content={`למעבר לעמוד המודעה באתר  >  >  >  >  >`} />
-                  </a>
-                  <ApartmentShowComponent
-                    apartmentShow={item}
-                    sendMessage={false}
-                  />
+                          ? "מודעה פעילה"
+                          : "מודעה לא פעילה"}
+                      </div>
+                    </div>
+                  }
+                  box={
+                    <div>
+                      <a
+                        href={`/${item?._id}`}
+                        target="_blank"
+                        rel="noreferrer"
+                      >
+                        <Baner
+                          content={`למעבר לעמוד המודעה באתר  >  >  >  >  >`}
+                        />
+                      </a>
+                      <ApartmentShowComponent
+                        apartmentShow={item}
+                        sendMessage={false}
+                      />
 
-                  <div className="btnsbottom">
-                    <Button
-                      title={"ערוך מודעה"}
-                      padding={mql.matches ? "0.5rem" : "0.5rem 5.5rem"}
-                      borderRadius={"10px"}
-                      onClick={() => {
-                        setItemForEdit(item);
-                        setIsOpenForEdit(true);
-                      }}
-                    />
+                      <div className="btnsbottom">
+                        <Button
+                          title={"ערוך מודעה"}
+                          padding={mql.matches ? "0.5rem" : "0.5rem 5.5rem"}
+                          borderRadius={"10px"}
+                          onClick={() => {
+                            setItemForEdit(item);
+                            setIsOpenForEdit(true);
+                          }}
+                        />
 
-                    <RmoveApartment
-                      idForApartment={item._id}
-                      render={render}
-                      setRender={setRender}
-                      setIsOpenModal={setIsOpenModal}
-                      setContentModal={setContentModal}
-                    />
+                        <RmoveApartment
+                          idForApartment={item._id}
+                          render={render}
+                          setRender={setRender}
+                          setIsOpenModal={setIsOpenModal}
+                          setContentModal={setContentModal}
+                        />
 
-                    <HoldApartment
-                      idForApartment={item._id}
-                      show={item.show}
-                      render={render}
-                      setRender={setRender}
-                      setIsOpenModal={setIsOpenModal}
-                      setContentModal={setContentModal}
-                    />
-                  </div>
-                </div>
-              }
-            />
-          ))}
+                        <HoldApartment
+                          idForApartment={item._id}
+                          show={item.show}
+                          render={render}
+                          setRender={setRender}
+                          setIsOpenModal={setIsOpenModal}
+                          setContentModal={setContentModal}
+                        />
+                      </div>
+                    </div>
+                  }
+                />
+              ))
+          ) : (
+            <div
+              style={{
+                textAlign: "center",
+                fontSize: "1.6rem",
+                margin: 20,
+                fontWeight: "bold",
+              }}
+            >
+              אין לך עדיין מודעות להשכרה
+            </div>
+          )
+        }
       />
     </div>
   ) : (

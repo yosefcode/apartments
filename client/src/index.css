@@ -30,7 +30,12 @@ html {
     cursor: pointer;
     text-decoration: none;
 }
-
+@font-face {
+  font-family: "GanCLM";
+  src: local("GanCLM"),
+   url("./assets/GanCLM-Bold.ttf") format("truetype");
+  font-weight: bold;
+  }
 
 @media only screen and (max-width: 1350px) {
   html {

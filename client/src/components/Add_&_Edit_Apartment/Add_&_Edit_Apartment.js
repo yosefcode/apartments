@@ -69,56 +69,56 @@ function AddApartment({ itemForEdit, setIsOpenForEdit }) {
 
   const formik = useFormik({
     initialValues: apartment,
-    // enableReinitialize: true,
-    // validationSchema: Yup.object({
-    //   nameApartment: Yup.string()
-    //     .min(3, "מינימום 3 תווים")
-    //     .required("* שדה חובה"),
-    //   area: Yup.string().min(2, "יש לבחור איזור").required("* שדה חובה"),
-    //   city: Yup.string()
-    //     .min(2, "יש לבחור עיר מתוך הרשימה")
-    //     .required("* שדה חובה"),
-    //   rooms: Yup.number()
-    //     .min(1, "נא לציין מס' חדרים")
-    //     .typeError("יש להקליד רק מספרים")
-    //     .required("* שדה חובה"),
-    //   beds: Yup.number()
-    //     .min(1, "יש לציין מס' מיטות")
-    //     .typeError("יש להקליד רק מספרים")
-    //     .required("* שדה חובה"),
-    //   priceMethod: Yup.string()
-    //     .min(2, "חובה לציין סוג תמחור")
-    //     .required("* שדה חובה"),
-    //   price: Yup.number()
-    //     .min(10, "יש לציין מחיר מינימום")
-    //     .typeError("יש להקליד רק מספרים")
-    //     .required("* שדה חובה"),
-    //   short: Yup.string()
-    //     .min(25, "תיאור קצר מינימום 25 תווים")
-    //     .max(100, "תיאור קצר מקסימום 100 תווים")
-    //     .required("* שדה חובה"),
-    //   long: Yup.string()
-    //     .min(150, "תאר בהרחבה מינימום 150 תווים")
-    //     .required("* שדה חובה"),
-    //   special: Yup.array()
-    //     .min(5, "יש לסמן לפחות 5 דברים מתוך הרשימה הקיימים בדירה")
-    //     .required("* שדה חובה"),
-    //   times: Yup.array()
-    //     .min(1, "יש לציין את זמני ההשכרה")
-    //     .required("* שדה חובה"),
-    //   // images: Yup.array()
-    //   //   .min(3, "יש לצרף לפחות 3 תמונות")
-    //   //   .required("* שדה חובה"),
-    //   name: Yup.string().min(2, "מינימום 2 תווים").required("* שדה חובה"),
-    //   mail: Yup.string().email("לא תקין").required("* שדה חובה"),
-    //   phone: Yup.string()
-    //     .required("* שדה חובה")
-    //     .test("isValidNumber", "מס' אינו תקין", (phone) => {
-    //       const parsedNumber =
-    //         !!phone && parsePhoneNumberFromString(phone, "IL");
-    //       return parsedNumber && parsedNumber.isValid() ? true : false;
-    //     }),
-    // }),
+    enableReinitialize: true,
+    validationSchema: Yup.object({
+      nameApartment: Yup.string()
+        .min(3, "מינימום 3 תווים")
+        .required("* שדה חובה"),
+      area: Yup.string().min(2, "יש לבחור איזור").required("* שדה חובה"),
+      city: Yup.string()
+        .min(2, "יש לבחור עיר מתוך הרשימה")
+        .required("* שדה חובה"),
+      rooms: Yup.number()
+        .min(1, "נא לציין מס' חדרים")
+        .typeError("יש להקליד רק מספרים")
+        .required("* שדה חובה"),
+      beds: Yup.number()
+        .min(1, "יש לציין מס' מיטות")
+        .typeError("יש להקליד רק מספרים")
+        .required("* שדה חובה"),
+      priceMethod: Yup.string()
+        .min(2, "חובה לציין סוג תמחור")
+        .required("* שדה חובה"),
+      price: Yup.number()
+        .min(10, "יש לציין מחיר מינימום")
+        .typeError("יש להקליד רק מספרים")
+        .required("* שדה חובה"),
+      short: Yup.string()
+        .min(25, "תיאור קצר מינימום 25 תווים")
+        .max(100, "תיאור קצר מקסימום 100 תווים")
+        .required("* שדה חובה"),
+      long: Yup.string()
+        .min(150, "תאר בהרחבה מינימום 150 תווים")
+        .required("* שדה חובה"),
+      special: Yup.array()
+        .min(5, "יש לסמן לפחות 5 דברים מתוך הרשימה הקיימים בדירה")
+        .required("* שדה חובה"),
+      times: Yup.array()
+        .min(1, "יש לציין את זמני ההשכרה")
+        .required("* שדה חובה"),
+      images: Yup.array()
+        .min(3, "יש לצרף לפחות 3 תמונות")
+        .required("* שדה חובה"),
+      name: Yup.string().min(2, "מינימום 2 תווים").required("* שדה חובה"),
+      mail: Yup.string().email("לא תקין").required("* שדה חובה"),
+      phone: Yup.string()
+        .required("* שדה חובה")
+        .test("isValidNumber", "מס' אינו תקין", (phone) => {
+          const parsedNumber =
+            !!phone && parsePhoneNumberFromString(phone, "IL");
+          return parsedNumber && parsedNumber.isValid() ? true : false;
+        }),
+    }),
     onSubmit: (values) => {
       // console.log(values);
       addApartment();

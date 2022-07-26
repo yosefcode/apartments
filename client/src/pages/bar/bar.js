@@ -1,5 +1,6 @@
 import "./bar.css";
-import logo from "./logo.png";
+import logo from "./logoDatshe.png";
+import mtr from "./mtr.png";
 import React, { useState, useEffect, useContext } from "react";
 import { getAuth, onAuthStateChanged, signOut } from "firebase/auth";
 import { Link } from "react-router-dom";
@@ -34,11 +35,18 @@ const Bar = () => {
 
   return (
     <div className="bar">
-      <div className="divBar">
+      <div className="div_logo">
         <a href="/">
-          <img src={logo} alt="" className="imgLogo" />
+          <img src={mtr} alt="" className="imgLogo" />
+          <div className="logo">
+            <h2>דאצ'ה</h2>
+            <h2>דאצ'ה</h2>
+          </div>
+          <div className="title_logo">לנפוש באווירה מתאימה</div>
         </a>
       </div>
+      <br />
+      {/* <img src={logo} alt="" className="imgLogo" /> */}
 
       <div className="divBar">
         {detailsUsers?.manager === true ? (

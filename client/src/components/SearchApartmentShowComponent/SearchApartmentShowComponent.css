@@ -73,6 +73,10 @@ font-size: 1.4rem;
 margin:10px 20px;
 
 }
+.SearchApartmentShow .info_apartment {
+padding:0px 10px;
+
+}
 
 
 
@@ -93,6 +97,10 @@ font-size: 1.5rem;
   .SearchApartmentShow .date_screenLG {
     display: none;
   }
-  
+  .SearchApartmentShow .info_apartment {
+    padding:0px 0px;
+    
+    }
+    
 }
 

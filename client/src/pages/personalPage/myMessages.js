@@ -98,7 +98,16 @@ function MyMessages() {
               ))}
             </div>
           ) : (
-            <div>אין הודעות</div>
+            <div
+              style={{
+                textAlign: "center",
+                fontSize: "1.6rem",
+                margin: 20,
+                fontWeight: "bold",
+              }}
+            >
+              אין הודעות
+            </div>
           )
         }
       />

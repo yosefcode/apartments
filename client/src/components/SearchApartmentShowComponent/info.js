@@ -58,7 +58,7 @@ function Info({ apartmentShow }) {
   return (
     <div style={{ width: "100%" }}>
       <div className="info">
-        <div>
+        <div className="info_apartment">
           <Baner content={"מחפשים מקום אירוח..."} />
           <div className="info_content_left">
             עיר:
@@ -90,7 +90,7 @@ function Info({ apartmentShow }) {
           <div className="date_screenSM">{Dates(apartmentShow.dateBusy)}</div>
         </div>
         {apartmentShow?.model === "2" || apartmentShow?.model === "3" ? (
-          <div>
+          <div className="info_apartment">
             <Baner content={"מציעים בתמורה..."} />
             <div className="info_content_left">
               עיר:

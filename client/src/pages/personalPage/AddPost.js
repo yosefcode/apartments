@@ -35,7 +35,7 @@ const AddPost = ({ url }) => {
           />
         </div>
 
-        <div style={{ opacity: post === 3 ? 1 : 0.5, marginInline: "20px" }}>
+        {/* <div style={{ opacity: post === 3 ? 1 : 0.5, marginInline: "20px" }}>
           <Button
             title={"מתחמי אירוח"}
             padding={mql.matches ? "0.5rem" : "0.5rem 1.5rem"}
@@ -44,7 +44,7 @@ const AddPost = ({ url }) => {
               setPost(3);
             }}
           />
-        </div>
+        </div> */}
       </div>
 
       {post === 1 ? (

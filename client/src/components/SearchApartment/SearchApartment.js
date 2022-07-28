@@ -39,7 +39,7 @@ function SearchApartment({ itemForEdit, setIsOpenForEdit }) {
   const [apartment, setApartment] = useState({
     uidFirebase: uidFirebase,
     show: 0,
-    model: itemForEdit ? itemForEdit.area : "",
+    model: itemForEdit ? itemForEdit.model : "",
     area: itemForEdit ? itemForEdit.area : "",
     city: itemForEdit ? itemForEdit.city : "",
     rooms: itemForEdit ? itemForEdit.rooms : "",
@@ -56,7 +56,7 @@ function SearchApartment({ itemForEdit, setIsOpenForEdit }) {
     mail: itemForEdit ? itemForEdit.mail : detailsUsers?.mailUser,
     phone: itemForEdit ? itemForEdit.phone : detailsUsers?.phoneUser,
   });
-  // console.log(apartment);
+  console.log(apartment);
 
   const formik = useFormik({
     initialValues: apartment,
@@ -74,7 +74,7 @@ function SearchApartment({ itemForEdit, setIsOpenForEdit }) {
           : null,
       cityChange:
         apartment.model === "2" || apartment.model === "3"
-          ? Yup.string().min(2, "יש לבחור איזור").required("* שדה חובה")
+          ? Yup.string().min(1, "יש לבחור איזור").required("* שדה חובה")
           : null,
 
       bedsChange:
@@ -113,7 +113,7 @@ function SearchApartment({ itemForEdit, setIsOpenForEdit }) {
     setIsLoading(true);
     itemForEdit?._id
       ? PutToServer(
-          `/api/editApartment/${itemForEdit._id}`,
+          `/api/editSearchApartment/${itemForEdit._id}`,
           {
             ...apartment,
           },

@@ -21,7 +21,9 @@ function DetailsChangeApartment({
 }) {
   const [listCity, setListCity] = useState([]);
   const [listCityFilter, setListCityFilter] = useState([]);
-  const [valueCity, setValueCity] = useState("");
+  const [valueCity, setValueCity] = useState(
+    itemForEdit ? itemForEdit.cityChange : ""
+  );
 
   useEffect(() => {
     axios
@@ -113,7 +115,7 @@ function DetailsChangeApartment({
                         key={index}
                         onClick={() => {
                           setListCityChangeOptions(false);
-                          setChooseCityChange(split(item.שם_ישוב));
+                          setChooseCityChange(split(item.שם_ישוב).toString());
                           setValueCity(split(item.שם_ישוב));
                         }}
                       >

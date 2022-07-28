@@ -14,6 +14,7 @@ const editApartment = require("./funcOftheServer/editApartments");
 const users = require("./funcOftheServer/users");
 const searchApartment = require("./funcOftheServer/searchApartment");
 const listPostSearchForDeleteHold = require("./funcOftheServer/listPostSearchForDeleteHold");
+const editSearchApartment = require("./funcOftheServer/editSearchApartment");
 
 app.use(cors());
 app.use(express.json());
@@ -82,6 +83,10 @@ app.delete(
 app.put(
   `/api/holdSearchApartment/:id`,
   listPostSearchForDeleteHold.holdSearchApartment
+);
+app.put(
+  `/api/editSearchApartment/:id`,
+  editSearchApartment.editSearchApartment
 );
 
 app.post("/api/addUser/", users.addUser);

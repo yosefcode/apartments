@@ -183,14 +183,16 @@ function DetailsSearchApartment({
           width={"90%"}
         />
 
-        <Input
-          label={"מחיר"}
-          name={"price"}
-          onChange={onchange}
-          defaultValue={itemForEdit ? itemForEdit.price : ""}
-          formikErr={formik.errors.price}
-          width={"90%"}
-        />
+        {apartment.model === "1" || apartment.model === "3" ? (
+          <Input
+            label={"מחיר"}
+            name={"price"}
+            onChange={onchange}
+            defaultValue={itemForEdit ? itemForEdit.price : ""}
+            formikErr={formik.errors.price}
+            width={"90%"}
+          />
+        ) : null}
       </div>
 
       <div className="div-all-input">

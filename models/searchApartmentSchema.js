@@ -12,7 +12,7 @@ const searchApartmentSchema = new mongoose.Schema({
   roomsChange: Number,
   bedsChange: Number,
   areaChange: String,
-  cityChange: Array,
+  cityChange: String,
   phone: String,
   long: String,
   longChange: String,

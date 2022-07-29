@@ -117,7 +117,7 @@ export const InputSelect = (props) => {
     formikErr,
     width,
     defaultValue,
-    disabledInput,
+    disabledInputSelect,
     value,
     content,
     type,
@@ -126,7 +126,12 @@ export const InputSelect = (props) => {
 
   return (
     <div className="div_input" style={{ width: width }}>
-      <label className="label_input">{label}</label>
+      <label
+        className="label_input"
+        id={disabledInputSelect ? "disabledSelect" : ""}
+      >
+        {label}
+      </label>
       <input
         className="input"
         placeholder={placeholder}
@@ -136,6 +141,7 @@ export const InputSelect = (props) => {
         value={value}
         defaultValue={defaultValue}
         onClick={onClick}
+        disabled={disabledInputSelect}
       />
       <div className="icon_arrow_down" onClick={onClick}>
         <ExpandMoreIcon

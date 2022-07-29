@@ -56,7 +56,7 @@ function SearchApartment({ itemForEdit, setIsOpenForEdit }) {
     mail: itemForEdit ? itemForEdit.mail : detailsUsers?.mailUser,
     phone: itemForEdit ? itemForEdit.phone : detailsUsers?.phoneUser,
   });
-  console.log(apartment);
+  // console.log(apartment);
 
   const formik = useFormik({
     initialValues: apartment,

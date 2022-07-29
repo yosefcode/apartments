@@ -106,9 +106,9 @@ function AddApartment({ itemForEdit, setIsOpenForEdit }) {
       times: Yup.array()
         .min(1, "יש לציין את זמני ההשכרה")
         .required("* שדה חובה"),
-      images: Yup.array()
-        .min(3, "יש לצרף לפחות 3 תמונות")
-        .required("* שדה חובה"),
+      // images: Yup.array()
+      //   .min(3, "יש לצרף לפחות 3 תמונות")
+      //   .required("* שדה חובה"),
       name: Yup.string().min(2, "מינימום 2 תווים").required("* שדה חובה"),
       mail: Yup.string().email("לא תקין").required("* שדה חובה"),
       phone: Yup.string()

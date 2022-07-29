@@ -11,10 +11,9 @@ exports.addUser = async (req, res) => {
     receivingMessages: req.body.receivingMessages,
     receivingWTS: req.body.receivingWTS,
     msgSearchApartment: req.body.msgSearchApartment,
-    areaSearchApartment: req.body.areaSearchApartment,
+    citiesSearchApartment: req.body.citiesSearchApartment,
     msgSaleApartment: req.body.msgSaleApartment,
-    areaSaleApartment: req.body.areaSaleApartment,
-    areaSaleApartment: req.body.areaSaleApartment,
+    citiesSaleApartment: req.body.citiesSaleApartment,
   });
   try {
     await newUser.save();
@@ -66,15 +65,15 @@ exports.editUser = async (req, res) => {
   if (req.body.msgSearchApartment)
     updateValues.$set["msgSearchApartment"] = req.body.msgSearchApartment;
   else updateValues.$set["msgSearchApartment"] = false;
-  if (req.body.areaSearchApartment)
-    updateValues.$set["areaSearchApartment"] = req.body.areaSearchApartment;
-  else updateValues.$set["areaSearchApartment"] = "";
+  if (req.body.citiesSearchApartment)
+    updateValues.$set["citiesSearchApartment"] = req.body.citiesSearchApartment;
+  else updateValues.$set["citiesSearchApartment"] = "";
   if (req.body.msgSaleApartment)
     updateValues.$set["msgSaleApartment"] = req.body.msgSaleApartment;
   else updateValues.$set["msgSaleApartment"] = false;
-  if (req.body.areaSaleApartment)
-    updateValues.$set["areaSaleApartment"] = req.body.areaSaleApartment;
-  else updateValues.$set["areaSaleApartment"] = "";
+  if (req.body.citiesSaleApartment)
+    updateValues.$set["citiesSaleApartment"] = req.body.citiesSaleApartment;
+  else updateValues.$set["citiesSaleApartment"] = "";
 
   try {
     await models.usersSchema.findByIdAndUpdate(userId, updateValues),

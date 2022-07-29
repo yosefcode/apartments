@@ -5,6 +5,7 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background-color: white;
   
   --blue: rgb(16, 0, 61);
   --blue-lite: rgba(16, 0, 61, .4);
@@ -14,6 +15,7 @@ body {
   --orange: rgb(255, 204, 174);
   --purple: rgb(214, 174, 255);
   --purple-lite: rgba(214, 174, 255, .6);
+
 }
 html {
   font-size: 62.5%;
